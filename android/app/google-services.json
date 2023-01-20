@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "149495115113",
+    "firebase_url": "https://double-slit-world-default-rtdb.firebaseio.com",
+    "project_id": "double-slit-world",
+    "storage_bucket": "double-slit-world.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149495115113:android:93b9737d97b706318861f8",
+        "android_client_info": {
+          "package_name": "com.switchapp.cluster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149495115113-lv9jutep666oqs76eaqn0krooe50fruo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.switchapp.cluster",
+            "certificate_hash": "55cbf49f288f86fa99f8dfd29eea635aa3895499"
+          }
+        },
+        {
+          "client_id": "149495115113-srs9tcosii7inh5aeo6ib9sjcmquk2fn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvlkGfeCIWt1O3VTOgG0Zwj0xgBavsyGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149495115113-srs9tcosii7inh5aeo6ib9sjcmquk2fn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

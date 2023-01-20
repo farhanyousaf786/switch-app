@@ -1,0 +1,192 @@
+name: switchapp
+description: A new Flutter application.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+15
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.0
+  firebase_core: ^1.2.0
+  firebase_messaging: ^10.0.0
+  permission_handler: 8.3.0
+  cloud_firestore: ^3.1.7
+  firebase_storage: ^8.0.0
+  image: ^3.1.1
+  image_picker: ^0.6.0+2
+  google_sign_in: ^5.2.3
+  timeago: 2.0.17
+  firebase_auth: ^3.3.6
+  uuid: ^3.0.5
+  flutter_svg:
+  intl: ^0.17.0
+  path_provider: ^2.0.8
+  percent_indicator: ^2.1.8
+  #image_cropper: ^1.3.1
+  image_cropper: ^1.5.1
+  devicelocale: ^0.3.3
+  country_list_pick: ^1.0.1+5
+  shared_preferences: ^2.0.12
+  cached_network_image:
+  sliding_up_panel: ^1.0.2
+  flutter_icons: ^1.1.0
+  marquee: ^1.6.1
+  cupertino_radio_choice: 1.0.0+1
+  eva_icons_flutter: ^2.0.1
+  circular_menu: ^1.1.1
+  fab_circular_menu: ^1.0.0
+  animations: ^1.1.2
+  multi_image_picker: ^4.7.14
+  url_launcher: any
+  carousel_pro: ^1.0.0
+  expandable: ^4.1.4
+  flushbar: ^1.10.4
+  slider_button: ^0.6.0
+  expansion_tile_card: ^1.1.0
+  delayed_display: ^1.1.0
+  bubble: ^1.1.9+1
+  shimmer: ^1.1.2
+  flutter_spinkit: ^4.1.2+1
+  vector_math: ^2.0.8
+  country_picker: ^1.0.4
+  countup: ^0.1.3
+  firebase_database: ^8.0.0
+  curved_navigation_bar: ^0.3.7
+  expand_widget: ^1.2.0+1
+  flutter_particles: ^1.0.0+7
+  sliding_panel: ^1.3.2
+  lottie:
+  photo_manager: ^2.5.2
+  fluttertoast:
+  path: ^1.5.1
+  connectivity: ^3.0.6
+  zefyrka: ^1.0.10
+  file: ^6.1.2
+  flare_flutter: ^3.0.2
+  rive: any
+  audio_video_progress_bar: ^0.9.0
+  show_more_text_popup: ^0.3.0
+  animated_text_kit: ^4.2.1
+  timelines: ^0.1.0
+  emojis: ^0.9.9
+  just_audio: ^0.9.18
+  flutter_local_notifications: ^9.2.0
+  page_transition: ^2.0.5
+  carousel_slider: ^4.0.0
+  time_formatter: ^1.0.0+5
+  flick_video_player: ^0.3.1
+  video_player: ^2.2.18
+  visibility_detector: ^0.2.0
+  file_picker: ^4.3.3
+  minio: ^3.5.0
+  swipe_to: ^0.0.1+8
+  chewie: ^1.2.2
+  flutter_cache_manager: ^3.3.0
+  provider: ^5.0.0
+  dospace: ^0.13.15
+  webview_flutter: ^3.0.1
+  google_mobile_ads: ^1.1.0
+  #  linkfy_text: ^1.1.5
+  inview_notifier_list: ^3.0.0
+  flutter_linkify: ^5.0.2
+  #  popover: ^0.2.6+3
+  #  super_tooltip: ^1.0.1
+  tutorial_coach_mark: ^1.0.3
+#  flutter_dotenv: ^5.0.2
+
+
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/
+    - images/mood/
+    - images/chatNotes/
+    - images/profile/
+    - images/level_images/
+    - images/effects/
+    - assets/inAppNotification.mp3
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Indies
+      fonts:
+        - asset: assets/fonts/IndieFlower-Regular.ttf
+    - family: Names
+      fonts:
+        - asset: assets/fonts/BalsamiqSans-Regular.ttf
+    - family: Cute
+      fonts:
+        - asset: assets/fonts/FredokaOne-Regular.ttf
+    - family: Cutes
+      fonts:
+        - asset: assets/fonts/VarelaRound-Regular.ttf
+    - family: Robot
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: RobotBold
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
