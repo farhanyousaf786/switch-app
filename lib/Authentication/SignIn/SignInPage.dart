@@ -7,6 +7,7 @@ if there is no active signed in user.
 
 import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,12 +15,15 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Authentication/Auth.dart';
 import 'package:switchapp/Authentication/SignIn/ForgotPass.dart';
 import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
 import 'package:switchapp/Authentication/userAgreementPage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Universal/Constans.dart';
+
+import '../../Universal/DataBaseRefrences.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -45,6 +49,7 @@ class _SignInPageState extends State<SignInPage> {
   // is builtin class of flutter, It will move the cursor or
   // action toward password text field
   FocusNode _passFocusNode = FocusNode();
+  late Map userMap;
 
   // simple toggle to change the state of our hidden variable
   void _togglePasswordView() {
@@ -78,18 +83,7 @@ class _SignInPageState extends State<SignInPage> {
       final auth = Provider.of<AuthBase>(context, listen: false);
       await auth.signInWithEmailAndPassword(
           emailTextEditingController.text, passwordTextEditingController.text);
-
-      setState(() {
         Constants.pass = passwordTextEditingController.text;
-      });
-
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => LandingPage(),
-        ),
-        (route) => false,
-      );
     } on FirebaseAuthException catch (e) {
       showModalBottomSheet(
           useRootNavigator: true,
@@ -158,20 +152,20 @@ class _SignInPageState extends State<SignInPage> {
     }
   }
 
-  Future<void> _signInWithGoogle() async {
-    final auth = Provider.of<AuthBase>(context, listen: false);
-
-    try {
-      await auth.signInWithGoogle();
-      print("Gooooooooooooooooooooooooooogel: " +
-          auth.currentUser!.displayName.toString());
-
-      print("Gooooooooooooooooooooooooooogel: " +
-          auth.currentUser!.uid.toString());
-    } catch (e) {
-      print(e.toString());
-    }
-  }
+  // getUserData(User user) async {
+  //   print("******************((set all user data at SignIn Page))***********************");
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //
+  //   Future.delayed(const Duration(seconds: 1), () {
+  //     Navigator.pushAndRemoveUntil(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (BuildContext context) => LandingPage(),
+  //       ),
+  //       (route) => false,
+  //     );
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

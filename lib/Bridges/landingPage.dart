@@ -21,15 +21,17 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
+  late SharedPreferences prefs;
+
   @override
-  void initState() {
+  void initState() async{
+    prefs = await SharedPreferences.getInstance();
     intro();
-    _setNotificationCounter();
+    setNotificationCounter();
     super.initState();
   }
 
-  intro() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  intro()  {
 
     /// this intro is for main feed page
     if (prefs.getInt("intro") == null) {
@@ -76,8 +78,7 @@ class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
     }
   }
 
-  _setNotificationCounter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  setNotificationCounter()  {
     prefs.setString("notifyCounter", "0");
     setState(() {
       Constants.notifyBell = true;
@@ -88,6 +89,7 @@ class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     /// auth for checking that user is signIn or Not
     final auth = Provider.of<AuthBase>(context, listen: false);
+
     return StreamBuilder<User?>(
         stream: auth.authStateChanges(),
         builder: (context, snapshot) {

@@ -7,7 +7,7 @@
 // import 'package:switchtofuture/MainPages/Profile/Profile.dart';
 // import 'package:switchtofuture/Models/Constans.dart';
 // import 'package:switchtofuture/Models/Marquee.dart';
-// import 'package:switchtofuture/Models/UserMap.dart';
+// import 'package:switchtofuture/Models/UserData.dart';
 // import 'package:switchtofuture/SwitchProfile/Panelandbody.dart';
 // import 'package:switchtofuture/UniversalResources/DataBaseRefrences.dart';
 // import 'package:switchtofuture/UniversalResources/UserProvider.dart';
@@ -187,13 +187,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
-import 'package:switchapp/Models/UserMap.dart';
 import '../../Profile/Panelandbody.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
@@ -223,7 +220,6 @@ class _ProfileIconAndNameState extends State<ProfileIconAndName> {
     }
   }
 
-  late UserMap userMap;
 
   @override
   void initState() {

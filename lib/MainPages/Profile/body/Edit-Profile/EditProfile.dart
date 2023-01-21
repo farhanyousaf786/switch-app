@@ -8,7 +8,7 @@
 // import 'package:provider/provider.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:switchtofuture/Models/Constans.dart';
-// import 'package:switchtofuture/Models/UserMap.dart';
+// import 'package:switchtofuture/Models/UserData.dart';
 // import 'package:switchtofuture/UniversalResources/DataBaseRefrences.dart';
 //
 // timeStamp() => DateTime.now().toIso8601String();
@@ -335,14 +335,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:switchapp/Authentication/Auth.dart';
-import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/Profile/Panel/EditProfilePic.dart';
 import 'package:switchapp/Universal/Constans.dart';
-import 'package:switchapp/Models/UserMap.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
 timeStamp() => DateTime.now().toIso8601String();
@@ -352,7 +346,7 @@ class EditMyProfile extends StatefulWidget {
   final String uid;
   final String profileImage;
 
-  const EditMyProfile({required this.uid, required this.profileImage}) ;
+  const EditMyProfile({required this.uid, required this.profileImage});
 
   @override
   _EditProfileState createState() => _EditProfileState();
@@ -361,9 +355,8 @@ class EditMyProfile extends StatefulWidget {
 class _EditProfileState extends State<EditMyProfile> {
   late String? firstName = "";
   String about = "";
-
   late String? secondName = "";
- late String dateOfBirth;
+  late String dateOfBirth;
   String country = "";
   String bio = "";
   String countryName = '';
@@ -390,7 +383,6 @@ class _EditProfileState extends State<EditMyProfile> {
       "country": countryName,
       "gender": Constants.gender,
       'about': about == "" ? Constants.about : about
-
     });
 
     userRefForSearchRtd.child(Constants.myId).update({
@@ -417,17 +409,16 @@ class _EditProfileState extends State<EditMyProfile> {
               child: Column(
                 children: [
                   Container(
-
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
+                          Icon(
+                            Icons.linear_scale_sharp,
+                            color: Colors.white,
+                          ),
                         ],
                       ),
                     ),

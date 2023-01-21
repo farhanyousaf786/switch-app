@@ -142,10 +142,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // this is our home widget, when our app start. our Main widget send us toward first widget
         // that will be the first screen user will see after launch app
-        home: Provider<AuthBase>(
-          create: (_) => Auth(),
-          child: LandingPage(),
-        ),
+        home: LandingPage(),
       ),
     );
   }

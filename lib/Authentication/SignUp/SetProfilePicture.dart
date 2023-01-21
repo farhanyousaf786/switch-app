@@ -6,6 +6,7 @@
 import 'dart:io';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image/image.dart' as ImD;
 import 'package:firebase_storage/firebase_storage.dart';
@@ -14,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Authentication/welcomePage/welcomepage.dart';
 import 'package:uuid/uuid.dart';
 import '../../Universal/DataBaseRefrences.dart';
@@ -563,6 +565,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
         url: uploadUrl,
         about: about.text,
       );
+
+      // getUserDate(widget.users);
       setState(() {
         about.clear();
         uploading = false;
@@ -590,6 +594,31 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
       file = compressImage;
     });
   }
+
+
+  // Map? userMap;
+  //
+  // getUserDate(User user) async {
+  //   print("******************((set all user data))***********************");
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   userRefRTD.child(user.uid).once().then((DataSnapshot dataSnapshot) {
+  //     if (dataSnapshot.value != null) {
+  //       userMap = dataSnapshot.value;
+  //       prefs.setString("firstName", userMap?['firstName']);
+  //       prefs.setString("ownerId", userMap?['ownerId']);
+  //       prefs.setString("url", userMap?['url']);
+  //       prefs.setString("secondName", userMap?['secondName']);
+  //       prefs.setString("email", userMap?['email']);
+  //       prefs.setString("currentMood", userMap?['currentMood']);
+  //       prefs.setString("gender", userMap?['gender']);
+  //       prefs.setString("country", userMap?['country']);
+  //       prefs.setString("dob", userMap?['dob']);
+  //       prefs.setString("about", userMap?['about']);
+  //       prefs.setString("username", userMap?['username']);
+  //       prefs.setString("isVerified", userMap?['isVerified']);
+  //     }
+  //   });
+  // }
 
 
 }

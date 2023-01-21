@@ -24,6 +24,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class BridgeToNavigationPage extends StatefulWidget {
   final User user;
+
   const BridgeToNavigationPage({required this.user});
 
   @override
@@ -33,7 +34,6 @@ class BridgeToNavigationPage extends StatefulWidget {
 class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
   bool isLoading = true;
   bool clickHereButton = true;
-  Map? userMap;
   bool isUsernameSet = false;
   String message = "Network Searching..";
   String updateLink = "http://switchapp.live/#/switchappinfo";
@@ -41,19 +41,35 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
   String appVersion = "";
   String memeComp = "";
   Map? controlData;
+  late Map userMap;
 
   @override
   void initState() {
-    if (Constants.pass != "") {
-      print("Password is Not Empty");
-      userRefRTD.child(widget.user.uid).update({
-        'password': Constants.pass,
-      });
-    } else {
-      print("Password is Empty");
-    }
+    // if (Constants.pass != "") {
+    //   print("Password is Not Empty");
+    //   userRefRTD.child(widget.user.uid).update({
+    //     'password': Constants.pass,
+    //   });
+    // } else {
+    //   print("Password is Empty");
+    // }
+
+    Future.delayed(const Duration(milliseconds: 1600), () {
+      if (mounted)
+        setState(() {
+          clickHereButton = false;
+        });
+    });
+    userData(widget.user);
+    checkAppControl();
+    super.initState();
+  }
+
+  userData(User user) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    checkUserDate(user);
     Future.delayed(const Duration(milliseconds: 1200), () {
-      if (userMap?['username'] == null) {
+      if (prefs.getString("username") == null) {
         if (mounted)
           Navigator.pushReplacement(
             context,
@@ -71,35 +87,52 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
           });
       }
     });
-    Future.delayed(const Duration(milliseconds: 1600), () {
-      if (mounted)
-        setState(() {
-          clickHereButton = false;
-        });
-    });
-    getUserdataToSaveInSharedPref();
-    checkAppControl();
-    super.initState();
   }
 
-  getUserdataToSaveInSharedPref() async {
-    userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.value != null) {
-        userMap = dataSnapshot.value;
-        Constants.myName = userMap?['firstName'];
-        Constants.myId = userMap?['ownerId'];
-        Constants.myPhotoUrl = userMap?['url'];
-        Constants.mySecondName = userMap?['secondName'];
-        Constants.myEmail = userMap?['email'];
-        Constants.mood = userMap?['currentMood'];
-        Constants.gender = userMap?['gender'];
-        Constants.country = userMap?['country'];
-        Constants.dob = userMap?['dob'];
-        Constants.about = userMap?['about'];
-        Constants.username = userMap?['username'];
-        Constants.isVerified = userMap?['isVerified'];
-      }
-    });
+  checkUserDate(User user) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('ownerId') == null) {
+      print("*****((Set User Data at Bridget To Navigation))*****");
+      Map userMap;
+      userRefRTD.child(user.uid).once().then((DataSnapshot dataSnapshot) {
+        if (dataSnapshot.value != null) {
+          userMap = dataSnapshot.value;
+          prefs.setString("firstName", userMap['firstName']);
+          prefs.setString("ownerId", userMap['ownerId']);
+          prefs.setString("url", userMap['url']);
+          prefs.setString("secondName", userMap['secondName']);
+          prefs.setString("email", userMap['email']);
+          prefs.setString("currentMood", userMap['currentMood']);
+          prefs.setString("gender", userMap['gender']);
+          prefs.setString("country", userMap['country']);
+          prefs.setString("dob", userMap['dob']);
+          prefs.setString("about", userMap['about']);
+          prefs.setString("username", userMap['username']);
+          prefs.setString("isVerified", userMap['isVerified']);
+          prefs.setString("isBan", userMap['isBan']);
+          getUserData(prefs);
+        }
+      });
+    } else {
+      getUserData(prefs);
+    }
+  }
+
+  getUserData(SharedPreferences prefs) {
+    print("*****((Get User Data at Bridget To Navigation))*****");
+    Constants.myName = prefs.getString("firstName")!;
+    Constants.myId = prefs.getString("ownerId")!;
+    Constants.imageUrl = prefs.getString("url")!;
+    Constants.mySecondName = prefs.getString("secondName")!;
+    Constants.myEmail = prefs.getString("email")!;
+    Constants.mood = prefs.getString("currentMood")!;
+    Constants.gender = prefs.getString("gender")!;
+    Constants.country = prefs.getString("country")!;
+    Constants.dob = prefs.getString("dob")!;
+    Constants.about = prefs.getString("about")!;
+    Constants.username = prefs.getString("username")!;
+    Constants.isVerified = prefs.getString("isVerified")!;
+    Constants.isBan = prefs.getString("isBan")!;
   }
 
   checkAppControl() async {
@@ -164,7 +197,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
         ),
       );
     } else if (isAppLive == "yes") {
-      if (userMap!['isBan'] == "true") {
+      if (Constants.isBan == "true") {
         return Scaffold(
           backgroundColor: Colors.lightBlue,
           appBar: AppBar(
@@ -263,25 +296,20 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
           ),
         );
       } else {
-        return Provider<User>.value(
-            value: widget.user,
-            child: NavigationPage(
+        return NavigationPage(
+          user: widget.user,
+          controlData: controlData,
+          userMap: userMap,
+          appVersion: appVersion,
+        );
+      }
+    } else {
+      return widget.user.uid == Constants.switchId
+          ? NavigationPage(
               user: widget.user,
               controlData: controlData,
               userMap: userMap,
               appVersion: appVersion,
-            ));
-      }
-    } else {
-      return widget.user.uid == Constants.switchId
-          ? Provider<User>.value(
-              value: widget.user,
-              child: NavigationPage(
-                user: widget.user,
-                controlData: controlData,
-                userMap: userMap,
-                appVersion: appVersion,
-              ),
             )
           : Scaffold(
               body: Center(

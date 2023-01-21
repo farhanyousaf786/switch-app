@@ -57,9 +57,7 @@ import '../../worldChat/worldChat.dart';
 import 'CacheImageTemplate.dart';
 
 UniversalMethods universalMethods = UniversalMethods();
-
 final appIntro = new AppIntro();
-
 // ignore: must_be_immutable
 class MainFeed extends StatefulWidget {
   late User user;
@@ -95,15 +93,10 @@ class _MainFeedState extends State<MainFeed> {
     if (Constants.isIntro == "true") {
       showIntro();
     } else {}
-
     getFirstPostList();
-
     listScrollController.addListener(_scrollListener);
-
     randomNotify = _random.nextInt(80) + 20; // 100-200
-
     checkIfNotification();
-
     super.initState();
   }
 

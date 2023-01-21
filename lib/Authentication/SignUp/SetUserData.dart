@@ -15,6 +15,7 @@ import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Authentication/Auth.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
@@ -46,6 +47,8 @@ class _SetUserDataState extends State<SetUserData> {
   bool userExists = false;
   bool userNameLengthExceeded = false;
   bool userExistsText = false;
+  Map? userMap;
+
 
   @override
   void initState() {
@@ -174,8 +177,7 @@ class _SetUserDataState extends State<SetUserData> {
         "dob": "01/01/2000",
         "gender": "Not Set Yet",
         "country": countryName,
-        'url':
-            Constants.switchLogo,
+        'url': Constants.switchLogo,
         'isBan': "false",
         "currentMood": "Happy",
         "username": userNameTextEditingController.text.toLowerCase(),
@@ -198,12 +200,14 @@ class _SetUserDataState extends State<SetUserData> {
             lastName.text[0].toUpperCase() + lastName.text.substring(1),
         "url": Constants.switchLogo,
       });
-      userFollowersCountRtd.child(user.uid).set({
-        "followerCounter": 0,
-        "uid": user.uid,
-        "username": userNameTextEditingController.text.toLowerCase(),
-        "photoUrl": Constants.switchLogo,
-      });
+      userFollowersCountRtd.child(user.uid).set(
+        {
+          "followerCounter": 0,
+          "uid": user.uid,
+          "username": userNameTextEditingController.text.toLowerCase(),
+          "photoUrl": Constants.switchLogo,
+        },
+      );
       Navigator.push(
         context,
         MaterialPageRoute(
