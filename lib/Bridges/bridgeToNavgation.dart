@@ -41,19 +41,9 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
   String appVersion = "";
   String memeComp = "";
   Map? controlData;
-  late Map userMap;
 
   @override
   void initState() {
-    // if (Constants.pass != "") {
-    //   print("Password is Not Empty");
-    //   userRefRTD.child(widget.user.uid).update({
-    //     'password': Constants.pass,
-    //   });
-    // } else {
-    //   print("Password is Empty");
-    // }
-
     Future.delayed(const Duration(milliseconds: 1600), () {
       if (mounted)
         setState(() {
@@ -64,19 +54,22 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     checkAppControl();
     super.initState();
   }
-
   userData(User user) async {
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
     checkUserDate(user);
     Future.delayed(const Duration(milliseconds: 1200), () {
-      if (prefs.getString("username") == null) {
+      print("username null google => ${prefs.getString("username")}");
+
+      if (prefs.getString("username")!.isEmpty) {
+        print("username null google............................................");
         if (mounted)
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => Provider<User>(
                 create: (context) => widget.user,
-                child: SetUsernameForGoogleSignIn(user: widget.user),
+                child: setUsername(user: widget.user),
               ),
             ),
           );
@@ -91,7 +84,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
 
   checkUserDate(User user) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.getString('ownerId') == null) {
+    if (prefs.getString('username')!.isEmpty) {
       print("*****((Set User Data at Bridget To Navigation))*****");
       Map userMap;
       userRefRTD.child(user.uid).once().then((DataSnapshot dataSnapshot) {
@@ -299,7 +292,6 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
         return NavigationPage(
           user: widget.user,
           controlData: controlData,
-          userMap: userMap,
           appVersion: appVersion,
         );
       }
@@ -308,7 +300,6 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
           ? NavigationPage(
               user: widget.user,
               controlData: controlData,
-              userMap: userMap,
               appVersion: appVersion,
             )
           : Scaffold(

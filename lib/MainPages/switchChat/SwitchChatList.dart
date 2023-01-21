@@ -27,12 +27,10 @@ final appIntro = new AppIntro();
 
 class SwitchChatList extends StatefulWidget {
   final User user;
-  final Map? userMap;
   final Map? isInRelationShipMap;
 
   const SwitchChatList({
     required this.user,
-    required this.userMap,
     required this.isInRelationShipMap,
   });
 

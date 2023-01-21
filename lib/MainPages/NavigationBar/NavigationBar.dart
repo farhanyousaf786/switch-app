@@ -29,14 +29,12 @@ import 'package:uuid/uuid.dart';
 
 class NavigationPage extends StatefulWidget {
   final User user;
-  final Map? userMap;
   final Map? controlData;
   final String appVersion;
 
   const NavigationPage(
       {required this.user,
       required this.controlData,
-      required this.userMap,
       required this.appVersion});
 
   @override
@@ -119,7 +117,6 @@ class _NavigationPageState extends State<NavigationPage>
           value: widget.user,
           child: SwitchChatList(
             user: widget.user,
-            userMap: widget.userMap,
             isInRelationShipMap: inRelationShipData,
           ),
         ),
@@ -366,7 +363,6 @@ class _NavigationPageState extends State<NavigationPage>
                 Provider<User>.value(
                   value: widget.user,
                   child: CheckAppControl(
-                    userMap: widget.userMap,
                     user: widget.user,
                     post: posts,
                     controlData: widget.controlData,
@@ -400,7 +396,6 @@ class _NavigationPageState extends State<NavigationPage>
                       )
                     : SwitchChatList(
                         user: widget.user,
-                        userMap: widget.userMap,
                         isInRelationShipMap: inRelationShipData,
                       ),
                 Constants.username == ""
@@ -480,14 +475,12 @@ class _NavigationPageState extends State<NavigationPage>
 class CheckAppControl extends StatefulWidget {
   final List post;
   final User user;
-  final Map? userMap;
   final Map? controlData;
   final String appVersion;
   final List followingUserList;
 
   CheckAppControl(
       {required this.user,
-      required this.userMap,
       required this.post,
       required this.controlData,
       required this.appVersion,
@@ -626,7 +619,8 @@ class _CheckAppControlState extends State<CheckAppControl> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.userMap?['username'] == ""
+
+    return Constants.username == ""
         ? SetUserData(
             user: widget.user,
           )

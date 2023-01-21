@@ -9,18 +9,18 @@ import 'package:switchapp/Authentication/welcomePage/welcomepage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import '../../Universal/DataBaseRefrences.dart';
 
-class SetUsernameForGoogleSignIn extends StatefulWidget {
+class setUsername extends StatefulWidget {
   late final User user;
 
-  SetUsernameForGoogleSignIn({required this.user});
+  setUsername({required this.user});
 
   @override
-  _SetUsernameForGoogleSignInState createState() =>
-      _SetUsernameForGoogleSignInState();
+  _setUsernameState createState() =>
+      _setUsernameState();
 }
 
-class _SetUsernameForGoogleSignInState
-    extends State<SetUsernameForGoogleSignIn> {
+class _setUsernameState
+    extends State<setUsername> {
   TextEditingController userNameTextEditingController = TextEditingController();
   List userList = [];
   List userList2 = [];

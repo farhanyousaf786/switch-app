@@ -21,17 +21,22 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
-  late SharedPreferences prefs;
-
   @override
-  void initState() async{
-    prefs = await SharedPreferences.getInstance();
+  void initState() {
     intro();
     setNotificationCounter();
+    checkUserData();
     super.initState();
   }
 
-  intro()  {
+  checkUserData() async {
+
+
+
+
+  }
+  intro() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
     /// this intro is for main feed page
     if (prefs.getInt("intro") == null) {
@@ -78,7 +83,8 @@ class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
     }
   }
 
-  setNotificationCounter()  {
+  setNotificationCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("notifyCounter", "0");
     setState(() {
       Constants.notifyBell = true;
