@@ -4423,20 +4423,24 @@ class _BodyState extends State<Body> {
                   child: Row(
                     children: [
                       Center(
-                          child: Icon(
-                        Icons.arrow_back_ios_rounded,
-                        size: 16,
-                            color: Colors.lightBlue,
-                      ),),
-                      Stack(children: [
+                        child: Icon(
+                          Icons.arrow_back_ios_rounded,
+                          size: 16,
+                          color: Colors.lightBlue,
+                        ),
+                      ),
+                      Stack(
+                          children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 5),
+                          padding:
+                              const EdgeInsets.only(top: 8, bottom: 10, left: 5, right: 11),
                           child: Container(
-                            width: 25,
-                            height: 25,
+                            width: 27,
+                            height: 27,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.lightBlue, width: 1),
+                              border:
+                                  Border.all(color: Colors.lightBlue, width: 1),
                               image: DecorationImage(
                                 image: NetworkImage(widget.mainProfileUrl),
                               ),
@@ -4445,8 +4449,8 @@ class _BodyState extends State<Body> {
                         ),
                         widget.isVerified == "true"
                             ? Positioned(
-                                top: 25,
-                                left: 25,
+                                top: 22,
+                                left: 20,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
@@ -4474,7 +4478,8 @@ class _BodyState extends State<Body> {
             ),
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15, right: 30, bottom: 5, top: 5),
+                padding: const EdgeInsets.only(
+                    left: 8, right: 25, bottom: 5, top: 5),
                 child: MarqueeWidget(
                   child: Padding(
                     padding: const EdgeInsets.all(6.0),
@@ -4524,16 +4529,17 @@ class _BodyState extends State<Body> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Text(
-                            "Edit",
-                            style: TextStyle(
-                              fontFamily: "Cutes",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: Colors.lightBlue,
-                            ),
-                          ),
-
+                          widget.currentUserId == widget.profileOwner
+                              ? Text(
+                                  "Edit",
+                                  style: TextStyle(
+                                    fontFamily: "Cutes",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                    color: Colors.lightBlue,
+                                  ),
+                                )
+                              : Icon(Icons.more_vert),
                         ],
                       ),
                     ),
@@ -4573,8 +4579,7 @@ class _BodyState extends State<Body> {
                                 child: Text(
                                   "Followers",
                                   style: TextStyle(
-                                      fontFamily: "cutes",
-                                      fontSize: 12),
+                                      fontFamily: "cutes", fontSize: 12),
                                 ),
                               ),
                             ),
@@ -4634,6 +4639,7 @@ class _BodyState extends State<Body> {
                         ),
                       },
                       style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
                           elevation: 0.0,
                           textStyle: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold)),
@@ -4714,6 +4720,7 @@ class _BodyState extends State<Body> {
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 0.0,
+                        backgroundColor: Colors.lightBlue,
                         textStyle: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold)),
                   ),
@@ -5499,7 +5506,8 @@ class _BodyState extends State<Body> {
                     style: TextStyle(
                         color: Colors.blue,
                         fontSize:
-                            userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                            userPercentageDecency.toStringAsPrecision(3) ==
+                                    "NaN"
                                 ? 12
                                 : 14,
                         fontWeight: FontWeight.w600),
@@ -5509,18 +5517,19 @@ class _BodyState extends State<Body> {
                     style: TextStyle(
                         color: Colors.blue,
                         fontSize:
-                            userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                            userPercentageDecency.toStringAsPrecision(3) ==
+                                    "NaN"
                                 ? 13
                                 : 11,
                         fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
-              progressColor: Colors.blue,
+              progressColor: Colors.lightBlue,
               circularStrokeCap: CircularStrokeCap.round,
               backgroundColor:
                   userPercentageDecency.toStringAsPrecision(3) == "NaN"
-                      ? Colors.blue
+                      ? Colors.lightBlue
                       : Colors.grey.shade200,
             ),
             Padding(
@@ -5528,7 +5537,7 @@ class _BodyState extends State<Body> {
               child: Text(
                 "Profile Decency",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'cutes',
@@ -5539,7 +5548,9 @@ class _BodyState extends State<Body> {
                 ? Text(
                     "Not Rated Yet",
                     style: TextStyle(
-                        fontSize: 10, color: Colors.blue, fontFamily: 'cutes'),
+                        fontSize: 10,
+                        color: Colors.lightBlue,
+                        fontFamily: 'cutes'),
                   )
                 : Padding(
                     padding: const EdgeInsets.only(top: 3, right: 6),
@@ -6760,29 +6771,28 @@ class _BodyState extends State<Body> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Material(
-                      color: Colors.white,
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
-                      ),
-                      child: Column(
-                        children: [
-                          loading
-                              ? LinearProgressIndicator()
-                              : Container(
-                                  height: 0,
-                                  width: 0,
-                                ),
-                          appBar(),
-                          _crushOfAndFollowersButton(),
-                          _aboutAndMinor(),
-                          editandBlockOption(),
-                        ],
+                    SafeArea(
+                      child: Material(
+                        color: Colors.white,
+                        elevation: 0.0,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15),
+                        ),
+                        child: Column(
+                          children: [
+                            loading
+                                ? LinearProgressIndicator()
+                                : Container(
+                                    height: 0,
+                                    width: 0,
+                                  ),
+                            appBar(),
+                            _crushOfAndFollowersButton(),
+                            _aboutAndMinor(),
+                            editandBlockOption(),
+                          ],
+                        ),
                       ),
                     ),
                     Panel(
@@ -6799,7 +6809,6 @@ class _BodyState extends State<Body> {
                     ),
                     _relationshipStatusForOwnProfile(),
                     otherInfo(),
-
                     _posts(),
                     SizedBox(
                       height: 100,

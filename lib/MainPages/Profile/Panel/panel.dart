@@ -1303,22 +1303,21 @@ class _PanelState extends State<Panel> {
 
               // editMyProfile(),
               _bestiesList(),
-
-
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
-                    color: Colors.blue.withOpacity(0.09),
                     height: 60,
                     width: MediaQuery.of(context).size.width,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          height: 40,
+                          height: 50,
+                          width: MediaQuery.of(context).size.width/4.5,
                           decoration: BoxDecoration(
+                            color: Colors.blue.withOpacity(0.09),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: GestureDetector(
@@ -1334,7 +1333,7 @@ class _PanelState extends State<Panel> {
                               );
                             },
                             child: Container(
-                              padding: EdgeInsets.all(4.0),
+                              padding: EdgeInsets.only(top: 9),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                   5,
@@ -1414,10 +1413,15 @@ class _PanelState extends State<Panel> {
                           ),
                         ),
                         Container(
+                          width: MediaQuery.of(context).size.width/4.5,
+
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
+                            color: Colors.blue.withOpacity(0.09),
+
+
                           ),
-                          height: 38,
+                          height: 50,
                           child: GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -1431,7 +1435,7 @@ class _PanelState extends State<Panel> {
                               );
                             },
                             child: Container(
-                              padding: EdgeInsets.all(4.0),
+                              padding: EdgeInsets.only(top: 10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -1488,16 +1492,22 @@ class _PanelState extends State<Panel> {
                           },
                           child: Container(
 
-                            height: 36,
-                            width: MediaQuery.of(context).size.width / 4.5,
+                            width: MediaQuery.of(context).size.width/4,
 
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.lightBlue,
+
+
+                            ),
+                            height: 40,
                             child: Center(
                               child: Text(
                                 "Meme Profile >>",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontFamily: 'cutes',
-                                    color: Colors.lightBlue,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 11),
                               ),
