@@ -97,7 +97,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     print("*****((Get User Data at Bridget To Navigation))*****");
     Constants.myName = prefs.getString("firstName")!;
     Constants.myId = prefs.getString("ownerId")!;
-    Constants.imageUrl = prefs.getString("url")!;
+    Constants.myPhotoUrl = prefs.getString("url")!;
     Constants.mySecondName = prefs.getString("secondName")!;
     Constants.myEmail = prefs.getString("email")!;
     Constants.mood = prefs.getString("currentMood")!;

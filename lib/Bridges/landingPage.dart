@@ -6,14 +6,14 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignIn/SignInPage.dart';
 import 'package:switchapp/Authentication/SignOption/SignOption.dart';
 import 'package:switchapp/Bridges/bridgeToNavgation.dart';
 import 'package:switchapp/Bridges/bridgeToSetEmailVerification.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/need_help/need_help_page.dart';
-import '../Authentication/userAgreementPage.dart';
+import '../Authentication/UserAgreement/userAgreementPage.dart';
 
 class LandingPage extends StatefulWidget {
   @override

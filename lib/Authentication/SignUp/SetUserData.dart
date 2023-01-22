@@ -16,7 +16,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'SetProfilePicture.dart';

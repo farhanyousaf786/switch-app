@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
 class SignOut {

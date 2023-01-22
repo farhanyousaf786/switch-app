@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
 
 import '../../Bridges/landingPage.dart';
 import '../../Models/need_help/need_help_page.dart';
 import '../SignIn/SignInPage.dart';
-import '../userAgreementPage.dart';
+import '../UserAgreement/userAgreementPage.dart';
 
 ///***** Sign in and Sign up page option *****///
 

@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 

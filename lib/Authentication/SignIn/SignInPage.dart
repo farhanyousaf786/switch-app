@@ -14,10 +14,10 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignIn/ForgotPass.dart';
 import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
-import 'package:switchapp/Authentication/userAgreementPage.dart';
+import 'package:switchapp/Authentication/UserAgreement/userAgreementPage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Universal/Constans.dart';
 

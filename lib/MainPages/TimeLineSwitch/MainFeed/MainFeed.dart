@@ -37,7 +37,7 @@ import 'package:time_formatter/time_formatter.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../Authentication/userAgreementPage.dart';
+import '../../../Authentication/UserAgreement/userAgreementPage.dart';
 import '../MemeAndStuff/memeCompetition/memeComp.dart';
 import '../MemeAndStuff/memeCompetition/participatePage.dart';
 import '../SwitchUpdates/SwitchUpdates.dart';

@@ -10,10 +10,10 @@ import 'package:lottie/lottie.dart';
 
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignIn/SignInPage.dart';
 import 'package:switchapp/Authentication/SignUp/emailVerification.dart';
-import 'package:switchapp/Authentication/userAgreementPage.dart';
+import 'package:switchapp/Authentication/UserAgreement/userAgreementPage.dart';
 import 'package:switchapp/Bridges/bridgeToSetEmailVerification.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';

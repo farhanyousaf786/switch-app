@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/welcomePage/welcomepage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';

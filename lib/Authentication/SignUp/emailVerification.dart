@@ -12,7 +12,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignIn/SignInPage.dart';
 import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/SignUp/SetUserData.dart';

@@ -3194,7 +3194,7 @@ class _BodyState extends State<Body> {
     getBestFriends();
     checkIfFollowedByYou();
     checkIfBlockByYou();
-
+    print("url>>>>>>>>>>> ${widget.mainProfileUrl}");
     Future.delayed(const Duration(milliseconds: 300), () {
       followingCounter();
     });
@@ -4419,25 +4419,26 @@ class _BodyState extends State<Body> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 3, right: 3),
+                  padding: const EdgeInsets.only(left: 3, right: 0),
                   child: Row(
                     children: [
                       Center(
                           child: Icon(
                         Icons.arrow_back_ios_rounded,
-                        size: 18,
-                      )),
+                        size: 16,
+                            color: Colors.lightBlue,
+                      ),),
                       Stack(children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 5),
                           child: Container(
-                            width: 30,
-                            height: 30,
+                            width: 25,
+                            height: 25,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.black, width: 1),
+                              border: Border.all(color: Colors.lightBlue, width: 1),
                               image: DecorationImage(
-                                image: NetworkImage(widget.mainProfileUrl != null ? widget.mainProfileUrl : "https://switchappimages.nyc3.digitaloceanspaces.com/StaticUse/1646080905939.jpg"),
+                                image: NetworkImage(widget.mainProfileUrl),
                               ),
                             ),
                           ),
@@ -4473,7 +4474,7 @@ class _BodyState extends State<Body> {
             ),
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 47, bottom: 5),
+                padding: const EdgeInsets.only(left: 15, right: 30, bottom: 5, top: 5),
                 child: MarqueeWidget(
                   child: Padding(
                     padding: const EdgeInsets.all(6.0),
@@ -4497,7 +4498,7 @@ class _BodyState extends State<Body> {
                         style: TextStyle(
                           fontFamily: "Cutes",
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 20,
                         ),
                       ),
                     ),
@@ -4511,13 +4512,32 @@ class _BodyState extends State<Body> {
                 onTap: () {
                   _blockOption();
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 35,
+                    width: 35,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Edit",
+                            style: TextStyle(
+                              fontFamily: "Cutes",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.lightBlue,
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
                   ),
-                  height: 30,
-                  width: 30,
-                  child: Icon(Icons.more_vert),
                 ),
               ),
             ),
@@ -4727,7 +4747,7 @@ class _BodyState extends State<Body> {
     });
   }
 
-  _relationshipStatusForOwnProfile(int index) {
+  _relationshipStatusForOwnProfile() {
     return Container(
       child: Column(
         children: [
@@ -5171,7 +5191,6 @@ class _BodyState extends State<Body> {
                           SizedBox(
                             height: 40,
                             child: ElevatedButton(
-
                                 child: SingleChildScrollView(
                                   child: Column(
                                     crossAxisAlignment:
@@ -5279,7 +5298,6 @@ class _BodyState extends State<Body> {
                           SizedBox(
                             height: 40,
                             child: ElevatedButton(
-
                                 child: SingleChildScrollView(
                                   child: Column(
                                     crossAxisAlignment:
@@ -6734,68 +6752,66 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
+      color: Colors.white,
       child: widget.currentUserId == widget.profileOwner
           ? DelayedDisplay(
-              delay: Duration(milliseconds: 200),
+              delay: Duration(milliseconds: 100),
               slidingBeginOffset: Offset(0, -0.35),
-              child: Container(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Material(
-                          elevation: 8,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(15),
-                            bottomRight: Radius.circular(15),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Material(
+                      elevation: 5,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15),
+                      ),
+                      child: Column(
+                        children: [
+                          loading
+                              ? LinearProgressIndicator()
+                              : Container(
+                                  height: 0,
+                                  width: 0,
+                                ),
+                          appBar(),
+                          _crushOfAndFollowersButton(),
+                          SizedBox(
+                            height: 10,
                           ),
-                          child: Column(
-                            children: [
-                              loading
-                                  ? LinearProgressIndicator()
-                                  : Container(
-                                      height: 0,
-                                      width: 0,
-                                    ),
-                              appBar(),
-                              _crushOfAndFollowersButton(),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              _aboutAndMinor(),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              editandBlockOption(),
-                            ],
+                          _aboutAndMinor(),
+                          SizedBox(
+                            height: 10,
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Panel(
-                          aboutMain: widget.mainAbout,
-                          profileOwner: widget.profileOwner,
-                          currentUserId: widget.currentUserId,
-                          mainProfileUrl: widget.mainProfileUrl,
-                          mainFirstName: widget.mainFirstName,
-                          mainSecondName: widget.mainSecondName,
-                          mainGender: widget.mainGender,
-                          mainEmail: widget.mainEmail,
-                          user: widget.user,
-                          username: widget.username,
-                        ),
-                        _relationshipStatusForOwnProfile(index),
-                        otherInfo(),
-                        _posts(),
-                        SizedBox(
-                          height: 100,
-                        ),
-                      ],
-                    );
-                  },
-                  shrinkWrap: true,
+                          editandBlockOption(),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Panel(
+                      aboutMain: widget.mainAbout,
+                      profileOwner: widget.profileOwner,
+                      currentUserId: widget.currentUserId,
+                      mainProfileUrl: widget.mainProfileUrl,
+                      mainFirstName: widget.mainFirstName,
+                      mainSecondName: widget.mainSecondName,
+                      mainGender: widget.mainGender,
+                      mainEmail: widget.mainEmail,
+                      user: widget.user,
+                      username: widget.username,
+                    ),
+                    _relationshipStatusForOwnProfile(),
+                    otherInfo(),
+                    _posts(),
+                    SizedBox(
+                      height: 100,
+                    ),
+                  ],
                 ),
               ),
             )
