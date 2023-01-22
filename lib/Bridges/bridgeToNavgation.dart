@@ -8,13 +8,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:switchapp/Authentication/Auth.dart';
-import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
-import 'package:switchapp/Authentication/SignUp/set_username.dart';
-import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
+import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/NavigationBar/NavigationBar.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
@@ -41,9 +36,12 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
   String appVersion = "";
   String memeComp = "";
   Map? controlData;
+  SignOut signOut = new SignOut();
+
 
   @override
   void initState() {
+    print(widget.user.uid);
     Future.delayed(const Duration(milliseconds: 1600), () {
       if (mounted)
         setState(() {
@@ -54,37 +52,22 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     checkAppControl();
     super.initState();
   }
-  userData(User user) async {
 
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    checkUserDate(user);
-    Future.delayed(const Duration(milliseconds: 1200), () {
-      print("username null google => ${prefs.getString("username")}");
-
-      if (prefs.getString("username")!.isEmpty) {
-        print("username null google............................................");
-        if (mounted)
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Provider<User>(
-                create: (context) => widget.user,
-                child: setUsername(user: widget.user),
-              ),
-            ),
-          );
-      } else {
-        if (mounted)
-          setState(() {
-            isLoading = false;
-          });
-      }
+  userData(User user) {
+    checkUserData(user);
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (mounted)
+        setState(() {
+          isLoading = false;
+        });
     });
   }
 
-  checkUserDate(User user) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.getString('username')!.isEmpty) {
+  checkUserData(User user) async {
+    SharedPreferences? prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey('username')) {
+      getUserData(prefs);
+    } else {
       print("*****((Set User Data at Bridget To Navigation))*****");
       Map userMap;
       userRefRTD.child(user.uid).once().then((DataSnapshot dataSnapshot) {
@@ -106,8 +89,6 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
           getUserData(prefs);
         }
       });
-    } else {
-      getUserData(prefs);
     }
   }
 
@@ -126,6 +107,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     Constants.username = prefs.getString("username")!;
     Constants.isVerified = prefs.getString("isVerified")!;
     Constants.isBan = prefs.getString("isBan")!;
+    print("username >>>>>>>>>>>>>>>>>> ${prefs.getString("username")!}");
   }
 
   checkAppControl() async {
@@ -214,7 +196,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                     color: Colors.white,
                     size: 20,
                   ),
-                  onPressed: signOut),
+                  onPressed: () => signOut.signOut(widget.user.uid, context)),
             ],
           ),
           body: Center(
@@ -422,11 +404,4 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     }
   }
 
-  Future<void> signOut() async {
-    userRefRTD.child(widget.user.uid).update({"isOnline": "false"});
-
-    final auth = Provider.of<AuthBase>(context, listen: false);
-
-    await auth.signOut();
-  }
 }

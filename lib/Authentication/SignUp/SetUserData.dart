@@ -49,7 +49,6 @@ class _SetUserDataState extends State<SetUserData> {
   bool userExistsText = false;
   Map? userMap;
 
-
   @override
   void initState() {
     super.initState();
@@ -79,7 +78,6 @@ class _SetUserDataState extends State<SetUserData> {
   void setUserInfo() async {
     formatUsername();
     if (firstName.text.isEmpty ||
-        lastName.text.isEmpty ||
         userNameTextEditingController.text.length > 29 ||
         userNameTextEditingController.text.isEmpty ||
         userExists == true) {
@@ -171,7 +169,9 @@ class _SetUserDataState extends State<SetUserData> {
         "firstName":
             firstName.text[0].toUpperCase() + firstName.text.substring(1),
         "secondName":
-            lastName.text[0].toUpperCase() + lastName.text.substring(1),
+        lastName.text.isEmpty
+            ? ""
+            : lastName.text[0].toUpperCase() + lastName.text.substring(1),
         "timestamp": DateTime.now().millisecondsSinceEpoch.toString(),
         "email": user.email,
         "dob": "01/01/2000",
@@ -196,8 +196,9 @@ class _SetUserDataState extends State<SetUserData> {
         "username": userNameTextEditingController.text.toLowerCase(),
         "firstName":
             firstName.text[0].toUpperCase() + firstName.text.substring(1),
-        "secondName":
-            lastName.text[0].toUpperCase() + lastName.text.substring(1),
+        "secondName": lastName.text.isEmpty
+            ? ""
+            : lastName.text[0].toUpperCase() + lastName.text.substring(1),
         "url": Constants.switchLogo,
       });
       userFollowersCountRtd.child(user.uid).set(

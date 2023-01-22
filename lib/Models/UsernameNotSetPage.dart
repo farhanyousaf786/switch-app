@@ -6,6 +6,8 @@ import 'package:switchapp/Authentication/Auth.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
+import '../Authentication/SignOut/SignOut.dart';
+
 class SimplePageModel extends StatelessWidget {
   final User user;
 
@@ -13,19 +15,10 @@ class SimplePageModel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-    Future<void> signOut() async {
-      userRefRTD.child(user.uid).update({"isOnline": "false"});
-
-      final auth = Provider.of<AuthBase>(context, listen: false);
-
-      await auth.signOut();
-    }
+    SignOut signOut = new SignOut();
 
     return Scaffold(
         backgroundColor: Colors.white,
-
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
@@ -42,7 +35,7 @@ class SimplePageModel extends StatelessWidget {
                   color: Colors.blue,
                   size: 20,
                 ),
-                onPressed: signOut),
+                onPressed: () => signOut.signOut(user.uid, context)),
           ],
         ),
         body: GestureDetector(

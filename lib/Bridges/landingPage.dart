@@ -31,9 +31,6 @@ class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
 
   checkUserData() async {
 
-
-
-
   }
   intro() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -95,7 +92,6 @@ class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     /// auth for checking that user is signIn or Not
     final auth = Provider.of<AuthBase>(context, listen: false);
-
     return StreamBuilder<User?>(
         stream: auth.authStateChanges(),
         builder: (context, snapshot) {

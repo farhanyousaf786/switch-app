@@ -5,22 +5,23 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/Authentication/Auth.dart';
+import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/welcomePage/welcomepage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import '../../Universal/DataBaseRefrences.dart';
 
-class setUsername extends StatefulWidget {
+class SetGoogleUsername extends StatefulWidget {
   late final User user;
 
-  setUsername({required this.user});
+  SetGoogleUsername({required this.user});
 
   @override
-  _setUsernameState createState() =>
-      _setUsernameState();
+  _SetGoogleUsernameState createState() =>
+      _SetGoogleUsernameState();
 }
 
-class _setUsernameState
-    extends State<setUsername> {
+class _SetGoogleUsernameState
+    extends State<SetGoogleUsername> {
   TextEditingController userNameTextEditingController = TextEditingController();
   List userList = [];
   List userList2 = [];
@@ -29,6 +30,7 @@ class _setUsernameState
   bool userExists = false;
   bool userNameLengthExceeded = false;
   bool userExistsText = false;
+  SignOut signOut = new SignOut();
 
   void formatUsername() {
     userNameTextEditingController.text =
@@ -41,7 +43,7 @@ class _setUsernameState
     getAllUsers();
 
     print(
-      widget.user.displayName!.split(' ')[0],
+      widget.user.displayName?.split(' ')[0],
     );
   }
 
@@ -244,7 +246,7 @@ class _setUsernameState
       userRefRTD.child(user.uid).set({
         "androidNotificationToken": "",
         "ownerId": user.uid,
-        "firstName": widget.user.displayName!.split(' ')[0],
+        "firstName": widget.user.displayName?.split(' ')[0],
         "secondName": "",
         "timestamp": DateTime.now().millisecondsSinceEpoch.toString(),
         "email": user.email,
@@ -269,7 +271,7 @@ class _setUsernameState
         "isVerified": "false",
         "ownerId": user.uid,
         "username": userNameTextEditingController.text.toLowerCase(),
-        "firstName": widget.user.displayName!.split(' ')[0],
+        "firstName": widget.user.displayName?.split(' ')[0],
         "secondName": "",
         "url": widget.user.photoURL,
       });
@@ -300,10 +302,6 @@ class _setUsernameState
     }
   }
 
-  Future<void> signOut() async {
-    final auth = Provider.of<AuthBase>(context, listen: false);
-    auth.signOut();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -325,7 +323,7 @@ class _setUsernameState
                   color: Colors.white,
                   size: 20,
                 ),
-                onPressed: signOut),
+                onPressed: () => signOut.signOut(widget.user.uid, context)),
           ],
         ),
         body: Container(

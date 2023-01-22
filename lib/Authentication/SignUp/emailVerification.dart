@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/Authentication/Auth.dart';
 import 'package:switchapp/Authentication/SignIn/SignInPage.dart';
+import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
 import 'package:switchapp/Bridges/bridgeToSetEmailVerification.dart';
 import 'package:switchapp/Universal/Constans.dart';
@@ -40,6 +41,7 @@ class _EmailVerificationState extends State<EmailVerification> {
   late Timer timer;
   String countryName = 'Select Country';
   bool isVerified = false;
+  SignOut signOut = new SignOut();
 
   // this function will always run one time
   // when we came to this class
@@ -67,6 +69,7 @@ class _EmailVerificationState extends State<EmailVerification> {
 
   defaultUserInfo() async {
     final user = Provider.of<User>(context, listen: false);
+    print(user.uid);
     userRefRTD.child(user.uid).set({
       "username": "",
       "androidNotificationToken": "",
@@ -136,14 +139,11 @@ class _EmailVerificationState extends State<EmailVerification> {
       appBar: AppBar(
         actions: [
           IconButton(
-            icon: Icon(
-              Icons.logout,
-              color: Colors.white,
-            ),
-            onPressed: () => {
-              auth.signOut(),
-            },
-          ),
+              icon: Icon(
+                Icons.logout,
+                color: Colors.white,
+              ),
+              onPressed: () => signOut.signOut(widget.user.uid, context)),
         ],
         centerTitle: true,
         automaticallyImplyLeading: false,

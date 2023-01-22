@@ -16,6 +16,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
+import 'package:switchapp/Authentication/SignUp/set_username.dart';
 import 'package:switchapp/MainPages/AppSettings/settings.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/Meme-profile.dart';
 import 'package:switchapp/MainPages/TimeLineSwitch/MainFeed/MainFeed.dart';
@@ -510,6 +511,7 @@ class _CheckAppControlState extends State<CheckAppControl> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.getInt("doActionOnce") == null) {
       prefs.setInt("doActionOnce", 0);
+
       ///Slit is here Do not remove below comment
       // switchMemerSlitsRTD
       //     .child(widget.user.uid)
@@ -619,17 +621,19 @@ class _CheckAppControlState extends State<CheckAppControl> {
 
   @override
   Widget build(BuildContext context) {
-
-    return Constants.username == ""
-        ? SetUserData(
+    return Constants.username == "" && widget.user.displayName != null
+        ? SetGoogleUsername(
             user: widget.user,
           )
-        : Provider<User>.value(
-            value: widget.user,
-            child: MainFeed(
-              user: widget.user,
-              controlData: widget.controlData,
-            ),
-          );
+        : Constants.username == ""
+            ? SetUserData(user: widget.user)
+            : Provider<User>.value(
+                value: widget.user,
+                child: MainFeed(
+                  user: widget.user,
+                  controlData: widget.controlData,
+                ),
+              );
   }
+
 }

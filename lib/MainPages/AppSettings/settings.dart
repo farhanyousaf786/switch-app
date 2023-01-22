@@ -1,9 +1,7 @@
-import 'package:delayed_display/delayed_display.dart';
 import 'package:emojis/emoji.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
@@ -18,11 +16,9 @@ import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Themes/theme_services.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
-import 'package:switchapp/Universal/ThemeMode.dart';
 import 'package:switchapp/main.dart';
-import 'package:timelines/timelines.dart';
 
-import '../ReportAndComplaints/postReportPage.dart';
+import '../../Authentication/SignOut/SignOut.dart';
 
 class AppSettings extends StatefulWidget {
   final User user;
@@ -35,16 +31,7 @@ class AppSettings extends StatefulWidget {
 
 class _AppSettingsState extends State<AppSettings> {
   bool isThemeChanging = false;
-
-  Future<void> signOut() async {
-    final googleSignIn = GoogleSignIn();
-
-    userRefRTD.child(widget.user.uid).update({"isOnline": "false"});
-
-    final auth = Provider.of<AuthBase>(context, listen: false);
-    await googleSignIn.signOut();
-    await auth.signOut();
-  }
+  SignOut signOut = new SignOut();
 
   List<Emoji> emList = Emoji.all(); // list of all Emojis
   List roadMapList = [
@@ -220,7 +207,7 @@ class _AppSettingsState extends State<AppSettings> {
                 color: Colors.white,
                 size: 20,
               ),
-              onPressed: signOut),
+              onPressed: () => signOut.signOut(widget.user.uid, context)),
         ],
       ),
       body: SingleChildScrollView(
