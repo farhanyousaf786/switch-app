@@ -3854,90 +3854,98 @@ class _BodyState extends State<Body> {
         ),
       );
     } else if (pendingRelationShip) {
-      return Container(
-          child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  "Proposal is pending",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w100,
-                      fontFamily: 'cute'),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0),
-                child: SizedBox(
-                  height: 48,
-                  child: ElevatedButton(
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red,
-                        ),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          pendingRelationShip = false;
-                          inRelationShip = false;
-                          print(
-                              "relationShipRequestSenderId => ${relationShipRequestSenderId.toString()}");
-                        });
 
-                        relationShipReferenceRtd
-                            .child(widget.profileOwner)
-                            .update({
-                          "inRelationShip": false,
-                          "pendingRelationShip": false,
-                          "relationShipRequestSenderName": "",
-                          "relationShipRequestSenderId": "",
-                          "relationShipRequestSendToName": "",
-                          "relationShipRequestSendToId": "",
-                        });
-                        relationShipReferenceRtd
-                            .child(relationShipRequestSendToId)
-                            .update({
-                          "inRelationShip": false,
-                          "pendingRelationShip": false,
-                          "relationShipRequestSenderName": "",
-                          "relationShipRequestSenderId": "",
-                          "relationShipRequestSendToName": "",
-                          "relationShipRequestSendToId": "",
-                        });
-                        feedRtDatabaseReference
-                            .child(relationShipRequestSendToId)
-                            .child("feedItems")
-                            .child(postId)
-                            .set({
-                          "type": "cancelRequest",
-                          "firstName": Constants.myName,
-                          "secondName": Constants.mySecondName,
-                          "comment": "",
-                          "timestamp": DateTime.now().millisecondsSinceEpoch,
-                          "url": Constants.myPhotoUrl,
-                          "postId": postId,
-                          "ownerId": widget.currentUserId,
-                          "photourl": "",
-                          "isRead": false,
-                        });
-                      }),
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Container(
+
+          color: Colors.blue.withOpacity(0.09),
+            child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
+                  child: Text(
+                    "Proposal is pending",
+                    style: TextStyle(
+                        color: Colors.lightBlue,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w100,
+                        fontFamily: 'cute'),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Container(
-            height: 20,
-          ),
-        ],
-      ));
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: SizedBox(
+                    height: 24,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue,
+                          elevation: 0.0,
+                        ),
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            pendingRelationShip = false;
+                            inRelationShip = false;
+                            print(
+                                "relationShipRequestSenderId => ${relationShipRequestSenderId.toString()}");
+                          });
+
+                          relationShipReferenceRtd
+                              .child(widget.profileOwner)
+                              .update({
+                            "inRelationShip": false,
+                            "pendingRelationShip": false,
+                            "relationShipRequestSenderName": "",
+                            "relationShipRequestSenderId": "",
+                            "relationShipRequestSendToName": "",
+                            "relationShipRequestSendToId": "",
+                          });
+                          relationShipReferenceRtd
+                              .child(relationShipRequestSendToId)
+                              .update({
+                            "inRelationShip": false,
+                            "pendingRelationShip": false,
+                            "relationShipRequestSenderName": "",
+                            "relationShipRequestSenderId": "",
+                            "relationShipRequestSendToName": "",
+                            "relationShipRequestSendToId": "",
+                          });
+                          feedRtDatabaseReference
+                              .child(relationShipRequestSendToId)
+                              .child("feedItems")
+                              .child(postId)
+                              .set({
+                            "type": "cancelRequest",
+                            "firstName": Constants.myName,
+                            "secondName": Constants.mySecondName,
+                            "comment": "",
+                            "timestamp": DateTime.now().millisecondsSinceEpoch,
+                            "url": Constants.myPhotoUrl,
+                            "postId": postId,
+                            "ownerId": widget.currentUserId,
+                            "photourl": "",
+                            "isRead": false,
+                          });
+                        }),
+                  ),
+                ),
+              ],
+            ),
+
+          ],
+        )),
+      );
     } else {
       return Container(
         height: 0,
@@ -4429,11 +4437,10 @@ class _BodyState extends State<Body> {
                           color: Colors.lightBlue,
                         ),
                       ),
-                      Stack(
-                          children: [
+                      Stack(children: [
                         Padding(
-                          padding:
-                              const EdgeInsets.only(top: 8, bottom: 10, left: 5, right: 11),
+                          padding: const EdgeInsets.only(
+                              top: 8, bottom: 10, left: 5, right: 11),
                           child: Container(
                             width: 27,
                             height: 27,
@@ -4942,7 +4949,7 @@ class _BodyState extends State<Body> {
               child: Text(
                 "Click To Send RelationShip Request",
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w100,
                     fontFamily: 'cute'),
@@ -5174,104 +5181,60 @@ class _BodyState extends State<Body> {
   }
 
   _followersCountAndCrushCountButtonForVisitor() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 15,
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 40,
-                            child: ElevatedButton(
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  FollowerPage(
-                                                currentUserId:
-                                                    widget.currentUserId,
-                                                profileOwner:
-                                                    widget.profileOwner,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(4.0),
-                                          child: Text(
-                                            "Followers",
-                                            style: TextStyle(
-                                              fontSize: 11,
-                                              fontFamily: "cutes",
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 20,
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          child: ElevatedButton(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Text(
+                                        "Followers",
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          fontFamily: "cutes",
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      StreamBuilder(
-                                          stream: userFollowersRtd
-                                              .child(widget.profileOwner)
-                                              .onValue,
-                                          builder: (context,
-                                              AsyncSnapshot dataSnapShot) {
-                                            if (dataSnapShot.hasData) {
-                                              DataSnapshot
-                                                  snapshotForFollowerCounter =
-                                                  dataSnapShot.data.snapshot;
+                                    ),
+                                    StreamBuilder(
+                                        stream: userFollowersRtd
+                                            .child(widget.profileOwner)
+                                            .onValue,
+                                        builder: (context,
+                                            AsyncSnapshot dataSnapShot) {
+                                          if (dataSnapShot.hasData) {
+                                            DataSnapshot
+                                                snapshotForFollowerCounter =
+                                                dataSnapShot.data.snapshot;
 
-                                              Map followersCountMap =
-                                                  snapshotForFollowerCounter
-                                                      .value;
-                                              followersCountMap2 =
-                                                  snapshotForFollowerCounter
-                                                      .value;
+                                            Map followersCountMap =
+                                                snapshotForFollowerCounter
+                                                    .value;
+                                            followersCountMap2 =
+                                                snapshotForFollowerCounter
+                                                    .value;
 
-                                              if (followersCountMap == null) {
-                                                return Text(
-                                                  "0",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: 'cutes',
-                                                    fontSize: 12,
-                                                  ),
-                                                );
-                                              } else {
-                                                String followers =
-                                                    universalMethods
-                                                        .shortNumberGenrator(
-                                                            followersCountMap
-                                                                .length);
-
-                                                return Text(
-                                                  followers,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: 'cutes',
-                                                    fontSize: 12,
-                                                  ),
-                                                );
-                                              }
-                                            } else {
+                                            if (followersCountMap == null) {
                                               return Text(
                                                 "0",
                                                 style: TextStyle(
@@ -5280,93 +5243,135 @@ class _BodyState extends State<Body> {
                                                   fontSize: 12,
                                                 ),
                                               );
+                                            } else {
+                                              String followers =
+                                                  universalMethods
+                                                      .shortNumberGenrator(
+                                                          followersCountMap
+                                                              .length);
+
+                                              return Text(
+                                                followers,
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'cutes',
+                                                  fontSize: 12,
+                                                ),
+                                              );
                                             }
-                                          }),
-                                    ],
-                                  ),
-                                ),
-                                onPressed: () {}),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 15,
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 40,
-                            child: ElevatedButton(
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(4.0),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              "Crush ",
+                                          } else {
+                                            return Text(
+                                              "0",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontFamily: 'cutes',
                                                 fontSize: 12,
                                               ),
-                                            ),
-                                            Icon(
-                                              Icons.favorite_border_outlined,
-                                              size: 14,
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.only(bottom: 4),
-                                        child: Text(
-                                          crushOfCount.toString(),
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'cutes',
-                                            fontSize: 11,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                            );
+                                          }
+                                        }),
+                                  ],
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => CrushOfPage(
-                                        currentUserId: widget.currentUserId,
-                                        profileOwner: widget.profileOwner,
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FollowerPage(
+                                      currentUserId: widget.currentUserId,
+                                      profileOwner: widget.profileOwner,
+                                    ),
+                                  ),
+                                );
+                              },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.lightBlue,
+                              elevation: 0.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 20,
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.lightBlue,
+                                elevation: 0.0,
+                              ),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Crush ",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'cutes',
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.favorite_border_outlined,
+                                            size: 14,
+                                          )
+                                        ],
                                       ),
                                     ),
-                                  );
-                                }),
-                          ),
-                        ],
-                      ),
+                                    Container(
+                                      padding: EdgeInsets.only(bottom: 4),
+                                      child: Text(
+                                        crushOfCount.toString(),
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'cutes',
+                                          fontSize: 11,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CrushOfPage(
+                                      currentUserId: widget.currentUserId,
+                                      profileOwner: widget.profileOwner,
+                                    ),
+                                  ),
+                                );
+                              }),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ],
-            ),
-            _decencyMeter(),
-          ],
-        ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          _decencyMeter(),
+        ],
       ),
     );
   }
@@ -5978,7 +5983,7 @@ class _BodyState extends State<Body> {
                             "Not in Relationship",
                             style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.w100,
                                 fontFamily: 'cute'),
                           ),
@@ -6208,7 +6213,7 @@ class _BodyState extends State<Body> {
                         : "Tap Heart if Crush on Her",
                     style: TextStyle(
                       fontFamily: 'cute',
-                      color: Colors.blue,
+                      color: Colors.lightBlue,
                       fontSize: 12,
                       fontWeight: FontWeight.w100,
                     ),
@@ -6828,7 +6833,7 @@ class _BodyState extends State<Body> {
                   scrollDirection: Axis.vertical,
                   children: [
                     Material(
-                      elevation: 6,
+                      elevation: 10,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15),
@@ -6843,12 +6848,9 @@ class _BodyState extends State<Body> {
                                 ),
                           appBar(),
                           _followersCountAndCrushCountButtonForVisitor(),
-                          SizedBox(
-                            height: 10,
-                          ),
                           _aboutAndMinor(),
                           SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
                           isBlock
                               ? Center(
@@ -7399,7 +7401,7 @@ class _ProfileDecencyState extends State<ProfileDecency> {
                           child: Text(
                             "Your Rating: ",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 12,
                                 fontWeight: FontWeight.w100),

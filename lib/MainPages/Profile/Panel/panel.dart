@@ -1791,7 +1791,7 @@ class _PanelState extends State<Panel> {
                                 style: TextStyle(
                                     fontFamily: 'cute',
                                     fontSize: 12,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ),
                             ],
                           ),
