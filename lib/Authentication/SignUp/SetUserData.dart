@@ -182,6 +182,7 @@ class _SetUserDataState extends State<SetUserData> {
         "currentMood": "Happy",
         "username": userNameTextEditingController.text.toLowerCase(),
         "isVerified": "false",
+        "about": "",
       });
       userProfileDecencyReport.child(user.uid).update({
         "numberOfOne": 0,
@@ -368,13 +369,13 @@ class _SetUserDataState extends State<SetUserData> {
       body: Container(
         color: Colors.lightBlue,
         child: DelayedDisplay(
-          delay: Duration(seconds: 1),
+          delay: Duration(milliseconds: 500),
           slidingBeginOffset: Offset(0.0, -1),
           child: ListView(
             children: <Widget>[
               Container(
-                height: 150,
-                width: 120,
+                height: 130,
+                width: 100,
                 child: RiveAnimation.asset(
                   'images/authLogo.riv',
                 ),
@@ -407,7 +408,7 @@ class _SetUserDataState extends State<SetUserData> {
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
                   // height: 65,
-                  padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
+                  padding: EdgeInsets.fromLTRB(45, 0, 45, 0),
                   child: TextField(
                     inputFormatters: [],
                     onEditingComplete: _userNameEditingComplete,
@@ -446,7 +447,7 @@ class _SetUserDataState extends State<SetUserData> {
                       labelText: 'Username',
                       labelStyle: TextStyle(
                           fontFamily: "Cute",
-                          color: Colors.blue.shade900,
+                          color: Colors.white70,
                           fontSize: 12),
                     ),
                   ),
@@ -459,7 +460,7 @@ class _SetUserDataState extends State<SetUserData> {
                   slidingBeginOffset: Offset(-0.5, 0.0),
                   child: Container(
                     height: 50,
-                    padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
+                    padding: EdgeInsets.fromLTRB(45, 0, 45, 0),
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
@@ -486,7 +487,7 @@ class _SetUserDataState extends State<SetUserData> {
                         labelText: 'First Name',
                         labelStyle: TextStyle(
                             fontFamily: 'cute',
-                            color: Colors.blue.shade900,
+                            color: Colors.white70,
                             fontSize: 12),
                       ),
                     ),
@@ -500,7 +501,7 @@ class _SetUserDataState extends State<SetUserData> {
                   slidingBeginOffset: Offset(-0.5, 0.0),
                   child: Container(
                     height: 50,
-                    padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
+                    padding: EdgeInsets.fromLTRB(45, 0, 45, 0),
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
@@ -523,9 +524,9 @@ class _SetUserDataState extends State<SetUserData> {
                           borderSide:
                               new BorderSide(color: Colors.white, width: 2),
                         ),
-                        labelText: 'Last Name',
+                        labelText: 'Last Name (optional)',
                         labelStyle: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Colors.white70,
                             fontSize: 12,
                             fontFamily: 'cute'),
                       ),

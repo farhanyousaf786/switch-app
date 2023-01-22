@@ -52,6 +52,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
 
   beforeGettingImage(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         leading: Text(""),
         backgroundColor: Colors.lightBlue,
@@ -167,7 +168,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
       delay: Duration(seconds: 1),
       slidingBeginOffset: Offset(0.0, -1),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.lightBlue,
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.lightBlue,
@@ -275,102 +276,102 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               SizedBox(
                 height: 30,
               ),
-              DelayedDisplay(
-                delay: Duration(seconds: 1),
-                slidingBeginOffset: Offset(0.0, -1),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Container(
-                      child: Text(
-                        "Gender",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Cute",
-                            fontSize: 15),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        // color: isMale ? Colors.blue.shade800 : Colors.white,
-                        // shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(15.0),
-                        //     side: BorderSide(
-                        //       color: Colors.blue,
-                        //     )),
-                        onPressed: () {
-                          setState(() {
-                            isMale = true;
-                            isFemale = false;
-                            others = false;
-                            gender = "Male";
-                          });
-                        },
-                        child: Text(
-                          "Male",
-                          style: TextStyle(
-                              color: Colors.blue.shade300,
-                              fontFamily: "Cute",
-                              fontSize: 12),
-                        )),
-                    ElevatedButton(
-                        // color: isFemale ? Colors.blue.shade800 : Colors.white,
-                        // shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(15.0),
-                        //     side: BorderSide(
-                        //       color: Colors.blue,
-                        //     )),
-                        onPressed: () {
-                          setState(() {
-                            isFemale = true;
-                            isMale = false;
-                            others = false;
-                            gender = "Female";
-                          });
-                        },
-                        child: Text(
-                          "Female",
-                          style: TextStyle(
-                              color: Colors.blue.shade300,
-                              fontFamily: "Cute",
-                              fontSize: 12),
-                        )),
-                    ElevatedButton(
-                        // color: others ? Colors.blue.shade800 : Colors.white,
-                        // shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(15.0),
-                        //     side: BorderSide(
-                        //       color: Colors.blue,
-                        //     )),
-                        onPressed: () {
-                          setState(() {
-                            others = true;
-                            isFemale = false;
-                            isMale = false;
-                            gender = "Others";
-                          });
-                        },
-                        child: Text(
-                          "Others",
-                          style: TextStyle(
-                              color: Colors.blue.shade300,
-                              fontFamily: "Cute",
-                              fontSize: 12),
-                        )),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 70,
-              ),
+              // DelayedDisplay(
+              //   delay: Duration(seconds: 1),
+              //   slidingBeginOffset: Offset(0.0, -1),
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Center(
+              //       child: Container(
+              //         child: Text(
+              //           "Gender",
+              //           style: TextStyle(
+              //               color: Colors.white,
+              //               fontFamily: "Cute",
+              //               fontSize: 15),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: [
+              //       ElevatedButton(
+              //           // color: isMale ? Colors.blue.shade800 : Colors.white,
+              //           // shape: RoundedRectangleBorder(
+              //           //     borderRadius: BorderRadius.circular(15.0),
+              //           //     side: BorderSide(
+              //           //       color: Colors.blue,
+              //           //     )),
+              //           onPressed: () {
+              //             setState(() {
+              //               isMale = true;
+              //               isFemale = false;
+              //               others = false;
+              //               gender = "Male";
+              //             });
+              //           },
+              //           child: Text(
+              //             "Male",
+              //             style: TextStyle(
+              //                 color: Colors.blue.shade300,
+              //                 fontFamily: "Cute",
+              //                 fontSize: 12),
+              //           )),
+              //       ElevatedButton(
+              //           // color: isFemale ? Colors.blue.shade800 : Colors.white,
+              //           // shape: RoundedRectangleBorder(
+              //           //     borderRadius: BorderRadius.circular(15.0),
+              //           //     side: BorderSide(
+              //           //       color: Colors.blue,
+              //           //     )),
+              //           onPressed: () {
+              //             setState(() {
+              //               isFemale = true;
+              //               isMale = false;
+              //               others = false;
+              //               gender = "Female";
+              //             });
+              //           },
+              //           child: Text(
+              //             "Female",
+              //             style: TextStyle(
+              //                 color: Colors.blue.shade300,
+              //                 fontFamily: "Cute",
+              //                 fontSize: 12),
+              //           )),
+              //       ElevatedButton(
+              //           // color: others ? Colors.blue.shade800 : Colors.white,
+              //           // shape: RoundedRectangleBorder(
+              //           //     borderRadius: BorderRadius.circular(15.0),
+              //           //     side: BorderSide(
+              //           //       color: Colors.blue,
+              //           //     )),
+              //           onPressed: () {
+              //             setState(() {
+              //               others = true;
+              //               isFemale = false;
+              //               isMale = false;
+              //               gender = "Others";
+              //             });
+              //           },
+              //           child: Text(
+              //             "Others",
+              //             style: TextStyle(
+              //                 color: Colors.blue.shade300,
+              //                 fontFamily: "Cute",
+              //                 fontSize: 12),
+              //           )),
+              //     ],
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 70,
+              // ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -513,24 +514,14 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
 
 
   controlAndUploadData() async {
-    if (gender == "") {
-      Fluttertoast.showToast(
-        msg: "Select Gender",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        timeInSecForIosWeb: 5,
-        backgroundColor: Colors.white,
-        textColor: Colors.blue,
-        fontSize: 16.0,
-      );
-    } else {
+
       setState(() {
         uploading = true;
       });
       await compressImage();
 
       uploadPhoto(file);
-    }
+
   }
 
   savePostInfoToFirebase({required String url, required String about}) async {
@@ -548,7 +539,6 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
       'inRelationship': "false",
       'url': url,
       'about': about == "" ? "About is Not Set Yet" : about,
-      'gender': gender,
     });
     userRefForSearchRtd.child(widget.user!).update({'url': url});
   }
