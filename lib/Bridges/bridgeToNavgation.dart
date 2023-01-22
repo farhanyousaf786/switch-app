@@ -66,6 +66,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
   checkUserData(User user) async {
     SharedPreferences? prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey('username')) {
+      print(">>>>>>>>>>>>>>>>>>>>>>> key" + prefs.containsKey('username').toString());
       getUserData(prefs);
     } else {
       print("*****((Set User Data at Bridget To Navigation))*****");
@@ -108,10 +109,6 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     Constants.isVerified = prefs.getString("isVerified")!;
     Constants.isBan = prefs.getString("isBan")!;
     print("username >>>>>>>>>>>>>>>>>> ${prefs.getString("username")!}");
-    if (mounted)
-      setState(() {
-        isLoading = false;
-      });
   }
 
   checkAppControl() async {

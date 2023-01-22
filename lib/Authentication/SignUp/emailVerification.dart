@@ -179,14 +179,14 @@ class _EmailVerificationState extends State<EmailVerification> {
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(15)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Text(
                             "Verified Successfully",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'cute',
                               color: Colors.green.shade700,
-                              fontSize: 16,
+                              fontSize: 20,
                             ),
                           ),
                         ),
@@ -211,7 +211,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15)),
                           child: Text(
-                            "Click here to proceed",
+                            "Click here to proceed >>",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'cute',

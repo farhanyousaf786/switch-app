@@ -64,10 +64,11 @@ class _SetUserDataState extends State<SetUserData> {
           userListEmpty = true;
         });
       } else {
-        setState(() {
-          values
-              .forEach((index, data) => tempList.add({"user": index, ...data}));
-        });
+        if (mounted)
+          setState(() {
+            values.forEach(
+                (index, data) => tempList.add({"user": index, ...data}));
+          });
         setState(() {
           this.userList = tempList;
         });
@@ -168,8 +169,7 @@ class _SetUserDataState extends State<SetUserData> {
         "ownerId": user.uid,
         "firstName":
             firstName.text[0].toUpperCase() + firstName.text.substring(1),
-        "secondName":
-        lastName.text.isEmpty
+        "secondName": lastName.text.isEmpty
             ? ""
             : lastName.text[0].toUpperCase() + lastName.text.substring(1),
         "timestamp": DateTime.now().millisecondsSinceEpoch.toString(),
@@ -209,20 +209,47 @@ class _SetUserDataState extends State<SetUserData> {
           "photoUrl": Constants.switchLogo,
         },
       );
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Provider<AuthBase>(
-            create: (context) => Auth(),
-            child: SetProfilePicture(
-              user: user.uid,
-              email: user.email,
-              users: widget.user!,
+      setUserData(user);
+      Future.delayed(const Duration(milliseconds: 300), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Provider<AuthBase>(
+              create: (context) => Auth(),
+              child: SetProfilePicture(
+                user: user.uid,
+                email: user.email,
+                users: widget.user!,
+              ),
             ),
           ),
-        ),
-      );
+        );
+      });
     }
+  }
+
+  setUserData(User user) async {
+    print("*****((Set User Data at Bridget To Navigation))*****");
+    Map userMap;
+    SharedPreferences? prefs = await SharedPreferences.getInstance();
+    userRefRTD.child(user.uid).once().then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.value != null) {
+        userMap = dataSnapshot.value;
+        prefs.setString("firstName", userMap['firstName']);
+        prefs.setString("ownerId", userMap['ownerId']);
+        prefs.setString("url", userMap['url']);
+        prefs.setString("secondName", userMap['secondName']);
+        prefs.setString("email", userMap['email']);
+        prefs.setString("currentMood", userMap['currentMood']);
+        prefs.setString("gender", userMap['gender']);
+        prefs.setString("country", userMap['country']);
+        prefs.setString("dob", userMap['dob']);
+        prefs.setString("about", userMap['about']);
+        prefs.setString("username", userMap['username']);
+        prefs.setString("isVerified", userMap['isVerified']);
+        prefs.setString("isBan", userMap['isBan']);
+      }
+    });
   }
 
   void formatUsername() {
