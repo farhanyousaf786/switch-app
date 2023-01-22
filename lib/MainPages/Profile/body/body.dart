@@ -4554,13 +4554,13 @@ class _BodyState extends State<Body> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20, left: 10),
+            padding: const EdgeInsets.only(top: 15, left: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 GestureDetector(
                   child: SizedBox(
-                    height: 40,
+                    height: 50,
                     child: ElevatedButton(
                       child: SingleChildScrollView(
                         child: Column(
@@ -4574,7 +4574,6 @@ class _BodyState extends State<Body> {
                                   "Followers",
                                   style: TextStyle(
                                       fontFamily: "cutes",
-                                      fontWeight: FontWeight.bold,
                                       fontSize: 12),
                                 ),
                               ),
@@ -4587,9 +4586,7 @@ class _BodyState extends State<Body> {
                                   if (dataSnapShot.hasData) {
                                     DataSnapshot snapshot =
                                         dataSnapShot.data.snapshot;
-
                                     Map data = snapshot.value;
-
                                     if (data == null) {
                                       return Text(
                                         "0",
@@ -4659,12 +4656,12 @@ class _BodyState extends State<Body> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 20,
+              top: 15,
             ),
             child: Column(
               children: [
                 SizedBox(
-                  height: 40,
+                  height: 50,
                   child: ElevatedButton(
                     child: SingleChildScrollView(
                       child: Column(
@@ -4829,7 +4826,7 @@ class _BodyState extends State<Body> {
               : GestureDetector(
                   onTap: () => print("Tapped"),
                   child: Container(
-                    color: Colors.blue.withOpacity(0.04),
+                    color: Colors.blue.withOpacity(0.09),
                     child: Padding(
                       padding: const EdgeInsets.only(
                         bottom: 10.0,
@@ -4844,9 +4841,9 @@ class _BodyState extends State<Body> {
                               "Not In Relationship",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.w100),
                             ),
                           ),
@@ -4859,7 +4856,7 @@ class _BodyState extends State<Body> {
                                   style: TextStyle(
                                       color: Colors.grey,
                                       fontFamily: 'cute',
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w100),
                                 ),
                                 Icon(
@@ -4898,7 +4895,7 @@ class _BodyState extends State<Body> {
     if (inRelationShip) {
       return Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.03),
+        color: Colors.blue.withOpacity(0.09),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -4929,7 +4926,7 @@ class _BodyState extends State<Body> {
     } else if (!inRelationShip && !pendingRelationShip) {
       return Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.03),
+        color: Colors.blue.withOpacity(0.09),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -5141,7 +5138,7 @@ class _BodyState extends State<Body> {
               },
               child: Container(
                 height: 40,
-                color: Colors.blue.withOpacity(0.03),
+                color: Colors.blue.withOpacity(0.09),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -5477,112 +5474,115 @@ class _BodyState extends State<Body> {
 
   _decencyMeter() {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          CircularPercentIndicator(
-            radius: 75.0,
-            lineWidth: 6,
-            percent: userPercentageDecency.toStringAsPrecision(3) == "NaN"
-                ? 0
-                : userPercentageDecency / 100,
-            animation: true,
-            animationDuration: 2000,
-            startAngle: 180,
-            center: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Countup(
-                  duration: Duration(milliseconds: 2000),
-                  begin: 0,
-                  end: userPercentageDecency.toStringAsPrecision(3) == "NaN"
-                      ? 0
-                      : userPercentageDecency,
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize:
-                          userPercentageDecency.toStringAsPrecision(3) == "NaN"
-                              ? 12
-                              : 14,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  "%",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize:
-                          userPercentageDecency.toStringAsPrecision(3) == "NaN"
-                              ? 13
-                              : 11,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: Column(
+          children: [
+            CircularPercentIndicator(
+              radius: 70.0,
+              lineWidth: 5,
+              percent: userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                  ? 0
+                  : userPercentageDecency / 100,
+              animation: true,
+              animationDuration: 2000,
+              startAngle: 180,
+              center: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Countup(
+                    duration: Duration(milliseconds: 2000),
+                    begin: 0,
+                    end: userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                        ? 0
+                        : userPercentageDecency,
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize:
+                            userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                                ? 12
+                                : 14,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    "%",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize:
+                            userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                                ? 13
+                                : 11,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+              progressColor: Colors.blue,
+              circularStrokeCap: CircularStrokeCap.round,
+              backgroundColor:
+                  userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                      ? Colors.blue
+                      : Colors.grey.shade200,
             ),
-            progressColor: Colors.blue,
-            circularStrokeCap: CircularStrokeCap.round,
-            backgroundColor:
-                userPercentageDecency.toStringAsPrecision(3) == "NaN"
-                    ? Colors.blue
-                    : Colors.grey.shade200,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5, right: 1),
-            child: Text(
-              "Profile Decency",
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 10,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'cutes',
+            Padding(
+              padding: const EdgeInsets.only(top: 5, right: 1),
+              child: Text(
+                "Profile Decency",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'cutes',
+                ),
               ),
             ),
-          ),
-          userPercentageDecency.toStringAsPrecision(3) == "NaN"
-              ? Text(
-                  "Not Rated Yet",
-                  style: TextStyle(
-                      fontSize: 10, color: Colors.blue, fontFamily: 'cutes'),
-                )
-              : Padding(
-                  padding: const EdgeInsets.only(top: 3, right: 6),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Row(
-                          children: [
-                            new Text(
-                              userPercentageDecency.toStringAsPrecision(1) ==
-                                      "NaN"
-                                  ? "Not Rated"
-                                  : "${userDecency.toStringAsPrecision(1)}",
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: userPercentageDecency
-                                              .toStringAsPrecision(3) ==
-                                          "NaN"
-                                      ? 10
-                                      : 12,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              " / 5",
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: userPercentageDecency
-                                              .toStringAsPrecision(3) ==
-                                          "NaN"
-                                      ? 10
-                                      : 12,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
+            userPercentageDecency.toStringAsPrecision(3) == "NaN"
+                ? Text(
+                    "Not Rated Yet",
+                    style: TextStyle(
+                        fontSize: 10, color: Colors.blue, fontFamily: 'cutes'),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(top: 3, right: 6),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Row(
+                            children: [
+                              new Text(
+                                userPercentageDecency.toStringAsPrecision(1) ==
+                                        "NaN"
+                                    ? "Not Rated"
+                                    : "${userDecency.toStringAsPrecision(1)}",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: userPercentageDecency
+                                                .toStringAsPrecision(3) ==
+                                            "NaN"
+                                        ? 10
+                                        : 12,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Text(
+                                " / 5",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: userPercentageDecency
+                                                .toStringAsPrecision(3) ==
+                                            "NaN"
+                                        ? 10
+                                        : 12,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -5878,7 +5878,7 @@ class _BodyState extends State<Body> {
     return Center(
       child: Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.03),
+        color: Colors.blue.withOpacity(0.09),
         width: MediaQuery.of(context).size.width,
         child: inRelationShipForOwnProfile
             ? GestureDetector(
@@ -6090,7 +6090,7 @@ class _BodyState extends State<Body> {
       children: [
         Container(
           height: 40,
-          color: Colors.blue.withOpacity(0.03),
+          color: Colors.blue.withOpacity(0.09),
           padding: EdgeInsets.only(left: 23, right: 26),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -6098,7 +6098,7 @@ class _BodyState extends State<Body> {
               Text(
                 "Landing Day On Earth",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   fontFamily: 'cute',
                   fontSize: 12,
                 ),
@@ -6118,7 +6118,7 @@ class _BodyState extends State<Body> {
         ),
         Container(
           height: 40,
-          color: Colors.blue.withOpacity(0.03),
+          color: Colors.blue.withOpacity(0.09),
           padding: EdgeInsets.only(left: 23, right: 25),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -6126,7 +6126,7 @@ class _BodyState extends State<Body> {
               Text(
                 "Gender",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   fontFamily: 'cute',
                   fontSize: 12,
                 ),
@@ -6146,7 +6146,7 @@ class _BodyState extends State<Body> {
         ),
         Container(
           height: 40,
-          color: Colors.blue.withOpacity(0.03),
+          color: Colors.blue.withOpacity(0.09),
           padding: EdgeInsets.only(left: 23, right: 25),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -6154,7 +6154,7 @@ class _BodyState extends State<Body> {
               Text(
                 "Country",
                 style: TextStyle(
-                    color: Colors.blue, fontFamily: 'cute', fontSize: 12),
+                    color: Colors.lightBlue, fontFamily: 'cute', fontSize: 12),
               ),
               Text(
                 widget.country,
@@ -6173,7 +6173,7 @@ class _BodyState extends State<Body> {
   _crushButtonControllerForVisitor() {
     return Container(
       height: 40,
-      color: Colors.blue.withOpacity(0.03),
+      color: Colors.blue.withOpacity(0.09),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -6764,7 +6764,8 @@ class _BodyState extends State<Body> {
                       height: 20,
                     ),
                     Material(
-                      elevation: 5,
+                      color: Colors.white,
+                      elevation: 0.0,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15),
@@ -6779,19 +6780,10 @@ class _BodyState extends State<Body> {
                                 ),
                           appBar(),
                           _crushOfAndFollowersButton(),
-                          SizedBox(
-                            height: 10,
-                          ),
                           _aboutAndMinor(),
-                          SizedBox(
-                            height: 10,
-                          ),
                           editandBlockOption(),
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
                     ),
                     Panel(
                       aboutMain: widget.mainAbout,
@@ -6807,6 +6799,7 @@ class _BodyState extends State<Body> {
                     ),
                     _relationshipStatusForOwnProfile(),
                     otherInfo(),
+
                     _posts(),
                     SizedBox(
                       height: 100,

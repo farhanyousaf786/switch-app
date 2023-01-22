@@ -1300,51 +1300,58 @@ class _PanelState extends State<Panel> {
               //     ],
               //   ),
               // ),
+
+              // editMyProfile(),
+              _bestiesList(),
+
+
               Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 20),
+                padding: const EdgeInsets.only(bottom: 8),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width / 4.5,
-                        height: 38,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Colors.blue.shade500,
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => FollowingPage(
-                                  currentUserId: widget.currentUserId,
-                                  profileOwner: widget.profileOwner,
+                  child: Container(
+                    color: Colors.blue.withOpacity(0.09),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FollowingPage(
+                                    currentUserId: widget.currentUserId,
+                                    profileOwner: widget.profileOwner,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  5,
                                 ),
                               ),
-                            );
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(4.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                5,
-                              ),
-                            ),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Following",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "cutes",
-                                        fontSize: 10),
-                                  ),
-                                  StreamBuilder(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "Following",
+                                      style: TextStyle(
+                                          color: Colors.lightBlue,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "cutes",
+                                          fontSize: 10),
+                                    ),
+                                    StreamBuilder(
                                       stream: userFollowingRtd
                                           .child(widget.currentUserId)
                                           .onValue,
@@ -1359,13 +1366,12 @@ class _PanelState extends State<Panel> {
                                           if (data == null) {
                                             return Padding(
                                               padding:
-                                                  const EdgeInsets.only(top: 4),
+                                              const EdgeInsets.only(top: 4),
                                               child: Text(
                                                 "0",
                                                 style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
                                                   fontFamily: 'cutes',
-                                                  color: Colors.white,
+                                                  color: Colors.lightBlue,
                                                   fontSize: 12,
                                                 ),
                                               ),
@@ -1375,14 +1381,13 @@ class _PanelState extends State<Panel> {
                                                 .shortNumberGenrator(data.length);
                                             return Padding(
                                               padding:
-                                                  const EdgeInsets.only(top: 3),
+                                              const EdgeInsets.only(top: 3),
                                               child: Text(
                                                 following,
                                                 style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'cutes',
-                                                  fontSize: 12,
-                                                  color: Colors.white
+                                                    fontFamily: 'cutes',
+                                                    fontSize: 12,
+                                                    color: Colors.lightBlue
                                                 ),
                                               ),
                                             );
@@ -1390,137 +1395,121 @@ class _PanelState extends State<Panel> {
                                         } else {
                                           return Padding(
                                             padding:
-                                                const EdgeInsets.only(top: 3),
+                                            const EdgeInsets.only(top: 3),
                                             child: Text(
                                               "0",
                                               style: TextStyle(
-                                                fontWeight: FontWeight.bold,
                                                 fontFamily: 'cutes',
+                                                color: Colors.lightBlue,
                                                 fontSize: 12,
                                               ),
                                             ),
                                           );
                                         }
                                       },),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: 25,),
-
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Colors.blue.shade500,
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          height: 38,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CrushOnPage(
+                                    currentUserId: widget.currentUserId,
+                                    profileOwner: widget.profileOwner,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "CrushOn",
+                                      style: TextStyle(
+                                          fontFamily: "cutes",
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue,
+                                          fontSize: 10),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 3),
+                                      child: Text(
+                                        crushOnCount,
+                                        style: TextStyle(
+                                            color: Colors.lightBlue,
+                                            fontFamily: 'cutes',
+                                            fontSize: 12),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-                        width: MediaQuery.of(context).size.width / 4.5,
-                        height: 38,
-                        child: GestureDetector(
-                          onTap: () {
+                        TextButton(
+                          onPressed: () => {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CrushOnPage(
-                                  currentUserId: widget.currentUserId,
-                                  profileOwner: widget.profileOwner,
+                                builder: (context) => Provider<User>.value(
+                                  value: widget.user,
+                                  child: MemeProfile(
+                                    profileOwner: widget.profileOwner,
+                                    currentUserId: widget.currentUserId,
+                                    mainProfileUrl: widget.mainProfileUrl,
+                                    mainSecondName: widget.mainSecondName,
+                                    mainFirstName: widget.mainFirstName,
+                                    mainGender: widget.mainGender,
+                                    mainEmail: widget.mainEmail,
+                                    mainAbout: widget.aboutMain,
+                                    user: widget.user,
+                                    navigateThrough: 'panel',
+                                    username: widget.username,
+                                  ),
                                 ),
                               ),
-                            );
+                            ),
                           },
                           child: Container(
-                            padding: EdgeInsets.all(4.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "CrushOn",
-                                    style: TextStyle(
-                                        fontFamily: "cutes",
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: 10),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 3),
-                                    child: Text(
-                                      crushOnCount,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'cutes',
-                                          fontSize: 12),
-                                    ),
-                                  ),
-                                ],
+
+                            height: 36,
+                            width: MediaQuery.of(context).size.width / 4.5,
+
+                            child: Center(
+                              child: Text(
+                                "Meme Profile >>",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontFamily: 'cutes',
+                                    color: Colors.lightBlue,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 11),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: 10,),
-                      TextButton(
-                        onPressed: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Provider<User>.value(
-                                value: widget.user,
-                                child: MemeProfile(
-                                  profileOwner: widget.profileOwner,
-                                  currentUserId: widget.currentUserId,
-                                  mainProfileUrl: widget.mainProfileUrl,
-                                  mainSecondName: widget.mainSecondName,
-                                  mainFirstName: widget.mainFirstName,
-                                  mainGender: widget.mainGender,
-                                  mainEmail: widget.mainEmail,
-                                  mainAbout: widget.aboutMain,
-                                  user: widget.user,
-                                  navigateThrough: 'panel',
-                                  username: widget.username,
-                                ),
-                              ),
-                            ),
-                          ),
-                        },
-                        child: Container(
-                          // padding: EdgeInsets.only(left: 3, right: 3),
-                          decoration: BoxDecoration(
-                              color: Colors.purple,
-
-                              borderRadius: BorderRadius.circular(4)
-                          ),
-                          height: 30,
-                          width: MediaQuery.of(context).size.width / 4.5,
-
-                          child: Center(
-                            child: Text(
-                              "  Meme Profile  ",
-                              style: TextStyle(
-                                  fontFamily: 'cutes',
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 9),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 5,
-              ),
 
-              // editMyProfile(),
-              SizedBox(
-                height: 0,
-              ),
-              _bestiesList(),
 
               // _posts()
             ],
@@ -1721,92 +1710,103 @@ class _PanelState extends State<Panel> {
 
             : Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Provider<User>.value(
-                            value: widget.user,
-                            child: MainSearchPage(
-                              navigateThrough: "",
-                              user: widget.user,
-                              userId: Constants.myId,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Provider<User>.value(
+                              value: widget.user,
+                              child: MainSearchPage(
+                                navigateThrough: "",
+                                user: widget.user,
+                                userId: Constants.myId,
+                              ),
                             ),
                           ),
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width/1.1,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.lightBlue, width: 1),
                         ),
-                      );
-                    },
-                    child: Container(
-                      width: 50,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.blue, width: 1),
-                      ),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.blue,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Add Bestie",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'cute',
+                                  fontSize: 12),
+                            ),  Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 18,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Text(
-                      "Add Bestie",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'cute',
-                          fontSize: 12),
-                    ),
-                  ),
+
                 ],
               )
-        : SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Padding(
-                  padding: widget.currentUserId == widget.profileOwner
-                      ? EdgeInsets.only(left: 8, bottom: 10)
-                      : EdgeInsets.only(left: 0, bottom: 10),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 50,
-                        width: 50,
-                        child: Image.asset('images/profile/bestie-image.png'),
-                      ),
-                      Text(
-                        "Besties",
-                        style: TextStyle(
-                            fontFamily: 'cute',
-                            fontSize: 12,
-                            color: Colors.blue),
-                      ),
-                    ],
+        : SizedBox(
+      width: MediaQuery.of(context).size.width/1.1,
+          child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: widget.currentUserId == widget.profileOwner
+                              ? EdgeInsets.only(left: 8, bottom: 10)
+                              : EdgeInsets.only(left: 0, bottom: 10),
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 40,
+                                child: Image.asset('images/profile/bestie-image.png'),
+                              ),
+                              Text(
+                                "Besties",
+                                style: TextStyle(
+                                    fontFamily: 'cute',
+                                    fontSize: 12,
+                                    color: Colors.blue),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          height: 100,
+                          width: MediaQuery.of(context).size.width / 1.5,
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: friendList.length,
+                              itemBuilder: (context, index) => Padding(
+                                    padding: const EdgeInsets.only(top: 15, left: 10),
+                                    child: BestFriendList(
+                                      index: index,
+                                      bestFriendList: friendList,
+                                    ),
+                                  )),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width / 1.5,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: friendList.length,
-                      itemBuilder: (context, index) => Padding(
-                            padding: const EdgeInsets.only(top: 15, left: 10),
-                            child: BestFriendList(
-                              index: index,
-                              bestFriendList: friendList,
-                            ),
-                          )),
-                ),
-              ],
-            ),
-          );
+        );
   }
 }
