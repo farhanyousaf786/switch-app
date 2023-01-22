@@ -1711,7 +1711,7 @@ class _PanelState extends State<Panel> {
             : Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
+                    padding: const EdgeInsets.only(bottom: 15, top: 20),
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(

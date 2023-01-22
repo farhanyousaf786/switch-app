@@ -6342,7 +6342,7 @@ class _BodyState extends State<Body> {
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.05),
+        color: Colors.blue.withOpacity(0.09),
         child: Padding(
           padding: const EdgeInsets.only(left: 23, right: 23),
           child: Row(
@@ -7380,7 +7380,7 @@ class _ProfileDecencyState extends State<ProfileDecency> {
               ? Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.blue.withOpacity(0.05),
+                  color: Colors.blue.withOpacity(0.09),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 18, right: 10),
                     child: Row(
