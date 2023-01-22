@@ -108,6 +108,10 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
     Constants.isVerified = prefs.getString("isVerified")!;
     Constants.isBan = prefs.getString("isBan")!;
     print("username >>>>>>>>>>>>>>>>>> ${prefs.getString("username")!}");
+    if (mounted)
+      setState(() {
+        isLoading = false;
+      });
   }
 
   checkAppControl() async {

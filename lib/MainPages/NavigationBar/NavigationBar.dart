@@ -621,19 +621,14 @@ class _CheckAppControlState extends State<CheckAppControl> {
 
   @override
   Widget build(BuildContext context) {
-    return Constants.username == "" && widget.user.displayName != null
-        ? SetGoogleUsername(
-            user: widget.user,
-          )
-        : Constants.username == ""
-            ? SetUserData(user: widget.user)
-            : Provider<User>.value(
-                value: widget.user,
-                child: MainFeed(
-                  user: widget.user,
-                  controlData: widget.controlData,
-                ),
-              );
+    return Constants.username == ""
+        ? SetUserData(user: widget.user)
+        : Provider<User>.value(
+            value: widget.user,
+            child: MainFeed(
+              user: widget.user,
+              controlData: widget.controlData,
+            ),
+          );
   }
-
 }
