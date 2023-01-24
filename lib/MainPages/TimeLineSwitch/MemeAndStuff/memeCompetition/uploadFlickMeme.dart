@@ -12,6 +12,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/MainPages/Upload/videoStatus.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/bottomBarModel/congratsModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
@@ -78,23 +79,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Container(
-
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Row(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.center,
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.linear_scale_sharp,
-                                  color: Colors.white,),
-                              ],
-                            ),
-                          ),
-                          color: Colors.blue,
-                        ),
+                        BarTop(),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
@@ -820,23 +805,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   SizedBox(
                     height: 10,
                   ),

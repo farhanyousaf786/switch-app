@@ -338,6 +338,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/MainPages/Profile/Panel/EditProfilePic.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
@@ -426,22 +427,7 @@ class _EditProfileState extends State<EditMyProfile> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Container(

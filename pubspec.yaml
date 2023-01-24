@@ -159,9 +159,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Indies
-      fonts:
-        - asset: assets/fonts/IndieFlower-Regular.ttf
     - family: cute
       fonts:
         - asset: assets/fonts/LexendDeca.ttf
@@ -171,12 +168,12 @@ flutter:
 #    - family: Cutes
 #      fonts:
 #        - asset: assets/fonts/VarelaRound-Regular.ttf
-    - family: Robot
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-    - family: RobotBold
-      fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
+#    - family: Robot
+#      fonts:
+#        - asset: assets/fonts/Roboto-Regular.ttf
+#    - family: RobotBold
+#      fonts:
+#        - asset: assets/fonts/Roboto-Bold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

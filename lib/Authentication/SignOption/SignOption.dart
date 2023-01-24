@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 
 import '../../Bridges/landingPage.dart';
 import '../../Models/need_help/need_help_page.dart';
@@ -44,22 +45,7 @@ class _HomeLandingState extends State<HomeLanding> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.lightBlue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Text(

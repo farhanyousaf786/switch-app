@@ -20,6 +20,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import '../../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
@@ -107,23 +108,7 @@ class _YourFeedState extends State<YourFeed> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -1427,23 +1412,7 @@ class _YourFeedState extends State<YourFeed> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(15),
                     child: Text(
@@ -1536,23 +1505,7 @@ class _YourFeedState extends State<YourFeed> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  Container(
-
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.linear_scale_sharp,
-                                            color: Colors.white,),
-                                        ],
-                                      ),
-                                    ),
-                                    color: Colors.blue,
-                                  ),
+                          BarTop(),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: GestureDetector(
@@ -2041,23 +1994,7 @@ class _YourFeedState extends State<YourFeed> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 0, left: 10, right: 10),
                     child: ElevatedButton(

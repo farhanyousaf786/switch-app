@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 
 class ForgotPass extends StatefulWidget {
@@ -71,22 +72,7 @@ class _ForgotPassState extends State<ForgotPass> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.linear_scale_sharp,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                        color: Colors.blue,
-                      ),
+                      BarTop(),
                       Padding(
                         padding: const EdgeInsets.all(15),
                         child: Text(
@@ -118,22 +104,7 @@ class _ForgotPassState extends State<ForgotPass> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.linear_scale_sharp,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                        color: Colors.blue,
-                      ),
+                      BarTop(),
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Container(

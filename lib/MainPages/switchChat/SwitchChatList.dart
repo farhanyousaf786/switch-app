@@ -12,6 +12,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/MainPages/SearchPages/MainSearchPage.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChat.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChatHelper.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/appIntro.dart';
 import 'package:switchapp/Universal/ConnectivityChecker.dart';
@@ -700,23 +701,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 20, top: 10, right: 20),
@@ -1084,23 +1069,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                     scrollDirection: Axis.vertical,
                                     child: Column(
                                       children: [
-                                        Container(
-
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(5.0),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                              children: [
-                                                Icon(Icons.linear_scale_sharp,
-                                                  color: Colors.white,),
-                                              ],
-                                            ),
-                                          ),
-                                          color: Colors.blue,
-                                        ),
+                                        BarTop(),
                                         Padding(
                                           padding:
                                               const EdgeInsets.only(top: 20),
@@ -1445,23 +1414,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                   scrollDirection: Axis.vertical,
                                   child: Column(
                                     children: [
-                                      Container(
-
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                            children: [
-                                              Icon(Icons.linear_scale_sharp,
-                                                color: Colors.white,),
-                                            ],
-                                          ),
-                                        ),
-                                        color: Colors.blue,
-                                      ),
+                                   BarTop(),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 20),
                                         child: Text(

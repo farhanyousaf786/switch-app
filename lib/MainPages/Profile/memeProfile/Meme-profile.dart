@@ -1162,6 +1162,7 @@ import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/Profile/MemePosts/MemePosts.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/rankingHorizontalList/rankingList.dart';
 import 'package:switchapp/MainPages/TimeLineSwitch/MainFeed/MainFeed.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Models/surpriseMeme.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:uuid/uuid.dart';
@@ -1777,24 +1778,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                 child: SingleChildScrollView(
                                   child: Column(
                                     children: [
-                                      Container(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.linear_scale_sharp,
-                                                color: Colors.white,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        color: Colors.blue,
-                                      ),
+                                      BarTop(),
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
@@ -3921,22 +3905,7 @@ class _MemeProfileState extends State<MemeProfile> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   availible >= 10000
                       ? Padding(
                           padding: const EdgeInsets.all(8.0),

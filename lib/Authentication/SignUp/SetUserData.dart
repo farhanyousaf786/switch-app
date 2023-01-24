@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Authentication/Auth/Auth.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'SetProfilePicture.dart';
@@ -95,22 +96,7 @@ class _SetUserDataState extends State<SetUserData> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.linear_scale_sharp,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                      color: Colors.blue,
-                    ),
+                   BarTop(),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(
@@ -274,22 +260,7 @@ class _SetUserDataState extends State<SetUserData> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.linear_scale_sharp,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                        color: Colors.blue,
-                      ),
+                      BarTop(),
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Container(

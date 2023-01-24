@@ -15,6 +15,7 @@ import 'package:switchapp/Authentication/SignIn/SignInPage.dart';
 import 'package:switchapp/Authentication/SignUp/emailVerification.dart';
 import 'package:switchapp/Authentication/UserAgreement/userAgreementPage.dart';
 import 'package:switchapp/Bridges/bridgeToSetEmailVerification.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
@@ -81,22 +82,7 @@ class _SignUpPageState extends State<SignUpPage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.linear_scale_sharp,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                      color: Colors.blue,
-                    ),
+                  BarTop(),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(

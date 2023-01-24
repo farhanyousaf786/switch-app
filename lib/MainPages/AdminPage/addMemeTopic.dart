@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../Universal/DataBaseRefrences.dart';
@@ -82,23 +83,7 @@ class _AddMemePageState extends State<AddMemePage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

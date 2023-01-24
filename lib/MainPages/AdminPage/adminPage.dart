@@ -14,6 +14,7 @@ import 'package:switchapp/MainPages/AdminPage/adminUserDetails.dart';
 import 'package:switchapp/MainPages/AdminPage/appControlAdmin.dart';
 import 'package:switchapp/MainPages/AdminPage/removeWinners.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:time_formatter/time_formatter.dart';
@@ -122,23 +123,7 @@ class _AdminPageState extends State<AdminPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

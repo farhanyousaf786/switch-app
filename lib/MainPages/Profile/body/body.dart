@@ -3094,6 +3094,7 @@ import 'package:switchapp/MainPages/Profile/body/profieDecency/Buttons/CrushPage
 import 'package:switchapp/MainPages/Profile/body/profieDecency/followerPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChat.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Universal/UniversalMethods.dart';
 import 'package:uuid/uuid.dart';
@@ -3544,22 +3545,7 @@ class _BodyState extends State<Body> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: Text(
@@ -3665,25 +3651,7 @@ class _BodyState extends State<Body> {
                                     child: SingleChildScrollView(
                                       child: Column(
                                         children: [
-                                          Container(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(5.0),
-                                              child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.linear_scale_sharp,
-                                                    color: Colors.white,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            color: Colors.blue,
-                                          ),
+                                      BarTop(),
                                           Padding(
                                             padding:
                                                 const EdgeInsets.only(top: 20),
@@ -4184,22 +4152,7 @@ class _BodyState extends State<Body> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.lightBlue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -4982,24 +4935,7 @@ class _BodyState extends State<Body> {
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
-                                    Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.linear_scale_sharp,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      color: Colors.blue,
-                                    ),
+                                   BarTop(),
                                     Padding(
                                         padding: const EdgeInsets.only(top: 10),
                                         child: Text("Loyalty Is everything 😡",
@@ -5041,24 +4977,7 @@ class _BodyState extends State<Body> {
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
-                                    Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.linear_scale_sharp,
-                                              color: Colors.white,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      color: Colors.blue,
-                                    ),
+                                  BarTop(),
                                     Padding(
                                         padding: const EdgeInsets.only(top: 10),
                                         child: Text("Loyalty Is everything 😡",
@@ -5649,24 +5568,7 @@ class _BodyState extends State<Body> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                Container(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.linear_scale_sharp,
-                                          color: Colors.white,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  color: Colors.blue,
-                                ),
+                                BarTop(),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Text(
@@ -7198,22 +7100,7 @@ class _BodyState extends State<Body> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

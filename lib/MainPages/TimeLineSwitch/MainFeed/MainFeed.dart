@@ -22,6 +22,7 @@ import 'package:switchapp/MainPages/TimeLineSwitch/SwitchFavourites/SwitchFav.da
 import 'package:switchapp/MainPages/TimeLineSwitch/meme_Only/memes_Only.dart';
 import 'package:switchapp/MainPages/Upload/videoStatus.dart';
 import 'package:switchapp/MainPages/mood/moodUi.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Themes/switchThemes.dart';
@@ -2469,24 +2470,7 @@ class _MainFeedState extends State<MainFeed> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.linear_scale_sharp,
-                                            color: Colors.white,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    color: Colors.blue,
-                                  ),
+                                BarTop(),
                                   type == 'meme' || type == "memeT"
                                       ? Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -2934,22 +2918,7 @@ class _MainFeedState extends State<MainFeed> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(15),
                     child: Text(
@@ -3632,22 +3601,7 @@ class _MainFeedState extends State<MainFeed> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 0, left: 10, right: 10),
                     child: ElevatedButton(
@@ -3739,22 +3693,7 @@ class _MainFeedState extends State<MainFeed> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   SizedBox(
                     height: 25,
                   ),

@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
@@ -834,24 +835,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.linear_scale_sharp,
-                                            color: Colors.white,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    color: Colors.blue,
-                                  ),
+                                 BarTop(),
                                   ownerId == Constants.myId
                                       ? Padding(
                                           padding: const EdgeInsets.only(

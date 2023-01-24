@@ -8,6 +8,7 @@ import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/welcomePage/welcomepage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import '../../Universal/DataBaseRefrences.dart';
 
 class SetGoogleUsername extends StatefulWidget {
@@ -83,22 +84,7 @@ class _SetGoogleUsernameState
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.linear_scale_sharp,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                        color: Colors.blue,
-                      ),
+                      BarTop(),
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Container(
@@ -174,22 +160,7 @@ class _SetGoogleUsernameState
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.linear_scale_sharp,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                      color: Colors.blue,
-                    ),
+                    BarTop(),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(

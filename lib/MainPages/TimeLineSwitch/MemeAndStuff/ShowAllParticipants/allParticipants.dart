@@ -14,6 +14,7 @@ import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/MainPages/TimeLineSwitch/MainFeed/CacheImageTemplate.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/postModel/CommentsPage.dart';
@@ -392,24 +393,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  Container(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.linear_scale_sharp,
-                                            color: Colors.white,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    color: Colors.blue,
-                                  ),
+                                  BarTop(),
                                   type == "videoMemeT"
                                       ? SizedBox(
                                           height: 0,
@@ -856,22 +840,7 @@ class _AllParticipantsState extends State<AllParticipants> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(15),
                     child: Text(
@@ -1531,22 +1500,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 0, left: 10, right: 10),
                     child: ElevatedButton(

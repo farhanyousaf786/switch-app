@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:time_formatter/time_formatter.dart';
 
@@ -118,23 +119,7 @@ class _SwitchChatState extends State<SwitchChat> {
             height: MediaQuery.of(context).size.height / 2.2,
             child: SingleChildScrollView(
               child: Stack(children: [
-                Container(
-
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisAlignment:
-                      MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.linear_scale_sharp,
-                          color: Colors.white,),
-                      ],
-                    ),
-                  ),
-                  color: Colors.blue,
-                ),
+                BarTop(),
                 Padding(
                   padding: const EdgeInsets.only(top: 0),
                   child: Row(

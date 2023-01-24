@@ -2019,6 +2019,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/MainPages/switchChat/MessageDatabase.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
@@ -2396,23 +2397,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
           height: MediaQuery.of(context).size.height / 1.2,
           child: Stack(
             children: [
-              Container(
-
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Row(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.center,
-                    mainAxisAlignment:
-                    MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.linear_scale_sharp,
-                        color: Colors.white,),
-                    ],
-                  ),
-                ),
-                color: Colors.blue,
-              ),
+              BarTop(),
               SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -2575,23 +2560,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 25),
                     child: Text(
@@ -2694,23 +2663,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.only(top: 12),
                     child: Text(

@@ -1258,6 +1258,7 @@ import 'package:swipe_to/swipe_to.dart';
 import 'package:switchapp/MainPages/switchChat/ChatFullImage.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChat.dart';
 import 'package:switchapp/MainPages/switchChat/audioMessageStateManager.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
@@ -2090,22 +2091,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.linear_scale_sharp,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                  BarTop(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -2160,24 +2146,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                                       MediaQuery.of(context).size.height / 1.2,
                                   child: Column(
                                     children: [
-                                      Container(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.linear_scale_sharp,
-                                                color: Colors.white,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        color: Colors.blue,
-                                      ),
+                                     BarTop(),
                                       Container(
                                         color: Colors.lightBlue,
                                         height: 50,

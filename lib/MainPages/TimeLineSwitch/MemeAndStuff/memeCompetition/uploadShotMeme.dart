@@ -14,6 +14,7 @@ import 'package:minio/io.dart';
 import 'package:minio/minio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/bottomBarModel/congratsModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
@@ -932,23 +933,7 @@ class _UploadShotMemesState extends State<UploadShotMemes> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Row(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.center,
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.linear_scale_sharp,
-                            color: Colors.white,),
-                        ],
-                      ),
-                    ),
-                    color: Colors.blue,
-                  ),
+                 BarTop(),
                   SizedBox(
                     height: 10,
                   ),

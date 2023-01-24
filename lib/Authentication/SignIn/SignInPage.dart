@@ -19,6 +19,7 @@ import 'package:switchapp/Authentication/SignIn/ForgotPass.dart';
 import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
 import 'package:switchapp/Authentication/UserAgreement/userAgreementPage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 
 class SignInPage extends StatefulWidget {
@@ -104,22 +105,7 @@ class _SignInPageState extends State<SignInPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.linear_scale_sharp,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                      color: Colors.blue,
-                    ),
+                    BarTop(),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(
@@ -378,25 +364,7 @@ class _SignInPageState extends State<SignInPage> {
                                     child: SingleChildScrollView(
                                       child: Column(
                                         children: [
-                                          Container(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(5.0),
-                                              child: Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.linear_scale_sharp,
-                                                    color: Colors.white,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            color: Colors.blue,
-                                          ),
+                                          BarTop(),
                                           Padding(
                                             padding:
                                                 const EdgeInsets.only(top: 10),

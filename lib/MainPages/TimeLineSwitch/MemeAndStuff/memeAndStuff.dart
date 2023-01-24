@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 
 import 'memeCompetition/memeComp.dart';
@@ -94,23 +95,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              Container(
-
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.linear_scale_sharp,
-                                        color: Colors.white,),
-                                    ],
-                                  ),
-                                ),
-                                color: Colors.blue,
-                              ),
+                              BarTop(),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(

@@ -12,6 +12,7 @@ import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/AppSettings/privacyPolicy.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/Meme-profile.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/complaintPage.dart';
+import 'package:switchapp/Models/BottomBar/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Themes/theme_services.dart';
@@ -91,22 +92,7 @@ class _AppSettingsState extends State<AppSettings> {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.linear_scale_sharp,
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
-                  ),
-                  color: Colors.blue,
-                ),
+               BarTop(),
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: Text(
