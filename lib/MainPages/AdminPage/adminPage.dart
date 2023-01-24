@@ -145,8 +145,8 @@ class _AdminPageState extends State<AdminPage> {
                       'Switch App',
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
                   ),
@@ -176,8 +176,8 @@ class _AdminPageState extends State<AdminPage> {
                         "Add as Fav Memer",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
                     ),
@@ -208,8 +208,8 @@ class _AdminPageState extends State<AdminPage> {
                         "Add as Winner",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.blue),
                       ),
                     ),

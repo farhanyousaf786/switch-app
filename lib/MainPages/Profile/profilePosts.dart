@@ -267,8 +267,8 @@ class _ProfilePostsState extends State<ProfilePosts> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 14,
-                                  fontFamily: "cutes",
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
                           ),
@@ -284,8 +284,8 @@ class _ProfilePostsState extends State<ProfilePosts> {
                                 "Ok Continue",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     color: Colors.blue),
                               ))
                         ],
@@ -619,7 +619,7 @@ class _ProfilePostsState extends State<ProfilePosts> {
   //                   TextSpan(
   //                     text: '${description.substring(0, 35)}..',
   //                     style: TextStyle(
-  //                         fontWeight: FontWeight.normal, color: Colors.black
+  //                          fontWeight: FontWeight.bold, color: Colors.black
   //                       // decoration: TextDecoration.underline,
   //                       // decorationStyle: TextDecorationStyle.wavy,
   //                     ),
@@ -650,7 +650,7 @@ class _ProfilePostsState extends State<ProfilePosts> {
   //                 TextSpan(
   //                   text: '$description',
   //                   style: TextStyle(
-  //                       fontWeight: FontWeight.normal, color: Colors.black
+  //                        fontWeight: FontWeight.bold, color: Colors.black
   //                     // decoration: TextDecoration.underline,
   //                     // decorationStyle: TextDecorationStyle.wavy,
   //                   ),

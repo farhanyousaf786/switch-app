@@ -219,7 +219,7 @@ class _ProfileDecencyState extends State<MemeDecency> {
                                         color: Colors.blue,
                                         fontFamily: 'cute',
                                         fontSize: 14,
-                                        fontWeight: FontWeight.w100),
+                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 widget.profileId == widget.mainId

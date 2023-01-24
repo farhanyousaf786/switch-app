@@ -215,12 +215,14 @@ class _WelcomePageState extends State<WelcomePage> {
                                     decorationStyle: TextDecorationStyle.solid,
                                     decoration: TextDecoration.lineThrough,
                                     color: Colors.black54,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold)
+                                    fontFamily: "cute",
+                               fontWeight: FontWeight.bold,
+                            )
                                 : TextStyle(
                                     color: Colors.white,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold),
+                                    fontFamily: "cute",
+                               fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         itemCount: roadMapList.length,

@@ -71,6 +71,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                   child: Text(
                     "Profile Picture",
                     style: TextStyle(
+                         fontWeight: FontWeight.bold,
+
                         color: Colors.white, fontFamily: "Cute", fontSize: 14),
                   ),
                 ),
@@ -79,7 +81,10 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                   child: Text(
                     "Select Your Beautiful Picture",
                     style: TextStyle(
-                        color: Colors.white, fontFamily: "Cute", fontSize: 14),
+                        color: Colors.white,
+                         fontWeight: FontWeight.bold,
+
+                        fontFamily: "Cute", fontSize: 14),
                   ),
                 ),
                 SizedBox(
@@ -148,6 +153,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Cute",
+                                 fontWeight: FontWeight.bold,
+
                                 fontSize: 16),
                           ),
                         ),
@@ -179,7 +186,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
           title: Text(
             "Profile Picture",
             style: TextStyle(
-                color: Colors.white, fontFamily: "Cute", fontSize: 16),
+                color: Colors.white,                                 fontWeight: FontWeight.bold,
+                fontFamily: "Cute", fontSize: 16),
           ),
           actions: [
             ElevatedButton(
@@ -187,6 +195,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                 'Next',
                 style: TextStyle(
                   fontFamily: "Cute",
+                   fontWeight: FontWeight.bold,
+
                   fontSize: 16,
                   color: Colors.white,
                 ),
@@ -230,6 +240,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                   child: Text(
                     "Don't worry You Can change Your Profile Later",
                     style: TextStyle(
+                         fontWeight: FontWeight.bold,
+
                         color: Colors.white, fontFamily: "Cute", fontSize: 12),
                   ),
                 ),
@@ -268,6 +280,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                       labelStyle: TextStyle(
                           color: Colors.white,
                           fontFamily: "Cute",
+                           fontWeight: FontWeight.bold,
+
                           fontSize: 14),
                     ),
                   ),
@@ -384,6 +398,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Cute",
+                             fontWeight: FontWeight.bold,
+
                             fontSize: 16),
                       ),
                     ),
@@ -416,6 +432,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Cute",
+                               fontWeight: FontWeight.bold,
+
                               fontSize: 16),
                         ),
                       ),
@@ -447,6 +465,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                   style: TextStyle(
                     color: Colors.blue,
                     fontFamily: "Cute",
+                     fontWeight: FontWeight.bold,
+
                   ),
                 ),
                 onPressed: pickImageFromCamera,
@@ -457,6 +477,8 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                   style: TextStyle(
                     color: Colors.blue,
                     fontFamily: "Cute",
+                     fontWeight: FontWeight.bold,
+
                   ),
                 ),
                 onPressed: imageFromGallery,

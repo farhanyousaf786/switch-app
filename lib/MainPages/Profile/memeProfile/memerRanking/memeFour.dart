@@ -115,8 +115,9 @@ class _ButtonForFourState extends State<MemeButtonForFour> {
         child: Center(
           child: Text(
             "4",
-            style: TextStyle(fontFamily: "cutes",
-                color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600),
+            style: TextStyle(fontFamily: "cute",
+                color: Colors.black, fontSize: 10,                              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         margin: new EdgeInsets.all(9.0),

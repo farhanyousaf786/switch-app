@@ -849,8 +849,8 @@ class _AddStatusState extends State<AddStatus> {
                       "Upload Successful!",
                       style: TextStyle(
                           fontSize: 17,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.green.shade900),
                     ),
                   ),

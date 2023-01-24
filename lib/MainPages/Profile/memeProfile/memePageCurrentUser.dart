@@ -57,6 +57,8 @@ class _MemePageForCurrentUserState extends State<MemePageForCurrentUser> {
                     style: TextStyle(
                       fontFamily: "Cute",
                       fontSize: 16,
+                       fontWeight: FontWeight.bold,
+
                       color: Colors.blue,
                     ),
                   ),

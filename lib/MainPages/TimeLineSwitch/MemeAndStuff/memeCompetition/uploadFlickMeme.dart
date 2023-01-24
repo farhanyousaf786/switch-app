@@ -101,8 +101,8 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
                             "Video Duration Must be less then 60 Seconds",
                             style: TextStyle(
                                 fontSize: 15,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                         ),
@@ -846,8 +846,8 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
                       "Upload Successful!",
                       style: TextStyle(
                           fontSize: 17,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.green.shade900),
                     ),
                   ),

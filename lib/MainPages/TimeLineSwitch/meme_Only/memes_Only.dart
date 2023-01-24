@@ -277,6 +277,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                     child: Text(
                       "Important",
                       style: TextStyle(
+                           fontWeight: FontWeight.bold,
                           fontSize: 22, fontFamily: "cute", color: Colors.red),
                     ),
                   ),
@@ -722,8 +723,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 14,
-                                  fontFamily: "cutes",
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
                           ),
@@ -739,8 +740,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                                 "Ok Continue",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     color: Colors.blue),
                               ))
                         ],
@@ -1069,7 +1070,7 @@ class _MemesOnlyState extends State<MemesOnly> {
   //                       TextSpan(
   //                         text: '${description}..',
   //                         style: TextStyle(
-  //                             fontWeight: FontWeight.normal, color: Colors.black
+  //                              fontWeight: FontWeight.bold, color: Colors.black
   //                           // decoration: TextDecoration.underline,
   //                           // decorationStyle: TextDecorationStyle.wavy,
   //                         ),
@@ -1113,7 +1114,7 @@ class _MemesOnlyState extends State<MemesOnly> {
   //                 TextSpan(
   //                   text: '$description',
   //                   style: TextStyle(
-  //                       fontWeight: FontWeight.normal, color: Colors.black
+  //                        fontWeight: FontWeight.bold, color: Colors.black
   //                     // decoration: TextDecoration.underline,
   //                     // decorationStyle: TextDecorationStyle.wavy,
   //                   ),
@@ -1449,8 +1450,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                       "Are you sure?",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -1464,8 +1465,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                             "Yes",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           onTap: () {
@@ -1477,8 +1478,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                             "No",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue.shade700),
                           ),
                           onTap: () {
@@ -1495,8 +1496,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 10,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   )
@@ -2014,8 +2015,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 20,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.blue),
                       ),
                     ),
@@ -2161,6 +2162,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
+
                                   color: Colors.blue),
                             ),
                           ],

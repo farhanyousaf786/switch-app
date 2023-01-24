@@ -2956,8 +2956,8 @@ class _MainFeedState extends State<MainFeed> {
                       "Are you sure?",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -2971,8 +2971,8 @@ class _MainFeedState extends State<MainFeed> {
                             "Yes",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           onTap: () {
@@ -2984,8 +2984,8 @@ class _MainFeedState extends State<MainFeed> {
                             "No",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue.shade700),
                           ),
                           onTap: () {
@@ -3002,8 +3002,8 @@ class _MainFeedState extends State<MainFeed> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 10,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   )

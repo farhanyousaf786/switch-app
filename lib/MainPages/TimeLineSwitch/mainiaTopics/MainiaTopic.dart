@@ -149,9 +149,9 @@ class _ManiaTopicState extends State<ManiaTopic> {
                                                           TextAlign.center,
                                                       style: TextStyle(
                                                           fontSize: 14,
-                                                          fontFamily: "cutes",
-                                                          fontWeight:
-                                                              FontWeight.bold,
+                                                          fontFamily: "cute",
+                                                           fontWeight: FontWeight.bold,
+
                                                           color: Colors.black),
                                                     ),
                                                   ),
@@ -169,9 +169,9 @@ class _ManiaTopicState extends State<ManiaTopic> {
                                                         "Ok Continue",
                                                         style: TextStyle(
                                                             fontSize: 12,
-                                                            fontFamily: "cutes",
-                                                            fontWeight:
-                                                                FontWeight.bold,
+                                                            fontFamily: "cute",
+                                                             fontWeight: FontWeight.bold,
+
                                                             color: Colors.blue),
                                                       ))
                                                 ],

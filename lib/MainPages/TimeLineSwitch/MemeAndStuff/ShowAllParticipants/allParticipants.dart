@@ -878,8 +878,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                       "Are you sure?",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -893,8 +893,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                             "Yes",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           onTap: () {
@@ -906,8 +906,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                             "No",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue.shade700),
                           ),
                           onTap: () {
@@ -924,8 +924,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 10,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   )
@@ -1228,8 +1228,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Constants.isDark == "true"
                                     ? Colors.white
                                     : Colors.blue,
@@ -1248,8 +1248,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                                 "Ok Continue",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     color: Colors.blue),
                               ))
                         ],
@@ -1634,6 +1634,8 @@ class _AllParticipantsState extends State<AllParticipants> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
+
                                   color: Colors.blue),
                             ),
                           ],

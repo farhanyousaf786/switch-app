@@ -645,7 +645,7 @@
 //                   style: TextStyle(
 //                       color: Colors.blue,
 //                       fontSize: 15,
-//                       fontWeight: FontWeight.w100,
+//                        fontWeight: FontWeight.bold,
 //                       fontFamily: 'cute'),
 //                 ),
 //               ),
@@ -1128,7 +1128,7 @@
 //                           fontSize: 16,
 //                           color: Colors.pink,
 //                           fontFamily: 'cute',
-//                           fontWeight: FontWeight.w100,
+//                            fontWeight: FontWeight.bold,
 //                         ),
 //                       ),
 //                     ),
@@ -1153,7 +1153,7 @@
 //                                 color: Colors.blue,
 //                                 fontFamily: 'cute',
 //                                 fontSize: 14,
-//                                 fontWeight: FontWeight.w100),
+//                                  fontWeight: FontWeight.bold),
 //                           ),
 //                         ),
 //                         Padding(
@@ -1166,7 +1166,7 @@
 //                                     color: Colors.grey,
 //                                     fontFamily: 'cute',
 //                                     fontSize: 15,
-//                                     fontWeight: FontWeight.w100),
+//                                      fontWeight: FontWeight.bold),
 //                               ),
 //                               Icon(
 //                                 Icons.search,
@@ -1224,7 +1224,7 @@
 //                 style: TextStyle(
 //                     color: Colors.blue,
 //                     fontSize: 14.0,
-//                     fontWeight: FontWeight.w100,
+//                      fontWeight: FontWeight.bold,
 //                     fontFamily: 'cute'),
 //               ),
 //             ),
@@ -1255,7 +1255,7 @@
 //                 style: TextStyle(
 //                     color: Colors.blue,
 //                     fontSize: 12.0,
-//                     fontWeight: FontWeight.w100,
+//                      fontWeight: FontWeight.bold,
 //                     fontFamily: 'cute'),
 //               ),
 //             ),
@@ -1810,7 +1810,7 @@
 //                 "Relationship Option",
 //                 style: TextStyle(
 //                     color: Colors.blue,
-//                     fontWeight: FontWeight.w100,
+//                      fontWeight: FontWeight.bold,
 //                     fontFamily: 'cute'),
 //               ),
 //             ),
@@ -2065,7 +2065,7 @@
 //                       style: TextStyle(
 //                           color: Colors.blue,
 //                           fontFamily: 'cute',
-//                           fontWeight: FontWeight.w100),
+//                            fontWeight: FontWeight.bold),
 //                     )),
 //                     SizedBox(
 //                       height: 5,
@@ -2079,7 +2079,7 @@
 //                       style: TextStyle(
 //                         fontFamily: 'cute',
 //                         color: Colors.pink,
-//                         fontWeight: FontWeight.w100,
+//                          fontWeight: FontWeight.bold,
 //                       ),
 //                     ),
 //                   ],
@@ -2102,7 +2102,7 @@
 //                             style: TextStyle(
 //                                 fontSize: 12,
 //                                 color: Colors.grey,
-//                                 fontWeight: FontWeight.w100,
+//                                  fontWeight: FontWeight.bold,
 //                                 fontFamily: 'cute'),
 //                           ),
 //                           widget.profileOwner == widget.currentUserId
@@ -2334,7 +2334,7 @@
 //                       color: Colors.blue,
 //                       fontFamily: 'cute',
 //                       fontSize: 14,
-//                       fontWeight: FontWeight.w100,
+//                        fontWeight: FontWeight.bold,
 //                     ),
 //                   )
 //                 : Text(
@@ -2345,7 +2345,7 @@
 //                       fontFamily: 'cute',
 //                       color: Colors.blue,
 //                       fontSize: 14,
-//                       fontWeight: FontWeight.w100,
+//                        fontWeight: FontWeight.bold,
 //                     ),
 //                   ),
 //           ),
@@ -2966,7 +2966,7 @@
 //                                 color: Colors.blue,
 //                                 fontFamily: 'cute',
 //                                 fontSize: 15,
-//                                 fontWeight: FontWeight.w100),
+//                                  fontWeight: FontWeight.bold),
 //                           ),
 //                         ),
 //                         widget.profileId == widget.mainId
@@ -3565,7 +3565,10 @@ class _BodyState extends State<Body> {
                     child: Text(
                       "Are You Sure?",
                       style: TextStyle(
-                          fontSize: 20, fontFamily: "cute", color: Colors.red),
+                           fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontFamily: "cute",
+                          color: Colors.red),
                     ),
                   ),
                   Padding(
@@ -3854,97 +3857,96 @@ class _BodyState extends State<Body> {
         ),
       );
     } else if (pendingRelationShip) {
-
       return Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: Container(
-
-          color: Colors.blue.withOpacity(0.09),
+            color: Colors.blue.withOpacity(0.09),
             child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
-                  child: Text(
-                    "Proposal is pending",
-                    style: TextStyle(
-                        color: Colors.lightBlue,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w100,
-                        fontFamily: 'cute'),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: SizedBox(
-                    height: 24,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.lightBlue,
-                          elevation: 0.0,
-                        ),
-                        child: Text(
-                          "Cancel",
-                          style: TextStyle(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 20, top: 15, bottom: 15),
+                      child: Text(
+                        "Proposal is pending",
+                        style: TextStyle(
+                            color: Colors.lightBlue,
                             fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
-                          ),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            pendingRelationShip = false;
-                            inRelationShip = false;
-                            print(
-                                "relationShipRequestSenderId => ${relationShipRequestSenderId.toString()}");
-                          });
+                             fontWeight: FontWeight.bold,
+                            fontFamily: 'cute'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: SizedBox(
+                        height: 24,
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.lightBlue,
+                              elevation: 0.0,
+                            ),
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                              ),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                pendingRelationShip = false;
+                                inRelationShip = false;
+                                print(
+                                    "relationShipRequestSenderId => ${relationShipRequestSenderId.toString()}");
+                              });
 
-                          relationShipReferenceRtd
-                              .child(widget.profileOwner)
-                              .update({
-                            "inRelationShip": false,
-                            "pendingRelationShip": false,
-                            "relationShipRequestSenderName": "",
-                            "relationShipRequestSenderId": "",
-                            "relationShipRequestSendToName": "",
-                            "relationShipRequestSendToId": "",
-                          });
-                          relationShipReferenceRtd
-                              .child(relationShipRequestSendToId)
-                              .update({
-                            "inRelationShip": false,
-                            "pendingRelationShip": false,
-                            "relationShipRequestSenderName": "",
-                            "relationShipRequestSenderId": "",
-                            "relationShipRequestSendToName": "",
-                            "relationShipRequestSendToId": "",
-                          });
-                          feedRtDatabaseReference
-                              .child(relationShipRequestSendToId)
-                              .child("feedItems")
-                              .child(postId)
-                              .set({
-                            "type": "cancelRequest",
-                            "firstName": Constants.myName,
-                            "secondName": Constants.mySecondName,
-                            "comment": "",
-                            "timestamp": DateTime.now().millisecondsSinceEpoch,
-                            "url": Constants.myPhotoUrl,
-                            "postId": postId,
-                            "ownerId": widget.currentUserId,
-                            "photourl": "",
-                            "isRead": false,
-                          });
-                        }),
-                  ),
+                              relationShipReferenceRtd
+                                  .child(widget.profileOwner)
+                                  .update({
+                                "inRelationShip": false,
+                                "pendingRelationShip": false,
+                                "relationShipRequestSenderName": "",
+                                "relationShipRequestSenderId": "",
+                                "relationShipRequestSendToName": "",
+                                "relationShipRequestSendToId": "",
+                              });
+                              relationShipReferenceRtd
+                                  .child(relationShipRequestSendToId)
+                                  .update({
+                                "inRelationShip": false,
+                                "pendingRelationShip": false,
+                                "relationShipRequestSenderName": "",
+                                "relationShipRequestSenderId": "",
+                                "relationShipRequestSendToName": "",
+                                "relationShipRequestSendToId": "",
+                              });
+                              feedRtDatabaseReference
+                                  .child(relationShipRequestSendToId)
+                                  .child("feedItems")
+                                  .child(postId)
+                                  .set({
+                                "type": "cancelRequest",
+                                "firstName": Constants.myName,
+                                "secondName": Constants.mySecondName,
+                                "comment": "",
+                                "timestamp":
+                                    DateTime.now().millisecondsSinceEpoch,
+                                "url": Constants.myPhotoUrl,
+                                "postId": postId,
+                                "ownerId": widget.currentUserId,
+                                "photourl": "",
+                                "isRead": false,
+                              });
+                            }),
+                      ),
+                    ),
+                  ],
                 ),
               ],
-            ),
-
-          ],
-        )),
+            )),
       );
     } else {
       return Container(
@@ -4196,14 +4198,17 @@ class _BodyState extends State<Body> {
                         ],
                       ),
                     ),
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "Profile Picture",
                       style: TextStyle(
-                          fontSize: 20, fontFamily: "cute", color: Colors.blue),
+                           fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontFamily: "cute",
+                          color: Colors.blue),
                     ),
                   ),
                   Padding(
@@ -4508,7 +4513,7 @@ class _BodyState extends State<Body> {
                         widget.mainFirstName + " " + widget.mainSecondName,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontFamily: "Cutes",
+                          fontFamily: "Cute",
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
@@ -4540,8 +4545,8 @@ class _BodyState extends State<Body> {
                               ? Text(
                                   "Edit",
                                   style: TextStyle(
-                                    fontFamily: "Cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
                                     color: Colors.lightBlue,
                                   ),
@@ -4586,7 +4591,9 @@ class _BodyState extends State<Body> {
                                 child: Text(
                                   "Followers",
                                   style: TextStyle(
-                                      fontFamily: "cutes", fontSize: 12),
+                                      fontFamily: "cute",
+                                       fontWeight: FontWeight.bold,
+                                      fontSize: 12),
                                 ),
                               ),
                             ),
@@ -4603,8 +4610,8 @@ class _BodyState extends State<Body> {
                                       return Text(
                                         "0",
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'cutes',
+                                           fontWeight: FontWeight.bold,
+                                          fontFamily: 'cute',
                                           fontSize: 12,
                                         ),
                                       );
@@ -4614,8 +4621,8 @@ class _BodyState extends State<Body> {
                                       return Text(
                                         followers,
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'cutes',
+                                           fontWeight: FontWeight.bold,
+                                          fontFamily: 'cute',
                                           fontSize: 12,
                                         ),
                                       );
@@ -4624,8 +4631,8 @@ class _BodyState extends State<Body> {
                                     return Text(
                                       "0",
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'cutes',
+                                         fontWeight: FontWeight.bold,
+                                        fontFamily: 'cute',
                                         fontSize: 12,
                                       ),
                                     );
@@ -4691,7 +4698,9 @@ class _BodyState extends State<Body> {
                                   "Crush ",
                                   style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
+
                                   ),
                                 ),
                                 Icon(
@@ -4705,8 +4714,8 @@ class _BodyState extends State<Body> {
                             child: Text(
                               crushOfCount.toString(),
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'cutes',
+                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'cute',
                                 fontSize: 12,
                               ),
                             ),
@@ -4830,7 +4839,7 @@ class _BodyState extends State<Body> {
                             fontSize: 16,
                             color: Colors.pink,
                             fontFamily: 'cute',
-                            fontWeight: FontWeight.w100,
+                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -4858,7 +4867,7 @@ class _BodyState extends State<Body> {
                                   color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w100),
+                                   fontWeight: FontWeight.bold),
                             ),
                           ),
                           Padding(
@@ -4871,7 +4880,7 @@ class _BodyState extends State<Body> {
                                       color: Colors.grey,
                                       fontFamily: 'cute',
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w100),
+                                       fontWeight: FontWeight.bold),
                                 ),
                                 Icon(
                                   Icons.search,
@@ -4920,7 +4929,7 @@ class _BodyState extends State<Body> {
                 style: TextStyle(
                     color: Colors.blue,
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w100,
+                     fontWeight: FontWeight.bold,
                     fontFamily: 'cute'),
               ),
             ),
@@ -4951,7 +4960,7 @@ class _BodyState extends State<Body> {
                 style: TextStyle(
                     color: Colors.lightBlue,
                     fontSize: 12.0,
-                    fontWeight: FontWeight.w100,
+                     fontWeight: FontWeight.bold,
                     fontFamily: 'cute'),
               ),
             ),
@@ -5200,66 +5209,39 @@ class _BodyState extends State<Body> {
                         SizedBox(
                           height: 50,
                           child: ElevatedButton(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: Text(
-                                        "Followers",
-                                        style: TextStyle(
-                                          fontSize: 11,
-                                          fontFamily: "cutes",
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Text(
+                                      "Followers",
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        fontFamily: "cutes",
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    StreamBuilder(
-                                        stream: userFollowersRtd
-                                            .child(widget.profileOwner)
-                                            .onValue,
-                                        builder: (context,
-                                            AsyncSnapshot dataSnapShot) {
-                                          if (dataSnapShot.hasData) {
-                                            DataSnapshot
-                                                snapshotForFollowerCounter =
-                                                dataSnapShot.data.snapshot;
+                                  ),
+                                  StreamBuilder(
+                                      stream: userFollowersRtd
+                                          .child(widget.profileOwner)
+                                          .onValue,
+                                      builder: (context,
+                                          AsyncSnapshot dataSnapShot) {
+                                        if (dataSnapShot.hasData) {
+                                          DataSnapshot
+                                              snapshotForFollowerCounter =
+                                              dataSnapShot.data.snapshot;
 
-                                            Map followersCountMap =
-                                                snapshotForFollowerCounter
-                                                    .value;
-                                            followersCountMap2 =
-                                                snapshotForFollowerCounter
-                                                    .value;
+                                          Map followersCountMap =
+                                              snapshotForFollowerCounter.value;
+                                          followersCountMap2 =
+                                              snapshotForFollowerCounter.value;
 
-                                            if (followersCountMap == null) {
-                                              return Text(
-                                                "0",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'cutes',
-                                                  fontSize: 12,
-                                                ),
-                                              );
-                                            } else {
-                                              String followers =
-                                                  universalMethods
-                                                      .shortNumberGenrator(
-                                                          followersCountMap
-                                                              .length);
-
-                                              return Text(
-                                                followers,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'cutes',
-                                                  fontSize: 12,
-                                                ),
-                                              );
-                                            }
-                                          } else {
+                                          if (followersCountMap == null) {
                                             return Text(
                                               "0",
                                               style: TextStyle(
@@ -5268,22 +5250,45 @@ class _BodyState extends State<Body> {
                                                 fontSize: 12,
                                               ),
                                             );
+                                          } else {
+                                            String followers = universalMethods
+                                                .shortNumberGenrator(
+                                                    followersCountMap.length);
+
+                                            return Text(
+                                              followers,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'cutes',
+                                                fontSize: 12,
+                                              ),
+                                            );
                                           }
-                                        }),
-                                  ],
-                                ),
+                                        } else {
+                                          return Text(
+                                            "0",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'cutes',
+                                              fontSize: 12,
+                                            ),
+                                          );
+                                        }
+                                      }),
+                                ],
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => FollowerPage(
-                                      currentUserId: widget.currentUserId,
-                                      profileOwner: widget.profileOwner,
-                                    ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FollowerPage(
+                                    currentUserId: widget.currentUserId,
+                                    profileOwner: widget.profileOwner,
                                   ),
-                                );
-                              },
+                                ),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.lightBlue,
                               elevation: 0.0,
@@ -5615,7 +5620,7 @@ class _BodyState extends State<Body> {
                 "Relationship Option",
                 style: TextStyle(
                     color: Colors.blue,
-                    fontWeight: FontWeight.w100,
+                     fontWeight: FontWeight.bold,
                     fontFamily: 'cute'),
               ),
             ),
@@ -5946,7 +5951,7 @@ class _BodyState extends State<Body> {
                         style: TextStyle(
                             color: Colors.blue,
                             fontFamily: 'cute',
-                            fontWeight: FontWeight.w100),
+                             fontWeight: FontWeight.bold),
                       )),
                       SizedBox(
                         height: 5,
@@ -5960,7 +5965,7 @@ class _BodyState extends State<Body> {
                         style: TextStyle(
                           fontFamily: 'cute',
                           color: Colors.pink,
-                          fontWeight: FontWeight.w100,
+                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -5984,7 +5989,7 @@ class _BodyState extends State<Body> {
                             style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.lightBlue,
-                                fontWeight: FontWeight.w100,
+                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'cute'),
                           ),
                           widget.profileOwner == widget.currentUserId
@@ -6117,12 +6122,16 @@ class _BodyState extends State<Body> {
                   color: Colors.lightBlue,
                   fontFamily: 'cute',
                   fontSize: 12,
+                  fontWeight: FontWeight.bold,
+
                 ),
               ),
               Text(
                 widget.dob,
                 style: TextStyle(
                   color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+
                   fontFamily: 'cute',
                 ),
               ),
@@ -6143,6 +6152,8 @@ class _BodyState extends State<Body> {
                 "Gender",
                 style: TextStyle(
                   color: Colors.lightBlue,
+                  fontWeight: FontWeight.bold,
+
                   fontFamily: 'cute',
                   fontSize: 12,
                 ),
@@ -6151,6 +6162,8 @@ class _BodyState extends State<Body> {
                 widget.mainGender,
                 style: TextStyle(
                   color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+
                   fontFamily: 'cute',
                 ),
               ),
@@ -6170,12 +6183,16 @@ class _BodyState extends State<Body> {
               Text(
                 "Country",
                 style: TextStyle(
+                    fontWeight: FontWeight.bold,
+
                     color: Colors.lightBlue, fontFamily: 'cute', fontSize: 12),
               ),
               Text(
                 widget.country,
                 style: TextStyle(
                   color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+
                   fontFamily: 'cute',
                 ),
               ),
@@ -6204,7 +6221,7 @@ class _BodyState extends State<Body> {
                       color: Colors.blue,
                       fontFamily: 'cute',
                       fontSize: 12,
-                      fontWeight: FontWeight.w100,
+                       fontWeight: FontWeight.bold,
                     ),
                   )
                 : Text(
@@ -6215,7 +6232,7 @@ class _BodyState extends State<Body> {
                       fontFamily: 'cute',
                       color: Colors.lightBlue,
                       fontSize: 12,
-                      fontWeight: FontWeight.w100,
+                       fontWeight: FontWeight.bold,
                     ),
                   ),
           ),
@@ -6403,7 +6420,9 @@ class _BodyState extends State<Body> {
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'cute',
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
+                    fontWeight: FontWeight.bold,
+
                   ),
                 ),
                 SizedBox(
@@ -6438,13 +6457,24 @@ class _BodyState extends State<Body> {
                 ),
               )
             },
-            child: Text(
-              "Show All Posts",
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'cute',
-                color: Colors.blue,
-              ),
+            child:  Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 2),
+                  child: Text(
+                    "Show All Posts ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'cute',
+                      fontWeight: FontWeight.bold,
+
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                ),
+                Icon(Icons.arrow_forward, color: Colors.lightBlue,)
+              ],
             ),
           ),
         ],
@@ -7404,7 +7434,7 @@ class _ProfileDecencyState extends State<ProfileDecency> {
                                 color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 12,
-                                fontWeight: FontWeight.w100),
+                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                         widget.profileId == widget.mainId

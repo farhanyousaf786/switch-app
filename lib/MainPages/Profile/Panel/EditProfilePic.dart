@@ -207,7 +207,10 @@ class _EditProfilePicState extends State<EditProfilePic> {
         title: Text(
           "Profile Picture",
           style:
-          TextStyle(color: Colors.white, fontFamily: "Cute", fontSize: 16),
+          TextStyle(
+               fontWeight: FontWeight.bold,
+
+              color: Colors.white, fontFamily: "Cute", fontSize: 16),
         ),
         actions: [],
       ),
@@ -224,6 +227,7 @@ class _EditProfilePicState extends State<EditProfilePic> {
                   child: Text(
                     "Select Your Beautiful Picture",
                     style: TextStyle(
+                         fontWeight: FontWeight.bold,
                         color: Colors.white, fontFamily: "Cute", fontSize: 12),
                   ),
                 ),
@@ -250,6 +254,8 @@ class _EditProfilePicState extends State<EditProfilePic> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Cute",
+                             fontWeight: FontWeight.bold,
+
                             fontSize: 20),
                       ),
                       onPressed: imageFromGallery,
@@ -260,6 +266,8 @@ class _EditProfilePicState extends State<EditProfilePic> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Cute",
+                             fontWeight: FontWeight.bold,
+
                             fontSize: 20),
                       ),
                       onPressed: pickImageFromCamera,
@@ -346,7 +354,9 @@ class _EditProfilePicState extends State<EditProfilePic> {
           title: Text(
             "Profile Picture",
             style: TextStyle(
-                color: Colors.white, fontFamily: "Cute", fontSize: 16),
+                color: Colors.white,                                  fontWeight: FontWeight.bold,
+
+                fontFamily: "Cute", fontSize: 16),
           ),
           actions: [],
         ),
@@ -375,6 +385,8 @@ class _EditProfilePicState extends State<EditProfilePic> {
                     style: TextStyle(
                         color: Colors.white,
                         fontFamily: "Cute",
+                         fontWeight: FontWeight.bold,
+
                         fontSize: 10),
                   ),
                 ),
@@ -384,6 +396,7 @@ class _EditProfilePicState extends State<EditProfilePic> {
                   child: Text(
                     'Done',
                     style: TextStyle(
+                         fontWeight: FontWeight.bold,
                         color: Colors.white, fontFamily: "Cute", fontSize: 15),
                   ),
                   onPressed: () => controlUpload(),

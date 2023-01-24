@@ -134,8 +134,8 @@ class _AddFriendListButtonState extends State<AddFriendListButton> {
                             "Yes",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.green),
                           ),
                           onTap: () {
@@ -214,8 +214,8 @@ class _AddFriendListButtonState extends State<AddFriendListButton> {
                             "No",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "Cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                         ),

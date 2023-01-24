@@ -126,8 +126,8 @@ class _NeedHelpPageForSigninPageState extends State<NeedHelpPageForSigninPage> {
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                 fontSize: 14,
-                                                fontFamily: "cutes",
-                                                fontWeight: FontWeight.bold,
+                                                fontFamily: "cute",
+                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                           ),
@@ -143,8 +143,8 @@ class _NeedHelpPageForSigninPageState extends State<NeedHelpPageForSigninPage> {
                                                 "Ok Continue",
                                                 style: TextStyle(
                                                     fontSize: 12,
-                                                    fontFamily: "cutes",
-                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily: "cute",
+                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.blue),
                                               ))
                                         ],

@@ -108,8 +108,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                       'details',
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
                   ),
@@ -119,8 +119,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                       listOfTopics?[index]['details'],
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -137,8 +137,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                         "Delete It",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
                     ),
@@ -180,6 +180,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                     color: Colors.blue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
+                     fontWeight: FontWeight.bold,
+
                   ),
                   controller: textMemeTopic,
                   decoration: InputDecoration(
@@ -197,6 +199,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                     labelText: ' Add Topic Here..',
                     labelStyle: TextStyle(
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                       color: Colors.blue.shade900,
                       fontSize: 12,
                     ),
@@ -216,6 +220,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                     color: Colors.blue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
+                     fontWeight: FontWeight.bold,
+
                   ),
                   controller: textMemeTopicDetails,
                   decoration: InputDecoration(
@@ -233,6 +239,8 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                     labelText: ' Add Details Here..',
                     labelStyle: TextStyle(
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                       color: Colors.blue.shade900,
                       fontSize: 12,
                     ),

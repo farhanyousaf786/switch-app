@@ -100,6 +100,8 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
               "There is no post",
               style: TextStyle(
                 color: Colors.grey,
+                fontWeight: FontWeight.bold,
+
                 fontFamily: 'cute',
               ),
             ),
@@ -265,8 +267,8 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 14,
-                                  fontFamily: "cutes",
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
                           ),
@@ -282,8 +284,8 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                 "Ok Continue",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     color: Colors.blue),
                               ))
                         ],
@@ -615,7 +617,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
   //                   TextSpan(
   //                     text: '${description.substring(0, 35)}..',
   //                     style: TextStyle(
-  //                         fontWeight: FontWeight.normal, color: Colors.black
+  //                          fontWeight: FontWeight.bold, color: Colors.black
   //                       // decoration: TextDecoration.underline,
   //                       // decorationStyle: TextDecorationStyle.wavy,
   //                     ),
@@ -646,7 +648,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
   //                 TextSpan(
   //                   text: '$description',
   //                   style: TextStyle(
-  //                       fontWeight: FontWeight.normal, color: Colors.black
+  //                        fontWeight: FontWeight.bold, color: Colors.black
   //                     // decoration: TextDecoration.underline,
   //                     // decorationStyle: TextDecorationStyle.wavy,
   //                   ),
@@ -1084,6 +1086,8 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
+
                                   color: Colors.blue),
                             ),
                           ],

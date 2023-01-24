@@ -112,7 +112,9 @@ class _AppSettingsState extends State<AppSettings> {
                   child: Text(
                     type,
                     style: TextStyle(
-                        fontSize: 20, fontFamily: "cute", color: Colors.pink),
+                        fontSize: 20,
+                         fontWeight: FontWeight.bold,
+                        fontFamily: "cute", color: Colors.pink),
                   ),
                 ),
                 Padding(
@@ -144,8 +146,8 @@ class _AppSettingsState extends State<AppSettings> {
                       ),
                       labelText: ' Write Here',
                       labelStyle: TextStyle(
-                        fontFamily: "Cutes",
-                        fontWeight: FontWeight.bold,
+                        fontFamily: "Cute",
+                         fontWeight: FontWeight.bold,
                         color: Colors.blue.shade700,
                         fontSize: 10,
                       ),

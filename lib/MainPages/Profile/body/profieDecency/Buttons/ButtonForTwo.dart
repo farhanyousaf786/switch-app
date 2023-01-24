@@ -117,7 +117,8 @@ class _ButtonForTwoState extends State<ButtonForTwo> {
         child: Text(
           "2",
           style: TextStyle(
-              color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600,fontFamily: "cutes",),
+              color: Colors.black, fontSize: 10,                              fontWeight: FontWeight.bold,
+            fontFamily: "cute",),
         ),
         margin: new EdgeInsets.all(9.0),
         decoration: BoxDecoration(

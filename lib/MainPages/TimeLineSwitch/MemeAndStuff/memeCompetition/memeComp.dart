@@ -748,7 +748,9 @@ class _MemeCompState extends State<MemeComp> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontFamily: "cutes",
+                                  fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
+
                                   color: Colors.white),
                             ),
                           ),

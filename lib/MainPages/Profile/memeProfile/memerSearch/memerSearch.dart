@@ -115,8 +115,9 @@ class _MemerSearchState extends State<MemerSearch> {
                           suffixIcon: Icon(Icons.search),
                           labelStyle: TextStyle(
                               color: Colors.black54,
-                              fontFamily: "cutes",
-                              fontWeight: FontWeight.bold)),
+                              fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
+                          )),
                     ),
                   ),
                 ),

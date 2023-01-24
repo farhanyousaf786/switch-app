@@ -119,7 +119,8 @@ class _ButtonForThreeState extends State<MemeButtonForThree> {
           child: Text(
             "3",
             style: TextStyle(
-              color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600,fontFamily: "cutes",),
+              color: Colors.black, fontSize: 10,                              fontWeight: FontWeight.bold,
+              fontFamily: "cute",),
           ),
         ),
         margin: new EdgeInsets.all(9.0),

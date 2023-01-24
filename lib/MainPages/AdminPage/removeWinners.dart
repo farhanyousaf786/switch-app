@@ -85,8 +85,8 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                       'details',
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
                   ),
@@ -96,8 +96,8 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                       "Username: " +    listOfTopics?[index]['username'],
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -107,8 +107,8 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                       "Name: " +   listOfTopics?[index]['name'],
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -125,8 +125,8 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                         "Delete It",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
                     ),

@@ -120,7 +120,8 @@ class _ButtonForOneState extends State<ButtonForOne> {
           "1",
           style: TextStyle(
               color: Colors.black, fontSize: 10,
-              fontFamily: "cutes", fontWeight: FontWeight.w600),
+              fontFamily: "cute",                              fontWeight: FontWeight.bold,
+          ),
         ),
         margin: new EdgeInsets.all(9.0),
         decoration: BoxDecoration(

@@ -84,7 +84,7 @@ class _EmailVerificationState extends State<EmailVerification> {
       'postId': "N/A",
       'url': Constants.switchLogo,
       "currentMood": "Happy",
-      "about": "notSet",
+      "about": "not set",
       'gender': "notSet",
       "isVerified": "false",
       "password": Constants.pass,
@@ -154,6 +154,8 @@ class _EmailVerificationState extends State<EmailVerification> {
           style: TextStyle(
             fontSize: 22,
             fontFamily: "cute",
+             fontWeight: FontWeight.bold,
+
           ),
         ),
       ),
@@ -422,8 +424,8 @@ class _EmailVerificationState extends State<EmailVerification> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontSize: 15,
-                                              fontFamily: "cutes",
-                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "cute",
+                                               fontWeight: FontWeight.bold,
                                               color: Colors.red),
                                         ),
                                       ),
@@ -435,8 +437,8 @@ class _EmailVerificationState extends State<EmailVerification> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontSize: 16,
-                                              fontFamily: "cutes",
-                                              fontWeight: FontWeight.bold,
+                                              fontFamily: "cute",
+                                               fontWeight: FontWeight.bold,
                                               color: Colors.blue),
                                         ),
                                       ),

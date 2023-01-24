@@ -236,8 +236,8 @@ class _CommentsPageState extends State<CommentsPage> {
                                   "Report Comment",
                                   style: TextStyle(
                                       fontSize: 14,
-                                      fontFamily: "cutes",
-                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "cute",
+                                       fontWeight: FontWeight.bold,
                                       color: Colors.red),
                                 ),
                               ),
@@ -252,8 +252,8 @@ class _CommentsPageState extends State<CommentsPage> {
                                   "Visit Profile",
                                   style: TextStyle(
                                       fontSize: 14,
-                                      fontFamily: "cutes",
-                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "cute",
+                                       fontWeight: FontWeight.bold,
                                       color: Colors.green),
                                 ),
                               ),

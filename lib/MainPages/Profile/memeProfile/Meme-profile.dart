@@ -1679,6 +1679,8 @@ class _MemeProfileState extends State<MemeProfile> {
               child: Text(
                 "Meme Decency",
                 style: TextStyle(
+                   fontWeight: FontWeight.bold,
+
                   fontFamily: "Cute",
                   fontSize: 12,
                 ),

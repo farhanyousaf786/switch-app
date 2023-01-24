@@ -512,8 +512,8 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 14,
-                                  fontFamily: "cutes",
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
                           ),
@@ -529,8 +529,8 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                 "Ok Continue",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     color: Colors.blue),
                               ))
                         ],
@@ -810,7 +810,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
   //                     TextSpan(
   //                       text: '$description',
   //                       style: TextStyle(
-  //                           fontWeight: FontWeight.normal, color: Colors.black
+  //                            fontWeight: FontWeight.bold, color: Colors.black
   //                           // decoration: TextDecoration.underline,
   //                           // decorationStyle: TextDecorationStyle.wavy,
   //                           ),
@@ -1176,6 +1176,8 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontFamily: "cute",
+                                         fontWeight: FontWeight.bold,
+
                                         color: Colors.blue),
                                   ),
                                 ),

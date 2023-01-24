@@ -154,8 +154,8 @@ class _AdminUserDetailsState extends State<AdminUserDetails> {
                       "Are You Sure?",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),

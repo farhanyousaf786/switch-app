@@ -114,6 +114,8 @@ class _UploadShotMemesState extends State<UploadShotMemes> {
                         : "Share Thoughts",
             style: TextStyle(
               color: Colors.blue.shade900,
+              fontWeight: FontWeight.bold,
+
               fontFamily: 'cute',
               fontSize: 16,
             ),
@@ -162,6 +164,8 @@ class _UploadShotMemesState extends State<UploadShotMemes> {
                             "Upload",
                             style: TextStyle(
                               color: Colors.blue.shade900,
+                              fontWeight: FontWeight.bold,
+
                               fontFamily: 'cute',
                               fontSize: 16,
                             ),
@@ -954,8 +958,8 @@ class _UploadShotMemesState extends State<UploadShotMemes> {
                       "Upload Successful!",
                       style: TextStyle(
                           fontSize: 17,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.green.shade900),
                     ),
                   ),

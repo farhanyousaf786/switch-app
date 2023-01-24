@@ -111,7 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 12,
-                            fontFamily: "cutes",
+                            fontFamily: "cute",
                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
@@ -122,8 +122,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         "Note:  Check your internet too.",
                         style: TextStyle(
                             fontSize: 10,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
                       ),
                     ),
@@ -139,15 +139,14 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlue,
-
       appBar: AppBar(
         title: Text(
           "",
           style: TextStyle(
-            fontFamily: "Cute",
-            fontSize: 14,
-            color: Colors.white,
-          ),
+              fontFamily: "Cute",
+              fontSize: 14,
+              color: Colors.white,
+               fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
@@ -177,6 +176,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     style: TextStyle(
                       fontFamily: "Cute",
                       fontSize: 18,
+                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
@@ -192,10 +192,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
-                        color: Colors.blue.shade900,
-                        fontSize: 12,
-                        fontFamily: "Cute",
-                      ),
+                          color: Colors.blue.shade900,
+                          fontSize: 12,
+                          fontFamily: "Cute",
+                           fontWeight: FontWeight.bold),
                       // onTap: () => userValidater(
                       //     usernameController.text.toLowerCase()),
                       // onChanged: (values) {
@@ -221,6 +221,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         labelStyle: TextStyle(
                             fontFamily: "Cute",
                             color: Colors.blue.shade900,
+                             fontWeight: FontWeight.bold,
                             fontSize: 12),
                       ),
                     ),
@@ -239,6 +240,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       focusNode: _passFocusNode,
                       style: TextStyle(
                         fontFamily: "Cute",
+                         fontWeight: FontWeight.bold,
                         color: Colors.blue.shade900,
                         fontSize: 12,
                       ),
@@ -274,6 +276,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         labelText: ' Password',
                         labelStyle: TextStyle(
                           fontFamily: "Cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.blue.shade900,
                           fontSize: 12,
                         ),
@@ -315,7 +318,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                 text: "By signing up you agree to our ",
                                 style: TextStyle(
                                   fontSize: 10,
-                                  color: Colors.white,
+                                  color: Colors.white,                            fontWeight: FontWeight.bold,
+
                                   fontFamily: 'cutes',
                                 )),
                             TextSpan(
@@ -354,11 +358,11 @@ class _SignUpPageState extends State<SignUpPage> {
                             : Text(
                                 'Switch',
                                 style: TextStyle(
-                                  color: userExists
-                                      ? Colors.blue.shade300
-                                      : Colors.blue.shade700,
-                                  fontFamily: "Cute",
-                                ),
+                                    color: userExists
+                                        ? Colors.blue.shade300
+                                        : Colors.blue.shade700,
+                                    fontFamily: "Cute",
+                                     fontWeight: FontWeight.bold),
                               ),
                         onPressed: () => {
                               if (emailController.text.isEmpty ||
@@ -413,9 +417,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                                     'Email or password can\'t be empty',
                                                     style: TextStyle(
                                                         fontSize: 15,
-                                                        fontFamily: "cutes",
-                                                        fontWeight:
-                                                            FontWeight.bold,
+                                                        fontFamily: "cute",
+                                                         fontWeight: FontWeight.bold,
+
                                                         color: Colors.red),
                                                   ),
                                                 ),
@@ -444,9 +448,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       Text(
                         "Already Have An Account?",
                         style: TextStyle(
-                          color: Colors.blue.shade900,
-                          fontFamily: "Cute",
-                        ),
+                            color: Colors.blue.shade900,
+                            fontFamily: "Cute",
+                             fontWeight: FontWeight.bold),
                       ),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -459,6 +463,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             style: TextStyle(
                               fontFamily: "Cute",
                               fontSize: 20,
+                               fontWeight: FontWeight.bold,
                               color: Colors.greenAccent,
                             ),
                           ),

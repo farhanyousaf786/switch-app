@@ -332,9 +332,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/MainPages/Profile/Panel/EditProfilePic.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
@@ -360,7 +362,6 @@ class _EditProfileState extends State<EditMyProfile> {
   String country = "";
   String bio = "";
   String countryName = '';
-
   bool isMale = false;
   bool isFemale = false;
   bool others = false;
@@ -368,9 +369,6 @@ class _EditProfileState extends State<EditMyProfile> {
   TextEditingController dob = TextEditingController();
 
   _saveData() async {
-    print("dob: $dateOfBirth");
-    print("country: $countryName");
-
     userRefRTD.child(Constants.myId).update({
       "firstName": firstName == ""
           ? Constants.myName
@@ -384,7 +382,6 @@ class _EditProfileState extends State<EditMyProfile> {
       "gender": Constants.gender,
       'about': about == "" ? Constants.about : about
     });
-
     userRefForSearchRtd.child(Constants.myId).update({
       "firstName": firstName == ""
           ? Constants.myName
@@ -393,6 +390,27 @@ class _EditProfileState extends State<EditMyProfile> {
           ? Constants.mySecondName
           : secondName![0].toUpperCase() + secondName!.substring(1),
       'about': about.length > 0 ? about : Constants.about
+    });
+
+    SharedPreferences? prefs = await SharedPreferences.getInstance();
+    Map userMap;
+    userRefRTD.child(widget.uid).once().then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.value != null) {
+        userMap = dataSnapshot.value;
+        prefs.setString("firstName", userMap['firstName']);
+        prefs.setString("ownerId", userMap['ownerId']);
+        prefs.setString("url", userMap['url']);
+        prefs.setString("secondName", userMap['secondName']);
+        prefs.setString("email", userMap['email']);
+        prefs.setString("currentMood", userMap['currentMood']);
+        prefs.setString("gender", userMap['gender']);
+        prefs.setString("country", userMap['country']);
+        prefs.setString("dob", userMap['dob']);
+        prefs.setString("about", userMap['about']);
+        prefs.setString("username", userMap['username']);
+        prefs.setString("isVerified", userMap['isVerified']);
+        prefs.setString("isBan", userMap['isBan']);
+      }
     });
 
     showModalBottomSheet(
@@ -436,7 +454,10 @@ class _EditProfileState extends State<EditMyProfile> {
                     child: Text(
                       "Restart application for quick update",
                       style: TextStyle(
-                          fontSize: 15, fontFamily: "cute", color: Colors.blue),
+                           fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          fontFamily: "cute",
+                          color: Colors.blue),
                     ),
                   ),
                   Padding(
@@ -478,9 +499,6 @@ class _EditProfileState extends State<EditMyProfile> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
-    print("IsssssssssssVerified: " + Constants.isVerified);
-
     Constants.gender == 'Male'
         ? isMale = true
         : Constants.gender == 'Female'
@@ -492,6 +510,7 @@ class _EditProfileState extends State<EditMyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
         title: Text(
@@ -499,18 +518,24 @@ class _EditProfileState extends State<EditMyProfile> {
           style: TextStyle(
             color: Colors.white,
             fontFamily: "cute",
+             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
         ),
         centerTitle: true,
         elevation: 0.0,
-        backwardsCompatibility: true,
         actions: [
           ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  elevation: 0.0,
+                  primary: Colors.transparent,
+                  textStyle:
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               child: Text(
                 'Save',
                 style: TextStyle(
                   fontFamily: "Cute",
+                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.white,
                 ),
@@ -692,6 +717,7 @@ class _EditProfileState extends State<EditMyProfile> {
                           style: TextStyle(
                               color: Colors.blue.shade900,
                               fontFamily: "Cute",
+                               fontWeight: FontWeight.bold,
                               fontSize: 12),
                           onChanged: (value) => {
                             dateOfBirth = value,
@@ -740,12 +766,21 @@ class _EditProfileState extends State<EditMyProfile> {
                                   Constants.gender = "Male";
                                 });
                               },
+                              style: ElevatedButton.styleFrom(
+                                  elevation: 0.0,
+                                  backgroundColor:
+                                      isMale ? Colors.blue : Colors.white,
+                                  textStyle: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold)),
                               child: Text(
                                 "Male",
                                 style: TextStyle(
-                                    color: Colors.blue.shade300,
-                                    fontFamily: "Cutes",
-                                    fontWeight: FontWeight.bold,
+                                    color: isMale
+                                        ? Colors.white
+                                        : Colors.lightBlue,
+                                    fontFamily: "Cute",
+                                     fontWeight: FontWeight.bold,
                                     fontSize: 12),
                               )),
                           ElevatedButton(
@@ -765,43 +800,61 @@ class _EditProfileState extends State<EditMyProfile> {
                                   Constants.gender = "Female";
                                 });
                               },
+                              style: ElevatedButton.styleFrom(
+                                  elevation: 0.0,
+                                  backgroundColor:
+                                      isFemale ? Colors.blue : Colors.white,
+                                  textStyle: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold)),
                               child: Text(
                                 "Female",
                                 style: TextStyle(
-                                    color: Colors.blue.shade300,
-                                    fontFamily: "Cutes",
-                                    fontWeight: FontWeight.bold,
+                                    color: isFemale
+                                        ? Colors.white
+                                        : Colors.lightBlue,
+                                    fontFamily: "Cute",
+                                     fontWeight: FontWeight.bold,
                                     fontSize: 12),
                               )),
                           ElevatedButton(
-                              // color: others ? Colors.blue : Colors.white,
-                              // shape: RoundedRectangleBorder(
-                              //     borderRadius: BorderRadius.circular(15.0),
-                              //     side: BorderSide(
-                              //       color: Colors.blue,
-                              //     )),
-                              onPressed: () {
-                                setState(() {
-                                  others = true;
-                                  isFemale = false;
-                                  isMale = false;
-                                  Constants.gender = "Others";
-                                });
-                              },
-                              child: Text(
-                                "Others",
-                                style: TextStyle(
-                                    color: Colors.blue.shade300,
-                                    fontFamily: "Cutes",
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12),
-                              )),
+                            // color: others ? Colors.blue : Colors.white,
+                            // shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(15.0),
+                            //     side: BorderSide(
+                            //       color: Colors.blue,
+                            //     )),
+                            onPressed: () {
+                              setState(() {
+                                others = true;
+                                isFemale = false;
+                                isMale = false;
+                                Constants.gender = "Others";
+                              });
+                            },
+                            child: Text(
+                              "Others",
+                              style: TextStyle(
+                                  color:
+                                      others ? Colors.white : Colors.lightBlue,
+                                  fontFamily: "Cute",
+                                   fontWeight: FontWeight.bold,
+                                  fontSize: 12),
+                            ),
+
+                            style: ElevatedButton.styleFrom(
+                                elevation: 0.0,
+                                backgroundColor:
+                                    others ? Colors.blue : Colors.white,
+                                textStyle: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold)),
+                          ),
                         ],
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 30, left: 15, right: 15, bottom: 15),
+                          top: 30, left: 15, right: 15, bottom: 5),
                       child: Container(
                         height: 100,
                         padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
@@ -839,19 +892,24 @@ class _EditProfileState extends State<EditMyProfile> {
                     ),
                     Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 0),
                         child: Text(
                           "Select Country",
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue.shade700),
+                              color: Colors.white),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0.0,
+                              primary: Colors.transparent,
+                              textStyle: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold)),
                           // shape: RoundedRectangleBorder(
                           //     borderRadius: BorderRadius.circular(15.0),
                           //     side: BorderSide(color: Colors.grey, width: 2)),

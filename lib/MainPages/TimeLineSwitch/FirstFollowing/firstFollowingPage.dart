@@ -90,9 +90,10 @@ class _FirstFollowingState extends State<FirstFollowing> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 14,
-                        fontFamily: "cutes",
+                        fontFamily: "cute",
                         color: Colors.black54,
-                        fontWeight: FontWeight.bold),
+                       fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],

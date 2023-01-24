@@ -1026,8 +1026,8 @@ class _PanelState extends State<Panel> {
                           child: Text(
                             "Chat  ",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "cutes",
+                               fontWeight: FontWeight.bold,
+                              fontFamily: "cute",
                               fontSize: 14,
                             ),
                           ),
@@ -1067,7 +1067,8 @@ class _PanelState extends State<Panel> {
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'cute',
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
+
                   ),
                 ),
                 SizedBox(
@@ -1107,6 +1108,8 @@ class _PanelState extends State<Panel> {
               style: TextStyle(
                 fontSize: 20,
                 fontFamily: 'cute',
+                fontWeight: FontWeight.bold,
+
                 color: Colors.blue,
               ),
             ),
@@ -1346,8 +1349,8 @@ class _PanelState extends State<Panel> {
                                       "Following",
                                       style: TextStyle(
                                           color: Colors.lightBlue,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: "cutes",
+                                           fontWeight: FontWeight.bold,
+                                          fontFamily: "cute",
                                           fontSize: 10),
                                     ),
                                     StreamBuilder(
@@ -1445,8 +1448,8 @@ class _PanelState extends State<Panel> {
                                     Text(
                                       "CrushOn",
                                       style: TextStyle(
-                                          fontFamily: "cutes",
-                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "cute",
+                                           fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue,
                                           fontSize: 10),
                                     ),

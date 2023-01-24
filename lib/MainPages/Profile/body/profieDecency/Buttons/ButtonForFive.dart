@@ -113,7 +113,8 @@ class _ButtonForFiveState extends State<ButtonForFive> {
         child: Text(
           "5",
           style: TextStyle(
-              fontFamily: "cutes", color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600),
+              fontFamily: "cute", color: Colors.black, fontSize: 10,                              fontWeight: FontWeight.bold,
+          ),
         ),
         margin: new EdgeInsets.all(9.0),
         decoration: BoxDecoration(

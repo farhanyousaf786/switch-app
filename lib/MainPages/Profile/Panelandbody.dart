@@ -370,8 +370,8 @@ class _SwitchProfileState extends State<SwitchProfile> {
                         "You are blocked By ${widget.username}",
                         style: TextStyle(
                           color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "cutes",
+                           fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
                         ),
                       ),
                     ),

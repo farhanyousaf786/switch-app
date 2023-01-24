@@ -162,15 +162,15 @@ flutter:
     - family: Indies
       fonts:
         - asset: assets/fonts/IndieFlower-Regular.ttf
-    - family: Names
+    - family: cute
       fonts:
-        - asset: assets/fonts/BalsamiqSans-Regular.ttf
-    - family: Cute
-      fonts:
-        - asset: assets/fonts/FredokaOne-Regular.ttf
-    - family: Cutes
-      fonts:
-        - asset: assets/fonts/VarelaRound-Regular.ttf
+        - asset: assets/fonts/LexendDeca.ttf
+#    - family: Cute
+#      fonts:
+#        - asset: assets/fonts/FredokaOne-Regular.ttf
+#    - family: Cutes
+#      fonts:
+#        - asset: assets/fonts/VarelaRound-Regular.ttf
     - family: Robot
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf

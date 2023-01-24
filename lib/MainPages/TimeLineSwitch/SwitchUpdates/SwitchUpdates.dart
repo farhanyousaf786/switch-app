@@ -654,8 +654,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 14,
-                                  fontFamily: "cutes",
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
                           ),
@@ -671,8 +671,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                                 "Ok Continue",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: "cutes",
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "cute",
+                                     fontWeight: FontWeight.bold,
                                     color: Colors.blue),
                               ))
                         ],
@@ -1024,7 +1024,7 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
   //                       TextSpan(
   //                         text: '${description}..',
   //                         style: TextStyle(
-  //                             fontWeight: FontWeight.normal, color: Colors.black
+  //                              fontWeight: FontWeight.bold, color: Colors.black
   //                           // decoration: TextDecoration.underline,
   //                           // decorationStyle: TextDecorationStyle.wavy,
   //                         ),
@@ -1068,7 +1068,7 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
   //                 TextSpan(
   //                   text: '$description',
   //                   style: TextStyle(
-  //                       fontWeight: FontWeight.normal, color: Colors.black
+  //                        fontWeight: FontWeight.bold, color: Colors.black
   //                     // decoration: TextDecoration.underline,
   //                     // decorationStyle: TextDecorationStyle.wavy,
   //                   ),
@@ -1334,6 +1334,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
+                                   fontWeight: FontWeight.bold,
+
                                   color: Colors.blue),
                             ),
                           ],
@@ -1524,8 +1526,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                       "Are you sure?",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -1539,8 +1541,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                             "Yes",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           onTap: () {
@@ -1552,8 +1554,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                             "No",
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue.shade700),
                           ),
                           onTap: () {
@@ -1570,8 +1572,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 10,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   )
@@ -2071,8 +2073,8 @@ class _SwitchUpdatesState extends State<SwitchUpdates> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 20,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.blue),
                       ),
                     ),

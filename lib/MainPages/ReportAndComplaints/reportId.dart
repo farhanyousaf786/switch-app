@@ -59,8 +59,8 @@ class _ReportIdState extends State<ReportId> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -72,8 +72,8 @@ class _ReportIdState extends State<ReportId> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 12,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -135,7 +135,8 @@ class _ReportIdState extends State<ReportId> {
           centerTitle: true,
           title: Text(
             "Report Page",
-            style: TextStyle(color: Colors.black, fontFamily: 'cute'),
+            style: TextStyle(                            fontWeight: FontWeight.bold,
+                color: Colors.black, fontFamily: 'cute'),
           ),
           elevation: 0.0,
           backgroundColor: Colors.white,
@@ -201,6 +202,8 @@ class _ReportIdState extends State<ReportId> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.black,
+                          fontWeight: FontWeight.bold,
+
                           fontFamily: 'cute',
                           fontSize: 13),
                     ),
@@ -228,6 +231,8 @@ class _ReportIdState extends State<ReportId> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
+                              fontWeight: FontWeight.bold,
+
                               fontFamily: 'cute',
                               fontSize: 13),
                         ),
@@ -260,6 +265,8 @@ class _ReportIdState extends State<ReportId> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
+                              fontWeight: FontWeight.bold,
+
                               fontFamily: 'cute',
                               fontSize: 13),
                         ),
@@ -292,6 +299,8 @@ class _ReportIdState extends State<ReportId> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
+                              fontWeight: FontWeight.bold,
+
                               fontFamily: 'cute',
                               fontSize: 13),
                         ),
@@ -324,6 +333,8 @@ class _ReportIdState extends State<ReportId> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
+                              fontWeight: FontWeight.bold,
+
                               fontFamily: 'cute',
                               fontSize: 13),
                         ),
@@ -356,6 +367,8 @@ class _ReportIdState extends State<ReportId> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.black,
+                              fontWeight: FontWeight.bold,
+
                               fontFamily: 'cute',
                               fontSize: 13),
                         ),

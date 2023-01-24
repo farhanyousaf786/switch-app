@@ -105,8 +105,8 @@ class _AddMemePageState extends State<AddMemePage> {
                       'details',
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
                   ),
@@ -116,8 +116,8 @@ class _AddMemePageState extends State<AddMemePage> {
                       listOfTopics?[index]['details'],
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -134,8 +134,8 @@ class _AddMemePageState extends State<AddMemePage> {
                         "Delete It",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
                     ),
@@ -177,6 +177,8 @@ class _AddMemePageState extends State<AddMemePage> {
                     color: Colors.blue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
+                     fontWeight: FontWeight.bold,
+
                   ),
                   controller: textMemeTopic,
                   decoration: InputDecoration(
@@ -194,6 +196,8 @@ class _AddMemePageState extends State<AddMemePage> {
                     labelText: ' Add Topic Here..',
                     labelStyle: TextStyle(
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                       color: Colors.blue.shade900,
                       fontSize: 12,
                     ),
@@ -213,6 +217,8 @@ class _AddMemePageState extends State<AddMemePage> {
                     color: Colors.blue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
+                     fontWeight: FontWeight.bold,
+
                   ),
                   controller: textMemeTopicDetails,
                   decoration: InputDecoration(
@@ -230,6 +236,8 @@ class _AddMemePageState extends State<AddMemePage> {
                     labelText: ' Add Details Here..',
                     labelStyle: TextStyle(
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                       color: Colors.blue.shade900,
                       fontSize: 12,
                     ),

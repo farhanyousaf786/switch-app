@@ -119,7 +119,9 @@ class _ButtonForFiveState extends State<MemeButtonForFive> {
           child: Text(
             "5",
             style: TextStyle(
-                fontFamily: "cutes", color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600),
+                 fontWeight: FontWeight.bold,
+
+                fontFamily: "cute", color: Colors.black, fontSize: 10, ),
           ),
         ),
         margin: new EdgeInsets.all(9.0),

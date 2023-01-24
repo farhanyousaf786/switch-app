@@ -118,8 +118,8 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 15,
-                                      fontFamily: "cutes",
-                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "cute",
+                                       fontWeight: FontWeight.bold,
                                       color: Colors.blue),
                                 ),
                               ),
@@ -130,8 +130,8 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 15,
-                                      fontFamily: "cutes",
-                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "cute",
+                                       fontWeight: FontWeight.bold,
                                       color: Colors.green),
                                 ),
                               ),
@@ -142,8 +142,8 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 15,
-                                      fontFamily: "cutes",
-                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "cute",
+                                       fontWeight: FontWeight.bold,
                                       color: Colors.grey),
                                 ),
                               ),

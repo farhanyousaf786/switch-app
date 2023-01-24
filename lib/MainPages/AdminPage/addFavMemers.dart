@@ -84,8 +84,8 @@ class _RemoveFavMemersState extends State<RemoveFavMemers> {
                       'details',
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
                   ),
@@ -95,8 +95,8 @@ class _RemoveFavMemersState extends State<RemoveFavMemers> {
                   "Username: " +    listOfTopics?[index]['username'],
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -106,8 +106,8 @@ class _RemoveFavMemersState extends State<RemoveFavMemers> {
                     "Name: " +   listOfTopics?[index]['name'],
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -124,8 +124,8 @@ class _RemoveFavMemersState extends State<RemoveFavMemers> {
                         "Delete It",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
                     ),

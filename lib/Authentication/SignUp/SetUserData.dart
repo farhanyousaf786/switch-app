@@ -126,8 +126,8 @@ class _SetUserDataState extends State<SetUserData> {
                             : "All information should be added",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: "cutes",
-                            fontWeight: FontWeight.bold,
+                            fontFamily: "cute",
+                             fontWeight: FontWeight.bold,
                             color: Colors.red),
                       ),
                     ),
@@ -182,7 +182,7 @@ class _SetUserDataState extends State<SetUserData> {
         "currentMood": "Happy",
         "username": userNameTextEditingController.text.toLowerCase(),
         "isVerified": "false",
-        "about": "",
+        "about": "not set",
       });
       userProfileDecencyReport.child(user.uid).update({
         "numberOfOne": 0,
@@ -303,8 +303,8 @@ class _SetUserDataState extends State<SetUserData> {
                           "Username Must be less than 30 characters",
                           style: TextStyle(
                               fontSize: 15,
-                              fontFamily: "cutes",
-                              fontWeight: FontWeight.bold,
+                              fontFamily: "cute",
+                               fontWeight: FontWeight.bold,
                               color: Colors.red),
                         ),
                       ),
@@ -360,6 +360,8 @@ class _SetUserDataState extends State<SetUserData> {
           style: TextStyle(
             fontFamily: "Cute",
             color: Colors.white,
+             fontWeight: FontWeight.bold,
+
             fontSize: 20,
           ),
         ),
@@ -428,6 +430,8 @@ class _SetUserDataState extends State<SetUserData> {
                       color: Colors.blue.shade900,
                       fontSize: 12,
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                     ),
                     controller: userNameTextEditingController,
                     decoration: InputDecoration(
@@ -448,6 +452,8 @@ class _SetUserDataState extends State<SetUserData> {
                       labelStyle: TextStyle(
                           fontFamily: "Cute",
                           color: Colors.white70,
+                           fontWeight: FontWeight.bold,
+
                           fontSize: 12),
                     ),
                   ),
@@ -467,6 +473,8 @@ class _SetUserDataState extends State<SetUserData> {
                       style: TextStyle(
                           color: Colors.blue.shade900,
                           fontFamily: "Cute",
+                           fontWeight: FontWeight.bold,
+
                           fontSize: 12),
                       controller: firstName,
                       focusNode: firstNameFocusNode,
@@ -508,6 +516,8 @@ class _SetUserDataState extends State<SetUserData> {
                       style: TextStyle(
                           color: Colors.blue.shade900,
                           fontFamily: "Cute",
+                           fontWeight: FontWeight.bold,
+
                           fontSize: 12),
                       controller: lastName,
                       decoration: InputDecoration(
@@ -649,6 +659,8 @@ class _SetUserDataState extends State<SetUserData> {
                     'Save',
                     style: TextStyle(
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                       fontSize: 16,
                       color: userExists ? Colors.blue.shade200 : Colors.blue,
                     ),
@@ -681,6 +693,8 @@ class _SetUserDataState extends State<SetUserData> {
                         "1 of 2 Steps",
                         style: TextStyle(
                           fontFamily: "Cute",
+                           fontWeight: FontWeight.bold,
+
                           fontSize: 16,
                           color: Colors.white,
                         ),

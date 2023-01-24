@@ -106,6 +106,8 @@ elevation: 0,
                             style: TextStyle(
                                 fontSize: 18,
                                 fontFamily: "cute",
+                                 fontWeight: FontWeight.bold,
+
                                 color: Colors.blue),
                           ),
                         ),
@@ -119,9 +121,10 @@ elevation: 0,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 14,
-                                fontFamily: "cutes",
+                                fontFamily: "cute",
                                 color: Colors.black54,
-                                fontWeight: FontWeight.bold),
+                               fontWeight: FontWeight.bold,
+                            ),
                           ),),
 
                         Padding(
@@ -132,9 +135,10 @@ elevation: 0,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 12,
-                                fontFamily: "cutes",
+                                fontFamily: "cute",
                                 color: Colors.green.shade700,
-                                fontWeight: FontWeight.bold),
+                               fontWeight: FontWeight.bold,
+                            ),
                           ),),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -144,9 +148,10 @@ elevation: 0,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 12,
-                                fontFamily: "cutes",
+                                fontFamily: "cute",
                                 color: Colors.green.shade700,
-                                fontWeight: FontWeight.bold),
+                               fontWeight: FontWeight.bold,
+                            ),
                           ),),
 
 
@@ -159,9 +164,10 @@ elevation: 0,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 20,
-                                fontFamily: "cutes",
+                                fontFamily: "cute",
                                 color: Colors.indigo,
-                                fontWeight: FontWeight.bold),
+                               fontWeight: FontWeight.bold,
+                            ),
                           ),),
 
 
@@ -195,9 +201,10 @@ elevation: 0,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 12,
-                              fontFamily: "cutes",
+                              fontFamily: "cute",
                               color: Colors.green.shade700,
-                              fontWeight: FontWeight.bold),
+                             fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),),
                   ),

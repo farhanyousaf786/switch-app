@@ -2717,8 +2717,8 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
                       "What You Want?",
                       style: TextStyle(
                           fontSize: 15,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),

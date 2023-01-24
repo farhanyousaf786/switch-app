@@ -50,8 +50,8 @@ class _ComplaintUsState extends State<ComplaintUs> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 12,
-                          fontFamily: "cutes",
-                          fontWeight: FontWeight.bold,
+                          fontFamily: "cute",
+                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   ),
@@ -195,6 +195,8 @@ class _ComplaintUsState extends State<ComplaintUs> {
                       color: Colors.grey,
                       fontSize: 12,
                       fontFamily: "Cute",
+                       fontWeight: FontWeight.bold,
+
                     ),
                     controller: _reason,
                     decoration: InputDecoration(
@@ -214,6 +216,8 @@ class _ComplaintUsState extends State<ComplaintUs> {
                       labelText: 'type here..',
                       labelStyle: TextStyle(
                         fontFamily: "Cute",
+                         fontWeight: FontWeight.bold,
+
                         color: Colors.grey,
                         fontSize: 12,
                       ),

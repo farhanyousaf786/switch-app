@@ -393,6 +393,8 @@ class _SetGoogleUsernameState
                         color: Colors.white,
                         fontSize: 12,
                         fontFamily: "Cute",
+                         fontWeight: FontWeight.bold,
+
                       ),
                       controller: userNameTextEditingController,
                       decoration: InputDecoration(
@@ -412,6 +414,8 @@ class _SetGoogleUsernameState
                         labelText: 'Username',
                         labelStyle: TextStyle(
                             fontFamily: "Cute",
+                             fontWeight: FontWeight.bold,
+
                             color: Colors.white,
                             fontSize: 12),
                       ),

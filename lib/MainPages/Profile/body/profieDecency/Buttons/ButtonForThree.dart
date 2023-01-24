@@ -21,12 +21,12 @@ class ButtonForThree extends StatefulWidget {
   final VoidCallback checkIfDecencyExist;
 
   const ButtonForThree({
-    required    this.mainId,
+    required this.mainId,
     required this.checkIfDecencyExist,
     required this.isFive,
-    required  this.isFour,
-    required   this.isThree,
-    required   this.isTwo,
+    required this.isFour,
+    required this.isThree,
+    required this.isTwo,
     required this.isOne,
     required this.counterForOne,
     required this.counterForFive,
@@ -35,7 +35,7 @@ class ButtonForThree extends StatefulWidget {
     required this.counterForTwo,
     required this.profileId,
     required this.onPressedButton,
-  }) ;
+  });
 
   @override
   _ButtonForThreeState createState() => _ButtonForThreeState();
@@ -85,7 +85,8 @@ class _ButtonForThreeState extends State<ButtonForThree> {
             userProfileDecencyReport.child(widget.profileId).update({
               "numberOfFive": widget.counterForFive - 1,
             });
-          } feedRtDatabaseReference
+          }
+          feedRtDatabaseReference
               .child(widget.profileId)
               .child("feedItems")
               .child(postId)
@@ -100,7 +101,6 @@ class _ButtonForThreeState extends State<ButtonForThree> {
             "ownerId": widget.mainId,
             "rating": "3",
             "isRead": false,
-
           });
           widget.onPressedButton();
           widget.checkIfDecencyExist();
@@ -113,7 +113,11 @@ class _ButtonForThreeState extends State<ButtonForThree> {
         child: Text(
           "3",
           style: TextStyle(
-              color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600,fontFamily: "cutes",),
+            color: Colors.black,
+            fontSize: 10,
+             fontWeight: FontWeight.bold,
+            fontFamily: "cute",
+          ),
         ),
         margin: new EdgeInsets.all(9.0),
         decoration: BoxDecoration(

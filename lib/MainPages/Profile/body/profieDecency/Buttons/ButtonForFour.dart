@@ -112,10 +112,11 @@ class _ButtonForFourState extends State<ButtonForFour> {
         child: Text(
           "4",
           style: TextStyle(
-              fontFamily: "cutes",
+              fontFamily: "cute",
               color: Colors.black,
               fontSize: 10,
-              fontWeight: FontWeight.w600),
+             fontWeight: FontWeight.bold,
+          ),
         ),
         margin: new EdgeInsets.all(9.0),
         decoration: BoxDecoration(
