@@ -164,7 +164,7 @@ class _FirstFollowingState extends State<FirstFollowing> {
                     "# ${index + 1}",
                     style: TextStyle(
                         fontSize: 10,
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
                         color: Colors.black54),
                   ),
@@ -187,9 +187,9 @@ class _FirstFollowingState extends State<FirstFollowing> {
                     rankingData[index]['username'],
                     style: TextStyle(
                         fontSize: 10,
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue),
+                        color: Colors.lightBlue),
                   ),
                 ),
                 _followingButton(index, rankingData),
@@ -327,7 +327,7 @@ class _FirstFollowingState extends State<FirstFollowing> {
         ? Center(
             child: Container(
               child: SpinKitCircle(
-                color: Colors.blue,
+                color: Colors.lightBlue,
               ),
             ),
           )

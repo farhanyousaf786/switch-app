@@ -72,7 +72,7 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                           fontSize: 15,
                           fontFamily: "cute",
                            fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: Colors.lightBlue),
                     ),
                   ),
                   Padding(
@@ -162,7 +162,7 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                         child: Text(
                           "Loading..",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontFamily: 'cute',
                               fontSize: 14),
                         ),
@@ -208,7 +208,7 @@ class _RemoveCompWinnerState extends State<RemoveCompWinner> {
                                           child: Text(
                                             "${topicList![index]['username']}",
                                             style: TextStyle(
-                                                color: Colors.blue,
+                                                color: Colors.lightBlue,
                                                 fontFamily: 'cute',
                                                 fontSize: 14),
                                           ),

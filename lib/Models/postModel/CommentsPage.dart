@@ -301,7 +301,7 @@ class _CommentsPageState extends State<CommentsPage> {
                                         item[index]['secondName'],
                                     style: TextStyle(
                                         fontSize: 10,
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
@@ -361,7 +361,7 @@ class _CommentsPageState extends State<CommentsPage> {
                   child: Text(
                     "Comments",
                     style: TextStyle(
-                        fontFamily: 'cute', color: Colors.blue, fontSize: 18),
+                        fontFamily: 'cute', color: Colors.lightBlue, fontSize: 18),
                   ),
                 ),
                 Expanded(

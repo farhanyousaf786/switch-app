@@ -149,7 +149,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -176,7 +176,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -211,7 +211,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                           Text(
                             "Caption:  ",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontSize: 15,
                                 fontFamily: 'cute'),
                           ),
@@ -249,7 +249,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                                 child: Text(
                                                   'Caption',
                                                   style: TextStyle(
-                                                    color: Colors.blue,
+                                                    color: Colors.lightBlue,
                                                     fontFamily: 'cute',
                                                     fontSize: 18,
                                                   ),
@@ -329,7 +329,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                     //                           fontFamily: "cutes",
                     //                           fontWeight:
                     //                               FontWeight.bold,
-                    //                           color: Colors.blue),
+                    //                           color: Colors.lightBlue),
                     //                       onTap: (link) => {
                     //                         // url = link.value.toString(),
                     //                         // _launchURL('http://$url'),
@@ -357,7 +357,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                     //         fontSize: 13,
                     //         fontFamily: "cutes",
                     //         fontWeight: FontWeight.bold,
-                    //         color: Colors.blue),
+                    //         color: Colors.lightBlue),
                     //     onTap: (link) => {
                     //       // url = link.value.toString(),
                     //       // _launchURL('http://$url'),
@@ -370,7 +370,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                           Text(
                             "Caption:  ",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontSize: 15,
                                 fontFamily: 'cute'),
                           ),
@@ -394,7 +394,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                     //         fontSize: 13,
                     //         fontFamily: "cutes",
                     //         fontWeight: FontWeight.bold,
-                    //         color: Colors.blue),
+                    //         color: Colors.lightBlue),
                     //     onTap: (link) => {
                     //       // url = link.value.toString(),
                     //       // _launchURL('http://$url'),
@@ -466,7 +466,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
   //                                     fontSize: 13,
   //                                     fontFamily: "cutes",
   //                                     fontWeight: FontWeight.bold,
-  //                                     color: Colors.blue),
+  //                                     color: Colors.lightBlue),
   //                                 onTap: (link)=> {
   //                                   // url = link.value.toString(),
   //                                   //
@@ -499,7 +499,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
   //                   fontSize: 13,
   //                   fontFamily: "cutes",
   //                   fontWeight: FontWeight.bold,
-  //                   color: Colors.blue),
+  //                   color: Colors.lightBlue),
   //               onTap: (link) => {
   //                 // url = link.value.toString(),
   //                 //
@@ -523,7 +523,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
   //                 fontSize: 13,
   //                 fontFamily: "cutes",
   //                 fontWeight: FontWeight.bold,
-  //                 color: Colors.blue),
+  //                 color: Colors.lightBlue),
   //             onTap: (link) => {
   //               //
   //               // url = link.value.toString(),
@@ -631,7 +631,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                 return Text(
                                   "0",
                                   style: TextStyle(
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                       color: Colors.grey.shade600,
                                       fontSize: 10),
                                 );
@@ -645,7 +645,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                   : Text(
                                       data.length.toString(),
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -704,7 +704,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                                   'Delete Post',
                                                   style: TextStyle(
                                                       color: Colors.black,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -750,7 +750,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                                       color: Constants.isDark ==
                                                           "true"
                                                           ? Colors.white
-                                                          : Colors.blue,                                                      fontFamily: 'cutes',
+                                                          : Colors.blue,                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -853,7 +853,7 @@ class _AllProfileMemesState extends State<AllProfileMemes> {
                                   style: TextStyle(
                                       fontSize: 8,
                                       color: Colors.grey,
-                                      fontFamily: 'cutes'),
+                                      fontFamily: 'cute'),
                                 ),
                               ),
                             ),

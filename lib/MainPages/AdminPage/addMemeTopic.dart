@@ -92,7 +92,7 @@ class _AddMemePageState extends State<AddMemePage> {
                           fontSize: 15,
                           fontFamily: "cute",
                            fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: Colors.lightBlue),
                     ),
                   ),
                   Padding(
@@ -159,7 +159,7 @@ class _AddMemePageState extends State<AddMemePage> {
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   style: TextStyle(
-                    color: Colors.blue.shade900,
+                    color: Colors.lightBlue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
                      fontWeight: FontWeight.bold,
@@ -183,7 +183,7 @@ class _AddMemePageState extends State<AddMemePage> {
                       fontFamily: "Cute",
                        fontWeight: FontWeight.bold,
 
-                      color: Colors.blue.shade900,
+                      color: Colors.lightBlue.shade900,
                       fontSize: 12,
                     ),
                   ),
@@ -199,7 +199,7 @@ class _AddMemePageState extends State<AddMemePage> {
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   style: TextStyle(
-                    color: Colors.blue.shade900,
+                    color: Colors.lightBlue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
                      fontWeight: FontWeight.bold,
@@ -223,7 +223,7 @@ class _AddMemePageState extends State<AddMemePage> {
                       fontFamily: "Cute",
                        fontWeight: FontWeight.bold,
 
-                      color: Colors.blue.shade900,
+                      color: Colors.lightBlue.shade900,
                       fontSize: 12,
                     ),
                   ),
@@ -264,7 +264,7 @@ class _AddMemePageState extends State<AddMemePage> {
                           child: Text(
                             "Loading..",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 14),
                           ),
@@ -308,7 +308,7 @@ class _AddMemePageState extends State<AddMemePage> {
                                           child: Text(
                                             "${topicList![index]['topic']}",
                                             style: TextStyle(
-                                                color: Colors.blue,
+                                                color: Colors.lightBlue,
                                                 fontFamily: 'cute',
                                                 fontSize: 14),
                                           ),

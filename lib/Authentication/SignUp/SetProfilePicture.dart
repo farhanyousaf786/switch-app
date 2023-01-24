@@ -96,7 +96,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                       padding: const EdgeInsets.only(left: 8.0),
                       child: CircleAvatar(
                         radius: 73,
-                        backgroundColor: Colors.blue.shade900,
+                        backgroundColor: Colors.lightBlue,
                         child: CircleAvatar(
                           radius: 70,
                           child: Container(
@@ -258,7 +258,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                   child: TextField(
                     maxLength: 50,
                     style: TextStyle(
-                        color: Colors.blue.shade900, fontFamily: 'cute'),
+                        color: Colors.lightBlue.shade900, fontFamily: 'cute'),
                     controller: about,
                     decoration: InputDecoration(
                       isDense: true,
@@ -319,7 +319,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               //           // shape: RoundedRectangleBorder(
               //           //     borderRadius: BorderRadius.circular(15.0),
               //           //     side: BorderSide(
-              //           //       color: Colors.blue,
+              //           //       color: Colors.lightBlue,
               //           //     )),
               //           onPressed: () {
               //             setState(() {
@@ -332,7 +332,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               //           child: Text(
               //             "Male",
               //             style: TextStyle(
-              //                 color: Colors.blue.shade300,
+              //                 color: Colors.lightBlue.shade300,
               //                 fontFamily: "Cute",
               //                 fontSize: 12),
               //           )),
@@ -341,7 +341,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               //           // shape: RoundedRectangleBorder(
               //           //     borderRadius: BorderRadius.circular(15.0),
               //           //     side: BorderSide(
-              //           //       color: Colors.blue,
+              //           //       color: Colors.lightBlue,
               //           //     )),
               //           onPressed: () {
               //             setState(() {
@@ -354,7 +354,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               //           child: Text(
               //             "Female",
               //             style: TextStyle(
-              //                 color: Colors.blue.shade300,
+              //                 color: Colors.lightBlue.shade300,
               //                 fontFamily: "Cute",
               //                 fontSize: 12),
               //           )),
@@ -363,7 +363,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               //           // shape: RoundedRectangleBorder(
               //           //     borderRadius: BorderRadius.circular(15.0),
               //           //     side: BorderSide(
-              //           //       color: Colors.blue,
+              //           //       color: Colors.lightBlue,
               //           //     )),
               //           onPressed: () {
               //             setState(() {
@@ -376,7 +376,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
               //           child: Text(
               //             "Others",
               //             style: TextStyle(
-              //                 color: Colors.blue.shade300,
+              //                 color: Colors.lightBlue.shade300,
               //                 fontFamily: "Cute",
               //                 fontSize: 12),
               //           )),
@@ -463,7 +463,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                 child: Text(
                   "Camera",
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                     fontFamily: "Cute",
                      fontWeight: FontWeight.bold,
 
@@ -475,7 +475,7 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
                 child: Text(
                   "Gallery",
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                     fontFamily: "Cute",
                      fontWeight: FontWeight.bold,
 

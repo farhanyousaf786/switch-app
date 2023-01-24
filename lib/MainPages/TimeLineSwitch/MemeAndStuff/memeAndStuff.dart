@@ -57,7 +57,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                         ),
                         borderRadius: BorderRadius.circular(8)),
                     child: Padding(
@@ -67,7 +67,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                           child: Text(
                             "Meme Competition",
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontWeight: FontWeight.w600,
                               fontSize: 9,
                               fontFamily: 'Names',
@@ -105,7 +105,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                                       fontSize: 15,
                                       fontFamily: "cute",
                                        fontWeight: FontWeight.bold,
-                                      color: Colors.blue),
+                                      color: Colors.lightBlue),
                                 ),
                               ),
                               Padding(
@@ -152,7 +152,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                         child: Text(
                           "Meme Crown",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -185,7 +185,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
                         child: Text(
                           "Rewards",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -231,7 +231,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
             //                       style: TextStyle(
             //                           fontSize: 18,
             //                           fontFamily: "cute",
-            //                           color: Colors.blue),
+            //                           color: Colors.lightBlue),
             //                     ),
             //                   ),
             //                   Padding(
@@ -296,7 +296,7 @@ class _MemeAndStuffState extends State<MemeAndStuff> {
             //             child: Text(
             //               "Follow Users",
             //               style: TextStyle(
-            //                 color: Colors.blue,
+            //                 color: Colors.lightBlue,
             //                 fontWeight: FontWeight.w600,
             //                 fontSize: 9,
             //                 fontFamily: 'Names',

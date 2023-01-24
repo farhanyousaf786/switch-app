@@ -145,7 +145,7 @@ class _NeedHelpPageForSigninPageState extends State<NeedHelpPageForSigninPage> {
                                                     fontSize: 12,
                                                     fontFamily: "cute",
                                                      fontWeight: FontWeight.bold,
-                                                    color: Colors.blue),
+                                                    color: Colors.lightBlue),
                                               ))
                                         ],
                                       ),
@@ -165,7 +165,7 @@ class _NeedHelpPageForSigninPageState extends State<NeedHelpPageForSigninPage> {
                           child: Text(
                             "Click Here",
                             style: TextStyle(
-                              color: Colors.blue.shade900,
+                              color: Colors.lightBlue.shade900,
                               fontFamily: 'cute',
                               fontSize: 16,
                             ),

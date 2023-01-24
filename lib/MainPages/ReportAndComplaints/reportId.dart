@@ -150,7 +150,7 @@ class _ReportIdState extends State<ReportId> {
               //       keyboardType: TextInputType.emailAddress,
               //       textInputAction: TextInputAction.next,
               //       style: TextStyle(
-              //         color: Colors.blue,
+              //         color: Colors.lightBlue,
               //         fontSize: 12,
               //         fontFamily: "Cute",
               //       ),
@@ -171,7 +171,7 @@ class _ReportIdState extends State<ReportId> {
               //         ),
               //         labelText: 'Write here..',
               //         labelStyle: TextStyle(
-              //             fontFamily: "Cute", color: Colors.blue, fontSize: 12),
+              //             fontFamily: "Cute", color: Colors.lightBlue, fontSize: 12),
               //       ),
               //     ),
               //   ),

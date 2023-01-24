@@ -54,7 +54,7 @@ class _SwitchFavState extends State<SwitchFav> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
 
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 15),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                     ),
                   ),
                 ),
@@ -65,7 +65,7 @@ class _SwitchFavState extends State<SwitchFav> {
                 //     child: Text(
                 //       "Favourites Meme",
                 //       style: TextStyle(
-                //           color: Colors.blue, fontFamily: 'cute', fontSize: 15),
+                //           color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                 //     ),
                 //   ),
                 // ),

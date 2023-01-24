@@ -69,7 +69,7 @@ class _AppControlAdminState extends State<AppControlAdmin> {
           ? Center(
               child: Container(
                 child: SpinKitCircle(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   size: 20,
                 ),
               ),

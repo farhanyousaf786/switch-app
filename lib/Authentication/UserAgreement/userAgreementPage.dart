@@ -15,7 +15,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
           "Terms of use & Privacy Policy",
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Colors.blue,
+            color: Colors.lightBlue,
             fontWeight: FontWeight.bold,
 
             fontFamily: 'cute',
@@ -30,7 +30,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
           child: Icon(
             Icons.arrow_back_ios_sharp,
             size: 16,
-            color: Colors.blue,
+            color: Colors.lightBlue,
           ),
         ),
       ),
@@ -49,7 +49,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                     "This is very important that you should know what type of data you can share in this app & what kind of information Switch App collects and where it uses. So, you can Review the key points below. ",
                    textAlign: TextAlign.justify,
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cutes',  fontWeight: FontWeight.bold,fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute',  fontWeight: FontWeight.bold,fontSize: 15),
                   ),
                 ),
               ),
@@ -64,7 +64,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                             child: Text(
                       "Terms And Conditions",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontWeight: FontWeight.bold,
 
                           fontFamily: 'cute',
@@ -81,7 +81,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
 
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -94,7 +94,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                             child: Text(
                       "Do we share your data?",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontWeight: FontWeight.bold,
 
                           fontFamily: 'cute',
@@ -111,7 +111,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
 
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -124,7 +124,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                             child: Text(
                       "What type of information we collect from users?",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontWeight: FontWeight.bold,
 
                           fontFamily: 'cute',
@@ -141,7 +141,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
 
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -156,7 +156,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
 
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontFamily: 'cute',
                           fontSize: 18),
                     ))),
@@ -171,7 +171,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
 
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -184,7 +184,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                             child: Text(
                               "Our rights?",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
+                                  color: Colors.lightBlue.shade700,
                                   fontWeight: FontWeight.bold,
 
                                   fontFamily: 'cute',
@@ -201,7 +201,7 @@ class _UserAgreementPageState extends State<UserAgreementPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
 
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),

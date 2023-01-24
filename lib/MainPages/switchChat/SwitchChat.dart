@@ -424,7 +424,7 @@ class _SwitchChatState extends State<SwitchChat> {
                                                       style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontFamily: 'cutes',
+                                                          fontFamily: 'cute',
                                                           fontSize: 12),
                                                     ),
                                                   ),
@@ -552,7 +552,7 @@ class _SwitchChatState extends State<SwitchChat> {
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                 );

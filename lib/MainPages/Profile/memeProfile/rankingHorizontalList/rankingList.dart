@@ -40,7 +40,7 @@ class _RankingListState extends State<RankingList> {
                     "# ${widget.index + 1}",
                     style: TextStyle(
                         fontSize: 8,
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -69,9 +69,9 @@ class _RankingListState extends State<RankingList> {
                     widget.rankingData[widget.index]['username'],
                     style: TextStyle(
                         fontSize: 8,
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue),
+                        color: Colors.lightBlue),
                   ),
                 ),
 

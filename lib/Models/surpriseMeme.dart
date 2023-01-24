@@ -81,7 +81,7 @@ class _SurpriseMemeState extends State<SurpriseMeme> {
                             Text(
                               caption,
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700),
                             )
@@ -125,7 +125,7 @@ class _SurpriseMemeState extends State<SurpriseMeme> {
                             slidingBeginOffset: Offset(0.0, 1.0),
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Colors.blue.shade700,
+                                color: Colors.lightBlue.shade700,
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               height: 38,
@@ -215,7 +215,7 @@ class _SurpriseMemeState extends State<SurpriseMeme> {
           "Switch Meme",
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'cutes',
+            fontFamily: 'cute',
             fontSize: 16,
           ),
         ),

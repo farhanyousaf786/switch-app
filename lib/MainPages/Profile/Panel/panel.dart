@@ -182,7 +182,7 @@
 //                         children: [
 //                           Text(
 //                             "Edit",
-//                             style: TextStyle(fontSize: 10, color: Colors.blue),
+//                             style: TextStyle(fontSize: 10, color: Colors.lightBlue),
 //                           ),
 //                           SizedBox(
 //                             width: 2,
@@ -190,7 +190,7 @@
 //                           Icon(
 //                             Icons.camera_alt,
 //                             size: 13,
-//                             color: Colors.blue,
+//                             color: Colors.lightBlue,
 //                           ),
 //                         ],
 //                       ),
@@ -285,7 +285,7 @@
 //                     shape: RoundedRectangleBorder(
 //                         borderRadius: BorderRadius.circular(8.0),
 //                         side: BorderSide(color: Colors.white)),
-//                     color: Colors.blue.withOpacity(0.05),
+//                     color: Colors.lightBlue.withOpacity(0.05),
 //                     onPressed: () => {
 //                           FirebaseDatabase.instance
 //                               .reference()
@@ -348,7 +348,7 @@
 //                   color: Colors.black54,
 //                   fontSize: 12,
 //                   fontWeight: FontWeight.w700,
-//                   fontFamily: 'cutes'),
+//                   fontFamily: 'cute'),
 //             ),
 //           ),
 //         );
@@ -463,7 +463,7 @@
 //                     : widget.mainFirstName + "'s" + " Posts",
 //                 style: TextStyle(
 //                   fontSize: 25,
-//                   fontFamily: 'cutes',
+//                   fontFamily: 'cute',
 //                   fontWeight: FontWeight.bold,
 //                   color: Colors.black87,
 //                 ),
@@ -494,7 +494,7 @@
 //               shape: RoundedRectangleBorder(
 //                   borderRadius: BorderRadius.circular(8.0),
 //                   side: BorderSide(color: Colors.white)),
-//               color: Colors.blue.withOpacity(0.3),
+//               color: Colors.lightBlue.withOpacity(0.3),
 //               child: Text(
 //                 "Following",
 //                 style: TextStyle(
@@ -544,7 +544,7 @@
 //               shape: RoundedRectangleBorder(
 //                   borderRadius: BorderRadius.circular(8.0),
 //                   side: BorderSide(color: Colors.white)),
-//               color: Colors.blue.withOpacity(0.05),
+//               color: Colors.lightBlue.withOpacity(0.05),
 //               onPressed: () => {
 //                 setState(() {
 //                   isFollowedByYou = true;
@@ -600,7 +600,7 @@
 //                 "Follow",
 //                 style: TextStyle(
 //                   color: Colors.black,
-//                   fontFamily: 'cutes',
+//                   fontFamily: 'cute',
 //                   fontWeight: FontWeight.bold,
 //                   fontSize: 14,
 //                 ),
@@ -654,7 +654,7 @@
 //                                       style: TextStyle(
 //                                           fontFamily: "cutes",
 //                                           fontWeight: FontWeight.bold,
-//                                           color: Colors.blue,
+//                                           color: Colors.lightBlue,
 //                                           fontSize: 12),
 //                                     ),
 //                                     Text(
@@ -687,7 +687,7 @@
 //                                     Text(
 //                                       "Following",
 //                                       style: TextStyle(
-//                                           color: Colors.blue,
+//                                           color: Colors.lightBlue,
 //                                           fontFamily: "cutes",
 //                                           fontWeight: FontWeight.bold,
 //                                           fontSize: 12),
@@ -711,7 +711,7 @@
 //                           textAlign: TextAlign.center,
 //                           style: TextStyle(
 //                             fontSize: 12,
-//                             fontFamily: 'cutes',
+//                             fontFamily: 'cute',
 //                             fontWeight: FontWeight.w500,
 //                           ),
 //                         ),
@@ -986,7 +986,7 @@ class _PanelState extends State<Panel> {
                     // shape: RoundedRectangleBorder(
                     //     borderRadius: BorderRadius.circular(8.0),
                     //     side: BorderSide(color: Colors.white)),
-                    // color: Colors.blue.withOpacity(0.05),
+                    // color: Colors.lightBlue.withOpacity(0.05),
                     onPressed: () => {
                           FirebaseDatabase.instance
                               .reference()
@@ -1044,7 +1044,7 @@ class _PanelState extends State<Panel> {
           padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
           child: Center(
             child: CircularProgressIndicator(
-              color: Colors.blue,
+              color: Colors.lightBlue,
             ),
           ),
         );
@@ -1076,7 +1076,7 @@ class _PanelState extends State<Panel> {
                 ),
                 Icon(
                   Icons.post_add,
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                 ),
               ],
             ),
@@ -1110,7 +1110,7 @@ class _PanelState extends State<Panel> {
                 fontFamily: 'cute',
                 fontWeight: FontWeight.bold,
 
-                color: Colors.blue,
+                color: Colors.lightBlue,
               ),
             ),
           ),
@@ -1128,7 +1128,7 @@ class _PanelState extends State<Panel> {
               // shape: RoundedRectangleBorder(
               //     borderRadius: BorderRadius.circular(8.0),
               //     side: BorderSide(color: Colors.white)),
-              // color: Colors.blue.withOpacity(0.3),
+              // color: Colors.lightBlue.withOpacity(0.3),
               child: Text(
                 "Following",
                 style: TextStyle(
@@ -1182,7 +1182,7 @@ class _PanelState extends State<Panel> {
               // shape: RoundedRectangleBorder(
               //     borderRadius: BorderRadius.circular(8.0),
               //     side: BorderSide(color: Colors.white)),
-              // color: Colors.blue.withOpacity(0.05),
+              // color: Colors.lightBlue.withOpacity(0.05),
               onPressed: () => {
                 setState(() {
                   isFollowedByYou = true;
@@ -1239,7 +1239,7 @@ class _PanelState extends State<Panel> {
                 "Follow",
                 style: TextStyle(
                   color: Colors.black,
-                  fontFamily: 'cutes',
+                  fontFamily: 'cute',
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
@@ -1273,8 +1273,8 @@ class _PanelState extends State<Panel> {
   //           child: Text(
   //             "Edit Profile",
   //             style: TextStyle(
-  //                 color: Colors.blue.shade700,
-  //                 fontFamily: 'cutes',
+  //                 color: Colors.lightBlue.shade700,
+  //                 fontFamily: 'cute',
   //                 fontWeight: FontWeight.bold,
   //                 fontSize: 12),
   //           ),
@@ -1320,7 +1320,7 @@ class _PanelState extends State<Panel> {
                           height: 50,
                           width: MediaQuery.of(context).size.width/4.5,
                           decoration: BoxDecoration(
-                            color: Colors.blue.withOpacity(0.09),
+                            color: Colors.lightBlue.withOpacity(0.09),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: GestureDetector(
@@ -1372,7 +1372,7 @@ class _PanelState extends State<Panel> {
                                               child: Text(
                                                 "0",
                                                 style: TextStyle(
-                                                  fontFamily: 'cutes',
+                                                  fontFamily: 'cute',
                                                   color: Colors.lightBlue,
                                                   fontSize: 12,
                                                 ),
@@ -1387,7 +1387,7 @@ class _PanelState extends State<Panel> {
                                               child: Text(
                                                 following,
                                                 style: TextStyle(
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 12,
                                                     color: Colors.lightBlue
                                                 ),
@@ -1401,7 +1401,7 @@ class _PanelState extends State<Panel> {
                                             child: Text(
                                               "0",
                                               style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 color: Colors.lightBlue,
                                                 fontSize: 12,
                                               ),
@@ -1420,7 +1420,7 @@ class _PanelState extends State<Panel> {
 
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: Colors.blue.withOpacity(0.09),
+                            color: Colors.lightBlue.withOpacity(0.09),
 
 
                           ),
@@ -1459,7 +1459,7 @@ class _PanelState extends State<Panel> {
                                         crushOnCount,
                                         style: TextStyle(
                                             color: Colors.lightBlue,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontSize: 12),
                                       ),
                                     ),
@@ -1509,7 +1509,7 @@ class _PanelState extends State<Panel> {
                                 "Meme Profile >>",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontFamily: 'cutes',
+                                    fontFamily: 'cute',
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 11),
@@ -1572,7 +1572,7 @@ class _PanelState extends State<Panel> {
                 //                 Text(
                 //                   "Following",
                 //                   style: TextStyle(
-                //                       color: Colors.blue,
+                //                       color: Colors.lightBlue,
                 //                       fontFamily: "cute",
                 //                       fontSize: 10),
                 //                 ),
@@ -1593,14 +1593,14 @@ class _PanelState extends State<Panel> {
                 //                             "0",
                 //                             style: TextStyle(
                 //                                 fontWeight: FontWeight.bold,
-                //                                 fontFamily: 'cutes'),
+                //                                 fontFamily: 'cute'),
                 //                           );
                 //                         } else {
                 //                           return Text(
                 //                             data.length.toString(),
                 //                             style: TextStyle(
                 //                                 fontWeight: FontWeight.bold,
-                //                                 fontFamily: 'cutes'),
+                //                                 fontFamily: 'cute'),
                 //                           );
                 //                         }
                 //                       } else {
@@ -1608,7 +1608,7 @@ class _PanelState extends State<Panel> {
                 //                           "0",
                 //                           style: TextStyle(
                 //                               fontWeight: FontWeight.bold,
-                //                               fontFamily: 'cutes'),
+                //                               fontFamily: 'cute'),
                 //                         );
                 //                       }
                 //                     }),
@@ -1643,14 +1643,14 @@ class _PanelState extends State<Panel> {
                 //                   "CrushOn",
                 //                   style: TextStyle(
                 //                       fontFamily: "cute",
-                //                       color: Colors.blue,
+                //                       color: Colors.lightBlue,
                 //                       fontSize: 10),
                 //                 ),
                 //                 Text(
                 //                   crushOnCount,
                 //                   style: TextStyle(
                 //                       fontWeight: FontWeight.bold,
-                //                       fontFamily: 'cutes'),
+                //                       fontFamily: 'cute'),
                 //                 ),
                 //               ],
                 //             ),
@@ -1716,7 +1716,7 @@ class _PanelState extends State<Panel> {
             //     Text(
             //       "No Bestie Yet",
             //       style: TextStyle(
-            //           fontFamily: 'cute', fontSize: 12, color: Colors.blue),
+            //           fontFamily: 'cute', fontSize: 12, color: Colors.lightBlue),
             //     ),
             //   ],
             // )

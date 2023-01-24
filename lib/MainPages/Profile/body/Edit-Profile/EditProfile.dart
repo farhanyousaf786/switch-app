@@ -257,7 +257,7 @@
 //                     style: GoogleFonts.actor(
 //                         fontSize: 15,
 //                         fontWeight: FontWeight.bold,
-//                         color: Colors.blue),
+//                         color: Colors.lightBlue),
 //                   ),
 //                 ],
 //               ),
@@ -443,7 +443,7 @@ class _EditProfileState extends State<EditMyProfile> {
                            fontWeight: FontWeight.bold,
                           fontSize: 15,
                           fontFamily: "cute",
-                          color: Colors.blue),
+                          color: Colors.lightBlue),
                     ),
                   ),
                   Padding(
@@ -619,7 +619,7 @@ class _EditProfileState extends State<EditMyProfile> {
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
                           style: TextStyle(
-                              color: Colors.blue.shade900, fontFamily: 'cute'),
+                              color: Colors.lightBlue.shade900, fontFamily: 'cute'),
                           decoration: InputDecoration(
                             fillColor: Colors.transparent,
                             isDense: true,
@@ -655,7 +655,7 @@ class _EditProfileState extends State<EditMyProfile> {
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
                           style: TextStyle(
-                              color: Colors.blue.shade900, fontFamily: 'cute'),
+                              color: Colors.lightBlue.shade900, fontFamily: 'cute'),
                           decoration: InputDecoration(
                             fillColor: Colors.transparent,
                             isDense: true,
@@ -701,7 +701,7 @@ class _EditProfileState extends State<EditMyProfile> {
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
                           style: TextStyle(
-                              color: Colors.blue.shade900,
+                              color: Colors.lightBlue.shade900,
                               fontFamily: "Cute",
                                fontWeight: FontWeight.bold,
                               fontSize: 12),
@@ -738,11 +738,11 @@ class _EditProfileState extends State<EditMyProfile> {
                         children: [
                           ElevatedButton(
                               // color:
-                              //     isMale ? Colors.blue.shade900 : Colors.white,
+                              //     isMale ? Colors.lightBlue : Colors.white,
                               // shape: RoundedRectangleBorder(
                               //     borderRadius: BorderRadius.circular(15.0),
                               //     side: BorderSide(
-                              //       color: Colors.blue,
+                              //       color: Colors.lightBlue,
                               //     )),
                               onPressed: () {
                                 setState(() {
@@ -771,12 +771,12 @@ class _EditProfileState extends State<EditMyProfile> {
                               )),
                           ElevatedButton(
                               // color: isFemale
-                              //     ? Colors.blue.shade900
+                              //     ? Colors.lightBlue
                               //     : Colors.white,
                               // shape: RoundedRectangleBorder(
                               //     borderRadius: BorderRadius.circular(15.0),
                               //     side: BorderSide(
-                              //       color: Colors.blue,
+                              //       color: Colors.lightBlue,
                               //     )),
                               onPressed: () {
                                 setState(() {
@@ -808,7 +808,7 @@ class _EditProfileState extends State<EditMyProfile> {
                             // shape: RoundedRectangleBorder(
                             //     borderRadius: BorderRadius.circular(15.0),
                             //     side: BorderSide(
-                            //       color: Colors.blue,
+                            //       color: Colors.lightBlue,
                             //     )),
                             onPressed: () {
                               setState(() {
@@ -853,7 +853,7 @@ class _EditProfileState extends State<EditMyProfile> {
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
                           style: TextStyle(
-                              color: Colors.blue.shade900, fontFamily: 'cute'),
+                              color: Colors.lightBlue.shade900, fontFamily: 'cute'),
                           decoration: InputDecoration(
                             fillColor: Colors.transparent,
                             isDense: true,
@@ -904,9 +904,9 @@ class _EditProfileState extends State<EditMyProfile> {
                                 top: 11, left: 10, right: 10, bottom: 10),
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.blue.shade50,
+                              color: Colors.lightBlue.shade50,
                               border: Border.all(
-                                  color: Colors.blue.shade700, width: 2),
+                                  color: Colors.lightBlue.shade700, width: 2),
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Text(

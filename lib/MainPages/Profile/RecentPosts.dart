@@ -287,7 +287,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -312,7 +312,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -346,7 +346,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -384,7 +384,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -409,7 +409,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                   child: Text(
                                     "Read More...",
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontSize: 12,
                                         fontFamily: 'cute'),
                                   ),
@@ -464,7 +464,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -492,7 +492,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -505,7 +505,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -529,7 +529,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -587,7 +587,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
   //                                     fontSize: 20,
   //                                     fontFamily: "cutes",
   //                                     fontWeight: FontWeight.bold,
-  //                                     color: Colors.blue),
+  //                                     color: Colors.lightBlue),
   //                               ),
   //                             ),
   //                             Padding(
@@ -611,7 +611,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
   //               text: TextSpan(
   //                 text: 'Caption: ',
   //                 style: TextStyle(
-  //                   color: Colors.blue,
+  //                   color: Colors.lightBlue,
   //                   fontWeight: FontWeight.bold,
   //                 ),
   //                 children: <TextSpan>[
@@ -642,7 +642,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
   //             text: TextSpan(
   //               text: 'Caption: ',
   //               style: TextStyle(
-  //                 color: Colors.blue,
+  //                 color: Colors.lightBlue,
   //                 fontWeight: FontWeight.bold,
   //               ),
   //               children: <TextSpan>[
@@ -740,7 +740,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                 return Text(
                                   "0",
                                   style: TextStyle(
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                       color: Colors.grey.shade600,
                                       fontSize: 10),
                                 );
@@ -754,7 +754,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                   : Text(
                                       data.length.toString(),
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -782,7 +782,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                     "Details",
                     style: TextStyle(
                         fontSize: 12,
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
                         color: Colors.grey),
                   ),
@@ -850,7 +850,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                                               "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -884,7 +884,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                                               "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -1013,7 +1013,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                     style: TextStyle(
                                         fontSize: 8,
                                         color: Colors.grey,
-                                        fontFamily: 'cutes'),
+                                        fontFamily: 'cute'),
                                   ),
                                 ),
                               ),
@@ -1072,7 +1072,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                   fontFamily: "cute",
                                    fontWeight: FontWeight.bold,
 
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ],
                         ),
@@ -1108,7 +1108,7 @@ class _RecentProfilePostsState extends State<RecentProfilePosts> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cutes', fontSize: 14),
+                                          fontFamily: 'cute', fontSize: 14),
                                     ),
                                   ),
                                 ],

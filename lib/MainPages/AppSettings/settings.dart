@@ -110,7 +110,7 @@ class _AppSettingsState extends State<AppSettings> {
                     textInputAction: TextInputAction.next,
                     maxLength: 500,
                     style: TextStyle(
-                        color: Colors.blue.shade700,
+                        color: Colors.lightBlue.shade700,
                         fontSize: 12,
                         fontWeight: FontWeight.bold),
                     controller: userText,
@@ -122,19 +122,19 @@ class _AppSettingsState extends State<AppSettings> {
                           Radius.circular(20),
                         ),
                         borderSide: new BorderSide(
-                            color: Colors.blue.shade700, width: 1),
+                            color: Colors.lightBlue.shade700, width: 1),
                       ),
                       filled: true,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         borderSide: new BorderSide(
-                            color: Colors.blue.shade700, width: 1),
+                            color: Colors.lightBlue.shade700, width: 1),
                       ),
                       labelText: ' Write Here',
                       labelStyle: TextStyle(
                         fontFamily: "Cute",
                          fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade700,
+                        color: Colors.lightBlue.shade700,
                         fontSize: 10,
                       ),
                     ),
@@ -161,7 +161,7 @@ class _AppSettingsState extends State<AppSettings> {
                     Navigator.pop(context),
                   },
                   child: Text("Send"),
-                  // color: Colors.blue.shade50,
+                  // color: Colors.lightBlue.shade50,
                 )
               ],
             ),
@@ -174,6 +174,7 @@ class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Text(""),
         backgroundColor:
@@ -187,6 +188,7 @@ class _AppSettingsState extends State<AppSettings> {
               child: Text(
             "Log Out",
             style: TextStyle(
+              fontWeight: FontWeight.bold,
                 color: Colors.white, fontFamily: 'cute', fontSize: 15),
           )),
           IconButton(
@@ -241,8 +243,10 @@ class _AppSettingsState extends State<AppSettings> {
                             child: Text(
                               "Our Goal",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+
                                   fontFamily: 'cute'),
                             ),
                           ),
@@ -263,10 +267,10 @@ class _AppSettingsState extends State<AppSettings> {
                                   "Moreover, we want to make this platform an earning source for Memers. Hope it will go well.",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'cutes'),
+                                      fontFamily: 'cute'),
                                 ),
                               ),
                             ),
@@ -321,6 +325,7 @@ class _AppSettingsState extends State<AppSettings> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontFamily: 'cute',
+
                                     color: Constants.isDark == "true"
                                         ? Colors.white
                                         : Colors.black,
@@ -458,9 +463,9 @@ class _AppSettingsState extends State<AppSettings> {
                             child: Text(
                           "Send Us Complaint",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontSize: 13),
                         )),
                       ),
@@ -484,9 +489,9 @@ class _AppSettingsState extends State<AppSettings> {
                             child: Text(
                           "Terms of use & Privacy Policy",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontSize: 13),
                         )),
                       ),
@@ -505,7 +510,7 @@ class _AppSettingsState extends State<AppSettings> {
                         color: Colors.grey,
                         fontWeight: FontWeight.bold,
                         fontSize: 11,
-                        fontFamily: 'cutes'),
+                        fontFamily: 'cute'),
                   )),
                 ),
                 GestureDetector(
@@ -517,7 +522,7 @@ class _AppSettingsState extends State<AppSettings> {
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                           fontSize: 9,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                 ),
@@ -537,7 +542,7 @@ class _AppSettingsState extends State<AppSettings> {
             //               child: Text(
             //                 "Changing Theme..",
             //                 style: TextStyle(
-            //                     color: Colors.blue,
+            //                     color: Colors.lightBlue,
             //                     fontSize: 16,
             //                     fontFamily: 'cute'),
             //               ),

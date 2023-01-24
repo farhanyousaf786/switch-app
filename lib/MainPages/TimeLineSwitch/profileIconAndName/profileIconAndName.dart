@@ -105,7 +105,7 @@
 //                     height: 35,
 //                     decoration: BoxDecoration(
 //                       borderRadius: BorderRadius.circular(10),
-//                       border: Border.all(color: Colors.blue.shade900, width: 2),
+//                       border: Border.all(color: Colors.lightBlue, width: 2),
 //                       image: DecorationImage(
 //                         image: NetworkImage(data['url']),
 //                       ),
@@ -183,12 +183,15 @@
 //   }
 // }
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import '../../Profile/Panelandbody.dart';
@@ -219,7 +222,6 @@ class _ProfileIconAndNameState extends State<ProfileIconAndName> {
       greetings = 'Good Night';
     }
   }
-
 
   @override
   void initState() {
@@ -257,9 +259,7 @@ class _ProfileIconAndNameState extends State<ProfileIconAndName> {
                   ),
                 ),
               )),
-
         },
-
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -271,16 +271,22 @@ class _ProfileIconAndNameState extends State<ProfileIconAndName> {
                   if (dataSnapShot.hasData) {
                     DataSnapshot snapshot = dataSnapShot.data.snapshot;
                     Map data = snapshot.value;
-                    return Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border:
-                            Border.all(color: Colors.blue.shade900, width: 2),
-                        image: DecorationImage(
-                          image: NetworkImage(data['url']),
+                    return CachedNetworkImage(
+                      imageBuilder: (context, imageProvider) => Container(
+                        height: 35,
+                        width: 35,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
                         ),
+                      ),
+                      imageUrl: data['url'],
+                      errorWidget: (context, url, error) => Icon(
+                        Icons.account_circle_outlined,
+                        color: Colors.lightBlue,
                       ),
                     );
                   } else {

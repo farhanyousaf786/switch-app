@@ -42,10 +42,10 @@ class _AppIntroState extends State<AppIntro> {
                       "It seems you SKIP introduction. You can always watch intro. by visiting Switch tab at bottom right corner.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   SizedBox(
@@ -60,7 +60,7 @@ class _AppIntroState extends State<AppIntro> {
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                           fontSize: 10,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   Padding(
@@ -182,10 +182,10 @@ class _AppIntroState extends State<AppIntro> {
                       "It seems you SKIP introduction. You can always watch intro. by visiting Switch tab at bottom right corner.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   SizedBox(
@@ -200,7 +200,7 @@ class _AppIntroState extends State<AppIntro> {
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                           fontSize: 10,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   Padding(
@@ -308,10 +308,10 @@ class _AppIntroState extends State<AppIntro> {
                       "It seems you SKIP introduction. You can always watch intro. by visiting Switch tab at bottom right corner.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   SizedBox(
@@ -326,7 +326,7 @@ class _AppIntroState extends State<AppIntro> {
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                           fontSize: 10,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   Padding(

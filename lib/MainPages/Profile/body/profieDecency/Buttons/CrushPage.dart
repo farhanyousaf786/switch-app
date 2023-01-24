@@ -124,7 +124,7 @@ class _CrushOfPageState extends State<CrushOfPage> {
               //   height: 35,
               //   decoration: BoxDecoration(
               //       borderRadius: BorderRadius.circular(20),
-              //       color: Colors.blue.shade400),
+              //       color: Colors.lightBlue.shade400),
               //   child: Row(
               //     mainAxisAlignment: MainAxisAlignment.center,
               //     children: [
@@ -155,7 +155,7 @@ class _CrushOfPageState extends State<CrushOfPage> {
             onTap: () => Navigator.pop(context),
             child: Icon(
               Icons.arrow_back_ios_rounded,
-              color: Colors.blue,
+              color: Colors.lightBlue,
             ),
           ),
           backgroundColor: Colors.white,
@@ -163,7 +163,7 @@ class _CrushOfPageState extends State<CrushOfPage> {
             "Crush Of"
                 "",
             style: TextStyle(
-                color: Colors.blue, fontSize: 18, fontFamily: 'cute'),
+                color: Colors.lightBlue, fontSize: 18, fontFamily: 'cute'),
           ),
           centerTitle: true,
           elevation: 0.0,
@@ -171,7 +171,7 @@ class _CrushOfPageState extends State<CrushOfPage> {
         body: isLoading
             ? Center(
           child: CircularProgressIndicator(
-            color: Colors.blue,
+            color: Colors.lightBlue,
             semanticsLabel: "No Followers",
           ),
         )

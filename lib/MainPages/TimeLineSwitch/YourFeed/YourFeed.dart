@@ -128,7 +128,7 @@ class _YourFeedState extends State<YourFeed> {
                             child: Text(
                               "What is Your Feeds?",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 18),
                             ),
@@ -147,8 +147,8 @@ class _YourFeedState extends State<YourFeed> {
                           "This slide will show the Latest posts of the users your are following. "
                           "So, follow your favorite users to watch their latest post here.",
                           style: TextStyle(
-                              color: Colors.blue.shade700,
-                              fontFamily: 'cutes',
+                              color: Colors.lightBlue.shade700,
+                              fontFamily: 'cute',
                               fontSize: 15),
                         ))),
                       ],
@@ -193,7 +193,7 @@ class _YourFeedState extends State<YourFeed> {
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             fontSize: 9,
-                            fontFamily: 'cutes'),
+                            fontFamily: 'cute'),
                       ),
                     ),
                   ),
@@ -423,7 +423,7 @@ class _YourFeedState extends State<YourFeed> {
                         "Switch Ad",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       ),
@@ -550,7 +550,7 @@ class _YourFeedState extends State<YourFeed> {
                                     child: Container(
                                       padding: EdgeInsets.all(5),
                                       decoration: BoxDecoration(
-                                          color: Colors.blue.withOpacity(0.7),
+                                          color: Colors.lightBlue.withOpacity(0.7),
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       child: Padding(
@@ -728,7 +728,7 @@ class _YourFeedState extends State<YourFeed> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -771,7 +771,7 @@ class _YourFeedState extends State<YourFeed> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -809,7 +809,7 @@ class _YourFeedState extends State<YourFeed> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -888,7 +888,7 @@ class _YourFeedState extends State<YourFeed> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -916,7 +916,7 @@ class _YourFeedState extends State<YourFeed> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -929,7 +929,7 @@ class _YourFeedState extends State<YourFeed> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -953,7 +953,7 @@ class _YourFeedState extends State<YourFeed> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -1010,7 +1010,7 @@ class _YourFeedState extends State<YourFeed> {
   //                                 fontSize: 15,
   //                                 fontFamily: "cutes",
   //                                 fontWeight: FontWeight.bold,
-  //                                 color: Colors.blue),
+  //                                 color: Colors.lightBlue),
   //                           ),
   //                         ),
   //
@@ -1050,7 +1050,7 @@ class _YourFeedState extends State<YourFeed> {
   //                   text: TextSpan(
   //                     text: 'Caption: ',
   //                     style: TextStyle(
-  //                       color: Colors.blue,
+  //                       color: Colors.lightBlue,
   //                       fontWeight: FontWeight.bold,
   //                     ),
   //                     children: <TextSpan>[
@@ -1094,7 +1094,7 @@ class _YourFeedState extends State<YourFeed> {
   //             text: TextSpan(
   //               text: 'Caption: ',
   //               style: TextStyle(
-  //                 color: Colors.blue,
+  //                 color: Colors.lightBlue,
   //                 fontWeight: FontWeight.bold,
   //               ),
   //               children: <TextSpan>[
@@ -1224,7 +1224,7 @@ class _YourFeedState extends State<YourFeed> {
                                   return Text(
                                     "0",
                                     style: TextStyle(
-                                        fontFamily: 'cutes',
+                                        fontFamily: 'cute',
                                         color: Colors.grey.shade600,
                                         fontSize: 10),
                                   );
@@ -1237,7 +1237,7 @@ class _YourFeedState extends State<YourFeed> {
                                     return Text(
                                       "0",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -1252,7 +1252,7 @@ class _YourFeedState extends State<YourFeed> {
                                       : Text(
                                           data.length.toString(),
                                           style: TextStyle(
-                                              fontFamily: 'cutes',
+                                              fontFamily: 'cute',
                                               color: Colors.grey.shade600,
                                               fontSize: 10),
                                         );
@@ -1277,7 +1277,7 @@ class _YourFeedState extends State<YourFeed> {
                       "Detail  ",
                       style: TextStyle(
                           fontSize: 12,
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
@@ -1303,7 +1303,7 @@ class _YourFeedState extends State<YourFeed> {
             ? Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: LinearProgressIndicator(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                 ),
               )
             : Container(
@@ -1449,7 +1449,7 @@ class _YourFeedState extends State<YourFeed> {
                                 fontSize: 20,
                                 fontFamily: "cute",
                                  fontWeight: FontWeight.bold,
-                                color: Colors.blue.shade700),
+                                color: Colors.lightBlue.shade700),
                           ),
                           onTap: () {
                             Navigator.pop(context);
@@ -1576,7 +1576,7 @@ class _YourFeedState extends State<YourFeed> {
                                             Text(
                                               "Add/Remove from Meme ShowCase ",
                                               style: TextStyle(
-                                                  fontFamily: 'cutes',
+                                                  fontFamily: 'cute',
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.bold,
                                                 color: Constants.isDark ==
@@ -1616,7 +1616,7 @@ class _YourFeedState extends State<YourFeed> {
                                                 Text(
                                                   'Delete Post',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                           "true"
@@ -1660,7 +1660,7 @@ class _YourFeedState extends State<YourFeed> {
                                                           "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -1715,7 +1715,7 @@ class _YourFeedState extends State<YourFeed> {
                                                           "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -1767,7 +1767,7 @@ class _YourFeedState extends State<YourFeed> {
                                                           "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -1897,7 +1897,7 @@ class _YourFeedState extends State<YourFeed> {
                                     style: TextStyle(
                                         fontSize: 8,
                                         color: Colors.grey,
-                                        fontFamily: 'cutes'),
+                                        fontFamily: 'cute'),
                                   ),
                                 ),
                               ),
@@ -1948,7 +1948,7 @@ class _YourFeedState extends State<YourFeed> {
                             fontSize: 20,
                             fontFamily: "cute",
                              fontWeight: FontWeight.bold,
-                            color: Colors.blue),
+                            color: Colors.lightBlue),
                       ),
                     ),
                     // Container(
@@ -2004,7 +2004,7 @@ class _YourFeedState extends State<YourFeed> {
                             'Copy ',
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'cutes',
+                                fontFamily: 'cute',
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -2080,7 +2080,7 @@ class _YourFeedState extends State<YourFeed> {
                                   fontFamily: "cute",
                                    fontWeight: FontWeight.bold,
 
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ],
                         ),
@@ -2116,7 +2116,7 @@ class _YourFeedState extends State<YourFeed> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontSize: 14),
                                     ),
                                   ),

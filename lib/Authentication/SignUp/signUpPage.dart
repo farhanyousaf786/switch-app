@@ -178,7 +178,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontSize: 12,
                           fontFamily: "Cute",
                            fontWeight: FontWeight.bold),
@@ -206,7 +206,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         labelText: 'Email',
                         labelStyle: TextStyle(
                             fontFamily: "Cute",
-                            color: Colors.blue.shade900,
+                            color: Colors.lightBlue.shade900,
                              fontWeight: FontWeight.bold,
                             fontSize: 12),
                       ),
@@ -227,7 +227,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: TextStyle(
                         fontFamily: "Cute",
                          fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade900,
+                        color: Colors.lightBlue.shade900,
                         fontSize: 12,
                       ),
                       controller: passController,
@@ -263,7 +263,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         labelStyle: TextStyle(
                           fontFamily: "Cute",
                            fontWeight: FontWeight.bold,
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontSize: 12,
                         ),
                       ),
@@ -304,9 +304,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                 text: "By signing up you agree to our ",
                                 style: TextStyle(
                                   fontSize: 10,
-                                  color: Colors.white,                            fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
 
-                                  fontFamily: 'cutes',
+                                  fontFamily: 'cute',
                                 )),
                             TextSpan(
                               text: 'Terms & Conditions.',
@@ -314,8 +315,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                 fontSize: 10,
                                 decoration: TextDecoration.underline,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'cutes',
-                                color: Colors.blue.shade900,
+                                fontFamily: 'cute',
+                                color: Colors.lightBlue.shade900,
                               ),
                             ),
                           ],
@@ -338,7 +339,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: isLoading
                             ? SpinKitFadingCircle(
-                                color: Colors.blue.shade700,
+                                color: Colors.lightBlue.shade700,
                                 size: 18,
                               )
                             : Text(
@@ -434,7 +435,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Text(
                         "Already Have An Account?",
                         style: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Colors.lightBlue.shade900,
                             fontFamily: "Cute",
                              fontWeight: FontWeight.bold),
                       ),

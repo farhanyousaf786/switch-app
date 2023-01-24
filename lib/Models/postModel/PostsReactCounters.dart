@@ -332,7 +332,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
                         return Text(
                           "0",
                           style: TextStyle(
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             color: Colors.grey.shade600,
                             fontSize: 10,
                           ),
@@ -346,7 +346,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
                             ? Text(
                                 "0",
                                 style: TextStyle(
-                                  fontFamily: 'cutes',
+                                  fontFamily: 'cute',
                                   color: Colors.grey.shade600,
                                   fontSize: 10,
                                 ),
@@ -359,7 +359,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
                                 child: Text(
                                   data['like'].toString(),
                                   style: TextStyle(
-                                    fontFamily: 'cutes',
+                                    fontFamily: 'cute',
                                     color: Colors.grey.shade600,
                                     fontSize: 10,
                                   ),
@@ -401,7 +401,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
           //             return Text(
           //               "0",
           //               style: TextStyle(
-          //                 fontFamily: 'cutes',
+          //                 fontFamily: 'cute',
           //                 color: Colors.grey.shade600,
           //                 fontSize: 10,
           //               ),
@@ -415,7 +415,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
           //                 ? Text(
           //                     "0",
           //                     style: TextStyle(
-          //                       fontFamily: 'cutes',
+          //                       fontFamily: 'cute',
           //                       color: Colors.grey.shade600,
           //                       fontSize: 10,
           //                     ),
@@ -428,7 +428,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
           //                     child: Text(
           //                       data['heartReact'].toString(),
           //                       style: TextStyle(
-          //                         fontFamily: 'cutes',
+          //                         fontFamily: 'cute',
           //                         color: Colors.grey.shade600,
           //                         fontSize: 10,
           //                       ),
@@ -490,7 +490,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
                         return Text(
                           "0",
                           style: TextStyle(
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             color: Colors.grey.shade600,
                             fontSize: 10,
                           ),
@@ -504,7 +504,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
                             ? Text(
                                 "0",
                                 style: TextStyle(
-                                  fontFamily: 'cutes',
+                                  fontFamily: 'cute',
                                   color: Colors.grey.shade600,
                                   fontSize: 10,
                                 ),
@@ -517,7 +517,7 @@ class _PostReactCounterState extends State<PostReactCounter> {
                                 child: Text(
                                   data['disLike'].toString(),
                                   style: TextStyle(
-                                    fontFamily: 'cutes',
+                                    fontFamily: 'cute',
                                     color: Colors.grey.shade600,
                                     fontSize: 10,
                                   ),

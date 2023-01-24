@@ -61,7 +61,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                                 padding: const EdgeInsets.only(
                                     left: 120, right: 120),
                                 child: LinearProgressIndicator(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   backgroundColor: Colors.blue.shade200,
                                   minHeight: 2,
                                 ),
@@ -277,7 +277,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           firstName + " " + secondName,
                           style: TextStyle(
                               fontSize: 14,
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -344,9 +344,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                         child: Text(
                           "Comment:  ",
                           style: TextStyle(
-                              color: Colors.blue.shade600,
+                              color: Colors.lightBlue.shade600,
                               fontSize: 12,
-                              fontFamily: 'Robot',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.w800),
                         ),
                       ),
@@ -355,7 +355,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           "$content",
                           softWrap: true,
                           style: TextStyle(
-                            fontFamily: 'Robot',
+                            fontFamily: 'cute',
                             fontSize: 15,
                           ),
                         ),
@@ -421,7 +421,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                               firstName + " " + secondName,
                               style: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -510,7 +510,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -603,7 +603,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -744,7 +744,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -865,7 +865,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -986,7 +986,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1104,7 +1104,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1215,7 +1215,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1344,7 +1344,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1462,7 +1462,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1583,7 +1583,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1704,7 +1704,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                             firstName + " " + secondName,
                             style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -1774,7 +1774,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                       "Double Slit || Notification",
                       style: TextStyle(
                           fontSize: 15,
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -1844,7 +1844,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                       "Double Slit || Notification",
                       style: TextStyle(
                           fontSize: 15,
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -1914,7 +1914,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                       "Double Slit || Notification",
                       style: TextStyle(
                           fontSize: 15,
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -1984,7 +1984,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                       "Double Slit || Notification",
                       style: TextStyle(
                           fontSize: 15,
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

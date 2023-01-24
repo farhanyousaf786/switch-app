@@ -161,7 +161,7 @@ class _SignInPageState extends State<SignInPage> {
       ),
       // backgroundColor: Colors.blue.shade100,
       body: Container(
-        // color: Colors.blue.shade100,
+        // color: Colors.lightBlue.shade100,
         height: MediaQuery.of(context).size.height,
         color: Colors.lightBlue,
         child: DelayedDisplay(
@@ -198,7 +198,7 @@ class _SignInPageState extends State<SignInPage> {
                       textInputAction: TextInputAction.next,
                       onEditingComplete: _emailEditingComplete,
                       style: TextStyle(
-                        color: Colors.blue.shade900,
+                        color: Colors.lightBlue.shade900,
                         fontSize: 12,
                         fontFamily: "Cute",
                       ),
@@ -220,7 +220,7 @@ class _SignInPageState extends State<SignInPage> {
                         labelText: ' Email',
                         labelStyle: TextStyle(
                           fontFamily: "Cute",
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontSize: 12,
                         ),
                       ),
@@ -239,7 +239,7 @@ class _SignInPageState extends State<SignInPage> {
                       focusNode: _passFocusNode,
                       style: TextStyle(
                         fontFamily: "Cute",
-                        color: Colors.blue.shade900,
+                        color: Colors.lightBlue.shade900,
                         fontSize: 12,
                       ),
                       controller: passwordTextEditingController,
@@ -274,7 +274,7 @@ class _SignInPageState extends State<SignInPage> {
                         labelText: ' Password',
                         labelStyle: TextStyle(
                           fontFamily: "Cute",
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontSize: 12,
                         ),
                       ),
@@ -305,7 +305,7 @@ class _SignInPageState extends State<SignInPage> {
                                 style: TextStyle(
                                   fontSize: 10,
                                   color: Colors.white,
-                                  fontFamily: 'cutes',
+                                  fontFamily: 'cute',
                                 )),
                             TextSpan(
                               text: 'Terms & Conditions.',
@@ -313,8 +313,8 @@ class _SignInPageState extends State<SignInPage> {
                                 fontSize: 10,
                                 decoration: TextDecoration.underline,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'cutes',
-                                color: Colors.blue.shade900,
+                                fontFamily: 'cute',
+                                color: Colors.lightBlue.shade900,
                               ),
                             ),
                           ],
@@ -336,13 +336,13 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       child: isLoading
                           ? SpinKitFadingCircle(
-                              color: Colors.blue.shade700,
+                              color: Colors.lightBlue.shade700,
                               size: 18,
                             )
                           : Text(
                               'Switch',
                               style: TextStyle(
-                                color: Colors.blue.shade700,
+                                color: Colors.lightBlue.shade700,
                                 fontFamily: "Cute",
                               ),
                             ),
@@ -424,7 +424,7 @@ class _SignInPageState extends State<SignInPage> {
                     child: Text(
                       'Forgot Password',
                       style: TextStyle(
-                        color: Colors.blue.shade900,
+                        color: Colors.lightBlue.shade900,
                         fontFamily: "Cute",
                       ),
                     ),
@@ -436,7 +436,7 @@ class _SignInPageState extends State<SignInPage> {
                       Text(
                         "Don't have an account?",
                         style: TextStyle(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontFamily: "Cute",
                         ),
                       ),

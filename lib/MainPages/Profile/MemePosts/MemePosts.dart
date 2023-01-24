@@ -213,7 +213,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                         'There is no post yet!',
                         style: TextStyle(
                             color: Colors.grey,
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             fontSize: 12,
                             fontWeight: FontWeight.bold),
                       ),
@@ -428,7 +428,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
     //                         child: Padding(
     //                           padding: const EdgeInsets.only(top: 20),
     //                           child: SpinKitThreeBounce(
-    //                             color: Colors.blueAccent,
+    //                             color: Colors.lightBlueAccent,
     //                             size: 15,
     //                           ),
     //                         ),
@@ -729,7 +729,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                             Text(
                                               "Add/Remove from Meme ShowCase ",
                                               style: TextStyle(
-                                                  fontFamily: 'cutes',
+                                                  fontFamily: 'cute',
                                                   fontSize: 14,
                                                   color: Constants.isDark ==
                                                       "true"
@@ -769,7 +769,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                                 Text(
                                                   'Delete Post',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                           "true"
@@ -810,7 +810,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                                 Text(
                                                   'Report Post ',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                           "true"
@@ -865,7 +865,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                                 Text(
                                                   'Report User ',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       color: Constants.isDark ==
                                                           "true"
                                                           ? Colors.white
@@ -917,7 +917,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                                 Text(
                                                   'Block User ',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       color: Constants.isDark ==
                                                           "true"
                                                           ? Colors.white
@@ -1051,7 +1051,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                     style: TextStyle(
                                         fontSize: 8,
                                         color: Colors.grey,
-                                        fontFamily: 'cutes'),
+                                        fontFamily: 'cute'),
                                   ),
                                 ),
                               ),
@@ -1128,7 +1128,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                 fontSize: 20,
                                 fontFamily: "cutes",
                                 fontWeight: FontWeight.bold,
-                                color: Colors.blue.shade700),
+                                color: Colors.lightBlue.shade700),
                           ),
                           onTap: () {
                             Navigator.pop(context);
@@ -1295,7 +1295,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                     fontSize: 12,
                                     fontFamily: "cutes",
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -1320,7 +1320,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -1354,7 +1354,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -1392,7 +1392,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -1417,7 +1417,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                   child: Text(
                                     "Read More...",
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontSize: 12,
                                         fontFamily: 'cute'),
                                   ),
@@ -1472,7 +1472,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -1500,7 +1500,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -1513,7 +1513,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -1537,7 +1537,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -1625,7 +1625,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
   //                                                     fontFamily: "cutes",
   //                                                     fontWeight:
   //                                                         FontWeight.bold,
-  //                                                     color: Colors.blue),
+  //                                                     color: Colors.lightBlue),
   //                                                 onTap: (link) => {
   //                                                   // url = link.value.toString(),
   //                                                   // _launchURL('http://$url'),
@@ -1653,7 +1653,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
   //                                   fontSize: 13,
   //                                   fontFamily: "cutes",
   //                                   fontWeight: FontWeight.bold,
-  //                                   color: Colors.blue),
+  //                                   color: Colors.lightBlue),
   //                               onTap: (link) => {
   //                                 // url = link.value.toString(),
   //                                 // _launchURL('http://$url'),
@@ -1678,7 +1678,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
   //                                   fontSize: 13,
   //                                   fontFamily: "cutes",
   //                                   fontWeight: FontWeight.bold,
-  //                                   color: Colors.blue),
+  //                                   color: Colors.lightBlue),
   //                               onTap: (link) => {
   //                                 // url = link.value.toString(),
   //                                 // _launchURL('http://$url'),
@@ -1721,7 +1721,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                             'Copy ',
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'cutes',
+                                fontFamily: 'cute',
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -1833,7 +1833,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                     return Text(
                                       "0",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -1846,7 +1846,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                       return Text(
                                         "0",
                                         style: TextStyle(
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             color: Colors.grey.shade600,
                                             fontSize: 10),
                                       );
@@ -1861,7 +1861,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                         : Text(
                                             data.length.toString(),
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 color: Colors.grey.shade600,
                                                 fontSize: 10),
                                           );
@@ -1916,7 +1916,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                         "Details",
                         style: TextStyle(
                             fontSize: 12,
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
                       ),
@@ -1945,7 +1945,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
               ? Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: LinearProgressIndicator(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                   ),
                 )
               : Container(
@@ -2035,7 +2035,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ],
                         ),
@@ -2071,7 +2071,7 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontSize: 14),
                                     ),
                                   ),

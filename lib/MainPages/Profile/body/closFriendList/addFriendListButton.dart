@@ -78,7 +78,7 @@ class _AddFriendListButtonState extends State<AddFriendListButton> {
                     child: Text(
                       "Add As Bestie",
                       style: TextStyle(
-                          color: Colors.blue, fontSize: 20, fontFamily: 'cute'),
+                          color: Colors.lightBlue, fontSize: 20, fontFamily: 'cute'),
                     ),
                   ),
                   Divider(),
@@ -95,7 +95,7 @@ class _AddFriendListButtonState extends State<AddFriendListButton> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,
-                                fontFamily: 'cutes'),
+                                fontFamily: 'cute'),
                           ),
                         ),
                   Padding(
@@ -103,10 +103,10 @@ class _AddFriendListButtonState extends State<AddFriendListButton> {
                     child: Text(
                       "So, Are you Sure?",
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          fontFamily: 'cutes'),
+                          fontFamily: 'cute'),
                     ),
                   ),
                   Padding(

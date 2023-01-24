@@ -216,7 +216,7 @@ class _ProfileDecencyState extends State<MemeDecency> {
                                   child: Text(
                                     "Memer Score: ",
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontFamily: 'cute',
                                         fontSize: 14,
                                          fontWeight: FontWeight.bold),

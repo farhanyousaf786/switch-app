@@ -118,7 +118,7 @@ class _FollowingPageState extends State<FollowingPage> {
               //   height: 35,
               //   decoration: BoxDecoration(
               //       borderRadius: BorderRadius.circular(20),
-              //       color: Colors.blue.shade400),
+              //       color: Colors.lightBlue.shade400),
               //   child: Row(
               //     mainAxisAlignment: MainAxisAlignment.center,
               //     children: [
@@ -157,7 +157,7 @@ class _FollowingPageState extends State<FollowingPage> {
           title: Text(
             "Following",
             style: TextStyle(
-                color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w700),
+                color: Colors.lightBlue, fontSize: 18, fontWeight: FontWeight.w700),
           ),
           centerTitle: true,
           elevation: 0.0,
@@ -165,7 +165,7 @@ class _FollowingPageState extends State<FollowingPage> {
         body: isLoading
             ? Center(
           child: CircularProgressIndicator(
-            color: Colors.blue,
+            color: Colors.lightBlue,
             semanticsLabel: "No Followers",
           ),
         )

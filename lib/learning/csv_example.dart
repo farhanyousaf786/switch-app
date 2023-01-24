@@ -54,7 +54,7 @@ class CSVExample extends StatelessWidget {
                     return Container(
                       width: double.infinity,
                       height: 300.0,
-                      color: Colors.blueGrey,
+                      color: Colors.lightBlue,
                       alignment: Alignment.center,
                       margin: EdgeInsets.symmetric(vertical: 50.0),
                       child: Box(id: 'list$index'),

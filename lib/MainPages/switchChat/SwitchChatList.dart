@@ -167,7 +167,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
           Text(
             receiverName.characters.take(13).toString() + " ",
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cutes'),
+                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cute'),
           ),
           Container(
             height: 18,
@@ -184,7 +184,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
           Text(
             senderName.characters.take(13).toString() + " ",
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cutes'),
+                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cute'),
           ),
           Container(
             height: 18,
@@ -206,7 +206,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
           Text(
             receiverName.characters.take(13).toString() + " ",
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cutes'),
+                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cute'),
           ),
           StreamBuilder(
               stream: userRefRTD.child(receiverId).onValue,
@@ -245,7 +245,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
           Text(
             senderName.characters.take(13).toString() + " ",
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cutes'),
+                fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cute'),
           ),
           StreamBuilder(
               stream: userRefRTD.child(receiverId).onValue,
@@ -681,7 +681,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                 color: Colors.grey,
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
-                fontFamily: 'cutes'),
+                fontFamily: 'cute'),
           ),
         );
       },
@@ -740,7 +740,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                       "In future we will add facility to delete complete chat from your side",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.blue.shade700,
+                                    color: Colors.lightBlue.shade700,
                                     fontSize: 14,
                                     // decoration: TextDecoration.underline,
                                     // decorationStyle: TextDecorationStyle.wavy,
@@ -1091,7 +1091,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 TextInputAction.next,
                                             maxLength: 60,
                                             style: TextStyle(
-                                                color: Colors.blue.shade700,
+                                                color: Colors.lightBlue.shade700,
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold),
                                             controller: loveNoteText,
@@ -1104,7 +1104,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                   Radius.circular(20),
                                                 ),
                                                 borderSide: new BorderSide(
-                                                    color: Colors.blue.shade700,
+                                                    color: Colors.lightBlue.shade700,
                                                     width: 1),
                                               ),
                                               filled: true,
@@ -1112,14 +1112,14 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(20)),
                                                 borderSide: new BorderSide(
-                                                    color: Colors.blue.shade700,
+                                                    color: Colors.lightBlue.shade700,
                                                     width: 1),
                                               ),
                                               labelText: ' Write Here',
                                               labelStyle: TextStyle(
                                                 fontFamily: "Cutes",
                                                 fontWeight: FontWeight.bold,
-                                                color: Colors.blue.shade700,
+                                                color: Colors.lightBlue.shade700,
                                                 fontSize: 10,
                                               ),
                                             ),
@@ -1146,7 +1146,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                             Navigator.pop(context),
                                           },
                                           child: Text("Done"),
-                                          // color: Colors.blue.shade50,
+                                          // color: Colors.lightBlue.shade50,
                                         )
                                       ],
                                     ),
@@ -1166,7 +1166,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                   style: TextStyle(
                                       fontFamily: 'cute',
                                       fontSize: 15,
-                                      color: Colors.blue.shade700),
+                                      color: Colors.lightBlue.shade700),
                                 ),
                               ),
                             ],
@@ -1434,7 +1434,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                           textInputAction: TextInputAction.next,
                                           maxLength: 60,
                                           style: TextStyle(
-                                              color: Colors.blue.shade700,
+                                              color: Colors.lightBlue.shade700,
                                               fontSize: 12,
                                               fontWeight: FontWeight.bold),
                                           controller: loveNoteText,
@@ -1447,7 +1447,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 Radius.circular(20),
                                               ),
                                               borderSide: new BorderSide(
-                                                  color: Colors.blue.shade700,
+                                                  color: Colors.lightBlue.shade700,
                                                   width: 1),
                                             ),
                                             filled: true,
@@ -1455,14 +1455,14 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(20)),
                                               borderSide: new BorderSide(
-                                                  color: Colors.blue.shade700,
+                                                  color: Colors.lightBlue.shade700,
                                                   width: 1),
                                             ),
                                             labelText: ' Write Here',
                                             labelStyle: TextStyle(
                                               fontFamily: "Cutes",
                                               fontWeight: FontWeight.bold,
-                                              color: Colors.blue.shade700,
+                                              color: Colors.lightBlue.shade700,
                                               fontSize: 10,
                                             ),
                                           ),

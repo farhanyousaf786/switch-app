@@ -117,7 +117,7 @@ class _FollowerPageState extends State<FollowerPage> {
           //   height: 35,
           //   decoration: BoxDecoration(
           //       borderRadius: BorderRadius.circular(20),
-          //       color: Colors.blue.shade400),
+          //       color: Colors.lightBlue.shade400),
           //   child: Row(
           //     mainAxisAlignment: MainAxisAlignment.center,
           //     children: [
@@ -148,7 +148,7 @@ class _FollowerPageState extends State<FollowerPage> {
             onTap: () => Navigator.pop(context),
             child: Icon(
               Icons.arrow_back_ios_rounded,
-              color: Colors.blue,
+              color: Colors.lightBlue,
             ),
           ),
           backgroundColor: Colors.white,
@@ -163,7 +163,7 @@ class _FollowerPageState extends State<FollowerPage> {
         body: isLoading
             ? Center(
                 child: CircularProgressIndicator(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   semanticsLabel: "No Followers",
                 ),
               )

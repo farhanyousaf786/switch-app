@@ -218,7 +218,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'cute',
-                              color: Colors.blue.shade700,
+                              color: Colors.lightBlue.shade700,
                               fontSize: 12,
                             ),
                           ),
@@ -242,7 +242,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                         widget.user.email.toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
@@ -361,7 +361,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                       "Did not get email?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                         fontSize: 15,
@@ -376,7 +376,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                             "Kindly check your email Spam Folder.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                               fontSize: 12,
@@ -423,7 +423,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                                               fontSize: 16,
                                               fontFamily: "cute",
                                                fontWeight: FontWeight.bold,
-                                              color: Colors.blue),
+                                              color: Colors.lightBlue),
                                         ),
                                       ),
                                     ],

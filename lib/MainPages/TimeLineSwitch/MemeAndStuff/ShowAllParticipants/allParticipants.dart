@@ -169,7 +169,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                       child: Text(
                         "Loading..",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontFamily: 'cute',
                           fontSize: 13,
                         ),
@@ -479,7 +479,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                   Text(
                                                     "Add/Remove from Meme ShowCase ",
                                                     style: TextStyle(
-                                                        fontFamily: 'cutes',
+                                                        fontFamily: 'cute',
                                                         color:
                                                             Constants.isDark ==
                                                                     "true"
@@ -522,7 +522,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                 Text(
                                                   'Delete Post',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                               "true"
@@ -559,7 +559,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                               "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -614,7 +614,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                               "true"
                                                           ? Colors.white
                                                           : Colors.blue,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -662,7 +662,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                 Text(
                                                   'Block User ',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                               "true"
@@ -800,7 +800,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                     style: TextStyle(
                                         fontSize: 8,
                                         color: Colors.grey,
-                                        fontFamily: 'cutes'),
+                                        fontFamily: 'cute'),
                                   ),
                                 ),
                               ),
@@ -877,7 +877,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                 fontSize: 20,
                                 fontFamily: "cute",
                                  fontWeight: FontWeight.bold,
-                                color: Colors.blue.shade700),
+                                color: Colors.lightBlue.shade700),
                           ),
                           onTap: () {
                             Navigator.pop(context);
@@ -1067,7 +1067,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                     return Text(
                                       "0",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -1080,7 +1080,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                       return Text(
                                         "0",
                                         style: TextStyle(
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             color: Colors.grey.shade600,
                                             fontSize: 10),
                                       );
@@ -1095,7 +1095,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                         : Text(
                                             data.length.toString(),
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 color: Colors.grey.shade600,
                                                 fontSize: 10),
                                           );
@@ -1123,7 +1123,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                           "Details ",
                           style: TextStyle(
                               fontSize: 12,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.bold,
                               color: Colors.grey),
                         ),
@@ -1148,7 +1148,7 @@ class _AllParticipantsState extends State<AllParticipants> {
               ? Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: LinearProgressIndicator(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                   ),
                 )
               : Container(
@@ -1219,7 +1219,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -1247,7 +1247,7 @@ class _AllParticipantsState extends State<AllParticipants> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -1281,7 +1281,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -1319,7 +1319,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -1401,7 +1401,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -1429,7 +1429,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -1442,7 +1442,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -1466,7 +1466,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -1512,7 +1512,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                 color: Constants.isDark == "true"
                                     ? Colors.white
                                     : Colors.blue,
-                                fontFamily: 'cutes',
+                                fontFamily: 'cute',
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -1590,7 +1590,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                   fontFamily: "cute",
                                    fontWeight: FontWeight.bold,
 
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ],
                         ),
@@ -1626,7 +1626,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cutes', fontSize: 14),
+                                          fontFamily: 'cute', fontSize: 14),
                                     ),
                                   ),
                                 ],

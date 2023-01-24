@@ -87,7 +87,7 @@ class _TextStatusState extends State<TextStatus> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -97,8 +97,7 @@ class _TextStatusState extends State<TextStatus> {
               });
         },
         text: widget.description,
-        linkStyle: TextStyle(color: Colors.blue
-        ,
+        linkStyle: TextStyle(color: Colors.lightBlue        ,
             fontWeight: FontWeight.w700),
       ),
     );
@@ -114,7 +113,7 @@ class _TextStatusState extends State<TextStatus> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -134,7 +133,7 @@ class _TextStatusState extends State<TextStatus> {
                 ? Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.blue.shade50.withOpacity(0.6),
+                      color: Colors.lightBlue.shade50.withOpacity(0.6),
                     ),
                     height: 150,
                     width: MediaQuery.of(context).size.width / 1.08,

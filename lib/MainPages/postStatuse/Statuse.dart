@@ -125,7 +125,7 @@
 //                           );
 //                         },
 //                         child: Card(
-//                             color: Colors.blue.shade100,
+//                             color: Colors.lightBlue.shade100,
 //                             child: Center(
 //                                 child: Text(
 //                               "Upload Image 🎴",
@@ -140,7 +140,7 @@
 //                     ),
 //                     Container(
 //                       child: Card(
-//                           color: Colors.blue.shade100,
+//                           color: Colors.lightBlue.shade100,
 //                           child: Center(
 //                               child: Text(
 //                             "Upload Video 🎥",

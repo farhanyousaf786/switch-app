@@ -89,7 +89,7 @@ class _WorldChatState extends State<WorldChat> {
               child: Text(
                 "Where Worlds Connect",
                 style:
-                TextStyle( fontSize: 9, fontFamily: 'cutes', fontWeight: FontWeight.bold),
+                TextStyle( fontSize: 9, fontFamily: 'cute', fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -292,7 +292,7 @@ class _WorldChatState extends State<WorldChat> {
                                 ? 180
                                 : 250,
                 decoration: BoxDecoration(
-                  color: Colors.blue.shade200,
+                  color: Colors.lightBlue.shade200,
                   borderRadius: BorderRadius.circular(15.0),
                   boxShadow: [
                     BoxShadow(

@@ -139,7 +139,7 @@
 //                 onTap: () => Navigator.pop(context),
 //                 child: Icon(
 //                   Icons.arrow_back_ios_rounded,
-//                   color: Colors.blue,
+//                   color: Colors.lightBlue,
 //                   size: 18,
 //                 ),
 //               ),
@@ -150,7 +150,7 @@
 //                 "Flick Meme",
 //                 style: TextStyle(
 //                   fontFamily: "Cute",
-//                   color: Colors.blue,
+//                   color: Colors.lightBlue,
 //                 ),
 //               ),
 //             ),
@@ -167,7 +167,7 @@
 //                             style: TextStyle(
 //                               fontFamily: "Cute",
 //                               fontSize: 16,
-//                               color: Colors.blue,
+//                               color: Colors.lightBlue,
 //                             ),
 //                           ),
 //                         ),

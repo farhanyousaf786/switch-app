@@ -37,11 +37,11 @@ class _MemePageForCurrentUserState extends State<MemePageForCurrentUser> {
                 Navigator.pop(context);
               },
               child: Icon(Icons.navigate_before,
-              color: Colors.blue,)),
+              color: Colors.lightBlue,)),
           title: Text(
             "Photo Memes",
             style: TextStyle(
-              color: Colors.blue,
+              color: Colors.lightBlue,
               fontFamily: 'cute',
             ),
           ),
@@ -59,7 +59,7 @@ class _MemePageForCurrentUserState extends State<MemePageForCurrentUser> {
                       fontSize: 16,
                        fontWeight: FontWeight.bold,
 
-                      color: Colors.blue,
+                      color: Colors.lightBlue,
                     ),
                   ),
                 ),

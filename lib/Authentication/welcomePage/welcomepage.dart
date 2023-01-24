@@ -64,7 +64,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 Text(
                   'Done',
                   style: TextStyle(
-                      fontSize: 18.0, fontFamily: 'cute', color: Colors.blue),
+                      fontSize: 18.0, fontFamily: 'cute', color: Colors.lightBlue),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 5),
@@ -108,7 +108,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           style: TextStyle(
                             fontSize: 20.0,
                             fontFamily: 'cute',
-                            color: Colors.blue.shade600,
+                            color: Colors.lightBlue.shade600,
                           ),
                         ),
                       ),
@@ -163,7 +163,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       " Thank you to download this App.",
                       style: TextStyle(
                           color: Colors.white,
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),

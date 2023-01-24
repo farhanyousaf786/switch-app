@@ -263,14 +263,14 @@ class _MainFeedState extends State<MainFeed> {
                       Text(
                         "Jump to next ",
                         style: TextStyle(
-                          color: Colors.blue.shade800,
+                          color: Colors.lightBlue.shade800,
                           fontSize: 9,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Icon(
                         Icons.skip_next_outlined,
-                        color: Colors.blue.shade800,
+                        color: Colors.lightBlue.shade800,
                         size: 12,
                       ),
                     ],
@@ -358,7 +358,7 @@ class _MainFeedState extends State<MainFeed> {
                                 child: Text(
                                   "Unread Message",
                                   style: TextStyle(
-                                      color: Colors.blue.shade700,
+                                      color: Colors.lightBlue.shade700,
                                       // fontWeight: FontWeight.bold,
                                       fontSize: 8,
                                       fontFamily: 'cute'),
@@ -369,8 +369,10 @@ class _MainFeedState extends State<MainFeed> {
                                   Text(
                                     "Switch",
                                     style: TextStyle(
-                                        color: Colors.blueAccent.shade700,
+                                        color: Colors.lightBlue,
                                         fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+
                                         fontFamily: 'cute'),
                                     textAlign: TextAlign.center,
                                   ),
@@ -455,7 +457,7 @@ class _MainFeedState extends State<MainFeed> {
                             child: Icon(
                               Icons.add_box_outlined,
                               size: 25,
-                              color: Colors.blueAccent.shade700,
+                              color: Colors.lightBlue,
                             ),
                             onPressed: () {
                               simpleStatusPage(user);
@@ -483,7 +485,7 @@ class _MainFeedState extends State<MainFeed> {
                             child: Icon(
                               Icons.stream,
                               size: 25,
-                              color: Colors.blueAccent.shade700,
+                              color: Colors.lightBlue,
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -523,7 +525,7 @@ class _MainFeedState extends State<MainFeed> {
                           ElevatedButton(
                             child: Icon(
                               Icons.search_rounded,
-                              color: Colors.blueAccent.shade700,
+                              color: Colors.lightBlue,
                               size: 25,
                             ),
                             onPressed: () {
@@ -575,7 +577,7 @@ class _MainFeedState extends State<MainFeed> {
                                       : Icon(
                                           Icons.notifications_none_sharp,
                                           size: 25,
-                                          color: Colors.blueAccent.shade700,
+                                          color: Colors.lightBlue,
                                         ),
                                 ),
                               ),
@@ -622,7 +624,7 @@ class _MainFeedState extends State<MainFeed> {
                               ElevatedButton(
                                 child: Icon(
                                   Icons.mark_chat_unread_outlined,
-                                  color: Colors.blueAccent.shade700,
+                                  color: Colors.lightBlue,
                                   size: 24,
                                 ),
                                 onPressed: () {
@@ -651,7 +653,7 @@ class _MainFeedState extends State<MainFeed> {
                               //     height: 50,
                               //     width: 50,
                               //     child: SpinKitRipple(
-                              //       color: Colors.blue,
+                              //       color: Colors.lightBlue,
                               //     ),
                               //   ),
                               // ),
@@ -678,7 +680,7 @@ class _MainFeedState extends State<MainFeed> {
                             child: Icon(
                               Icons.fiber_smart_record_outlined,
                               size: 25,
-                              color: Colors.blueAccent.shade700,
+                              color: Colors.lightBlue,
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -729,7 +731,7 @@ class _MainFeedState extends State<MainFeed> {
                           ElevatedButton(
                             child: Icon(
                               Icons.account_circle_outlined,
-                              color: Colors.blueAccent.shade700,
+                              color: Colors.lightBlue,
                               size: 25,
                             ),
                             onPressed: () {
@@ -815,7 +817,7 @@ class _MainFeedState extends State<MainFeed> {
                                   child: Text(
                                     "You can Upload any image that's not suits your mood. After All this is Parallel Universe, Isn't? :):",
                                     style: TextStyle(
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12,
                                     ),
@@ -856,16 +858,16 @@ class _MainFeedState extends State<MainFeed> {
                                           Text(
                                             "Share Thoughts",
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 13,
-                                                color: Colors.blue),
+                                                color: Colors.lightBlue),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Icon(
                                               Icons.all_inclusive,
-                                              color: Colors.blue,
+                                              color: Colors.lightBlue,
                                             ),
                                           )
                                         ],
@@ -896,16 +898,16 @@ class _MainFeedState extends State<MainFeed> {
                                           Text(
                                             "Upload Photo",
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 13,
-                                                color: Colors.blue),
+                                                color: Colors.lightBlue),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Icon(
                                               Icons.insert_photo_outlined,
-                                              color: Colors.blue,
+                                              color: Colors.lightBlue,
                                             ),
                                           )
                                         ],
@@ -937,7 +939,7 @@ class _MainFeedState extends State<MainFeed> {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          color: Colors.blue.shade400,
+                                          color: Colors.lightBlue.shade400,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
@@ -986,7 +988,7 @@ class _MainFeedState extends State<MainFeed> {
                                     child: Text(
                               "Where to find my uploaded MEME/STATUS?",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 17),
                             ))),
@@ -1007,8 +1009,8 @@ class _MainFeedState extends State<MainFeed> {
                                 child: Text(
                                   "Your uploaded Memes are in Meme Profile. Open App > Click on Meme on bottom bar > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
                                   style: TextStyle(
-                                      color: Colors.blue.shade700,
-                                      fontFamily: 'cutes',
+                                      color: Colors.lightBlue.shade700,
+                                      fontFamily: 'cute',
                                       fontSize: 13),
                                 ),
                               ),
@@ -1031,7 +1033,7 @@ class _MainFeedState extends State<MainFeed> {
                                 child: Text(
                                   "Where to find other user's uploaded MEME/STATUS?",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontFamily: 'cute',
                                       fontSize: 17),
                                 ),
@@ -1054,8 +1056,8 @@ class _MainFeedState extends State<MainFeed> {
                                 child: Text(
                                   "Click on any user's Profile > Slide up to see their Shot Meme OR > Click on Meme Profile option > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
                                   style: TextStyle(
-                                      color: Colors.blue.shade700,
-                                      fontFamily: 'cutes',
+                                      color: Colors.lightBlue.shade700,
+                                      fontFamily: 'cute',
                                       fontSize: 13),
                                 ),
                               ),
@@ -1078,7 +1080,7 @@ class _MainFeedState extends State<MainFeed> {
                                     child: Text(
                               "How it works?",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 17),
                             ))),
@@ -1099,8 +1101,8 @@ class _MainFeedState extends State<MainFeed> {
                                 child: Text(
                                   "Uploaded Meme will be appear on every user's timeline, while Uploaded Photo OR Thoughts will only appear on timeline section and only appear to the user, who is following you.",
                                   style: TextStyle(
-                                      color: Colors.blue.shade700,
-                                      fontFamily: 'cutes',
+                                      color: Colors.lightBlue.shade700,
+                                      fontFamily: 'cute',
                                       fontSize: 13),
                                 ),
                               ),
@@ -1287,7 +1289,7 @@ class _MainFeedState extends State<MainFeed> {
                                   //                       fontFamily: "cutes",
                                   //                       fontWeight:
                                   //                       FontWeight.bold,
-                                  //                       color: Colors.blue),
+                                  //                       color: Colors.lightBlue),
                                   //                 ),
                                   //               ),
                                   //               Padding(
@@ -1394,8 +1396,8 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "Hi Memers! Our goal is to make this platform a top meme generator platform. Original memes, memes template should create from this app and then spread out to other social media platforms.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1411,7 +1413,7 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "What is Photo Meme:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -1427,8 +1429,8 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "This is simple Meme that represent through Photo.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1444,7 +1446,7 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "What is Video Meme:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -1460,8 +1462,8 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "This is simple Meme that represent through Video.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1477,7 +1479,7 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "How Ranking Works:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -1493,8 +1495,8 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "Memers will be rank according to total number of following. But in near future, we will also Rank them according to their MEME decency on the basis of profile.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1510,7 +1512,7 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "Stealing Other's Meme:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -1526,8 +1528,8 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "Well, we will generate a special code with each post. So when a user claim to us that someone stole his/her MEME, we will delete that user's MEME & will BAN that user ",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1543,7 +1545,7 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "Limitations for MEMER:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -1560,8 +1562,8 @@ class _MainFeedState extends State<MainFeed> {
                                       "1) A meme profile with copied meme will not be ranked on TOP MEMERS. 2) Original Meme Content will be appreciated separably in this app. 3) If a meme being reported (copied meme), then the reported profile will be deleted after 1 or 2 warnings."
                                       "4) Such Meme Profile that disrespect any Religion, will be terminated w/o any warning.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1577,7 +1579,7 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "Meme Decency:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -1593,8 +1595,8 @@ class _MainFeedState extends State<MainFeed> {
                                             child: Text(
                                       "In Future Updates, We will Rank Profiles with respect to (Meme Decency + Total Following).",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -1644,7 +1646,7 @@ class _MainFeedState extends State<MainFeed> {
                     return Scaffold(
                       body: Center(
                         child: SpinKitRipple(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                         ),
                       ),
                     );
@@ -1690,7 +1692,7 @@ class _MainFeedState extends State<MainFeed> {
                             Center(
                               child: Container(
                                 child: SpinKitRipple(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                 ),
                               ),
                             ),
@@ -1723,7 +1725,7 @@ class _MainFeedState extends State<MainFeed> {
                           ),
                           body: Container(
                               child: SpinKitRipple(
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                           )),
                         )
                       : Scaffold(
@@ -1772,12 +1774,12 @@ class _MainFeedState extends State<MainFeed> {
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         color: currentLine == 1
-                            ? Colors.blue.shade900
+                            ? Colors.lightBlue
                             : Constants.isDark == "true"
                                 ? Colors.grey.shade800
                                 : Colors.white,
                         border: Border.all(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue,
                         ),
                         borderRadius: BorderRadius.circular(5.5)),
                     child: Center(
@@ -1789,7 +1791,7 @@ class _MainFeedState extends State<MainFeed> {
                                 ? Colors.white
                                 : Constants.isDark == "true"
                                     ? Colors.white
-                                    : Colors.blue.shade900,
+                                    : Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -1813,12 +1815,12 @@ class _MainFeedState extends State<MainFeed> {
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                         color: currentLine == 2
-                            ? Colors.blue.shade900
+                            ? Colors.lightBlue
                             : Constants.isDark == "true"
                                 ? Colors.grey.shade800
                                 : Colors.white,
                         border: Border.all(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue,
                         ),
                         borderRadius: BorderRadius.circular(5.5)),
                     child: Center(
@@ -1830,7 +1832,7 @@ class _MainFeedState extends State<MainFeed> {
                                 ? Colors.white
                                 : Constants.isDark == "true"
                                     ? Colors.white
-                                    : Colors.blue.shade900,
+                                    : Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -1855,12 +1857,12 @@ class _MainFeedState extends State<MainFeed> {
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                         color: currentLine == 3
-                            ? Colors.blue.shade900
+                            ? Colors.lightBlue
                             : Constants.isDark == "true"
                                 ? Colors.grey.shade800
                                 : Colors.white,
                         border: Border.all(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue,
                         ),
                         borderRadius: BorderRadius.circular(5.5)),
                     child: Center(
@@ -1872,7 +1874,7 @@ class _MainFeedState extends State<MainFeed> {
                                 ? Colors.white
                                 : Constants.isDark == "true"
                                     ? Colors.white
-                                    : Colors.blue.shade900,
+                                    : Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -1896,12 +1898,12 @@ class _MainFeedState extends State<MainFeed> {
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                         color: currentLine == 4
-                            ? Colors.blue.shade900
+                            ? Colors.lightBlue
                             : Constants.isDark == "true"
                                 ? Colors.grey.shade800
                                 : Colors.white,
                         border: Border.all(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue,
                         ),
                         borderRadius: BorderRadius.circular(5.5)),
                     child: Center(
@@ -1913,7 +1915,7 @@ class _MainFeedState extends State<MainFeed> {
                                 ? Colors.white
                                 : Constants.isDark == "true"
                                     ? Colors.white
-                                    : Colors.blue.shade900,
+                                    : Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -1937,12 +1939,12 @@ class _MainFeedState extends State<MainFeed> {
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                         color: currentLine == 5
-                            ? Colors.blue.shade900
+                            ? Colors.lightBlue
                             : Constants.isDark == "true"
                                 ? Colors.grey.shade800
                                 : Colors.white,
                         border: Border.all(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue,
                         ),
                         borderRadius: BorderRadius.circular(5.5)),
                     child: Center(
@@ -1954,7 +1956,7 @@ class _MainFeedState extends State<MainFeed> {
                                 ? Colors.white
                                 : Constants.isDark == "true"
                                     ? Colors.white
-                                    : Colors.blue.shade900,
+                                    : Colors.lightBlue,
                             fontWeight: FontWeight.w600,
                             fontSize: 9,
                             fontFamily: 'Names',
@@ -2079,7 +2081,7 @@ class _MainFeedState extends State<MainFeed> {
                           child: Center(
                             child: isLoading
                                 ? SpinKitThreeBounce(
-                                    color: Colors.blue,
+                                    color: Colors.lightBlue,
                                     size: 13,
                                   )
                                 : Row(
@@ -2093,7 +2095,7 @@ class _MainFeedState extends State<MainFeed> {
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 10,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -2109,7 +2111,7 @@ class _MainFeedState extends State<MainFeed> {
                       elevation: 1,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6.0)),
-                      color: Colors.blue.shade900,
+                      color: Colors.lightBlue,
                     ),
                   ),
                 ],
@@ -2156,7 +2158,7 @@ class _MainFeedState extends State<MainFeed> {
                   widget.user,
                 ),
                 allLine(),
-                memeCompetition(),
+                // memeCompetition(),
                 Padding(
                   padding: EdgeInsets.all(!_isHide ? 6 : 0),
                   child: !_isHide ? jumpToPosts() : SizedBox(),
@@ -2174,7 +2176,7 @@ class _MainFeedState extends State<MainFeed> {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: SpinKitThreeBounce(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               size: 15,
                             ),
                           ),
@@ -2351,8 +2353,7 @@ class _MainFeedState extends State<MainFeed> {
                                                 child: Container(
                                                   padding: EdgeInsets.all(4),
                                                   decoration: BoxDecoration(
-                                                      color: Colors.blue
-                                                          .withOpacity(0.7),
+                                                      color: Colors.lightBlue                                                          .withOpacity(0.7),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               13)),
@@ -2504,7 +2505,7 @@ class _MainFeedState extends State<MainFeed> {
                                                               timeInSecForIosWeb:
                                                                   3,
                                                               backgroundColor:
-                                                                  Colors.blue,
+                                                                  Colors.lightBlue,
                                                               textColor:
                                                                   Colors.white,
                                                               fontSize: 16.0,
@@ -2537,7 +2538,7 @@ class _MainFeedState extends State<MainFeed> {
                                                               timeInSecForIosWeb:
                                                                   3,
                                                               backgroundColor:
-                                                                  Colors.blue,
+                                                                  Colors.lightBlue,
                                                               textColor:
                                                                   Colors.white,
                                                               fontSize: 16.0,
@@ -2553,13 +2554,13 @@ class _MainFeedState extends State<MainFeed> {
                                                   Text(
                                                     "Add/Remove from Meme ShowCase ",
                                                     style: TextStyle(
-                                                        fontFamily: 'cutes',
+                                                        fontFamily: 'cute',
                                                         fontSize: 14,
                                                         color:
                                                             Constants.isDark ==
                                                                     "true"
                                                                 ? Colors.white
-                                                                : Colors.blue,
+                                                                : Colors.lightBlue,
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
@@ -2572,7 +2573,7 @@ class _MainFeedState extends State<MainFeed> {
                                                       color: Constants.isDark ==
                                                               "true"
                                                           ? Colors.white
-                                                          : Colors.blue,
+                                                          : Colors.lightBlue,
                                                       size: 17,
                                                       // color: selectedIndex == index
                                                       //     ? Colors.pink
@@ -2601,13 +2602,13 @@ class _MainFeedState extends State<MainFeed> {
                                                   Text(
                                                     'Delete Post',
                                                     style: TextStyle(
-                                                        fontFamily: 'cutes',
+                                                        fontFamily: 'cute',
                                                         fontSize: 14,
                                                         color:
                                                             Constants.isDark ==
                                                                     "true"
                                                                 ? Colors.white
-                                                                : Colors.blue,
+                                                                : Colors.lightBlue,
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
@@ -2617,7 +2618,7 @@ class _MainFeedState extends State<MainFeed> {
                                                     color: Constants.isDark ==
                                                             "true"
                                                         ? Colors.white
-                                                        : Colors.blue,
+                                                        : Colors.lightBlue,
                                                   ),
                                                 ],
                                               ),
@@ -2635,13 +2636,13 @@ class _MainFeedState extends State<MainFeed> {
                                                 Text(
                                                   'Report Post ',
                                                   style: TextStyle(
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
                                                     color: Constants.isDark ==
                                                             "true"
                                                         ? Colors.white
-                                                        : Colors.blue,
+                                                        : Colors.lightBlue,
                                                   ),
                                                 ),
                                                 Icon(
@@ -2690,13 +2691,13 @@ class _MainFeedState extends State<MainFeed> {
                                                 Text(
                                                   'Report User ',
                                                   style: TextStyle(
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
                                                     color: Constants.isDark ==
                                                             "true"
                                                         ? Colors.white
-                                                        : Colors.blue,
+                                                        : Colors.lightBlue,
                                                   ),
                                                 ),
                                                 Icon(
@@ -2705,7 +2706,7 @@ class _MainFeedState extends State<MainFeed> {
                                                   color:
                                                       Constants.isDark == "true"
                                                           ? Colors.white
-                                                          : Colors.blue,
+                                                          : Colors.lightBlue,
                                                 ),
                                               ],
                                             ),
@@ -2742,12 +2743,12 @@ class _MainFeedState extends State<MainFeed> {
                                                 Text(
                                                   'Block User ',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                               "true"
                                                           ? Colors.white
-                                                          : Colors.blue,
+                                                          : Colors.lightBlue,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -2757,7 +2758,7 @@ class _MainFeedState extends State<MainFeed> {
                                                   color:
                                                       Constants.isDark == "true"
                                                           ? Colors.white
-                                                          : Colors.blue,
+                                                          : Colors.lightBlue,
                                                 ),
                                               ],
                                             ),
@@ -2878,7 +2879,7 @@ class _MainFeedState extends State<MainFeed> {
                                     style: TextStyle(
                                         fontSize: 8,
                                         color: Colors.grey,
-                                        fontFamily: 'cutes'),
+                                        fontFamily: 'cute'),
                                   ),
                                 ),
                               ),
@@ -2955,7 +2956,7 @@ class _MainFeedState extends State<MainFeed> {
                                 fontSize: 20,
                                 fontFamily: "cute",
                                  fontWeight: FontWeight.bold,
-                                color: Colors.blue.shade700),
+                                color: Colors.lightBlue),
                           ),
                           onTap: () {
                             Navigator.pop(context);
@@ -3059,7 +3060,7 @@ class _MainFeedState extends State<MainFeed> {
         gravity: ToastGravity.SNACKBAR,
         timeInSecForIosWeb: 5,
         backgroundColor: Colors.white,
-        textColor: Colors.blue,
+        textColor: Colors.lightBlue,
         fontSize: 16.0,
       );
 
@@ -3133,7 +3134,7 @@ class _MainFeedState extends State<MainFeed> {
                                     return Text(
                                       "0",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -3146,7 +3147,7 @@ class _MainFeedState extends State<MainFeed> {
                                       return Text(
                                         "0",
                                         style: TextStyle(
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             color: Colors.grey.shade600,
                                             fontSize: 10),
                                       );
@@ -3161,7 +3162,7 @@ class _MainFeedState extends State<MainFeed> {
                                         : Text(
                                             data.length.toString(),
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 color: Colors.grey.shade600,
                                                 fontSize: 10),
                                           );
@@ -3189,7 +3190,7 @@ class _MainFeedState extends State<MainFeed> {
                           "Details ",
                           style: TextStyle(
                               fontSize: 12,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.bold,
                               color: Colors.grey),
                         ),
@@ -3214,7 +3215,7 @@ class _MainFeedState extends State<MainFeed> {
               ? Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: LinearProgressIndicator(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                   ),
                 )
               : Container(
@@ -3251,7 +3252,7 @@ class _MainFeedState extends State<MainFeed> {
                             fontSize: 20,
                             fontFamily: "cutes",
                             fontWeight: FontWeight.bold,
-                            color: Colors.blue),
+                            color: Colors.lightBlue),
                       ),
                     ),
                   ],
@@ -3319,7 +3320,7 @@ class _MainFeedState extends State<MainFeed> {
                                     fontSize: 12,
                                     fontFamily: "cutes",
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -3344,7 +3345,7 @@ class _MainFeedState extends State<MainFeed> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -3380,7 +3381,7 @@ class _MainFeedState extends State<MainFeed> {
                                   child: Text(
                                     "Caption:  ",
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontSize: 15,
                                         fontFamily: 'cute'),
                                   ),
@@ -3419,7 +3420,7 @@ class _MainFeedState extends State<MainFeed> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -3444,7 +3445,7 @@ class _MainFeedState extends State<MainFeed> {
                                   child: Text(
                                     "Read More...",
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontSize: 12,
                                         fontFamily: 'cute'),
                                   ),
@@ -3499,7 +3500,7 @@ class _MainFeedState extends State<MainFeed> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -3527,7 +3528,7 @@ class _MainFeedState extends State<MainFeed> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -3542,7 +3543,7 @@ class _MainFeedState extends State<MainFeed> {
                                   child: Text(
                                     "Caption:  ",
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                         fontSize: 15,
                                         fontFamily: 'cute'),
                                   ),
@@ -3567,7 +3568,7 @@ class _MainFeedState extends State<MainFeed> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -3611,7 +3612,7 @@ class _MainFeedState extends State<MainFeed> {
                             'Copy ',
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'cutes',
+                                fontFamily: 'cute',
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -3719,7 +3720,7 @@ class _MainFeedState extends State<MainFeed> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 12,
-                                    fontFamily: 'cutes',
+                                    fontFamily: 'cute',
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -3730,7 +3731,7 @@ class _MainFeedState extends State<MainFeed> {
                           elevation: 3,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                         ),
                       ),
                     ),
@@ -3758,7 +3759,7 @@ class _MainFeedState extends State<MainFeed> {
                                     style: TextStyle(
                                       fontSize: 12,
                                       color: Colors.grey,
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                     )),
                                 TextSpan(
                                   text: 'Switch App ',
@@ -3766,8 +3767,8 @@ class _MainFeedState extends State<MainFeed> {
                                     fontSize: 12,
                                     decoration: TextDecoration.underline,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.blue.shade900,
-                                    fontFamily: 'cutes',
+                                    color: Colors.lightBlue.shade900,
+                                    fontFamily: 'cute',
                                   ),
                                 ),
                                 TextSpan(
@@ -3775,7 +3776,7 @@ class _MainFeedState extends State<MainFeed> {
                                     style: TextStyle(
                                       fontSize: 12,
                                       color: Colors.grey,
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                     )),
                                 TextSpan(
                                   text: 'Privacy Policy.',
@@ -3783,8 +3784,8 @@ class _MainFeedState extends State<MainFeed> {
                                     fontSize: 12,
                                     decoration: TextDecoration.underline,
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'cutes',
-                                    color: Colors.blue.shade900,
+                                    fontFamily: 'cute',
+                                    color: Colors.lightBlue.shade900,
                                   ),
                                 ),
                               ],
@@ -3883,7 +3884,7 @@ class _MainFeedState extends State<MainFeed> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ],
                         ),
@@ -3919,7 +3920,7 @@ class _MainFeedState extends State<MainFeed> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cutes', fontSize: 14),
+                                          fontFamily: 'cute', fontSize: 14),
                                     ),
                                   ),
                                 ],

@@ -107,16 +107,16 @@ class _VideoStatusState extends State<VideoStatus> {
                               Text(
                                 "Upload New Video",
                                 style: TextStyle(
-                                    fontFamily: 'cutes',
+                                    fontFamily: 'cute',
                                     fontWeight: FontWeight.bold,
                                     fontSize: 13,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.slow_motion_video_sharp,
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                 ),
                               )
                             ],
@@ -359,7 +359,7 @@ class _VideoStatusState extends State<VideoStatus> {
                     Text(
                       "Meme",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -400,7 +400,7 @@ class _VideoStatusState extends State<VideoStatus> {
                     Text(
                       "Life Experience",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -439,7 +439,7 @@ class _VideoStatusState extends State<VideoStatus> {
                     Text(
                       "Advice",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -480,7 +480,7 @@ class _VideoStatusState extends State<VideoStatus> {
                     Text(
                       "Double Slit Show",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -514,7 +514,7 @@ class _VideoStatusState extends State<VideoStatus> {
                 child: Text(
                   "Shares",
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                     fontFamily: 'cute',
                     fontSize: 16,
                   ),
@@ -548,9 +548,9 @@ class _VideoStatusState extends State<VideoStatus> {
                                 child: Text(
                               "Please wait, until uploading..",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontSize: 12,
-                                  fontFamily: 'cutes'),
+                                  fontFamily: 'cute'),
                             )),
                           ),
                         ),
@@ -584,7 +584,7 @@ class _VideoStatusState extends State<VideoStatus> {
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                         color: Colors.black,
-                        fontFamily: 'cutes'),
+                        fontFamily: 'cute'),
                   ),
                 ],
               ),
@@ -607,7 +607,7 @@ class _VideoStatusState extends State<VideoStatus> {
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     hintText: 'Write Here...',
                     hintStyle: TextStyle(
-                      fontFamily: 'cutes',
+                      fontFamily: 'cute',
                       fontWeight: FontWeight.bold,
                       color: Colors.grey,
                       fontSize: 15,
@@ -751,7 +751,7 @@ class _VideoStatusState extends State<VideoStatus> {
                         child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: Colors.blue.shade400,
+                              color: Colors.lightBlue.shade400,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -784,7 +784,7 @@ class _VideoStatusState extends State<VideoStatus> {
                                 child: Text(
                           "Where to find my uploaded MEME(Shot/Flick)?",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontFamily: 'cute',
                               fontSize: 17),
                         ))),
@@ -800,8 +800,8 @@ class _VideoStatusState extends State<VideoStatus> {
                             child: Text(
                               "Your uploaded Memes are in Meme Profile. Open App > Click on Meme on bottom bar > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ),
                           ),
@@ -818,7 +818,7 @@ class _VideoStatusState extends State<VideoStatus> {
                                 child: Text(
                           "Where to find my uploaded Thoughts and Photo?",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontFamily: 'cute',
                               fontSize: 17),
                         ))),
@@ -834,8 +834,8 @@ class _VideoStatusState extends State<VideoStatus> {
                             child: Text(
                               "Open App > Click on your profile on top left corner > Slide up.",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ),
                           ),

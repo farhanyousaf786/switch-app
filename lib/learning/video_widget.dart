@@ -235,11 +235,11 @@ class _VideoWidgetState extends State<VideoWidget> {
                   child: Icon(
                     Icons.slow_motion_video,
                     size: 60,
-                    color: Colors.blue.shade400,
+                    color: Colors.lightBlue.shade400,
                   ),
                 ),
                 SpinKitThreeBounce(
-                  color: Colors.blue.shade400,
+                  color: Colors.lightBlue.shade400,
                   size: 20,
                 ),
               ],

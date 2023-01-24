@@ -105,7 +105,7 @@ class _AddStatusState extends State<AddStatus> {
               icon: Icon(
                 Icons.arrow_back_ios_sharp,
                 size: 18,
-                color: Colors.blue.shade900,
+                color: Colors.lightBlue.shade900,
               ),
               onPressed: () => {
                 Navigator.pop(context),
@@ -122,7 +122,7 @@ class _AddStatusState extends State<AddStatus> {
                         ? "Video Meme"
                         : "Thoughts",
             style: TextStyle(
-              color: Colors.blue.shade900,
+              color: Colors.lightBlue.shade900,
               fontFamily: 'cute',
               fontSize: 16,
             ),
@@ -147,9 +147,9 @@ class _AddStatusState extends State<AddStatus> {
                             "Share",
                             style: TextStyle(
                               color: _isComposing
-                                  ? Colors.blue.shade900
+                                  ? Colors.lightBlue
                                   : Colors.blue.shade100,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
@@ -170,7 +170,7 @@ class _AddStatusState extends State<AddStatus> {
                           child: Text(
                             "Share",
                             style: TextStyle(
-                              color: Colors.blue.shade900,
+                              color: Colors.lightBlue.shade900,
                               fontFamily: 'cute',
                               fontSize: 16,
                             ),
@@ -221,7 +221,7 @@ class _AddStatusState extends State<AddStatus> {
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                       color: Colors.black,
-                      fontFamily: 'cutes'
+                      fontFamily: 'cute'
                       // shadows: <Shadow>[
                       //   Shadow(
                       //     offset: Offset(0.5, 0.5),
@@ -261,7 +261,7 @@ class _AddStatusState extends State<AddStatus> {
                 hintStyle: TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
-                    fontFamily: 'cutes',
+                    fontFamily: 'cute',
                     fontWeight: FontWeight.bold),
               ),
               scrollPadding: EdgeInsets.all(20),
@@ -319,7 +319,7 @@ class _AddStatusState extends State<AddStatus> {
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                     color: Colors.black,
-                    fontFamily: 'cutes'),
+                    fontFamily: 'cute'),
               ),
             ],
           ),
@@ -342,7 +342,7 @@ class _AddStatusState extends State<AddStatus> {
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 hintText: 'Write Here...',
                 hintStyle: TextStyle(
-                  fontFamily: 'cutes',
+                  fontFamily: 'cute',
                   fontWeight: FontWeight.bold,
                   color: Colors.grey,
                   fontSize: 15,
@@ -628,7 +628,7 @@ class _AddStatusState extends State<AddStatus> {
                     Text(
                       "Meme",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -669,7 +669,7 @@ class _AddStatusState extends State<AddStatus> {
                     Text(
                       "Life Experience",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -708,7 +708,7 @@ class _AddStatusState extends State<AddStatus> {
                     Text(
                       "Advice",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -749,7 +749,7 @@ class _AddStatusState extends State<AddStatus> {
                     Text(
                       "Double Slit Show",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 18),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
                     ),
                   ],
                 ),
@@ -870,7 +870,7 @@ class _AddStatusState extends State<AddStatus> {
                         child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: Colors.blue.shade400,
+                              color: Colors.lightBlue.shade400,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -903,7 +903,7 @@ class _AddStatusState extends State<AddStatus> {
                                 child: Text(
                           "Where to find my uploaded MEME(Shot/Flick)?",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontFamily: 'cute',
                               fontSize: 17),
                         ))),
@@ -919,8 +919,8 @@ class _AddStatusState extends State<AddStatus> {
                             child: Text(
                               "Your uploaded Memes are in Meme Profile. Open App > Click on Meme on bottom bar > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ),
                           ),
@@ -937,7 +937,7 @@ class _AddStatusState extends State<AddStatus> {
                                 child: Text(
                           "Where to find my uploaded Thoughts and Photo?",
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontFamily: 'cute',
                               fontSize: 17),
                         ))),
@@ -953,8 +953,8 @@ class _AddStatusState extends State<AddStatus> {
                             child: Text(
                               "Open App > Click on your profile on top left corner > Slide up.",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ),
                           ),

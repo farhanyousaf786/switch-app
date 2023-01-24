@@ -326,7 +326,7 @@ class _SetGoogleUsernameState
                               style: TextStyle(
                                   color: Colors.red.shade600,
                                   fontSize: 12,
-                                  fontFamily: 'cutes'),
+                                  fontFamily: 'cute'),
                             ),
                           )
                         : Center(
@@ -336,7 +336,7 @@ class _SetGoogleUsernameState
                                   : "This username is Available",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontFamily: 'cutes',
+                                  fontFamily: 'cute',
                                   fontSize: 12),
                             ),
                           )
@@ -410,7 +410,7 @@ class _SetGoogleUsernameState
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 12,
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold),
                   ),
                 ),

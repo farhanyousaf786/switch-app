@@ -77,7 +77,7 @@ class _MoodState extends State<Mood> {
                     "This feature will update in future. And it will be an amazing experience for you all. Stay Tuned",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontFamily: 'cutes',
+                        fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
                         fontSize: 12),
                   ),
@@ -103,7 +103,7 @@ class _MoodState extends State<Mood> {
                       child: Container(
                         height: 40,
                         decoration: BoxDecoration(
-                          color: Colors.blue.shade100,
+                          color: Colors.lightBlue.shade100,
                           borderRadius: BorderRadius.circular(15),
                           border: mood == "happy"
                               ? Border.all(color: Colors.blue, width: 2)
@@ -113,7 +113,7 @@ class _MoodState extends State<Mood> {
                           child: Text(
                             "Happy",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 20),
                           ),
@@ -136,7 +136,7 @@ class _MoodState extends State<Mood> {
                       child: Container(
                         height: 40,
                         decoration: BoxDecoration(
-                          color: Colors.blue.shade100,
+                          color: Colors.lightBlue.shade100,
                           borderRadius: BorderRadius.circular(15),
                           border: mood == "romantic"
                               ? Border.all(color: Colors.blue, width: 2)
@@ -146,7 +146,7 @@ class _MoodState extends State<Mood> {
                           child: Text(
                             "romantic",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 20),
                           ),
@@ -167,7 +167,7 @@ class _MoodState extends State<Mood> {
                       child: Container(
                         height: 40,
                         decoration: BoxDecoration(
-                          color: Colors.blue.shade100,
+                          color: Colors.lightBlue.shade100,
                           borderRadius: BorderRadius.circular(15),
                           border: mood == "angry"
                               ? Border.all(color: Colors.blue, width: 2)
@@ -177,7 +177,7 @@ class _MoodState extends State<Mood> {
                           child: Text(
                             "Angry",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 20),
                           ),
@@ -198,7 +198,7 @@ class _MoodState extends State<Mood> {
                       child: Container(
                         height: 40,
                         decoration: BoxDecoration(
-                          color: Colors.blue.shade100,
+                          color: Colors.lightBlue.shade100,
                           borderRadius: BorderRadius.circular(15),
                           border: mood == "sad"
                               ? Border.all(color: Colors.blue, width: 2)
@@ -208,7 +208,7 @@ class _MoodState extends State<Mood> {
                           child: Text(
                             "Sad",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 20),
                           ),

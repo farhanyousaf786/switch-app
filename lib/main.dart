@@ -64,7 +64,7 @@ void main() async {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontFamily: 'cute',
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                             fontSize: 12),
                       ),
                     ),
@@ -89,14 +89,14 @@ void main() async {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontFamily: 'cute',
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               fontSize: 12),
                         ),
                       ),
                     ),
                     Center(
                         child: SpinKitThreeBounce(
-                      color: Colors.blue,
+                      color: Colors.lightBlue,
                       size: 12,
                     )),
                   ],

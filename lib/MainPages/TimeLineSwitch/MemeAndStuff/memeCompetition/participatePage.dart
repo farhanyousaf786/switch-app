@@ -74,7 +74,7 @@ class _ParticipatePageState extends State<ParticipatePage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 14,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -119,7 +119,7 @@ class _ParticipatePageState extends State<ParticipatePage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 14,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -170,7 +170,7 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "Limitations for MEMER:",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 17),
                             ))),
@@ -187,8 +187,8 @@ class _ParticipatePageState extends State<ParticipatePage> {
                               "1) A meme profile with copied meme will not be ranked on TOP MEMERS.\n\n 2) Original Meme Content will be appreciated separably in this app.\n\n 3) If a meme being reported (copied meme), then the reported profile will be deleted after 1 or 2 warnings.\n\n"
                               "4) Such Meme Profile that disrespect any Religion, will be terminated w/o any warning.",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ))),
                           ],
@@ -204,7 +204,7 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "Advantages of participation:",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 17),
                             ))),
@@ -220,8 +220,8 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "1) Winners will be shown separately on the top of the Switch for a week. \n\n 2) Winner will be able get monetization ticket in future updates of Switch App &many more.",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ))),
                           ],
@@ -237,7 +237,7 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "Meme Decency:",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 17),
                             ))),
@@ -253,8 +253,8 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "In Future Updates, We will Rank Profiles with respect to (Meme Decency + Total Following).",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ))),
                           ],
@@ -270,7 +270,7 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "What if my Meme is not showing after Post it?",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 17),
                             ))),
@@ -286,8 +286,8 @@ class _ParticipatePageState extends State<ParticipatePage> {
                                     child: Text(
                               "If your Meme is not showing after posting it, You may visit your Meme Profile through, Timeline > Profile Picture > Meme Profile.",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 13),
                             ))),
                           ],

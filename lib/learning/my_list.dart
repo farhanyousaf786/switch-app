@@ -38,8 +38,7 @@ class MyList extends StatelessWidget {
             return Container(
               width: double.infinity,
               height: 300.0,
-              color: Colors.blueGrey,
-              alignment: Alignment.center,
+              color: Colors.lightBlue,              alignment: Alignment.center,
               margin: EdgeInsets.symmetric(vertical: 50.0),
               child: Box(id: '$index'),
             );

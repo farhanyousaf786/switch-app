@@ -469,7 +469,7 @@
 //                                                   fontSize: 20,
 //                                                   fontFamily: "cutes",
 //                                                   fontWeight: FontWeight.bold,
-//                                                   color: Colors.blue),
+//                                                   color: Colors.lightBlue),
 //                                             ),
 //                                           ),
 //                                           Padding(
@@ -480,7 +480,7 @@
 //                                                   fontSize: 12,
 //                                                   fontFamily: "cutes",
 //                                                   fontWeight: FontWeight.bold,
-//                                                   color: Colors.blue),
+//                                                   color: Colors.lightBlue),
 //                                             ),
 //                                           ),
 //                                         ],
@@ -643,7 +643,7 @@
 //                 child: Text(
 //                   "Proposal is pending",
 //                   style: TextStyle(
-//                       color: Colors.blue,
+//                       color: Colors.lightBlue,
 //                       fontSize: 15,
 //                        fontWeight: FontWeight.bold,
 //                       fontFamily: 'cute'),
@@ -793,7 +793,7 @@
 //             padding: const EdgeInsets.only(top: 20),
 //             child: Text("${widget.mainFirstName} He is Following you :)",
 //                 style: TextStyle(
-//                     fontFamily: "Names", color: Colors.blue, fontSize: 10),
+//                     fontFamily: "Names", color: Colors.lightBlue, fontSize: 10),
 //                 maxLines: 3,
 //                 softWrap: true,
 //                 overflow: TextOverflow.ellipsis),
@@ -946,7 +946,7 @@
 //                                 style: TextStyle(
 //                                     fontFamily: "cutes",
 //                                     fontWeight: FontWeight.bold,
-//                                     color: Colors.blue,
+//                                     color: Colors.lightBlue,
 //                                     fontSize: 12),
 //                               ),
 //                             ),
@@ -967,7 +967,7 @@
 //                                       "0",
 //                                       style: TextStyle(
 //                                           fontWeight: FontWeight.bold,
-//                                           fontFamily: 'cutes',
+//                                           fontFamily: 'cute',
 //                                           fontSize: 14,
 //                                           color: Colors.black),
 //                                     );
@@ -1037,14 +1037,14 @@
 //                                   "Crush ",
 //                                   style: TextStyle(
 //                                     fontSize: 12,
-//                                     color: Colors.blue,
+//                                     color: Colors.lightBlue,
 //                                     fontFamily: "cutes",
 //                                   ),
 //                                 ),
 //                                 Icon(
 //                                   Icons.favorite_border,
 //                                   size: 12,
-//                                   color: Colors.blue,
+//                                   color: Colors.lightBlue,
 //                                 ),
 //                               ],
 //                             ),
@@ -1054,7 +1054,7 @@
 //                               crushOfCount.toString(),
 //                               style: TextStyle(
 //                                   fontWeight: FontWeight.bold,
-//                                   fontFamily: 'cutes',
+//                                   fontFamily: 'cute',
 //                                   fontSize: 14,
 //                                   color: Colors.black),
 //                             ),
@@ -1110,7 +1110,7 @@
 //                       child: Text(
 //                         "In Love with",
 //                         style: TextStyle(
-//                           color: Colors.blue,
+//                           color: Colors.lightBlue,
 //                           fontSize: 14,
 //                           fontFamily: 'cute',
 //                         ),
@@ -1150,7 +1150,7 @@
 //                             "Not In Relationship",
 //                             textAlign: TextAlign.center,
 //                             style: TextStyle(
-//                                 color: Colors.blue,
+//                                 color: Colors.lightBlue,
 //                                 fontFamily: 'cute',
 //                                 fontSize: 14,
 //                                  fontWeight: FontWeight.bold),
@@ -1213,7 +1213,7 @@
 //     if (inRelationShip) {
 //       return Container(
 //         height: 40,
-//         color: Colors.blue.withOpacity(0.03),
+//         color: Colors.lightBlue.withOpacity(0.03),
 //         child: Row(
 //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //           children: [
@@ -1222,7 +1222,7 @@
 //               child: Text(
 //                 "Already In RelationShip",
 //                 style: TextStyle(
-//                     color: Colors.blue,
+//                     color: Colors.lightBlue,
 //                     fontSize: 14.0,
 //                      fontWeight: FontWeight.bold,
 //                     fontFamily: 'cute'),
@@ -1244,7 +1244,7 @@
 //     } else if (!inRelationShip && !pendingRelationShip) {
 //       return Container(
 //         height: 40,
-//         color: Colors.blue.withOpacity(0.03),
+//         color: Colors.lightBlue.withOpacity(0.03),
 //         child: Row(
 //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //           children: [
@@ -1253,7 +1253,7 @@
 //               child: Text(
 //                 "Click To Send RelationShip Request",
 //                 style: TextStyle(
-//                     color: Colors.blue,
+//                     color: Colors.lightBlue,
 //                     fontSize: 12.0,
 //                      fontWeight: FontWeight.bold,
 //                     fontFamily: 'cute'),
@@ -1329,7 +1329,7 @@
 //                     }
 //                   },
 //                   child: Icon(Icons.favorite_border_outlined,
-//                       size: 30, color: Colors.blue)),
+//                       size: 30, color: Colors.lightBlue)),
 //             ),
 //           ],
 //         ),
@@ -1351,7 +1351,7 @@
 //               },
 //               child: Container(
 //                 height: 40,
-//                 color: Colors.blue.withOpacity(0.03),
+//                 color: Colors.lightBlue.withOpacity(0.03),
 //                 child: Row(
 //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                   children: [
@@ -1363,7 +1363,7 @@
 //                           style: TextStyle(
 //                               color: Colors.purpleAccent,
 //                               fontSize: 15,
-//                               fontFamily: 'cutes',
+//                               fontFamily: 'cute',
 //                               fontWeight: FontWeight.w900),
 //                         ),
 //                       ),
@@ -1434,7 +1434,7 @@
 //                                             style: TextStyle(
 //                                               fontSize: 12,
 //                                               fontFamily: "cutes",
-//                                               color: Colors.blue,
+//                                               color: Colors.lightBlue,
 //                                               fontWeight: FontWeight.bold,
 //                                             ),
 //                                           ),
@@ -1463,7 +1463,7 @@
 //                                                   style: TextStyle(
 //                                                       fontWeight:
 //                                                           FontWeight.bold,
-//                                                       fontFamily: 'cutes'),
+//                                                       fontFamily: 'cute'),
 //                                                 );
 //                                               } else {
 //                                                 return Text(
@@ -1472,7 +1472,7 @@
 //                                                   style: TextStyle(
 //                                                       fontWeight:
 //                                                           FontWeight.bold,
-//                                                       fontFamily: 'cutes'),
+//                                                       fontFamily: 'cute'),
 //                                                 );
 //                                               }
 //                                             } else {
@@ -1480,7 +1480,7 @@
 //                                                 "0",
 //                                                 style: TextStyle(
 //                                                     fontWeight: FontWeight.bold,
-//                                                     fontFamily: 'cutes'),
+//                                                     fontFamily: 'cute'),
 //                                               );
 //                                             }
 //                                           }),
@@ -1525,15 +1525,15 @@
 //                                               "Crush ",
 //                                               style: TextStyle(
 //                                                 fontSize: 12,
-//                                                 fontFamily: 'cutes',
-//                                                 color: Colors.blue,
+//                                                 fontFamily: 'cute',
+//                                                 color: Colors.lightBlue,
 //                                                 fontWeight: FontWeight.bold,
 //                                               ),
 //                                             ),
 //                                             Icon(
 //                                               Icons.favorite_border_outlined,
 //                                               size: 14,
-//                                               color: Colors.blue,
+//                                               color: Colors.lightBlue,
 //                                             )
 //                                           ],
 //                                         ),
@@ -1544,7 +1544,7 @@
 //                                           crushOfCount.toString(),
 //                                           style: TextStyle(
 //                                               fontWeight: FontWeight.bold,
-//                                               fontFamily: 'cutes'),
+//                                               fontFamily: 'cute'),
 //                                         ),
 //                                       ),
 //                                     ],
@@ -1673,7 +1673,7 @@
 //                 "Follow",
 //                 style: TextStyle(
 //                   color: Colors.white,
-//                   fontFamily: 'cutes',
+//                   fontFamily: 'cute',
 //                   fontWeight: FontWeight.bold,
 //                   fontSize: 10,
 //                 ),
@@ -1709,7 +1709,7 @@
 //                       ? 0
 //                       : userPercentageDecency,
 //                   style: TextStyle(
-//                       color: Colors.blue,
+//                       color: Colors.lightBlue,
 //                       fontSize:
 //                           userPercentageDecency.toStringAsPrecision(3) == "NaN"
 //                               ? 12
@@ -1719,7 +1719,7 @@
 //                 Text(
 //                   "%",
 //                   style: TextStyle(
-//                       color: Colors.blue,
+//                       color: Colors.lightBlue,
 //                       fontSize:
 //                           userPercentageDecency.toStringAsPrecision(3) == "NaN"
 //                               ? 13
@@ -1740,10 +1740,10 @@
 //             child: Text(
 //               "Profile Decency",
 //               style: TextStyle(
-//                 color: Colors.blue,
+//                 color: Colors.lightBlue,
 //                 fontSize: 10,
 //                 fontWeight: FontWeight.bold,
-//                 fontFamily: 'cutes',
+//                 fontFamily: 'cute',
 //               ),
 //             ),
 //           ),
@@ -1751,7 +1751,7 @@
 //               ? Text(
 //                   "Not Rated Yet",
 //                   style: TextStyle(
-//                       fontSize: 10, color: Colors.blue, fontFamily: 'cutes'),
+//                       fontSize: 10, color: Colors.lightBlue, fontFamily: 'cute'),
 //                 )
 //               : Padding(
 //                   padding: const EdgeInsets.only(top: 3, right: 6),
@@ -1768,7 +1768,7 @@
 //                                   ? "Not Rated"
 //                                   : "${userDecency.toStringAsPrecision(1)}",
 //                               style: TextStyle(
-//                                   color: Colors.blue,
+//                                   color: Colors.lightBlue,
 //                                   fontSize: userPercentageDecency
 //                                               .toStringAsPrecision(3) ==
 //                                           "NaN"
@@ -1779,7 +1779,7 @@
 //                             Text(
 //                               " / 5",
 //                               style: TextStyle(
-//                                   color: Colors.blue,
+//                                   color: Colors.lightBlue,
 //                                   fontSize: userPercentageDecency
 //                                               .toStringAsPrecision(3) ==
 //                                           "NaN"
@@ -1809,7 +1809,7 @@
 //               child: Text(
 //                 "Relationship Option",
 //                 style: TextStyle(
-//                     color: Colors.blue,
+//                     color: Colors.lightBlue,
 //                      fontWeight: FontWeight.bold,
 //                     fontFamily: 'cute'),
 //               ),
@@ -1856,7 +1856,7 @@
 //                                     style: TextStyle(
 //                                         fontSize: 15,
 //                                         fontFamily: "cute",
-//                                         color: Colors.blueAccent),
+//                                         color: Colors.lightBlueAccent),
 //                                   ),
 //                                 ),
 //                                 Padding(
@@ -2050,7 +2050,7 @@
 //     return Center(
 //       child: Container(
 //         height: 40,
-//         color: Colors.blue.withOpacity(0.03),
+//         color: Colors.lightBlue.withOpacity(0.03),
 //         width: MediaQuery.of(context).size.width,
 //         child: inRelationShipForOwnProfile
 //             ? Padding(
@@ -2063,7 +2063,7 @@
 //                         child: Text(
 //                       "In Love️ with",
 //                       style: TextStyle(
-//                           color: Colors.blue,
+//                           color: Colors.lightBlue,
 //                           fontFamily: 'cute',
 //                            fontWeight: FontWeight.bold),
 //                     )),
@@ -2244,7 +2244,7 @@
 //               Text(
 //                 "Landing Day On Earth",
 //                 style: TextStyle(
-//                   color: Colors.blue,
+//                   color: Colors.lightBlue,
 //                   fontFamily: 'cute',
 //                 ),
 //               ),
@@ -2271,7 +2271,7 @@
 //               Text(
 //                 "Gender",
 //                 style: TextStyle(
-//                   color: Colors.blue,
+//                   color: Colors.lightBlue,
 //                   fontFamily: 'cute',
 //                 ),
 //               ),
@@ -2298,7 +2298,7 @@
 //               Text(
 //                 "Country",
 //                 style: TextStyle(
-//                   color: Colors.blue,
+//                   color: Colors.lightBlue,
 //                   fontFamily: 'cute',
 //                 ),
 //               ),
@@ -2319,7 +2319,7 @@
 //   _crushButtonControllerForVisitor() {
 //     return Container(
 //       height: 40,
-//       color: Colors.blue.withOpacity(0.03),
+//       color: Colors.lightBlue.withOpacity(0.03),
 //       child: Row(
 //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //         children: [
@@ -2331,7 +2331,7 @@
 //                         ? "Crush on Him"
 //                         : "Crush on Her",
 //                     style: TextStyle(
-//                       color: Colors.blue,
+//                       color: Colors.lightBlue,
 //                       fontFamily: 'cute',
 //                       fontSize: 14,
 //                        fontWeight: FontWeight.bold,
@@ -2343,7 +2343,7 @@
 //                         : "Tap Heart if Crush on Her",
 //                     style: TextStyle(
 //                       fontFamily: 'cute',
-//                       color: Colors.blue,
+//                       color: Colors.lightBlue,
 //                       fontSize: 14,
 //                        fontWeight: FontWeight.bold,
 //                     ),
@@ -2404,7 +2404,7 @@
 //                           Text(
 //                             "Bestie",
 //                             style: TextStyle(
-//                                 color: Colors.blue,
+//                                 color: Colors.lightBlue,
 //                                 fontFamily: 'cute',
 //                                 fontSize: 15),
 //                           ),
@@ -2451,7 +2451,7 @@
 //                             style: TextStyle(
 //                                 fontFamily: 'cute',
 //                                 fontSize: 12,
-//                                 color: Colors.blue),
+//                                 color: Colors.lightBlue),
 //                           ),
 //                         ],
 //                       ),
@@ -2487,7 +2487,7 @@
 //       padding: const EdgeInsets.only(bottom: 10),
 //       child: Container(
 //         height: 40,
-//         color: Colors.blue.shade100.withOpacity(0.1),
+//         color: Colors.lightBlue.shade100.withOpacity(0.1),
 //         child: Padding(
 //           padding: const EdgeInsets.only(left: 23, right: 23),
 //           child: Row(
@@ -2496,7 +2496,7 @@
 //               Text(
 //                 "Bestie",
 //                 style: TextStyle(
-//                   color: Colors.blue,
+//                   color: Colors.lightBlue,
 //                   fontFamily: 'cute',
 //                 ),
 //               ),
@@ -2584,8 +2584,8 @@
 //                 child: Text(
 //                   widget.mainAbout,
 //                   style: TextStyle(
-//                     color: Colors.blue,
-//                     fontFamily: 'cutes',
+//                     color: Colors.lightBlue,
+//                     fontFamily: 'cute',
 //                     fontSize: 13,
 //                   ),
 //                 ),
@@ -2607,8 +2607,8 @@
 //               Text(
 //                 "www.switch.com",
 //                 style: TextStyle(
-//                   color: Colors.blue,
-//                   fontFamily: 'cutes',
+//                   color: Colors.lightBlue,
+//                   fontFamily: 'cute',
 //                   fontSize: 13,
 //                 ),
 //               ),
@@ -2629,8 +2629,8 @@
 //               Text(
 //                 widget.profileOwner,
 //                 style: TextStyle(
-//                   color: Colors.blue,
-//                   fontFamily: 'cutes',
+//                   color: Colors.lightBlue,
+//                   fontFamily: 'cute',
 //                   fontSize: 13,
 //                 ),
 //               ),
@@ -2953,7 +2953,7 @@
 //               ? Container(
 //                   height: 50,
 //                   width: MediaQuery.of(context).size.width,
-//                   color: Colors.blue.withOpacity(0.05),
+//                   color: Colors.lightBlue.withOpacity(0.05),
 //                   child: Padding(
 //                     padding: const EdgeInsets.only(left: 18, right: 10),
 //                     child: Row(
@@ -2963,7 +2963,7 @@
 //                           child: Text(
 //                             "Your Rating: ",
 //                             style: TextStyle(
-//                                 color: Colors.blue,
+//                                 color: Colors.lightBlue,
 //                                 fontFamily: 'cute',
 //                                 fontSize: 15,
 //                                  fontWeight: FontWeight.bold),
@@ -3661,7 +3661,7 @@ class _BodyState extends State<Body> {
                                                   fontSize: 20,
                                                   fontFamily: "cutes",
                                                   fontWeight: FontWeight.bold,
-                                                  color: Colors.blue),
+                                                  color: Colors.lightBlue),
                                             ),
                                           ),
                                           Padding(
@@ -3672,7 +3672,7 @@ class _BodyState extends State<Body> {
                                                   fontSize: 12,
                                                   fontFamily: "cutes",
                                                   fontWeight: FontWeight.bold,
-                                                  color: Colors.blue),
+                                                  color: Colors.lightBlue),
                                             ),
                                           ),
                                         ],
@@ -3828,7 +3828,7 @@ class _BodyState extends State<Body> {
       return Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: Container(
-            color: Colors.blue.withOpacity(0.09),
+            color: Colors.lightBlue.withOpacity(0.09),
             child: Column(
               children: [
                 Row(
@@ -3997,7 +3997,7 @@ class _BodyState extends State<Body> {
             padding: const EdgeInsets.only(top: 20),
             child: Text("${widget.mainFirstName} He is Following you :)",
                 style: TextStyle(
-                    fontFamily: "Names", color: Colors.blue, fontSize: 10),
+                    fontFamily: "Names", color: Colors.lightBlue, fontSize: 10),
                 maxLines: 3,
                 softWrap: true,
                 overflow: TextOverflow.ellipsis),
@@ -4123,7 +4123,7 @@ class _BodyState extends State<Body> {
                     child: Text(
                       "Edit Profile",
                       style: TextStyle(
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           fontWeight: FontWeight.bold,
                           fontSize: 12),
                     ),
@@ -4161,7 +4161,7 @@ class _BodyState extends State<Body> {
                            fontWeight: FontWeight.bold,
                           fontSize: 20,
                           fontFamily: "cute",
-                          color: Colors.blue),
+                          color: Colors.lightBlue),
                     ),
                   ),
                   Padding(
@@ -4271,8 +4271,7 @@ class _BodyState extends State<Body> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              color: Colors.blue
-                                                                  .shade700),
+                                                              color: Colors.lightBlue                                                                  .shade700),
                                                         ),
                                                         onTap: () {
                                                           Navigator.pop(
@@ -4340,7 +4339,7 @@ class _BodyState extends State<Body> {
                                               "Report",
                                               style: TextStyle(
                                                 color: Colors.red,
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -4774,7 +4773,7 @@ class _BodyState extends State<Body> {
                         child: Text(
                           "In Love with",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                             fontSize: 14,
                             fontFamily: 'cute',
                           ),
@@ -4802,7 +4801,7 @@ class _BodyState extends State<Body> {
               : GestureDetector(
                   onTap: () => print("Tapped"),
                   child: Container(
-                    color: Colors.blue.withOpacity(0.09),
+                    color: Colors.lightBlue.withOpacity(0.09),
                     child: Padding(
                       padding: const EdgeInsets.only(
                         bottom: 10.0,
@@ -4871,7 +4870,7 @@ class _BodyState extends State<Body> {
     if (inRelationShip) {
       return Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.09),
+        color: Colors.lightBlue.withOpacity(0.09),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -4880,7 +4879,7 @@ class _BodyState extends State<Body> {
               child: Text(
                 "Already In RelationShip",
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                     fontSize: 12.0,
                      fontWeight: FontWeight.bold,
                     fontFamily: 'cute'),
@@ -4902,7 +4901,7 @@ class _BodyState extends State<Body> {
     } else if (!inRelationShip && !pendingRelationShip) {
       return Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.09),
+        color: Colors.lightBlue.withOpacity(0.09),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -5066,7 +5065,7 @@ class _BodyState extends State<Body> {
                     }
                   },
                   child: Icon(Icons.favorite_border_outlined,
-                      size: 30, color: Colors.blue)),
+                      size: 30, color: Colors.lightBlue)),
             ),
           ],
         ),
@@ -5080,7 +5079,7 @@ class _BodyState extends State<Body> {
               },
               child: Container(
                 height: 40,
-                color: Colors.blue.withOpacity(0.09),
+                color: Colors.lightBlue.withOpacity(0.09),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -5092,7 +5091,7 @@ class _BodyState extends State<Body> {
                           style: TextStyle(
                               color: Colors.purpleAccent,
                               fontSize: 12,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.w900),
                         ),
                       ),
@@ -5165,7 +5164,7 @@ class _BodyState extends State<Body> {
                                               "0",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 fontSize: 12,
                                               ),
                                             );
@@ -5178,7 +5177,7 @@ class _BodyState extends State<Body> {
                                               followers,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 fontSize: 12,
                                               ),
                                             );
@@ -5188,7 +5187,7 @@ class _BodyState extends State<Body> {
                                             "0",
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontFamily: 'cutes',
+                                              fontFamily: 'cute',
                                               fontSize: 12,
                                             ),
                                           );
@@ -5250,7 +5249,7 @@ class _BodyState extends State<Body> {
                                             "Crush ",
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontFamily: 'cutes',
+                                              fontFamily: 'cute',
                                               fontSize: 12,
                                             ),
                                           ),
@@ -5267,7 +5266,7 @@ class _BodyState extends State<Body> {
                                         crushOfCount.toString(),
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontSize: 11,
                                         ),
                                       ),
@@ -5393,8 +5392,8 @@ class _BodyState extends State<Body> {
               child: Text(
                 "Follow",
                 style: TextStyle(
-                  color: Colors.blue,
-                  fontFamily: 'cutes',
+                  color: Colors.lightBlue,
+                  fontFamily: 'cute',
                   fontWeight: FontWeight.bold,
                   fontSize: 10,
                 ),
@@ -5433,7 +5432,7 @@ class _BodyState extends State<Body> {
                         ? 0
                         : userPercentageDecency,
                     style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.lightBlue,
                         fontSize:
                             userPercentageDecency.toStringAsPrecision(3) ==
                                     "NaN"
@@ -5444,7 +5443,7 @@ class _BodyState extends State<Body> {
                   Text(
                     "%",
                     style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.lightBlue,
                         fontSize:
                             userPercentageDecency.toStringAsPrecision(3) ==
                                     "NaN"
@@ -5469,7 +5468,7 @@ class _BodyState extends State<Body> {
                   color: Colors.lightBlue,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'cutes',
+                  fontFamily: 'cute',
                 ),
               ),
             ),
@@ -5479,7 +5478,7 @@ class _BodyState extends State<Body> {
                     style: TextStyle(
                         fontSize: 10,
                         color: Colors.lightBlue,
-                        fontFamily: 'cutes'),
+                        fontFamily: 'cute'),
                   )
                 : Padding(
                     padding: const EdgeInsets.only(top: 3, right: 6),
@@ -5496,7 +5495,7 @@ class _BodyState extends State<Body> {
                                     ? "Not Rated"
                                     : "${userDecency.toStringAsPrecision(1)}",
                                 style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Colors.lightBlue,
                                     fontSize: userPercentageDecency
                                                 .toStringAsPrecision(3) ==
                                             "NaN"
@@ -5507,7 +5506,7 @@ class _BodyState extends State<Body> {
                               Text(
                                 " / 5",
                                 style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Colors.lightBlue,
                                     fontSize: userPercentageDecency
                                                 .toStringAsPrecision(3) ==
                                             "NaN"
@@ -5538,7 +5537,7 @@ class _BodyState extends State<Body> {
               child: Text(
                 "Relationship Option",
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                      fontWeight: FontWeight.bold,
                     fontFamily: 'cute'),
               ),
@@ -5801,7 +5800,7 @@ class _BodyState extends State<Body> {
     return Center(
       child: Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.09),
+        color: Colors.lightBlue.withOpacity(0.09),
         width: MediaQuery.of(context).size.width,
         child: inRelationShipForOwnProfile
             ? GestureDetector(
@@ -5851,7 +5850,7 @@ class _BodyState extends State<Body> {
                           child: Text(
                         "In Love️ with",
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                             fontFamily: 'cute',
                              fontWeight: FontWeight.bold),
                       )),
@@ -6013,7 +6012,7 @@ class _BodyState extends State<Body> {
       children: [
         Container(
           height: 40,
-          color: Colors.blue.withOpacity(0.09),
+          color: Colors.lightBlue.withOpacity(0.09),
           padding: EdgeInsets.only(left: 23, right: 26),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -6045,7 +6044,7 @@ class _BodyState extends State<Body> {
         ),
         Container(
           height: 40,
-          color: Colors.blue.withOpacity(0.09),
+          color: Colors.lightBlue.withOpacity(0.09),
           padding: EdgeInsets.only(left: 23, right: 25),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -6077,7 +6076,7 @@ class _BodyState extends State<Body> {
         ),
         Container(
           height: 40,
-          color: Colors.blue.withOpacity(0.09),
+          color: Colors.lightBlue.withOpacity(0.09),
           padding: EdgeInsets.only(left: 23, right: 25),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -6108,7 +6107,7 @@ class _BodyState extends State<Body> {
   _crushButtonControllerForVisitor() {
     return Container(
       height: 40,
-      color: Colors.blue.withOpacity(0.09),
+      color: Colors.lightBlue.withOpacity(0.09),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -6120,7 +6119,7 @@ class _BodyState extends State<Body> {
                         ? "Crush on Him"
                         : "Crush on Her",
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.lightBlue,
                       fontFamily: 'cute',
                       fontSize: 12,
                        fontWeight: FontWeight.bold,
@@ -6193,7 +6192,7 @@ class _BodyState extends State<Body> {
                           Text(
                             "Bestie",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 12),
                           ),
@@ -6241,7 +6240,7 @@ class _BodyState extends State<Body> {
                             style: TextStyle(
                                 fontFamily: 'cute',
                                 fontSize: 12,
-                                color: Colors.blue),
+                                color: Colors.lightBlue),
                           ),
                         ],
                       ),
@@ -6277,7 +6276,7 @@ class _BodyState extends State<Body> {
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
         height: 40,
-        color: Colors.blue.withOpacity(0.09),
+        color: Colors.lightBlue.withOpacity(0.09),
         child: Padding(
           padding: const EdgeInsets.only(left: 23, right: 23),
           child: Row(
@@ -6286,7 +6285,7 @@ class _BodyState extends State<Body> {
               Text(
                 "Bestie",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   fontFamily: 'cute',
                   fontSize: 12,
                 ),
@@ -6332,7 +6331,7 @@ class _BodyState extends State<Body> {
                 ),
                 Icon(
                   Icons.post_add,
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                 ),
               ],
             ),
@@ -6429,7 +6428,7 @@ class _BodyState extends State<Body> {
                     "Report User",
                     style: TextStyle(
                       color: Colors.red,
-                      fontFamily: 'cutes',
+                      fontFamily: 'cute',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -6468,8 +6467,8 @@ class _BodyState extends State<Body> {
                       Text(
                         "Note",
                         style: TextStyle(
-                          color: Colors.blue,
-                          fontFamily: 'cutes',
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
                           fontWeight: FontWeight.bold,
                           fontSize: 10,
                         ),
@@ -6477,7 +6476,7 @@ class _BodyState extends State<Body> {
                       Icon(
                         Icons.notes,
                         size: 14,
-                        color: Colors.blue,
+                        color: Colors.lightBlue,
                       ),
                     ],
                   ),
@@ -6493,7 +6492,7 @@ class _BodyState extends State<Body> {
                           startAfter: Duration(seconds: 3),
                           text: "${widget.mainAbout}   ",
                           style: TextStyle(
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             fontSize: 11,
                           ),
                         ),
@@ -6503,7 +6502,7 @@ class _BodyState extends State<Body> {
                           widget.mainAbout,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             fontSize: 11,
                           ),
                         ),
@@ -6518,8 +6517,8 @@ class _BodyState extends State<Body> {
                 Text(
                   "username",
                   style: TextStyle(
-                    color: Colors.blue,
-                    fontFamily: 'cutes',
+                    color: Colors.lightBlue,
+                    fontFamily: 'cute',
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
                   ),
@@ -6529,13 +6528,13 @@ class _BodyState extends State<Body> {
                   child: Icon(
                     Icons.perm_identity,
                     size: 14,
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                   ),
                 ),
                 Text(
                   widget.username.toString(),
                   style: TextStyle(
-                    fontFamily: 'cutes',
+                    fontFamily: 'cute',
                     fontSize: 11,
                   ),
                 ),
@@ -6793,7 +6792,7 @@ class _BodyState extends State<Body> {
                                           color: Colors.red,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
-                                          fontFamily: 'cutes'),
+                                          fontFamily: 'cute'),
                                     ),
                                   ),
                                 )
@@ -6823,7 +6822,7 @@ class _BodyState extends State<Body> {
                                               color: Colors.green,
                                               fontSize: 12,
                                               fontWeight: FontWeight.bold,
-                                              fontFamily: 'cutes'),
+                                              fontFamily: 'cute'),
                                         ),
                                       ),
                                     ),
@@ -6896,7 +6895,7 @@ class _BodyState extends State<Body> {
                                                   "0",
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 12,
                                                   ),
                                                 );
@@ -6905,7 +6904,7 @@ class _BodyState extends State<Body> {
                                                   data.length.toString(),
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 12,
                                                   ),
                                                 );
@@ -6915,7 +6914,7 @@ class _BodyState extends State<Body> {
                                                 "0",
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontFamily: 'cutes',
+                                                  fontFamily: 'cute',
                                                   fontSize: 12,
                                                 ),
                                               );
@@ -6960,7 +6959,7 @@ class _BodyState extends State<Body> {
                                         crushOnCount.toString(),
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontSize: 12,
                                         ),
                                       ),
@@ -7308,7 +7307,7 @@ class _ProfileDecencyState extends State<ProfileDecency> {
               ? Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.blue.withOpacity(0.09),
+                  color: Colors.lightBlue.withOpacity(0.09),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 18, right: 10),
                     child: Row(

@@ -238,7 +238,7 @@ class _FrontSlidesState extends State<FrontSlides> {
                             height: 120,
                             width: MediaQuery.of(context).size.width / 1.2,
                             decoration: BoxDecoration(
-                              color: Colors.blue.shade900,
+                              color: Colors.lightBlue.shade900,
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Column(
@@ -250,7 +250,7 @@ class _FrontSlidesState extends State<FrontSlides> {
                                       "Switch favourites",
                                       style: TextStyle(
                                           fontSize: 10,
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white),
                                     ),
@@ -267,16 +267,16 @@ class _FrontSlidesState extends State<FrontSlides> {
                                         "${memerList![itemIndex]['name'].toString().toUpperCase()}",
                                         style: TextStyle(
                                             fontSize: 11,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.blue.shade200),
+                                            color: Colors.lightBlue.shade200),
                                       ),
                                       Text(
                                         "Decency " +
                                             memerList![itemIndex]['decency'],
                                         style: TextStyle(
                                             fontSize: 11,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
                                             color: Colors.pink.shade200),
                                       ),
@@ -296,7 +296,7 @@ class _FrontSlidesState extends State<FrontSlides> {
                                             borderRadius:
                                                 BorderRadius.circular(50),
                                             border: Border.all(
-                                                color: Colors.blue, width: 2),
+                                                color: Colors.lightBlue, width: 2),
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
@@ -311,7 +311,7 @@ class _FrontSlidesState extends State<FrontSlides> {
                                     "Memer #" + "${itemIndex + 1}",
                                     style: TextStyle(
                                         fontSize: 11,
-                                        fontFamily: 'cutes',
+                                        fontFamily: 'cute',
                                         fontWeight: FontWeight.bold,
                                         color: Colors.greenAccent),
                                   ),
@@ -323,7 +323,7 @@ class _FrontSlidesState extends State<FrontSlides> {
                                     style: TextStyle(
                                         fontSize: 11,
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'cutes',
+                                        fontFamily: 'cute',
                                         color: Colors.white),
                                   ),
                                 ),

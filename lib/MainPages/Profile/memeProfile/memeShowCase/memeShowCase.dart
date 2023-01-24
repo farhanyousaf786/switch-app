@@ -91,7 +91,7 @@ class _MemeShowCaseState extends State<MemeShowCase> {
                       loading ? "Loading..":    "Currently, No Meme to show. Here, user can add Favorite MEMES. User can add Memes to his/her ShowCase by just tapping option Icon on that Meme and then select 'Add/Remove from Meme ShowCase'.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 10,

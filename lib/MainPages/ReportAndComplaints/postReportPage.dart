@@ -156,7 +156,7 @@ class _PostReportState extends State<PostReport> {
               //       keyboardType: TextInputType.emailAddress,
               //       textInputAction: TextInputAction.next,
               //       style: TextStyle(
-              //         color: Colors.blue,
+              //         color: Colors.lightBlue,
               //         fontSize: 12,
               //         fontFamily: "Cute",
               //       ),
@@ -177,7 +177,7 @@ class _PostReportState extends State<PostReport> {
               //         ),
               //         labelText: 'Write here..',
               //         labelStyle: TextStyle(
-              //             fontFamily: "Cute", color: Colors.blue, fontSize: 12),
+              //             fontFamily: "Cute", color: Colors.lightBlue, fontSize: 12),
               //       ),
               //     ),
               //   ),

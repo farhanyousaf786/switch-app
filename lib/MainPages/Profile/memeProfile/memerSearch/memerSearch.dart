@@ -78,7 +78,7 @@ class _MemerSearchState extends State<MemerSearch> {
             padding: const EdgeInsets.only(top: 9),
             child: Icon(
               Icons.arrow_back_ios_sharp,
-              color: Colors.blue,
+              color: Colors.lightBlue,
               size: 18,
             ),
           ),
@@ -88,7 +88,7 @@ class _MemerSearchState extends State<MemerSearch> {
         title: Text(
           "Memers Ranking",
           style:
-              TextStyle(fontSize: 18, fontFamily: 'cute', color: Colors.blue),
+              TextStyle(fontSize: 18, fontFamily: 'cute', color: Colors.lightBlue),
         ),
       ),
       body: _foundUsers.isNotEmpty
@@ -134,8 +134,8 @@ class _MemerSearchState extends State<MemerSearch> {
                 'No Memer found',
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.blue,
-                  fontFamily: 'cutes',
+                  color: Colors.lightBlue,
+                  fontFamily: 'cute',
                 ),
               ),
             ),
@@ -154,9 +154,9 @@ class _MemerSearchState extends State<MemerSearch> {
                 "# ${index + 1}",
                 style: TextStyle(
                     fontSize: 10,
-                    fontFamily: 'cutes',
+                    fontFamily: 'cute',
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue),
+                    color: Colors.lightBlue),
               ),
             ),
             Padding(
@@ -179,9 +179,9 @@ class _MemerSearchState extends State<MemerSearch> {
                 rankingData[index]['username'],
                 style: TextStyle(
                     fontSize: 10,
-                    fontFamily: 'cutes',
+                    fontFamily: 'cute',
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue),
+                    color: Colors.lightBlue),
               ),
             ),
           ],

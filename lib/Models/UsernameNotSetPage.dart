@@ -27,12 +27,12 @@ class SimplePageModel extends StatelessWidget {
                 child: Text(
               "Log Out",
               style: TextStyle(
-                  color: Colors.blue, fontFamily: 'cute', fontSize: 15),
+                  color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
             )),
             IconButton(
                 icon: Icon(
                   Icons.logout,
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   size: 20,
                 ),
                 onPressed: () => signOut.signOut(user.uid, context)),
@@ -54,7 +54,7 @@ class SimplePageModel extends StatelessWidget {
                       "Please set your username to use App",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.blue, fontSize: 15, fontFamily: 'cute'),
+                          color: Colors.lightBlue, fontSize: 15, fontFamily: 'cute'),
                     ),
                   ),
                   Padding(
@@ -84,9 +84,9 @@ class SimplePageModel extends StatelessWidget {
                       "Already Done? then check your INTERNET connection and Restart App.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontSize: 16,
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           fontWeight: FontWeight.bold),
                     ),
                   ),

@@ -55,7 +55,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               Container(
                 height: 150,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.blue,
+                color: Colors.lightBlue,
                 child: RiveAnimation.asset(
                   'images/authLogo.riv',
                 ),
@@ -76,7 +76,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   child: Text(
                     "Welcome To Switch",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cute', fontSize: 22),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 22),
                   ),
                 ),
               ),
@@ -90,7 +90,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                     child: Text(
                       "Introduction:",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontFamily: 'cute',
                           fontSize: 18),
                     ),
@@ -103,7 +103,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   child: Text(
                     "We provide People to connect with each other through SWITCH. This app will focus to manage a user's personal profile as well as Users MEME profile too. In this app we will provide user A secure connection through chat option.",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -116,7 +116,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                             child: Text(
                       "Terms And Condition",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontFamily: 'cute',
                           fontSize: 18),
                     ))),
@@ -129,7 +129,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   child: Text(
                     "Well, we can not allow any kind of hate speech, racism, bullying, religious hate & any kind of other negative things. If we found or someone reported your these kind of negative actions on this App, we will BAN you from this app.",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -142,7 +142,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                             child: Text(
                       "Do we share your data?",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontFamily: 'cute',
                           fontSize: 18),
                     ))),
@@ -155,7 +155,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   child: Text(
                     "No, we does not share your data. Not a single bit of it.",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -168,7 +168,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                             child: Text(
                       "What type of information we collect from users?",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontFamily: 'cute',
                           fontSize: 18),
                     ))),
@@ -181,7 +181,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   child: Text(
                     "We only collect that kind of data which you provide us, because we have to store it for your Profile. We collect and save your Email, Photos you shared, Chat, and other Userinfo (Date of birth, username etc).",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),
@@ -194,7 +194,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                             child: Text(
                       "Is your data secure?",
                       style: TextStyle(
-                          color: Colors.blue.shade700,
+                          color: Colors.lightBlue.shade700,
                           fontFamily: 'cute',
                           fontSize: 18),
                     ))),
@@ -207,7 +207,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   child: Text(
                     "Yes, your data is 100% secure, because our database is host with one of the top Company of the world.",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cutes', fontSize: 15),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 15),
                   ),
                 ),
               ),

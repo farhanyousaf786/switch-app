@@ -81,7 +81,7 @@ class _ForgotPassState extends State<ForgotPass> {
                           style: TextStyle(
                               fontSize: 20,
                               fontFamily: "cute",
-                              color: Colors.blue),
+                              color: Colors.lightBlue),
                         ),
                       ),
                     ],

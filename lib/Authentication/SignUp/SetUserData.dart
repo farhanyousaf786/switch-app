@@ -371,7 +371,7 @@ class _SetUserDataState extends State<SetUserData> {
                                 ? ""
                                 : "This username is Available",
                             style: TextStyle(
-                                color: Colors.blue.shade800,
+                                color: Colors.lightBlue.shade800,
                                 fontFamily: 'cute',
                                 fontSize: 12),
                           ),
@@ -398,7 +398,7 @@ class _SetUserDataState extends State<SetUserData> {
                       }),
                     },
                     style: TextStyle(
-                      color: Colors.blue.shade900,
+                      color: Colors.lightBlue.shade900,
                       fontSize: 12,
                       fontFamily: "Cute",
                        fontWeight: FontWeight.bold,
@@ -442,7 +442,7 @@ class _SetUserDataState extends State<SetUserData> {
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontFamily: "Cute",
                            fontWeight: FontWeight.bold,
 
@@ -485,7 +485,7 @@ class _SetUserDataState extends State<SetUserData> {
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
-                          color: Colors.blue.shade900,
+                          color: Colors.lightBlue.shade900,
                           fontFamily: "Cute",
                            fontWeight: FontWeight.bold,
 
@@ -538,7 +538,7 @@ class _SetUserDataState extends State<SetUserData> {
               //       keyboardType: TextInputType.emailAddress,
               //       textInputAction: TextInputAction.next,
               //       style: TextStyle(
-              //           color: Colors.blue.shade800,
+              //           color: Colors.lightBlue.shade800,
               //           fontFamily: "Cute",
               //           fontWeight: FontWeight.bold,
               //           fontSize: 12),
@@ -563,7 +563,7 @@ class _SetUserDataState extends State<SetUserData> {
               //         ),
               //         labelText: 'Exp : 12/30/1999',
               //         labelStyle: TextStyle(
-              //             color: Colors.blue.shade800,
+              //             color: Colors.lightBlue.shade800,
               //             fontSize: 12,
               //             fontFamily: 'cute'),
               //       ),
@@ -596,7 +596,7 @@ class _SetUserDataState extends State<SetUserData> {
               //             top: 11, left: 8, right: 8, bottom: 10),
               //         height: 40,
               //         decoration: BoxDecoration(
-              //           color: Colors.blue.shade50,
+              //           color: Colors.lightBlue.shade50,
               //           border:
               //               Border.all(color: Colors.blue.shade700, width: 1),
               //           borderRadius: BorderRadius.circular(15),
@@ -604,7 +604,7 @@ class _SetUserDataState extends State<SetUserData> {
               //         child: Text(
               //           '$countryName',
               //           style: TextStyle(
-              //               color: Colors.blue.shade800,
+              //               color: Colors.lightBlue.shade800,
               //               fontFamily: "Cute",
               //               fontSize: 10),
               //         ),

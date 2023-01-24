@@ -36,7 +36,7 @@
 //                 child: Text(
 //                   "Camera",
 //                   style: TextStyle(
-//                     color: Colors.blue,
+//                     color: Colors.lightBlue,
 //                     fontFamily: "Cutes",
 //                     fontWeight: FontWeight.bold,
 //                   ),
@@ -47,7 +47,7 @@
 //                 child: Text(
 //                   "Gallery",
 //                   style: TextStyle(
-//                     color: Colors.blue,
+//                     color: Colors.lightBlue,
 //                     fontFamily: "Cutes",
 //                     fontWeight: FontWeight.bold,
 //                   ),
@@ -114,7 +114,7 @@
 //           padding: const EdgeInsets.only(left: 8.0),
 //           child: CircleAvatar(
 //             radius: 60,
-//             backgroundColor: Colors.blue.shade900,
+//             backgroundColor: Colors.lightBlue,
 //             child: CircleAvatar(
 //
 //               radius: 58,

@@ -101,7 +101,7 @@
 //     //     "#",
 //     //     style: TextStyle(
 //     //         fontSize: 12,
-//     //         color: Colors.blue,
+//     //         color: Colors.lightBlue,
 //     //         fontWeight: FontWeight.w500),
 //     //   ),
 //     // );
@@ -213,7 +213,7 @@ class _WorldRankingState extends State<WorldRanking> {
     //     "#",
     //     style: TextStyle(
     //         fontSize: 12,
-    //         color: Colors.blue,
+    //         color: Colors.lightBlue,
     //         fontWeight: FontWeight.w500),
     //   ),
     // );

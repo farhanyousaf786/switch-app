@@ -95,7 +95,8 @@ class _ComplaintUsState extends State<ComplaintUs> {
           centerTitle: true,
           title: Text(
             "Complaint Page",
-            style: TextStyle(color: Colors.black, fontFamily: 'cute'),
+            style: TextStyle(color: Colors.black, fontFamily: 'cute',                         fontWeight: FontWeight.bold,
+            ),
           ),
           elevation: 0.0,
           backgroundColor: Colors.white,
@@ -124,7 +125,7 @@ class _ComplaintUsState extends State<ComplaintUs> {
               //       keyboardType: TextInputType.emailAddress,
               //       textInputAction: TextInputAction.next,
               //       style: TextStyle(
-              //         color: Colors.blue,
+              //         color: Colors.lightBlue,
               //         fontSize: 12,
               //         fontFamily: "Cute",
               //       ),
@@ -145,7 +146,7 @@ class _ComplaintUsState extends State<ComplaintUs> {
               //         ),
               //         labelText: 'Write here..',
               //         labelStyle: TextStyle(
-              //             fontFamily: "Cute", color: Colors.blue, fontSize: 12),
+              //             fontFamily: "Cute", color: Colors.lightBlue, fontSize: 12),
               //       ),
               //     ),
               //   ),

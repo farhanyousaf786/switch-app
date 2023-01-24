@@ -214,7 +214,7 @@
 //                         },
 //                         child: Container(
 //                           decoration: BoxDecoration(
-//                               color: Colors.blue.shade500,
+//                               color: Colors.lightBlue.shade500,
 //                               borderRadius: BorderRadius.circular(20)),
 //                           padding:
 //                               EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -228,7 +228,7 @@
 //                   padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
 //                   child: Center(
 //                     child: CircularProgressIndicator(
-//                       color: Colors.blue,
+//                       color: Colors.lightBlue,
 //                     ),
 //                   ),
 //                 );
@@ -469,7 +469,7 @@ class _MainSearchPageState extends State<MainSearchPage> {
                   "Switch Ad",
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'cutes',
+                      fontFamily: 'cute',
                       fontWeight: FontWeight.bold,
                       color: Colors.green),
                 ),
@@ -762,7 +762,7 @@ class _MainSearchPageState extends State<MainSearchPage> {
               //       padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
               //       child: Center(
               //         child: CircularProgressIndicator(
-              //           color: Colors.blue,
+              //           color: Colors.lightBlue,
               //         ),
               //       ),
               //     );

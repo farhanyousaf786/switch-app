@@ -51,7 +51,7 @@ class _HomeLandingState extends State<HomeLanding> {
                     child: Text(
                       "Please chose an option",
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontFamily: 'cute',
                           fontSize: 17),
                     ),
@@ -170,7 +170,7 @@ class _HomeLandingState extends State<HomeLanding> {
                               Text(
                                 "Login with Google ",
                                 style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Colors.lightBlue,
                                     fontFamily: 'cute',
                                     fontSize: 17),
                               ),
@@ -218,7 +218,7 @@ class _HomeLandingState extends State<HomeLanding> {
                               Text(
                                 "Login with email ",
                                 style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Colors.lightBlue,
                                     fontFamily: 'cute',
                                     fontSize: 17),
                               ),
@@ -258,7 +258,7 @@ class _HomeLandingState extends State<HomeLanding> {
                                     style: TextStyle(
                                       fontSize: 10,
                                       color: Colors.white,
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                     )),
                                 TextSpan(
                                   text: 'Terms & Conditions.',
@@ -266,8 +266,8 @@ class _HomeLandingState extends State<HomeLanding> {
                                     fontSize: 10,
                                     decoration: TextDecoration.underline,
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'cutes',
-                                    color: Colors.blue.shade900,
+                                    fontFamily: 'cute',
+                                    color: Colors.lightBlue.shade900,
                                   ),
                                 ),
                               ],

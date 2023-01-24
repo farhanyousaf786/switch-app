@@ -31,7 +31,7 @@ class _CacheImageTemplateState extends State<CacheImageTemplate> {
                 highlightColor: Colors.blue[200],
                 child: Center(
                     child: SpinKitCircle(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   size: 20,
                 )),
               )),

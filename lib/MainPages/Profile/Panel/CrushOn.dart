@@ -116,7 +116,7 @@ class _CrushOnPageState extends State<CrushOnPage> {
           //   height: 35,
           //   decoration: BoxDecoration(
           //       borderRadius: BorderRadius.circular(20),
-          //       color: Colors.blue.shade400),
+          //       color: Colors.lightBlue.shade400),
           //   child: Row(
           //     mainAxisAlignment: MainAxisAlignment.center,
           //     children: [
@@ -155,7 +155,7 @@ class _CrushOnPageState extends State<CrushOnPage> {
             "Crush On"
             "",
             style: TextStyle(
-                color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w700),
+                color: Colors.lightBlue, fontSize: 18, fontWeight: FontWeight.w700),
           ),
           centerTitle: true,
           elevation: 0.0,
@@ -163,7 +163,7 @@ class _CrushOnPageState extends State<CrushOnPage> {
         body: isLoading
             ? Center(
                 child: CircularProgressIndicator(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   semanticsLabel: "No Followers",
                 ),
               )

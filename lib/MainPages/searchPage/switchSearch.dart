@@ -272,9 +272,9 @@
 //                 "# ${index + 1}",
 //                 style: TextStyle(
 //                     fontSize: 10,
-//                     fontFamily: 'cutes',
+//                     fontFamily: 'cute',
 //                     fontWeight: FontWeight.bold,
-//                     color: Colors.blue),
+//                     color: Colors.lightBlue),
 //               ),
 //             ),
 //             Padding(
@@ -297,9 +297,9 @@
 //                 rankingData[index]['username'],
 //                 style: TextStyle(
 //                     fontSize: 10,
-//                     fontFamily: 'cutes',
+//                     fontFamily: 'cute',
 //                     fontWeight: FontWeight.bold,
-//                     color: Colors.blue),
+//                     color: Colors.lightBlue),
 //               ),
 //             ),
 //           ],

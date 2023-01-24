@@ -115,7 +115,7 @@ class _LandingPageState extends State<LandingPage> with WidgetsBindingObserver {
               backgroundColor: Colors.white,
               body: Center(
                 child: CircularProgressIndicator(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                 ),
               ),
             );

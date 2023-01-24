@@ -76,7 +76,7 @@ class _RewardAdsState extends State<RewardAds> {
         title: Text("Testing Area",
 
         style: TextStyle(
-          color: Colors.blue,
+          color: Colors.lightBlue,
           fontFamily: 'cute',
           fontSize: 18
         ),),
@@ -108,7 +108,7 @@ elevation: 0,
                                 fontFamily: "cute",
                                  fontWeight: FontWeight.bold,
 
-                                color: Colors.blue),
+                                color: Colors.lightBlue),
                           ),
                         ),
 

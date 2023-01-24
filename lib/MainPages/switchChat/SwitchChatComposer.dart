@@ -2586,7 +2586,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
                               children: [
                                 Icon(
                                   Icons.camera_alt,
-                                  color: Colors.blue.shade500,
+                                  color: Colors.lightBlue.shade500,
                                   size: 50,
                                 ),
                                 Text(
@@ -2594,7 +2594,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.blue),
+                                      color: Colors.lightBlue),
                                 )
                               ],
                             ),
@@ -2610,7 +2610,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
                               children: [
                                 Icon(
                                   Icons.image,
-                                  color: Colors.blue.shade500,
+                                  color: Colors.lightBlue.shade500,
                                   size: 50,
                                 ),
                                 Text(
@@ -2618,7 +2618,7 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.blue),
+                                      color: Colors.lightBlue),
                                 )
                               ],
                             ),

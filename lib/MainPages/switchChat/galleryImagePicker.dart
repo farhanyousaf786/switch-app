@@ -83,7 +83,7 @@
 //           onPressed: () => Navigator.pop(context),
 //           icon: Icon(
 //             Icons.arrow_back_rounded,
-//             color: Colors.blue,
+//             color: Colors.lightBlue,
 //           ),
 //         ),
 //       ),
@@ -199,7 +199,7 @@
 //               if (asset.type == AssetType.video)
 //                 Center(
 //                   child: Container(
-//                     color: Colors.blue,
+//                     color: Colors.lightBlue,
 //                     child: Icon(
 //                       Icons.play_arrow,
 //                       color: Colors.white,
@@ -280,7 +280,7 @@
 //                           style: TextStyle(
 //                               fontFamily: 'cute',
 //                               fontSize: 15,
-//                               color: Colors.blue),
+//                               color: Colors.lightBlue),
 //                         )),
 //                     Row(
 //                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

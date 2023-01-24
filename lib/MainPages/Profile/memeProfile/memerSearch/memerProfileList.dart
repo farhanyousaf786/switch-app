@@ -62,9 +62,9 @@ class _MemerProfileListState extends State<MemerProfileList> {
                           widget.foundUsers[widget.index]['username'],
                           style: TextStyle(
                               fontSize: 12,
-                              fontFamily: 'cutes',
+                              fontFamily: 'cute',
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue),
+                              color: Colors.lightBlue),
                         ),
                       ),
                     ),

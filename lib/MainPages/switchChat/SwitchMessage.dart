@@ -332,7 +332,7 @@
 //                                   : 250,
 //                   decoration: widget.receiverId != widget.inRelationShipId
 //                       ? BoxDecoration(
-//                           color: Colors.blue.shade100,
+//                           color: Colors.lightBlue.shade100,
 //                           borderRadius: BorderRadius.circular(15.0),
 //                         )
 //                       : BoxDecoration(
@@ -477,7 +477,7 @@
 //                     Text(
 //                       "Love Note",
 //                       style: TextStyle(
-//                         color: Colors.blue,
+//                         color: Colors.lightBlue,
 //                         fontSize: 18,
 //                         fontFamily: 'cute',
 //                       ),
@@ -698,7 +698,7 @@
 //                             'Forward ',
 //                             style: TextStyle(
 //                                 color: Colors.black,
-//                                 fontFamily: 'cutes',
+//                                 fontFamily: 'cute',
 //                                 fontSize: 14,
 //                                 fontWeight: FontWeight.bold),
 //                           ),
@@ -773,7 +773,7 @@
 //                                   'Copy ',
 //                                   style: TextStyle(
 //                                       color: Colors.black,
-//                                       fontFamily: 'cutes',
+//                                       fontFamily: 'cute',
 //                                       fontSize: 14,
 //                                       fontWeight: FontWeight.bold),
 //                                 ),
@@ -816,7 +816,7 @@
 //                                   'Delete ',
 //                                   style: TextStyle(
 //                                       color: Colors.black,
-//                                       fontFamily: 'cutes',
+//                                       fontFamily: 'cute',
 //                                       fontSize: 14,
 //                                       fontWeight: FontWeight.bold),
 //                                 ),
@@ -1096,7 +1096,7 @@
 //                       Text(
 //                         "Love Note",
 //                         style: TextStyle(
-//                           color: Colors.blue,
+//                           color: Colors.lightBlue,
 //                           fontSize: 18,
 //                           fontFamily: 'cute',
 //                         ),
@@ -1665,7 +1665,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                                       : 250,
                       decoration: widget.receiverId != widget.inRelationShipId
                           ? BoxDecoration(
-                              color: Colors.blue.shade100,
+                              color: Colors.lightBlue.shade100,
                               borderRadius: BorderRadius.circular(15.0),
                             )
                           : BoxDecoration(
@@ -1809,7 +1809,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                       Text(
                         "Love Note",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontSize: 18,
                           fontFamily: 'cute',
                         ),
@@ -2117,7 +2117,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                             'Forward ',
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'cutes',
+                                fontFamily: 'cute',
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -2193,7 +2193,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                                   'Copy ',
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -2236,7 +2236,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                                   'Delete ',
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -2596,7 +2596,7 @@ class _SwitchMessageState extends State<SwitchMessages>
                         Text(
                           "Love Note",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.lightBlue,
                             fontSize: 18,
                             fontFamily: 'cute',
                           ),

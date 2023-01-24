@@ -357,7 +357,7 @@ class _RelationShipButtonsState extends State<RelationShipButtons> {
                               color: Colors.black54,
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
-                              fontFamily: 'cutes'),
+                              fontFamily: 'cute'),
                         ),
                       );
                     },

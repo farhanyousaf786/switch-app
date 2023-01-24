@@ -132,7 +132,7 @@ class _AdminPageState extends State<AdminPage> {
                           fontSize: 15,
                           fontFamily: "cute",
                            fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: Colors.lightBlue),
                     ),
                   ),
                   GestureDetector(
@@ -195,7 +195,7 @@ class _AdminPageState extends State<AdminPage> {
                             fontSize: 15,
                             fontFamily: "cute",
                              fontWeight: FontWeight.bold,
-                            color: Colors.blue),
+                            color: Colors.lightBlue),
                       ),
                     ),
                   ),
@@ -313,7 +313,7 @@ class _AdminPageState extends State<AdminPage> {
                 child: Text(
                   "Add Fav",
                   style: TextStyle(
-                      fontSize: 10, fontFamily: 'cutes', color: Colors.blue),
+                      fontSize: 10, fontFamily: 'cute', color: Colors.lightBlue),
                 ),
               ),
 
@@ -380,7 +380,7 @@ class _AdminPageState extends State<AdminPage> {
               //       padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
               //       child: Center(
               //         child: CircularProgressIndicator(
-              //           color: Colors.blue,
+              //           color: Colors.lightBlue,
               //         ),
               //       ),
               //     );

@@ -158,7 +158,7 @@ class _MemeCompState extends State<MemeComp> {
               //           child: Text(
               //             "Counting Users..",
               //             style: TextStyle(
-              //                 color: Colors.blue.shade900,
+              //                 color: Colors.lightBlue.shade900,
               //                 fontFamily: 'cute',
               //                 fontSize: 14),
               //           ),
@@ -170,7 +170,7 @@ class _MemeCompState extends State<MemeComp> {
               //           child: Text(
               //             "Switch Users: ${data!.length}",
               //             style: TextStyle(
-              //                 color: Colors.blue.shade900,
+              //                 color: Colors.lightBlue.shade900,
               //                 fontFamily: 'cute',
               //                 fontSize: 14),
               //           ),
@@ -191,7 +191,7 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.blue.shade900, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: isLoading
                         ? Center(
@@ -256,7 +256,7 @@ class _MemeCompState extends State<MemeComp> {
                           child: Text(
                             "Loading..",
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.lightBlue,
                                 fontFamily: 'cute',
                                 fontSize: 14),
                           ),
@@ -272,7 +272,7 @@ class _MemeCompState extends State<MemeComp> {
                                     child: Text(
                                       "1st Prize:",
                                       style: TextStyle(
-                                          color: Colors.blue.shade900,
+                                          color: Colors.lightBlue.shade900,
                                           fontFamily: 'cute',
                                           fontSize: 14),
                                     ),
@@ -296,7 +296,7 @@ class _MemeCompState extends State<MemeComp> {
                                     child: Text(
                                       "2nd Prize:",
                                       style: TextStyle(
-                                          color: Colors.blue.shade900,
+                                          color: Colors.lightBlue.shade900,
                                           fontFamily: 'cute',
                                           fontSize: 14),
                                     ),
@@ -335,7 +335,7 @@ class _MemeCompState extends State<MemeComp> {
                             gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.blue.shade900, Colors.lightBlue.shade700]),
+                                colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
 
                           ),
                           child: SingleChildScrollView(
@@ -385,7 +385,7 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.blue.shade900, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -440,7 +440,7 @@ class _MemeCompState extends State<MemeComp> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontFamily: 'cutes',
+                                  fontFamily: 'cute',
                                   color: Colors.white,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -522,7 +522,7 @@ class _MemeCompState extends State<MemeComp> {
                                     //                       fontFamily: "cutes",
                                     //                       fontWeight:
                                     //                           FontWeight.bold,
-                                    //                       color: Colors.blue),
+                                    //                       color: Colors.lightBlue),
                                     //                 ),
                                     //               ),
                                     //               Padding(
@@ -568,7 +568,7 @@ class _MemeCompState extends State<MemeComp> {
                                     child: Center(
                                       child: isLoading
                                           ? SpinKitCircle(
-                                              color: Colors.blue,
+                                              color: Colors.lightBlue,
                                               size: 18,
                                             )
                                           : Text(
@@ -580,8 +580,8 @@ class _MemeCompState extends State<MemeComp> {
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontSize: 14,
-                                                  fontFamily: 'cutes',
-                                                  color: Colors.blue,
+                                                  fontFamily: 'cute',
+                                                  color: Colors.lightBlue,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                     ),
@@ -620,7 +620,7 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.blue.shade900, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -676,8 +676,8 @@ class _MemeCompState extends State<MemeComp> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontSize: 12,
-                                              fontFamily: 'cutes',
-                                              color: Colors.blue,
+                                              fontFamily: 'cute',
+                                              color: Colors.lightBlue,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
@@ -717,7 +717,7 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.blue.shade900, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: SingleChildScrollView(
                       physics: ScrollPhysics(),
@@ -777,7 +777,7 @@ class _MemeCompState extends State<MemeComp> {
                         gradient: LinearGradient(
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
-                            colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.blue.shade900, Colors.lightBlue.shade700]),
+                            colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
 
                       ),
                       child: Center(
@@ -805,7 +805,7 @@ class _MemeCompState extends State<MemeComp> {
               //         gradient: LinearGradient(
               //             begin: Alignment.centerLeft,
               //             end: Alignment.centerRight,
-              //             colors: [Colors.blue.shade900, Colors.blue.shade700]),
+              //             colors: [Colors.lightBlue, Colors.blue.shade700]),
               //       ),
               //       child: ClipRRect(
               //         borderRadius: BorderRadius.all(
@@ -858,7 +858,7 @@ class _MemeCompState extends State<MemeComp> {
               "Loading..",
               style: TextStyle(
                   fontSize: 18,
-                  fontFamily: 'cutes',
+                  fontFamily: 'cute',
                   fontWeight: FontWeight.bold),
             )),
           ),
@@ -873,7 +873,7 @@ class _MemeCompState extends State<MemeComp> {
             gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
-                colors: [Colors.blue.shade900, Colors.blue.shade700]),
+                colors: [Colors.lightBlue, Colors.blue.shade700]),
           ),
           child: CarouselSlider.builder(
               itemCount: memerList!.length,
@@ -941,9 +941,9 @@ class _MemeCompState extends State<MemeComp> {
                                       "",
                                       style: TextStyle(
                                           fontSize: 10,
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.blue),
+                                          color: Colors.lightBlue),
                                     ),
                                   ),
                                 ),
@@ -958,16 +958,16 @@ class _MemeCompState extends State<MemeComp> {
                                         "${memerList![itemIndex]['name'].toString().toUpperCase()}",
                                         style: TextStyle(
                                             fontSize: 11,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.blue.shade500),
+                                            color: Colors.lightBlue.shade500),
                                       ),
                                       Text(
                                         "Decency " +
                                             memerList![itemIndex]['decency'],
                                         style: TextStyle(
                                             fontSize: 11,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
                                             color: Colors.pink.shade200),
                                       ),
@@ -976,7 +976,7 @@ class _MemeCompState extends State<MemeComp> {
                                 ),
                                 isLoading == true
                                     ? SpinKitRipple(
-                                        color: Colors.blue,
+                                        color: Colors.lightBlue,
                                       )
                                     : Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -987,7 +987,7 @@ class _MemeCompState extends State<MemeComp> {
                                             borderRadius:
                                                 BorderRadius.circular(50),
                                             border: Border.all(
-                                                color: Colors.blue, width: 2),
+                                                color: Colors.lightBlue, width: 2),
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
@@ -1002,9 +1002,9 @@ class _MemeCompState extends State<MemeComp> {
                                     "Memer #" + "${itemIndex + 1}",
                                     style: TextStyle(
                                         fontSize: 11,
-                                        fontFamily: 'cutes',
+                                        fontFamily: 'cute',
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
+                                        color: Colors.lightBlue),
                                   ),
                                 ),
                                 Center(
@@ -1014,8 +1014,8 @@ class _MemeCompState extends State<MemeComp> {
                                     style: TextStyle(
                                         fontSize: 11,
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'cutes',
-                                        color: Colors.blue),
+                                        fontFamily: 'cute',
+                                        color: Colors.lightBlue),
                                   ),
                                 ),
                               ],

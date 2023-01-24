@@ -158,13 +158,13 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                 child: Text(
                   "",
                   style: TextStyle(
-                      fontFamily: 'cute', fontSize: 18, color: Colors.blue),
+                      fontFamily: 'cute', fontSize: 18, color: Colors.lightBlue),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SpinKitThreeBounce(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                   size: 16,
                 ),
               ),
@@ -218,7 +218,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                     "There could be many reasons for this, If you think this is by mistake. \n\n Or Send us report And email us at mail@switchapp.live",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontFamily: 'cute', fontSize: 14, color: Colors.blue),
+                        fontFamily: 'cute', fontSize: 14, color: Colors.lightBlue),
                   ),
                 ),
                 SizedBox(
@@ -253,7 +253,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'cutes'),
+                                fontFamily: 'cute'),
                           ),
                         ),
                       ),
@@ -263,7 +263,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SpinKitThreeBounce(
-                    color: Colors.blue,
+                    color: Colors.lightBlue,
                     size: 16,
                   ),
                 ),
@@ -302,7 +302,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                               style: TextStyle(
                                   fontFamily: 'cute',
                                   fontSize: 18,
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ),
                     clickHereButton == true
@@ -325,7 +325,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                                 height: 38,
                                 width: 100,
                                 decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
@@ -343,7 +343,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SpinKitThreeBounce(
-                        color: Colors.blue,
+                        color: Colors.lightBlue,
                         size: 16,
                       ),
                     ),
@@ -367,7 +367,7 @@ class _BridgeToNavigationPageState extends State<BridgeToNavigationPage> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontFamily: 'cute',
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontSize: 12),
                             ),
                           ),

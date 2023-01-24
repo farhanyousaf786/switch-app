@@ -95,7 +95,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                           fontSize: 15,
                           fontFamily: "cute",
                            fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: Colors.lightBlue),
                     ),
                   ),
                   Padding(
@@ -162,7 +162,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   style: TextStyle(
-                    color: Colors.blue.shade900,
+                    color: Colors.lightBlue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
                      fontWeight: FontWeight.bold,
@@ -186,7 +186,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                       fontFamily: "Cute",
                        fontWeight: FontWeight.bold,
 
-                      color: Colors.blue.shade900,
+                      color: Colors.lightBlue.shade900,
                       fontSize: 12,
                     ),
                   ),
@@ -202,7 +202,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   style: TextStyle(
-                    color: Colors.blue.shade900,
+                    color: Colors.lightBlue.shade900,
                     fontSize: 12,
                     fontFamily: "Cute",
                      fontWeight: FontWeight.bold,
@@ -226,7 +226,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                       fontFamily: "Cute",
                        fontWeight: FontWeight.bold,
 
-                      color: Colors.blue.shade900,
+                      color: Colors.lightBlue.shade900,
                       fontSize: 12,
                     ),
                   ),
@@ -267,7 +267,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                     child: Text(
                       "Loading..",
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.lightBlue,
                           fontFamily: 'cute',
                           fontSize: 14),
                     ),
@@ -311,7 +311,7 @@ class _AddRemoveCompTopicState extends State<AddRemoveCompTopic> {
                                         child: Text(
                                           "${topicList![index]['topic']}",
                                           style: TextStyle(
-                                              color: Colors.blue,
+                                              color: Colors.lightBlue,
                                               fontFamily: 'cute',
                                               fontSize: 14),
                                         ),

@@ -128,7 +128,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                         ? "Loading.."
                         : "This Post might be removed by owner!",
                     style: TextStyle(
-                        color: Colors.blue, fontFamily: 'cute', fontSize: 16),
+                        color: Colors.lightBlue, fontFamily: 'cute', fontSize: 16),
                   )),
                 ),
                 loading
@@ -161,7 +161,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                                         'Delete Post',
                                                         style: TextStyle(
                                                             color: Colors.black,
-                                                            fontFamily: 'cutes',
+                                                            fontFamily: 'cute',
                                                             fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight
@@ -223,7 +223,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                                             color: Constants.isDark ==
                                                                 "true"
                                                                 ? Colors.white
-                                                                : Colors.blue,                                                            fontFamily: 'cutes',
+                                                                : Colors.blue,                                                            fontFamily: 'cute',
                                                             fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight
@@ -348,7 +348,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                                   " Add/Remove from Meme ShowCase ",
                                                   style: TextStyle(
                                                       color: Colors.black,
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -516,7 +516,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -542,7 +542,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
     // fontSize: 13,
     // fontFamily: "cutes",
     // fontWeight: FontWeight.bold,
-    // color: Colors.blue),
+    // color: Colors.lightBlue),
     // onTap: (link) => {
     // url = link.value.toString(),
     // },
@@ -576,7 +576,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -613,7 +613,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -693,7 +693,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -721,7 +721,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -734,7 +734,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -758,7 +758,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -788,7 +788,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
   //                 text: TextSpan(
   //                   text: 'Caption: ',
   //                   style: TextStyle(
-  //                     color: Colors.blue,
+  //                     color: Colors.lightBlue,
   //                     fontWeight: FontWeight.bold,
   //                   ),
   //                   children: <TextSpan>[
@@ -908,7 +908,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                 return Text(
                                   "0",
                                   style: TextStyle(
-                                      fontFamily: 'cutes',
+                                      fontFamily: 'cute',
                                       color: Colors.grey.shade600,
                                       fontSize: 10),
                                 );
@@ -922,7 +922,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                   : Text(
                                       data.length.toString(),
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -976,7 +976,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                           Text(
                                             'Delete Post',
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.bold),
                                           ),
@@ -1006,7 +1006,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                           Text(
                                             'Report Post ',
                                             style: TextStyle(
-                                                fontFamily: 'cutes',
+                                                fontFamily: 'cute',
                                                 color: Constants.isDark ==
                                                     "true"
                                                     ? Colors.white
@@ -1102,7 +1102,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                     Text(
                                       "Add/Remove from Meme ShowCase ",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontSize: 14,
                                           color: Constants.isDark ==
                                               "true"
@@ -1147,7 +1147,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                         fontFamily: "cute",
                                          fontWeight: FontWeight.bold,
 
-                                        color: Colors.blue),
+                                        color: Colors.lightBlue),
                                   ),
                                 ),
                               ],
@@ -1192,7 +1192,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                                   child: Text(
                                                     "${reactorList[index]['reactorName']}",
                                                     style: TextStyle(
-                                                        fontFamily: 'cutes',
+                                                        fontFamily: 'cute',
                                                         fontSize: 14),
                                                   ),
                                                 ),
@@ -1304,7 +1304,7 @@ class _SinglePostDetailState extends State<SinglePostDetail> {
                                   style: TextStyle(
                                       fontSize: 8,
                                       color: Colors.grey,
-                                      fontFamily: 'cutes'),
+                                      fontFamily: 'cute'),
                                 ),
                               ),
                             ),
@@ -1589,7 +1589,7 @@ class _SingleVideoShowState extends State<SingleVideoShow> {
               width: 100,
               child: Icon(
                 _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                color: Colors.blue,
+                color: Colors.lightBlue,
                 size: 30,
               ),
             ),

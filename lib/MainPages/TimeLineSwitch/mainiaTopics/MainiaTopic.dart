@@ -68,13 +68,13 @@ class _ManiaTopicState extends State<ManiaTopic> {
                         child: Text(
                           "News & Trend..",
                           style: TextStyle(
-                              color: Colors.blue.shade900,
+                              color: Colors.lightBlue,
                               fontSize: 14,
                               fontFamily: 'cute'),
                         ),
                       ),
                       SpinKitCircle(
-                        color: Colors.blue.shade900,
+                        color: Colors.lightBlue,
                         size: 16,
                       )
                     ],
@@ -100,7 +100,7 @@ class _ManiaTopicState extends State<ManiaTopic> {
                       height: 90,
                       width: MediaQuery.of(context).size.width / 1.1,
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade900,
+                        color: Colors.lightBlue,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: SingleChildScrollView(
@@ -172,7 +172,7 @@ class _ManiaTopicState extends State<ManiaTopic> {
                                                             fontFamily: "cute",
                                                              fontWeight: FontWeight.bold,
 
-                                                            color: Colors.blue),
+                                                            color: Colors.lightBlue),
                                                       ))
                                                 ],
                                               ),
@@ -189,7 +189,7 @@ class _ManiaTopicState extends State<ManiaTopic> {
                                     color: Colors.yellow,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 11,
-                                    fontFamily: 'cutes'),
+                                    fontFamily: 'cute'),
                               ),
                             ),
                           ],

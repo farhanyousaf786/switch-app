@@ -276,7 +276,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                             child: Text(
                               "What is MEME page?",
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: Colors.lightBlue,
                                   fontFamily: 'cute',
                                   fontSize: 18),
                             ),
@@ -295,8 +295,8 @@ class _MemesOnlyState extends State<MemesOnly> {
                               "This slide will show the Latest Memes.\n"
                               "Support them by following them, so they can post more and more for you.",
                               style: TextStyle(
-                                  color: Colors.blue.shade700,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue.shade700,
+                                  fontFamily: 'cute',
                                   fontSize: 15),
                             ),
                           ),
@@ -343,7 +343,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             fontSize: 9,
-                            fontFamily: 'cutes'),
+                            fontFamily: 'cute'),
                       ),
                     ),
                   ),
@@ -410,7 +410,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                         "Switch Ad",
                         style: TextStyle(
                             fontSize: 15,
-                            fontFamily: 'cutes',
+                            fontFamily: 'cute',
                             fontWeight: FontWeight.bold,
                             color: Colors.green),
                       ),
@@ -616,7 +616,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                 child: Container(
                                   padding: EdgeInsets.all(4),
                                   decoration: BoxDecoration(
-                                      color: Colors.blue.withOpacity(0.7),
+                                      color: Colors.lightBlue.withOpacity(0.7),
                                       borderRadius: BorderRadius.circular(13)),
                                   child: Padding(
                                     padding: const EdgeInsets.all(6.0),
@@ -728,7 +728,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                     fontSize: 12,
                                     fontFamily: "cute",
                                      fontWeight: FontWeight.bold,
-                                    color: Colors.blue),
+                                    color: Colors.lightBlue),
                               ))
                         ],
                       ),
@@ -771,7 +771,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -809,7 +809,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.blue,
+                                                          color: Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -887,7 +887,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                           //                           fontFamily: "cutes",
                           //                           fontWeight:
                           //                               FontWeight.bold,
-                          //                           color: Colors.blue),
+                          //                           color: Colors.lightBlue),
                           //                       onTap: (link) => {
                           //                         // url = link.value.toString(),
                           //                         // _launchURL('http://$url'),
@@ -915,7 +915,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -928,7 +928,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                 Text(
                                   "Caption:  ",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.lightBlue,
                                       fontSize: 15,
                                       fontFamily: 'cute'),
                                 ),
@@ -952,7 +952,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                           //         fontSize: 13,
                           //         fontFamily: "cutes",
                           //         fontWeight: FontWeight.bold,
-                          //         color: Colors.blue),
+                          //         color: Colors.lightBlue),
                           //     onTap: (link) => {
                           //       // url = link.value.toString(),
                           //       // _launchURL('http://$url'),
@@ -1009,7 +1009,7 @@ class _MemesOnlyState extends State<MemesOnly> {
   //                                 fontSize: 15,
   //                                 fontFamily: "cutes",
   //                                 fontWeight: FontWeight.bold,
-  //                                 color: Colors.blue),
+  //                                 color: Colors.lightBlue),
   //                           ),
   //                         ),
   //
@@ -1049,7 +1049,7 @@ class _MemesOnlyState extends State<MemesOnly> {
   //                   text: TextSpan(
   //                     text: 'Caption: ',
   //                     style: TextStyle(
-  //                       color: Colors.blue,
+  //                       color: Colors.lightBlue,
   //                       fontWeight: FontWeight.bold,
   //                     ),
   //                     children: <TextSpan>[
@@ -1093,7 +1093,7 @@ class _MemesOnlyState extends State<MemesOnly> {
   //             text: TextSpan(
   //               text: 'Caption: ',
   //               style: TextStyle(
-  //                 color: Colors.blue,
+  //                 color: Colors.lightBlue,
   //                 fontWeight: FontWeight.bold,
   //               ),
   //               children: <TextSpan>[
@@ -1226,7 +1226,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                   return Text(
                                     "0",
                                     style: TextStyle(
-                                        fontFamily: 'cutes',
+                                        fontFamily: 'cute',
                                         color: Colors.grey.shade600,
                                         fontSize: 10),
                                   );
@@ -1239,7 +1239,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                     return Text(
                                       "0",
                                       style: TextStyle(
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           color: Colors.grey.shade600,
                                           fontSize: 10),
                                     );
@@ -1254,7 +1254,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                       : Text(
                                           data.length.toString(),
                                           style: TextStyle(
-                                              fontFamily: 'cutes',
+                                              fontFamily: 'cute',
                                               color: Colors.grey.shade600,
                                               fontSize: 10),
                                         );
@@ -1279,7 +1279,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                       "Detail  ",
                       style: TextStyle(
                           fontSize: 12,
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
@@ -1305,7 +1305,7 @@ class _MemesOnlyState extends State<MemesOnly> {
             ? Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: LinearProgressIndicator(
-                  color: Colors.blue,
+                  color: Colors.lightBlue,
                 ),
               )
             : Container(
@@ -1451,7 +1451,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                 fontSize: 20,
                                 fontFamily: "cute",
                                  fontWeight: FontWeight.bold,
-                                color: Colors.blue.shade700),
+                                color: Colors.lightBlue.shade700),
                           ),
                           onTap: () {
                             Navigator.pop(context);
@@ -1595,7 +1595,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                                   Text(
                                                     "Add/Remove from Meme ShowCase ",
                                                     style: TextStyle(
-                                                        fontFamily: 'cutes',
+                                                        fontFamily: 'cute',
                                                         fontSize: 14,
                                                         color:
                                                             Constants.isDark ==
@@ -1643,7 +1643,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                                   Text(
                                                     'Delete Post',
                                                     style: TextStyle(
-                                                        fontFamily: 'cutes',
+                                                        fontFamily: 'cute',
                                                         fontSize: 14,
                                                         color:
                                                             Constants.isDark ==
@@ -1677,7 +1677,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                                 Text(
                                                   'Report Post ',
                                                   style: TextStyle(
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
                                                     color: Constants.isDark ==
@@ -1732,7 +1732,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                                 Text(
                                                   'Report User ',
                                                   style: TextStyle(
-                                                    fontFamily: 'cutes',
+                                                    fontFamily: 'cute',
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
                                                     color: Constants.isDark ==
@@ -1784,7 +1784,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                                 Text(
                                                   'Block User ',
                                                   style: TextStyle(
-                                                      fontFamily: 'cutes',
+                                                      fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
                                                               "true"
@@ -1920,7 +1920,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                     style: TextStyle(
                                         fontSize: 8,
                                         color: Colors.grey,
-                                        fontFamily: 'cutes'),
+                                        fontFamily: 'cute'),
                                   ),
                                 ),
                               ),
@@ -1971,7 +1971,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                             fontSize: 20,
                             fontFamily: "cute",
                              fontWeight: FontWeight.bold,
-                            color: Colors.blue),
+                            color: Colors.lightBlue),
                       ),
                     ),
                     // Container(
@@ -2027,7 +2027,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                             'Copy ',
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'cutes',
+                                fontFamily: 'cute',
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -2103,7 +2103,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                   fontFamily: "cute",
                                    fontWeight: FontWeight.bold,
 
-                                  color: Colors.blue),
+                                  color: Colors.lightBlue),
                             ),
                           ],
                         ),
@@ -2139,7 +2139,7 @@ class _MemesOnlyState extends State<MemesOnly> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cutes', fontSize: 14),
+                                          fontFamily: 'cute', fontSize: 14),
                                     ),
                                   ),
                                 ],

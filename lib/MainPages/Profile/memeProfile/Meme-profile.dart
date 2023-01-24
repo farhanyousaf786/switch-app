@@ -118,7 +118,7 @@
 //                                 height: 40,
 //                                 decoration: BoxDecoration(
 //                                     borderRadius: BorderRadius.circular(15),
-//                                     color: Colors.blue),
+//                                     color: Colors.lightBlue),
 //                                 child: Center(
 //                                   child: Text(
 //                                     "Memer Ranking: #20",
@@ -136,7 +136,7 @@
 //                                 child: Container(
 //                                     decoration: BoxDecoration(
 //                                         borderRadius: BorderRadius.circular(15),
-//                                         color: Colors.blue.shade100,
+//                                         color: Colors.lightBlue.shade100,
 //                                         border: Border.all(color: Colors.blue)),
 //                                     height: 23,
 //                                     width: 23,
@@ -156,7 +156,7 @@
 //                                 height: 40,
 //                                 decoration: BoxDecoration(
 //                                     borderRadius: BorderRadius.circular(15),
-//                                     color: Colors.blue),
+//                                     color: Colors.lightBlue),
 //                                 child: Center(
 //                                   child: Text(
 //                                     "Memer Ranking: #20",
@@ -175,7 +175,7 @@
 //                                     decoration: BoxDecoration(
 //                                         borderRadius: BorderRadius.circular(15),
 //                                         border: Border.all(color: Colors.blue),
-//                                         color: Colors.blue.shade100),
+//                                         color: Colors.lightBlue.shade100),
 //                                     height: 23,
 //                                     width: 23,
 //                                     child: Center(
@@ -245,7 +245,7 @@
 //                             borderRadius: BorderRadius.circular(40),
 //                             border:
 //                                 Border.all(color: Colors.blueAccent, width: 2),
-//                             color: Colors.blue),
+//                             color: Colors.lightBlue),
 //                         child: Center(
 //                           child: Text(
 //                             "50%",
@@ -450,7 +450,7 @@
 //                   ? "Not Rated"
 //                   : userMemeDecency.toString() + " / 5",
 //               style: TextStyle(
-//                 color: Colors.blue,
+//                 color: Colors.lightBlue,
 //                 fontFamily: 'cute',
 //               ),
 //             ),
@@ -479,7 +479,7 @@
 //                               .toString() +
 //                           "%",
 //                   style: TextStyle(
-//                       color: Colors.blue, fontFamily: 'cute', fontSize: 9),
+//                       color: Colors.lightBlue, fontFamily: 'cute', fontSize: 9),
 //                 ),
 //               ),
 //             ),
@@ -542,7 +542,7 @@
 //                         Text(
 //                           "Followers",
 //                           style: TextStyle(
-//                               color: Colors.blue,
+//                               color: Colors.lightBlue,
 //                               fontFamily: 'cute',
 //                               fontSize: 11),
 //                         ),
@@ -562,16 +562,16 @@
 //                                     "0",
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.bold,
-//                                         fontFamily: 'cutes',
-//                                         color: Colors.blue),
+//                                         fontFamily: 'cute',
+//                                         color: Colors.lightBlue),
 //                                   );
 //                                 } else {
 //                                   return Text(
 //                                     data.length.toString(),
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.bold,
-//                                         fontFamily: 'cutes',
-//                                         color: Colors.blue),
+//                                         fontFamily: 'cute',
+//                                         color: Colors.lightBlue),
 //                                   );
 //                                 }
 //                               } else {
@@ -579,8 +579,8 @@
 //                                   "0",
 //                                   style: TextStyle(
 //                                       fontWeight: FontWeight.bold,
-//                                       fontFamily: 'cutes',
-//                                       color: Colors.blue),
+//                                       fontFamily: 'cute',
+//                                       color: Colors.lightBlue),
 //                                 );
 //                               }
 //                             }),
@@ -603,7 +603,7 @@
 //                           Text(
 //                             "Following",
 //                             style: TextStyle(
-//                                 color: Colors.blue,
+//                                 color: Colors.lightBlue,
 //                                 fontFamily: 'cute',
 //                                 fontSize: 11),
 //                           ),
@@ -623,16 +623,16 @@
 //                                       "0",
 //                                       style: TextStyle(
 //                                           fontWeight: FontWeight.bold,
-//                                           fontFamily: 'cutes',
-//                                           color: Colors.blue),
+//                                           fontFamily: 'cute',
+//                                           color: Colors.lightBlue),
 //                                     );
 //                                   } else {
 //                                     return Text(
 //                                       data.length.toString(),
 //                                       style: TextStyle(
 //                                           fontWeight: FontWeight.bold,
-//                                           fontFamily: 'cutes',
-//                                           color: Colors.blue),
+//                                           fontFamily: 'cute',
+//                                           color: Colors.lightBlue),
 //                                     );
 //                                   }
 //                                 } else {
@@ -640,8 +640,8 @@
 //                                     "0",
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.bold,
-//                                         fontFamily: 'cutes',
-//                                         color: Colors.blue),
+//                                         fontFamily: 'cute',
+//                                         color: Colors.lightBlue),
 //                                   );
 //                                 }
 //                               }),
@@ -679,7 +679,7 @@
 //                           height: 40,
 //                           decoration: BoxDecoration(
 //                               borderRadius: BorderRadius.circular(15),
-//                               color: Colors.blue),
+//                               color: Colors.lightBlue),
 //                           child: Center(
 //                             child: Text(
 //                               "World Ranking",
@@ -727,7 +727,7 @@
 //                           height: 40,
 //                           decoration: BoxDecoration(
 //                               borderRadius: BorderRadius.circular(15),
-//                               color: Colors.blue),
+//                               color: Colors.lightBlue),
 //                           child: Center(
 //                             child: Text(
 //                               "Country Ranking",
@@ -756,7 +756,7 @@
 //                               "#10",
 //                               style: TextStyle(
 //                                   fontSize: 12,
-//                                   color: Colors.blue,
+//                                   color: Colors.lightBlue,
 //                                   fontWeight: FontWeight.w500),
 //                             ))))
 //                   ],
@@ -769,7 +769,7 @@
 //             child: Text(
 //               "Memes By ${widget.mainFirstName}",
 //               style: TextStyle(
-//                 color: Colors.blue,
+//                 color: Colors.lightBlue,
 //                 fontFamily: 'cute',
 //                 fontSize: 20,
 //               ),
@@ -932,7 +932,7 @@
 //           child: Text(
 //             "Upload",
 //             style: TextStyle(
-//                 color: Colors.blue, fontSize: 14, fontWeight: FontWeight.bold),
+//                 color: Colors.lightBlue, fontSize: 14, fontWeight: FontWeight.bold),
 //           ),
 //           onPressed: () {},
 //           style: ElevatedButton.styleFrom(
@@ -1028,8 +1028,8 @@
 //               child: Text(
 //                 "Follow",
 //                 style: TextStyle(
-//                   color: Colors.blue,
-//                   fontFamily: 'cutes',
+//                   color: Colors.lightBlue,
+//                   fontFamily: 'cute',
 //                   fontWeight: FontWeight.bold,
 //                   fontSize: 10,
 //                 ),
@@ -1522,7 +1522,7 @@ class _MemeProfileState extends State<MemeProfile> {
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue.shade400),
+                  color: Colors.lightBlue.shade400),
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Row(
@@ -1569,7 +1569,7 @@ class _MemeProfileState extends State<MemeProfile> {
                     child: Text(
                       "What If?",
                       style: TextStyle(
-                          color: Colors.blue, fontSize: 16, fontFamily: 'cute'),
+                          color: Colors.lightBlue, fontSize: 16, fontFamily: 'cute'),
                     ),
                   ),
                 ),
@@ -1580,7 +1580,7 @@ class _MemeProfileState extends State<MemeProfile> {
             //   child: Text(
             //     "Art of ${widget.mainFirstName}",
             //     style: TextStyle(
-            //       color: Colors.blue,
+            //       color: Colors.lightBlue,
             //       fontFamily: 'cute',
             //       fontSize: 15,
             //     ),
@@ -1608,7 +1608,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   ? "Not Rated"
                   : userMemeDecency.toStringAsPrecision(3) + " / 5.0",
               style: TextStyle(
-                color: Colors.blue,
+                color: Colors.lightBlue,
                 fontSize: 8,
                 fontFamily: 'cute',
               ),
@@ -1642,7 +1642,7 @@ class _MemeProfileState extends State<MemeProfile> {
                               .toString() +
                           "%",
                   style: TextStyle(
-                      color: Colors.blue, fontFamily: 'cute', fontSize: 6),
+                      color: Colors.lightBlue, fontFamily: 'cute', fontSize: 6),
                 ),
               ),
             ),
@@ -1704,7 +1704,7 @@ class _MemeProfileState extends State<MemeProfile> {
                     child: Container(
                       width: 90,
                       decoration: BoxDecoration(
-                          color: Colors.blue.shade100.withOpacity(0.3),
+                          color: Colors.lightBlue.shade100.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(5)),
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -1731,7 +1731,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                         "0",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontSize: 10),
                                       );
                                     } else {
@@ -1742,7 +1742,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                         followers,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontSize: 10),
                                       );
                                     }
@@ -1751,7 +1751,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                       "0",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontFamily: 'cutes',
+                                          fontFamily: 'cute',
                                           fontSize: 12),
                                     );
                                   }
@@ -1785,7 +1785,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                           "Monthly Prize",
                                           style: TextStyle(
                                             fontSize: 22,
-                                            color: Colors.blue,
+                                            color: Colors.lightBlue,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -1796,7 +1796,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                           "Monthly prize will be distribute to only TOP 3 memers on day 10 of every month.",
                                           style: TextStyle(
                                             fontSize: 15,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -1819,7 +1819,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                           "Competition Prize",
                                           style: TextStyle(
                                             fontSize: 22,
-                                            color: Colors.blue,
+                                            color: Colors.lightBlue,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -1830,7 +1830,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                           "Weekly prize will be distribute to those 2 memer who get more reacts on their memes through meme competition.",
                                           style: TextStyle(
                                             fontSize: 15,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -1875,7 +1875,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                           "Note: Currently, Memers can withdraw prize money through JAZZCASH. Winners will be announce at the end of competition.",
                                           style: TextStyle(
                                             fontSize: 10,
-                                            fontFamily: 'cutes',
+                                            fontFamily: 'cute',
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -1891,7 +1891,7 @@ class _MemeProfileState extends State<MemeProfile> {
                       child: Container(
                         width: 90,
                         decoration: BoxDecoration(
-                            color: Colors.blue.shade100.withOpacity(0.4),
+                            color: Colors.lightBlue.shade100.withOpacity(0.4),
                             borderRadius: BorderRadius.circular(5)),
                         child: Padding(
                           padding: const EdgeInsets.only(
@@ -1907,7 +1907,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                 "Prize",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'cutes',
+                                    fontFamily: 'cute',
                                     fontSize: 9),
                               ),
                             ],
@@ -1978,7 +1978,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //                                         slits.toString(),
                   //                                         style: TextStyle(
                   //                                             fontFamily:
-                  //                                                 'cutes',
+                  //                                                 'cute',
                   //                                             fontSize: 15),
                   //                                       ),
                   //                                     )
@@ -2007,7 +2007,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //                                             .toString(),
                   //                                         style: TextStyle(
                   //                                             fontFamily:
-                  //                                                 'cutes',
+                  //                                                 'cute',
                   //                                             fontSize: 15),
                   //                                       ),
                   //                                     )
@@ -2035,7 +2035,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //                                         availible.toString(),
                   //                                         style: TextStyle(
                   //                                             fontFamily:
-                  //                                                 'cutes',
+                  //                                                 'cute',
                   //                                             fontSize: 15),
                   //                                       ),
                   //                                     )
@@ -2069,7 +2069,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //                                   "Important:",
                   //                                   style: TextStyle(
                   //                                       fontFamily: 'cute',
-                  //                                       color: Colors.blue,
+                  //                                       color: Colors.lightBlue,
                   //                                       fontSize: 20),
                   //                                 )
                   //                               ],
@@ -2107,7 +2107,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //                                             TextAlign.left,
                   //                                         style: TextStyle(
                   //                                           fontSize: 12,
-                  //                                           fontFamily: 'cutes',
+                  //                                           fontFamily: 'cute',
                   //                                         ),
                   //                                       ),
                   //                                     )),
@@ -2135,7 +2135,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //     child: Container(
                   //       width: 90,
                   //       decoration: BoxDecoration(
-                  //           color: Colors.blue.shade100.withOpacity(0.4),
+                  //           color: Colors.lightBlue.shade100.withOpacity(0.4),
                   //           borderRadius: BorderRadius.circular(5)),
                   //       child: Padding(
                   //         padding: const EdgeInsets.only(
@@ -2152,7 +2152,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   //               shortSlit,
                   //               style: TextStyle(
                   //                   fontWeight: FontWeight.bold,
-                  //                   fontFamily: 'cutes',
+                  //                   fontFamily: 'cute',
                   //                   fontSize: 10),
                   //             ),
                   //           ],
@@ -2283,7 +2283,7 @@ class _MemeProfileState extends State<MemeProfile> {
           //               padding: EdgeInsets.all(4),
           //               decoration: BoxDecoration(
           //                 borderRadius: BorderRadius.circular(8),
-          //                 color: Colors.blue,
+          //                 color: Colors.lightBlue,
           //               ),
           //               height: 40,
           //               width: MediaQuery.of(context).size.width / 2.5,
@@ -2346,7 +2346,7 @@ class _MemeProfileState extends State<MemeProfile> {
           //                                     fontSize: 15,
           //                                     fontFamily: "cutes",
           //                                     fontWeight: FontWeight.bold,
-          //                                     color: Colors.blue),
+          //                                     color: Colors.lightBlue),
           //                               ),
           //                             ),
           //                             Padding(
@@ -2385,7 +2385,7 @@ class _MemeProfileState extends State<MemeProfile> {
           //               width: MediaQuery.of(context).size.width / 2.5,
           //               decoration: BoxDecoration(
           //                 borderRadius: BorderRadius.circular(8),
-          //                 color: Colors.blue,
+          //                 color: Colors.lightBlue,
           //               ),
           //               child: Padding(
           //                 padding: const EdgeInsets.all(6.0),
@@ -2422,7 +2422,7 @@ class _MemeProfileState extends State<MemeProfile> {
                         fontSize: 15,
                         fontFamily: 'cute',
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue),
+                        color: Colors.lightBlue),
                     textAlign: TextAlign.center,
                   ),
                 )
@@ -2455,7 +2455,7 @@ class _MemeProfileState extends State<MemeProfile> {
           //           ? Container(
           //               width: MediaQuery.of(context).size.width,
           //               height: 50,
-          //               color: Colors.blue,
+          //               color: Colors.lightBlue,
           //               child: Row(
           //                 mainAxisAlignment: MainAxisAlignment.center,
           //                 children: [
@@ -2517,7 +2517,7 @@ class _MemeProfileState extends State<MemeProfile> {
                     child: Text(
                       "Memes by ${widget.mainFirstName}",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 17),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 17),
                     ),
                   ),
                 ),
@@ -2536,13 +2536,13 @@ class _MemeProfileState extends State<MemeProfile> {
                     Text(
                       "Refresh ",
                       style: TextStyle(
-                          color: Colors.blue, fontFamily: 'cute', fontSize: 13),
+                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 13),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
                       child: Icon(
                         Icons.refresh_sharp,
-                        color: Colors.blue,
+                        color: Colors.lightBlue,
                         size: 16,
                       ),
                     ),
@@ -2605,7 +2605,7 @@ class _MemeProfileState extends State<MemeProfile> {
                             //   child: Container(
                             //     width: MediaQuery.of(context).size.width,
                             //     height: 50,
-                            //     color: Colors.blue,
+                            //     color: Colors.lightBlue,
                             //     child: Row(
                             //       mainAxisAlignment: MainAxisAlignment.center,
                             //       children: [
@@ -2804,7 +2804,7 @@ class _MemeProfileState extends State<MemeProfile> {
               //           child: Container(
               //             decoration: BoxDecoration(
               //               borderRadius: BorderRadius.circular(10),
-              //               color: Colors.blue,
+              //               color: Colors.lightBlue,
               //             ),
               //             height: 40,
               //             child: Padding(
@@ -2929,7 +2929,7 @@ class _MemeProfileState extends State<MemeProfile> {
               //             height: 40,
               //             decoration: BoxDecoration(
               //               borderRadius: BorderRadius.circular(10),
-              //               color: Colors.blue,
+              //               color: Colors.lightBlue,
               //             ),
               //             child: Padding(
               //               padding: const EdgeInsets.all(6.0),
@@ -3100,7 +3100,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                   //                       fontFamily: "cutes",
                                   //                       fontWeight:
                                   //                           FontWeight.bold,
-                                  //                       color: Colors.blue),
+                                  //                       color: Colors.lightBlue),
                                   //                 ),
                                   //               ),
                                   //               Padding(
@@ -3217,8 +3217,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Hi Memers! Our goal is to make this platform a top meme generator platform. Original memes, memes template should create from this app and then spread out to other social media platforms.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3234,7 +3234,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "What is Photo Meme:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3250,8 +3250,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "This is simple Meme that represent through Photo.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3267,7 +3267,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "What is Video Meme:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3283,8 +3283,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "This is simple Meme that represent through Video.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3300,7 +3300,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Where to find my uploaded MEME/STATUS?",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3316,8 +3316,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                         child: Text(
                                           "Your uploaded Memes are in Meme Profile. Open App > Click on Meme on bottom bar > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
                                           style: TextStyle(
-                                              color: Colors.blue.shade700,
-                                              fontFamily: 'cutes',
+                                              color: Colors.lightBlue.shade700,
+                                              fontFamily: 'cute',
                                               fontSize: 13),
                                         ),
                                       ),
@@ -3335,7 +3335,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                         child: Text(
                                           "Where to find other user's uploaded MEME/STATUS?",
                                           style: TextStyle(
-                                              color: Colors.blue,
+                                              color: Colors.lightBlue,
                                               fontFamily: 'cute',
                                               fontSize: 17),
                                         ),
@@ -3353,8 +3353,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                         child: Text(
                                           "Click on any user's Profile > Slide up to see their Shot Meme OR > Click on Meme Profile option > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
                                           style: TextStyle(
-                                              color: Colors.blue.shade700,
-                                              fontFamily: 'cutes',
+                                              color: Colors.lightBlue.shade700,
+                                              fontFamily: 'cute',
                                               fontSize: 13),
                                         ),
                                       ),
@@ -3372,7 +3372,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "How it works?",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3389,8 +3389,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                         child: Text(
                                           "Uploaded Meme will be appear on every user's timeline, while Uploaded Photo OR Thoughts will only appear on timeline section and only appear to the user, who is following you.",
                                           style: TextStyle(
-                                              color: Colors.blue.shade700,
-                                              fontFamily: 'cutes',
+                                              color: Colors.lightBlue.shade700,
+                                              fontFamily: 'cute',
                                               fontSize: 13),
                                         ),
                                       ),
@@ -3408,7 +3408,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "How Ranking Works:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3424,8 +3424,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Memers will be rank according to total number of following. But in near future, we will also Rank them according to their MEME decency on the basis of profile.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3441,7 +3441,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Stealing Other's Meme:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3457,8 +3457,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Well, we will generate a special code with each post. So when a user claim to us that someone stole his/her MEME, we will delete that user's MEME & will BAN that user ",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3474,7 +3474,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Limitations for MEMER:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3491,8 +3491,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                       "1) A meme profile with copied meme will not be ranked on TOP MEMERS. 2) Original Meme Content will be appreciated separably in this app. 3) If a meme being reported (copied meme), then the reported profile will be deleted after 1 or 2 warnings."
                                       "4) Such Meme Profile that disrespect any Religion, will be terminated w/o any warning.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3508,7 +3508,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Meme Decency:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -3524,8 +3524,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "In Future Updates, We will Rank Profiles with respect to (Meme Decency + Total Following).",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -3658,8 +3658,8 @@ class _MemeProfileState extends State<MemeProfile> {
               child: Text(
                 "Follow",
                 style: TextStyle(
-                  color: Colors.blue,
-                  fontFamily: 'cutes',
+                  color: Colors.lightBlue,
+                  fontFamily: 'cute',
                   fontWeight: FontWeight.bold,
                   fontSize: 10,
                 ),
@@ -3825,7 +3825,7 @@ class _MemeProfileState extends State<MemeProfile> {
                     child: Text("View All",
                         style: TextStyle(
                           fontSize: 12,
-                          fontFamily: 'cutes',
+                          fontFamily: 'cute',
                           fontWeight: FontWeight.bold,
                         )),
                   ),
@@ -3913,8 +3913,8 @@ class _MemeProfileState extends State<MemeProfile> {
                             child: Text(
                               "Go to Switch App chat room and send S.S along with your username.",
                               style: TextStyle(
-                                  color: Colors.blue,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue,
+                                  fontFamily: 'cute',
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -3926,8 +3926,8 @@ class _MemeProfileState extends State<MemeProfile> {
                             child: Text(
                               "Available Balance is not 10,000 or above 10,000 slits. You can only Withdraw when available balance will cross 10,000 slits.",
                               style: TextStyle(
-                                  color: Colors.blue,
-                                  fontFamily: 'cutes',
+                                  color: Colors.lightBlue,
+                                  fontFamily: 'cute',
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -4320,7 +4320,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "What if my Meme is not showing after Post it?",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -4336,8 +4336,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "If your Meme is not showing after posting it, You may visit your Meme Profile through, Timeline > Profile Picture > Meme Profile.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -4353,7 +4353,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Limitations for MEMER:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -4370,8 +4370,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                       "1) A meme profile with copied meme will not be ranked on TOP MEMERS. 2) Original Meme Content will be appreciated separably in this app. 3) If a meme being reported (copied meme), then the reported profile will be deleted after 1 or 2 warnings."
                                       "4) Such Meme Profile that disrespect any Religion, will be terminated w/o any warning.",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
@@ -4387,7 +4387,7 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "Meme Decency:",
                                       style: TextStyle(
-                                          color: Colors.blue,
+                                          color: Colors.lightBlue,
                                           fontFamily: 'cute',
                                           fontSize: 17),
                                     ))),
@@ -4403,8 +4403,8 @@ class _MemeProfileState extends State<MemeProfile> {
                                             child: Text(
                                       "In Future Updates, We will Rank Profiles with respect to (Meme Decency + Total Following).",
                                       style: TextStyle(
-                                          color: Colors.blue.shade700,
-                                          fontFamily: 'cutes',
+                                          color: Colors.lightBlue.shade700,
+                                          fontFamily: 'cute',
                                           fontSize: 13),
                                     ))),
                                   ],
