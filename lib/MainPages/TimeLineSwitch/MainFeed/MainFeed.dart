@@ -59,6 +59,7 @@ import 'CacheImageTemplate.dart';
 
 UniversalMethods universalMethods = UniversalMethods();
 final appIntro = new AppIntro();
+
 // ignore: must_be_immutable
 class MainFeed extends StatefulWidget {
   late User user;
@@ -372,7 +373,6 @@ class _MainFeedState extends State<MainFeed> {
                                         color: Colors.lightBlue,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
-
                                         fontFamily: 'cute'),
                                     textAlign: TextAlign.center,
                                   ),
@@ -428,105 +428,167 @@ class _MainFeedState extends State<MainFeed> {
   Widget tabBar(User user) {
     return !_isHide
         ? Container(
-            height: 75,
+          height: 75,
+            alignment: Alignment.center,
+            //Set container alignment  then wrap the column with singleChildScrollView
             width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 5,
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 200),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Add Post",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 10.0,
-                            ),
-                          ),
-                          ElevatedButton(
-                            key: addPostIntro,
-                            child: Icon(
-                              Icons.add_box_outlined,
-                              size: 25,
-                              color: Colors.lightBlue,
-                            ),
-                            onPressed: () {
-                              simpleStatusPage(user);
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
-                                elevation: 0.0,
-                                textStyle: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
-                          ),
-                        ],
+          child: SingleChildScrollView(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 200),
+                  slidingBeginOffset: Offset(1, 0.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Add Post",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 10.0,
+                        ),
                       ),
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 400),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Mood",
-                            style: TextStyle(
-                                fontSize: 10.0, fontWeight: FontWeight.w700),
-                          ),
-                          ElevatedButton(
-                            child: Icon(
-                              Icons.stream,
-                              size: 25,
-                              color: Colors.lightBlue,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    child: Provider<User>.value(
-                                      value: user,
-                                      child: Mood(
-                                        user: user,
+
+                      ElevatedButton(
+                        key: addPostIntro,
+                        child: Icon(
+                          Icons.add_box_outlined,
+                          size: 25,
+                          color: Colors.lightBlue,
+                        ),
+                        onPressed: () {
+                          simpleStatusPage(user);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.transparent,
+                            elevation: 0.0,
+                            textStyle: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ),
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 400),
+                  slidingBeginOffset: Offset(1, 0.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Mood",
+                        style: TextStyle(
+                            fontSize: 10.0, fontWeight: FontWeight.w700),
+                      ),
+                      ElevatedButton(
+                        child: Icon(
+                          Icons.stream,
+                          size: 25,
+                          color: Colors.lightBlue,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.bottomToTop,
+                                child: Provider<User>.value(
+                                  value: user,
+                                  child: Mood(
+                                    user: user,
+                                  ),
+                                ),
+                              ));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0.0,
+                            primary: Colors.transparent,
+                            textStyle: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ),
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 550),
+                  slidingBeginOffset: Offset(1, 0.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Text(
+                          "Notify",
+                          key: key,
+                          style: TextStyle(
+                              fontSize: 10.0, fontWeight: FontWeight.w700),
+                        ),
+                        ElevatedButton(
+                          child: isNotification
+                              ? Stack(
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 8),
+                                      child: Icon(
+                                        Icons.notifications_active_rounded,
+                                        color: Colors.lightBlue,
+                                        size: 25,
                                       ),
                                     ),
-                                  ));
-                            },
-                            style: ElevatedButton.styleFrom(
-                                elevation: 0.0,
-                                primary: Colors.transparent,
-                                textStyle: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
-                          ),
-                        ],
+                                    Positioned(
+                                        left: 5,
+                                        bottom: 2,
+                                        child: SpinKitPulse(
+                                          color: Colors.red,
+                                          size: 15,
+                                        )),
+                                  ],
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.only(bottom: 7),
+                                  child: Icon(
+                                    Icons.notifications_none_sharp,
+                                    size: 25,
+                                    color: Colors.lightBlue,
+                                  ),
+                                ),
+                          onPressed: () {
+                            bottomSheetForNotify();
+
+                            Future.delayed(const Duration(seconds: 2), () {
+                              if (mounted)
+                                setState(() {
+                                  isNotification = false;
+                                });
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0.0,
+                              primary: Colors.transparent,
+                              textStyle: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 750),
+                  slidingBeginOffset: Offset(1, 0.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 2),
+                        child: Text(
+                          "Clusty Chat ",
+                          style: TextStyle(
+                              fontSize: 10.0, fontWeight: FontWeight.w700),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 500),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: Column(
+                      Stack(
+                        key: clustyChatIntro,
                         children: [
-                          Text(
-                            "Search",
-                            style: TextStyle(
-                                fontSize: 10.0, fontWeight: FontWeight.w700),
-                          ),
                           ElevatedButton(
                             child: Icon(
-                              Icons.search_rounded,
+                              Icons.mark_chat_unread_outlined,
                               color: Colors.lightBlue,
-                              size: 25,
+                              size: 24,
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -535,8 +597,7 @@ class _MainFeedState extends State<MainFeed> {
                                     type: PageTransitionType.bottomToTop,
                                     child: Provider<User>.value(
                                       value: user,
-                                      child: MainSearchPage(
-                                        navigateThrough: "",
+                                      child: WorldChat(
                                         user: user,
                                         userId: user.uid,
                                       ),
@@ -547,218 +608,104 @@ class _MainFeedState extends State<MainFeed> {
                                 elevation: 0.0,
                                 primary: Colors.transparent,
                                 textStyle: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold)),
                           ),
+                          // Positioned(left: 6.2,
+                          //   child: Container(
+                          //     height: 50,
+                          //     width: 50,
+                          //     child: SpinKitRipple(
+                          //       color: Colors.lightBlue,
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 550),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Text(
-                              "Notify",
-                              key: key,
-                              style: TextStyle(
-                                  fontSize: 10.0, fontWeight: FontWeight.w700),
-                            ),
-                            ElevatedButton(
-                              child: Padding(
-                                padding: const EdgeInsets.only(bottom: 8),
-                                child: Container(
-                                  height: 50,
-                                  width: 45,
-                                  child: isNotification
-                                      ? Lottie.asset(
-                                          "images/notifyBellAnimation.json",
-                                        )
-                                      : Icon(
-                                          Icons.notifications_none_sharp,
-                                          size: 25,
-                                          color: Colors.lightBlue,
-                                        ),
-                                ),
-                              ),
-                              onPressed: () {
-                                bottomSheetForNotify();
-
-                                Future.delayed(const Duration(seconds: 2), () {
-                                  if (mounted)
-                                    setState(() {
-                                      isNotification = false;
-                                    });
-                                });
-                              },
-                              style: ElevatedButton.styleFrom(
-                                  elevation: 0.0,
-                                  primary: Colors.transparent,
-                                  textStyle: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 3,
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 750),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 2),
-                            child: Text(
-                              "Clusty Chat ",
-                              style: TextStyle(
-                                  fontSize: 10.0, fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Stack(
-                            key: clustyChatIntro,
-                            children: [
-                              ElevatedButton(
-                                child: Icon(
-                                  Icons.mark_chat_unread_outlined,
-                                  color: Colors.lightBlue,
-                                  size: 24,
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      PageTransition(
-                                        type: PageTransitionType.bottomToTop,
-                                        child: Provider<User>.value(
-                                          value: user,
-                                          child: WorldChat(
-                                            user: user,
-                                            userId: user.uid,
-                                          ),
-                                        ),
-                                      ));
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    elevation: 0.0,
-                                    primary: Colors.transparent,
-                                    textStyle: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold)),
-                              ),
-                              // Positioned(left: 6.2,
-                              //   child: Container(
-                              //     height: 50,
-                              //     width: 50,
-                              //     child: SpinKitRipple(
-                              //       color: Colors.lightBlue,
-                              //     ),
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 400),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Meme Profile",
-                            style: TextStyle(
-                                fontSize: 10.0, fontWeight: FontWeight.w700),
-                          ),
-                          ElevatedButton(
-                            key: memeProfileIntro,
-                            child: Icon(
-                              Icons.fiber_smart_record_outlined,
-                              size: 25,
-                              color: Colors.lightBlue,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          Provider<User>.value(
-                                            value: user,
-                                            child: MemeProfile(
-                                              profileOwner: user.uid,
-                                              currentUserId: user.uid,
-                                              mainProfileUrl:
-                                                  Constants.myPhotoUrl,
-                                              mainSecondName:
-                                                  Constants.mySecondName,
-                                              mainFirstName: Constants.myName,
-                                              mainGender: Constants.gender,
-                                              mainEmail: Constants.myEmail,
-                                              mainAbout: Constants.about,
-                                              user: user,
-                                              navigateThrough: "direct",
-                                              username: Constants.username,
-                                            ),
-                                          )));
-                            },
-                            style: ElevatedButton.styleFrom(
-                                elevation: 0.0,
-                                primary: Colors.transparent,
-                                textStyle: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: 1200),
-                      slidingBeginOffset: Offset(1, 0.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Edit D.P",
-                            style: TextStyle(
-                                fontSize: 10.0, fontWeight: FontWeight.w700),
-                          ),
-                          ElevatedButton(
-                            child: Icon(
-                              Icons.account_circle_outlined,
-                              color: Colors.lightBlue,
-                              size: 25,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    child: EditProfilePic(
-                                      uid: Constants.myId,
-                                      imgUrl: Constants.myPhotoUrl,
-                                    ),
-                                  ));
-                            },
-                            style: ElevatedButton.styleFrom(
-                                elevation: 0.0,
-                                primary: Colors.transparent,
-                                textStyle: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
+
+                // DelayedDisplay(
+                //   delay: Duration(milliseconds: 700),
+                //   slidingBeginOffset: Offset(1, 0.0),
+                //   child: Column(
+                //     children: [
+                //       Text(
+                //         "Search",
+                //         style: TextStyle(
+                //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                //       ),
+                //       ElevatedButton(
+                //         child: Icon(
+                //           Icons.search_rounded,
+                //           color: Colors.lightBlue,
+                //           size: 25,
+                //         ),
+                //         onPressed: () {
+                //           Navigator.push(
+                //               context,
+                //               PageTransition(
+                //                 type: PageTransitionType.bottomToTop,
+                //                 child: Provider<User>.value(
+                //                   value: user,
+                //                   child: MainSearchPage(
+                //                     navigateThrough: "",
+                //                     user: user,
+                //                     userId: user.uid,
+                //                   ),
+                //                 ),
+                //               ));
+                //         },
+                //         style: ElevatedButton.styleFrom(
+                //             elevation: 0.0,
+                //             primary: Colors.transparent,
+                //             textStyle: TextStyle(
+                //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 1000),
+                  slidingBeginOffset: Offset(1, 0.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Edit D.P",
+                        style: TextStyle(
+                            fontSize: 10.0, fontWeight: FontWeight.w700),
+                      ),
+                      ElevatedButton(
+                        child: Icon(
+                          Icons.account_circle_outlined,
+                          color: Colors.lightBlue,
+                          size: 25,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.bottomToTop,
+                                child: EditProfilePic(
+                                  uid: Constants.myId,
+                                  imgUrl: Constants.myPhotoUrl,
+                                ),
+                              ));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0.0,
+                            primary: Colors.transparent,
+                            textStyle: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          )
+          ),
+        )
         : Container(
             height: 0,
             width: 0,
@@ -2353,7 +2300,8 @@ class _MainFeedState extends State<MainFeed> {
                                                 child: Container(
                                                   padding: EdgeInsets.all(4),
                                                   decoration: BoxDecoration(
-                                                      color: Colors.lightBlue                                                          .withOpacity(0.7),
+                                                      color: Colors.lightBlue
+                                                          .withOpacity(0.7),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               13)),
@@ -2471,7 +2419,7 @@ class _MainFeedState extends State<MainFeed> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                BarTop(),
+                                  BarTop(),
                                   type == 'meme' || type == "memeT"
                                       ? Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -2505,7 +2453,8 @@ class _MainFeedState extends State<MainFeed> {
                                                               timeInSecForIosWeb:
                                                                   3,
                                                               backgroundColor:
-                                                                  Colors.lightBlue,
+                                                                  Colors
+                                                                      .lightBlue,
                                                               textColor:
                                                                   Colors.white,
                                                               fontSize: 16.0,
@@ -2538,7 +2487,8 @@ class _MainFeedState extends State<MainFeed> {
                                                               timeInSecForIosWeb:
                                                                   3,
                                                               backgroundColor:
-                                                                  Colors.lightBlue,
+                                                                  Colors
+                                                                      .lightBlue,
                                                               textColor:
                                                                   Colors.white,
                                                               fontSize: 16.0,
@@ -2556,11 +2506,11 @@ class _MainFeedState extends State<MainFeed> {
                                                     style: TextStyle(
                                                         fontFamily: 'cute',
                                                         fontSize: 14,
-                                                        color:
-                                                            Constants.isDark ==
-                                                                    "true"
-                                                                ? Colors.white
-                                                                : Colors.lightBlue,
+                                                        color: Constants
+                                                                    .isDark ==
+                                                                "true"
+                                                            ? Colors.white
+                                                            : Colors.lightBlue,
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
@@ -2604,11 +2554,11 @@ class _MainFeedState extends State<MainFeed> {
                                                     style: TextStyle(
                                                         fontFamily: 'cute',
                                                         fontSize: 14,
-                                                        color:
-                                                            Constants.isDark ==
-                                                                    "true"
-                                                                ? Colors.white
-                                                                : Colors.lightBlue,
+                                                        color: Constants
+                                                                    .isDark ==
+                                                                "true"
+                                                            ? Colors.white
+                                                            : Colors.lightBlue,
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
@@ -2919,7 +2869,7 @@ class _MainFeedState extends State<MainFeed> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                BarTop(),
+                  BarTop(),
                   Padding(
                     padding: const EdgeInsets.all(15),
                     child: Text(
@@ -2927,7 +2877,7 @@ class _MainFeedState extends State<MainFeed> {
                       style: TextStyle(
                           fontSize: 15,
                           fontFamily: "cute",
-                           fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -2942,7 +2892,7 @@ class _MainFeedState extends State<MainFeed> {
                             style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: "cute",
-                                 fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           onTap: () {
@@ -2955,7 +2905,7 @@ class _MainFeedState extends State<MainFeed> {
                             style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: "cute",
-                                 fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.lightBlue),
                           ),
                           onTap: () {
@@ -2973,7 +2923,7 @@ class _MainFeedState extends State<MainFeed> {
                       style: TextStyle(
                           fontSize: 10,
                           fontFamily: "cute",
-                           fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   )
@@ -3420,7 +3370,8 @@ class _MainFeedState extends State<MainFeed> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.lightBlue,
+                                                          color:
+                                                              Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -4699,7 +4650,8 @@ class _MainFeedState extends State<MainFeed> {
               id: '$index',
               builder: (BuildContext context, bool isInView, Widget? child) {
                 return VideoWidget(
-                    play: isInView, url: limitedPostList[index]['url'],
+                  play: isInView,
+                  url: limitedPostList[index]['url'],
                   time: limitedPostList[index]['timestamp'],
                 );
               },
