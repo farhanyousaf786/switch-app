@@ -35,13 +35,6 @@ class _BridgeToSetEmailVerificationState
           if (user == null) {
             return SignUpPage();
           } else {
-            chatMoodReferenceRtd.child(user.uid).set(
-              {
-                "mood": "romantic",
-                "theme": "romantic",
-                "loveNote": "Write Something For Love Of Your Life",
-              },
-            );
             return MultiProvider(
               providers: [
                 Provider<AuthBase>(

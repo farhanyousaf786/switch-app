@@ -33,8 +33,8 @@ class _CacheImageTemplateState extends State<CacheImageTemplate> {
                     child: SpinKitCircle(
                   color: Colors.lightBlue,
                   size: 20,
-                )),
-              )),
+                ),),
+              ),),
         ),
       ),
       errorWidget: (context, url, error) => Container(

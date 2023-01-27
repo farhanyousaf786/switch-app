@@ -20,6 +20,7 @@ import 'package:switchapp/MainPages/AdminPage/adminPage.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/TimeLineSwitch/SwitchFavourites/SwitchFav.dart';
 import 'package:switchapp/MainPages/TimeLineSwitch/meme_Only/memes_Only.dart';
+import 'package:switchapp/MainPages/TimeLineSwitch/notificationPage/BottomBarNotify.dart';
 import 'package:switchapp/MainPages/Upload/videoStatus.dart';
 import 'package:switchapp/MainPages/mood/moodUi.dart';
 import 'package:switchapp/Models/BottomBar/topBar.dart';
@@ -257,42 +258,33 @@ class _MainFeedState extends State<MainFeed> {
                   },
                   child: Row(
                     key: jumpToNextIntro,
-                    mainAxisAlignment: _isHide
-                        ? MainAxisAlignment.end
-                        : MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         "Jump to next ",
                         style: TextStyle(
-                          color: Colors.lightBlue.shade800,
+                          color: Colors.lightBlue,
                           fontSize: 9,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Icon(
                         Icons.skip_next_outlined,
-                        color: Colors.lightBlue.shade800,
+                        color: Colors.lightBlue,
                         size: 12,
                       ),
                     ],
                   ),
                   style: ButtonStyle(
-                    overlayColor: _isHide
-                        ? MaterialStateColor.resolveWith(
-                            (states) => Colors.white)
-                        : MaterialStateColor.resolveWith(
-                            (states) => Colors.blue.withOpacity(0.5)),
-                    backgroundColor: _isHide
-                        ? MaterialStateColor.resolveWith((states) =>
-                            Constants.isDark == "true"
-                                ? Colors.white.withOpacity(0.5)
-                                : Colors.white)
-                        : MaterialStateColor.resolveWith(
-                            (states) => Colors.lightBlue.withOpacity(0.1)),
+                    overlayColor: MaterialStateColor.resolveWith(
+                        (states) => Colors.white),
+                    backgroundColor: MaterialStateColor.resolveWith((states) =>
+                        Constants.isDark == "true"
+                            ? Colors.white.withOpacity(0.5)
+                            : Colors.white),
                   ),
                 ),
-              ),
-            )
+              ))
           : SizedBox(
               height: 0,
               width: 0,
@@ -302,9 +294,9 @@ class _MainFeedState extends State<MainFeed> {
 
   Widget nameAndStuff() {
     if (!_isHide) {
-      return Container(
-        child: Padding(
-          padding: const EdgeInsets.all(4.0),
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -368,7 +360,7 @@ class _MainFeedState extends State<MainFeed> {
                             : Row(
                                 children: [
                                   Text(
-                                    "Switch",
+                                    "Switch ",
                                     style: TextStyle(
                                         color: Colors.lightBlue,
                                         fontSize: 14.0,
@@ -376,17 +368,72 @@ class _MainFeedState extends State<MainFeed> {
                                         fontFamily: 'cute'),
                                     textAlign: TextAlign.center,
                                   ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8)),
-                                    height: 40,
-                                    width: 40,
-                                    child: RiveAnimation.asset(
-                                      'images/switchLogoBlue1.riv',
-                                    ),
-                                  ),
+                                  // Container(
+                                  //   decoration: BoxDecoration(
+                                  //       borderRadius: BorderRadius.circular(8)),
+                                  //   height: 40,
+                                  //   width: 40,
+                                  //   child: RiveAnimation.asset(
+                                  //     'images/switchLogoBlue1.riv',
+                                  //   ),
+                                  // ),
                                 ],
                               ),
+                      ),
+                    ),
+                  ),
+                  DelayedDisplay(
+                    delay: Duration(milliseconds: 200),
+                    slidingBeginOffset: Offset(1, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 8, top: 8),
+                            child: GestureDetector(
+                              child: isNotification
+                                  ? Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(bottom: 8),
+                                          child: Icon(
+                                            Icons.notifications_active_rounded,
+                                            color: Colors.lightBlue,
+                                            size: 25,
+                                          ),
+                                        ),
+                                        Positioned(
+                                            left: 5,
+                                            bottom: 2,
+                                            child: SpinKitPulse(
+                                              color: Colors.red,
+                                              size: 15,
+                                            )),
+                                      ],
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.only(bottom: 7),
+                                      child: Icon(
+                                        Icons.notifications_none_sharp,
+                                        size: 25,
+                                        color: Colors.lightBlue,
+                                      ),
+                                    ),
+                              onTap: () {
+                                NotifyBottomBar nb = new NotifyBottomBar();
+                                nb.bottomSheetForNotify(context, widget.user);
+
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  if (mounted)
+                                    setState(() {
+                                      isNotification = false;
+                                    });
+                                });
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -428,1272 +475,286 @@ class _MainFeedState extends State<MainFeed> {
   Widget tabBar(User user) {
     return !_isHide
         ? Container(
-          height: 75,
+            height: 75,
             alignment: Alignment.center,
             //Set container alignment  then wrap the column with singleChildScrollView
             width: MediaQuery.of(context).size.width,
-          child: SingleChildScrollView(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 200),
-                  slidingBeginOffset: Offset(1, 0.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Add Post",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 10.0,
-                        ),
-                      ),
-
-                      ElevatedButton(
-                        key: addPostIntro,
-                        child: Icon(
-                          Icons.add_box_outlined,
-                          size: 25,
-                          color: Colors.lightBlue,
-                        ),
-                        onPressed: () {
-                          simpleStatusPage(user);
-                        },
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.transparent,
-                            elevation: 0.0,
-                            textStyle: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 400),
-                  slidingBeginOffset: Offset(1, 0.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Mood",
-                        style: TextStyle(
-                            fontSize: 10.0, fontWeight: FontWeight.w700),
-                      ),
-                      ElevatedButton(
-                        child: Icon(
-                          Icons.stream,
-                          size: 25,
-                          color: Colors.lightBlue,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                type: PageTransitionType.bottomToTop,
-                                child: Provider<User>.value(
-                                  value: user,
-                                  child: Mood(
-                                    user: user,
-                                  ),
-                                ),
-                              ));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            elevation: 0.0,
-                            primary: Colors.transparent,
-                            textStyle: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 550),
-                  slidingBeginOffset: Offset(1, 0.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Notify",
-                          key: key,
-                          style: TextStyle(
-                              fontSize: 10.0, fontWeight: FontWeight.w700),
-                        ),
-                        ElevatedButton(
-                          child: isNotification
-                              ? Stack(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 8),
-                                      child: Icon(
-                                        Icons.notifications_active_rounded,
-                                        color: Colors.lightBlue,
-                                        size: 25,
-                                      ),
-                                    ),
-                                    Positioned(
-                                        left: 5,
-                                        bottom: 2,
-                                        child: SpinKitPulse(
-                                          color: Colors.red,
-                                          size: 15,
-                                        )),
-                                  ],
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.only(bottom: 7),
-                                  child: Icon(
-                                    Icons.notifications_none_sharp,
-                                    size: 25,
-                                    color: Colors.lightBlue,
-                                  ),
-                                ),
-                          onPressed: () {
-                            bottomSheetForNotify();
-
-                            Future.delayed(const Duration(seconds: 2), () {
-                              if (mounted)
-                                setState(() {
-                                  isNotification = false;
-                                });
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0.0,
-                              primary: Colors.transparent,
-                              textStyle: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold)),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 750),
-                  slidingBeginOffset: Offset(1, 0.0),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 2),
-                        child: Text(
-                          "Clusty Chat ",
-                          style: TextStyle(
-                              fontSize: 10.0, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Stack(
-                        key: clustyChatIntro,
-                        children: [
-                          ElevatedButton(
-                            child: Icon(
-                              Icons.mark_chat_unread_outlined,
-                              color: Colors.lightBlue,
-                              size: 24,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    child: Provider<User>.value(
-                                      value: user,
-                                      child: WorldChat(
-                                        user: user,
-                                        userId: user.uid,
-                                      ),
-                                    ),
-                                  ));
-                            },
-                            style: ElevatedButton.styleFrom(
-                                elevation: 0.0,
-                                primary: Colors.transparent,
-                                textStyle: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          // Positioned(left: 6.2,
-                          //   child: Container(
-                          //     height: 50,
-                          //     width: 50,
-                          //     child: SpinKitRipple(
-                          //       color: Colors.lightBlue,
-                          //     ),
-                          //   ),
-                          // ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-
-                // DelayedDisplay(
-                //   delay: Duration(milliseconds: 700),
-                //   slidingBeginOffset: Offset(1, 0.0),
-                //   child: Column(
-                //     children: [
-                //       Text(
-                //         "Search",
-                //         style: TextStyle(
-                //             fontSize: 10.0, fontWeight: FontWeight.w700),
-                //       ),
-                //       ElevatedButton(
-                //         child: Icon(
-                //           Icons.search_rounded,
-                //           color: Colors.lightBlue,
-                //           size: 25,
-                //         ),
-                //         onPressed: () {
-                //           Navigator.push(
-                //               context,
-                //               PageTransition(
-                //                 type: PageTransitionType.bottomToTop,
-                //                 child: Provider<User>.value(
-                //                   value: user,
-                //                   child: MainSearchPage(
-                //                     navigateThrough: "",
-                //                     user: user,
-                //                     userId: user.uid,
-                //                   ),
-                //                 ),
-                //               ));
-                //         },
-                //         style: ElevatedButton.styleFrom(
-                //             elevation: 0.0,
-                //             primary: Colors.transparent,
-                //             textStyle: TextStyle(
-                //                 fontSize: 15, fontWeight: FontWeight.bold)),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 1000),
-                  slidingBeginOffset: Offset(1, 0.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Edit D.P",
-                        style: TextStyle(
-                            fontSize: 10.0, fontWeight: FontWeight.w700),
-                      ),
-                      ElevatedButton(
-                        child: Icon(
-                          Icons.account_circle_outlined,
-                          color: Colors.lightBlue,
-                          size: 25,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                type: PageTransitionType.bottomToTop,
-                                child: EditProfilePic(
-                                  uid: Constants.myId,
-                                  imgUrl: Constants.myPhotoUrl,
-                                ),
-                              ));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            elevation: 0.0,
-                            primary: Colors.transparent,
-                            textStyle: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 200),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Add Post",
+                  //         style: TextStyle(
+                  //           fontWeight: FontWeight.w700,
+                  //           fontSize: 10.0,
+                  //         ),
+                  //       ),
+                  //       ElevatedButton(
+                  //         key: addPostIntro,
+                  //         child: Icon(
+                  //           Icons.add_box_outlined,
+                  //           size: 25,
+                  //           color: Colors.lightBlue,
+                  //         ),
+                  //         onPressed: () {
+                  //           simpleStatusPage(user);
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             primary: Colors.transparent,
+                  //             elevation: 0.0,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 400),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Mood",
+                  //         style: TextStyle(
+                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //       ),
+                  //       ElevatedButton(
+                  //         child: Icon(
+                  //           Icons.stream,
+                  //           size: 25,
+                  //           color: Colors.lightBlue,
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //               context,
+                  //               PageTransition(
+                  //                 type: PageTransitionType.bottomToTop,
+                  //                 child: Provider<User>.value(
+                  //                   value: user,
+                  //                   child: Mood(
+                  //                     user: user,
+                  //                   ),
+                  //                 ),
+                  //               ));
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             elevation: 0.0,
+                  //             primary: Colors.transparent,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 550),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: SingleChildScrollView(
+                  //     child: Column(
+                  //       children: [
+                  //         Text(
+                  //           "Notify",
+                  //           key: key,
+                  //           style: TextStyle(
+                  //               fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //         ),
+                  //         ElevatedButton(
+                  //           child: isNotification
+                  //               ? Stack(
+                  //                   children: [
+                  //                     Padding(
+                  //                       padding:
+                  //                           const EdgeInsets.only(bottom: 8),
+                  //                       child: Icon(
+                  //                         Icons.notifications_active_rounded,
+                  //                         color: Colors.lightBlue,
+                  //                         size: 22,
+                  //                       ),
+                  //                     ),
+                  //                     Positioned(
+                  //                         left: 5,
+                  //                         bottom: 2,
+                  //                         child: SpinKitPulse(
+                  //                           color: Colors.red,
+                  //                           size: 19,
+                  //                         )),
+                  //                   ],
+                  //                 )
+                  //               : Padding(
+                  //                   padding: const EdgeInsets.only(bottom: 7),
+                  //                   child: Icon(
+                  //                     Icons.notifications_none_sharp,
+                  //                     size: 22,
+                  //                     color: Colors.lightBlue,
+                  //                   ),
+                  //                 ),
+                  //           onPressed: () {
+                  //             // bottomSheetForNotify();
+                  //
+                  //             Future.delayed(const Duration(seconds: 2), () {
+                  //               if (mounted)
+                  //                 setState(() {
+                  //                   isNotification = false;
+                  //                 });
+                  //             });
+                  //           },
+                  //           style: ElevatedButton.styleFrom(
+                  //               elevation: 0.0,
+                  //               primary: Colors.transparent,
+                  //               textStyle: TextStyle(
+                  //                   fontSize: 15, fontWeight: FontWeight.bold)),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 750),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Padding(
+                  //         padding: const EdgeInsets.only(bottom: 2),
+                  //         child: Text(
+                  //           "Clusty Chat ",
+                  //           style: TextStyle(
+                  //               fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //         ),
+                  //       ),
+                  //       Stack(
+                  //         key: clustyChatIntro,
+                  //         children: [
+                  //           ElevatedButton(
+                  //             child: Icon(
+                  //               Icons.mark_chat_unread_outlined,
+                  //               color: Colors.lightBlue,
+                  //               size: 24,
+                  //             ),
+                  //             onPressed: () {
+                  //               Navigator.push(
+                  //                   context,
+                  //                   PageTransition(
+                  //                     type: PageTransitionType.bottomToTop,
+                  //                     child: Provider<User>.value(
+                  //                       value: user,
+                  //                       child: WorldChat(
+                  //                         user: user,
+                  //                         userId: user.uid,
+                  //                       ),
+                  //                     ),
+                  //                   ));
+                  //             },
+                  //             style: ElevatedButton.styleFrom(
+                  //                 elevation: 0.0,
+                  //                 primary: Colors.transparent,
+                  //                 textStyle: TextStyle(
+                  //                     fontSize: 15,
+                  //                     fontWeight: FontWeight.bold)),
+                  //           ),
+                  //           // Positioned(left: 6.2,
+                  //           //   child: Container(
+                  //           //     height: 50,
+                  //           //     width: 50,
+                  //           //     child: SpinKitRipple(
+                  //           //       color: Colors.lightBlue,
+                  //           //     ),
+                  //           //   ),
+                  //           // ),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 700),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Search",
+                  //         style: TextStyle(
+                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //       ),
+                  //       ElevatedButton(
+                  //         child: Icon(
+                  //           Icons.search_rounded,
+                  //           color: Colors.lightBlue,
+                  //           size: 25,
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //               context,
+                  //               PageTransition(
+                  //                 type: PageTransitionType.bottomToTop,
+                  //                 child: Provider<User>.value(
+                  //                   value: user,
+                  //                   child: MainSearchPage(
+                  //                     navigateThrough: "",
+                  //                     user: user,
+                  //                     userId: user.uid,
+                  //                   ),
+                  //                 ),
+                  //               ));
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             elevation: 0.0,
+                  //             primary: Colors.transparent,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 1000),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Edit D.P",
+                  //         style: TextStyle(
+                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //       ),
+                  //       ElevatedButton(
+                  //         child: Icon(
+                  //           Icons.account_circle_outlined,
+                  //           color: Colors.lightBlue,
+                  //           size: 25,
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //               context,
+                  //               PageTransition(
+                  //                 type: PageTransitionType.bottomToTop,
+                  //                 child: EditProfilePic(
+                  //                   uid: Constants.myId,
+                  //                   imgUrl: Constants.myPhotoUrl,
+                  //                 ),
+                  //               ));
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             elevation: 0.0,
+                  //             primary: Colors.transparent,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
-          ),
-        )
+          )
         : Container(
             height: 0,
             width: 0,
           );
-  }
-
-  simpleStatusPage(User user) {
-    return showModalBottomSheet(
-        useRootNavigator: true,
-        isScrollControlled: true,
-        barrierColor: Colors.red.withOpacity(0.2),
-        elevation: 0,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        context: context,
-        builder: (context) {
-          return Container(
-            height: MediaQuery.of(context).size.height / 1.2,
-            child: Scaffold(
-              appBar: AppBar(
-                  backgroundColor: Colors.blue,
-                  elevation: 2.0,
-                  title: Text(
-                    "Add to Timeline",
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 20, fontFamily: 'cute'),
-                  ),
-                  centerTitle: true,
-                  leading: Text("")),
-              body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 300),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Container(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 150,
-                                width: 150,
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    top: 10,
-                                  ),
-                                  child: Lottie.asset(
-                                    'images/StatusUpload.json',
-                                  ),
-                                ),
-                              ),
-                              GestureDetector(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 12, right: 12, top: 20),
-                                  child: Text(
-                                    "You can Upload any image that's not suits your mood. After All this is Parallel Universe, Isn't? :):",
-                                    style: TextStyle(
-                                      fontFamily: 'cute',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    textScaleFactor: 1,
-                                  ),
-                                ),
-                                onTap: () {},
-                              ),
-                              SizedBox(
-                                height: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    TextButton(
-                                      onPressed: () => {
-                                        Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType
-                                                  .bottomToTop,
-                                              child: Provider<User>.value(
-                                                value: user,
-                                                child: AddStatus(
-                                                  type: "thoughts",
-                                                  uid: user.uid,
-                                                ),
-                                              ),
-                                            )),
-                                      },
-                                      child: Center(
-                                          child: Column(
-                                        children: [
-                                          Text(
-                                            "Share Thoughts",
-                                            style: TextStyle(
-                                                fontFamily: 'cute',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 13,
-                                                color: Colors.lightBlue),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Icon(
-                                              Icons.all_inclusive,
-                                              color: Colors.lightBlue,
-                                            ),
-                                          )
-                                        ],
-                                      )),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    TextButton(
-                                      onPressed: () => {
-                                        Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType
-                                                  .bottomToTop,
-                                              child: Provider<User>.value(
-                                                value: user,
-                                                child: AddStatus(
-                                                  type: "photo",
-                                                  uid: user.uid,
-                                                ),
-                                              ),
-                                            )),
-                                      },
-                                      child: Center(
-                                          child: Column(
-                                        children: [
-                                          Text(
-                                            "Upload Photo",
-                                            style: TextStyle(
-                                                fontFamily: 'cute',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 13,
-                                                color: Colors.lightBlue),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Icon(
-                                              Icons.insert_photo_outlined,
-                                              color: Colors.lightBlue,
-                                            ),
-                                          )
-                                        ],
-                                      )),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text(
-                                  "OR",
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 18,
-                                      fontFamily: 'cute'),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () => {
-                                  memeUploadPage(user),
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 30, right: 30),
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.lightBlue.shade400,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              "Upload Meme",
-                                              style: TextStyle(
-                                                  fontFamily: 'cute',
-                                                  fontSize: 14,
-                                                  color: Colors.white),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Icon(
-                                                Icons
-                                                    .fiber_smart_record_outlined,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ],
-                                        )),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 500),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 8, bottom: 5, top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                                child: Flexible(
-                                    child: Text(
-                              "Where to find my uploaded MEME/STATUS?",
-                              style: TextStyle(
-                                  color: Colors.lightBlue,
-                                  fontFamily: 'cute',
-                                  fontSize: 17),
-                            ))),
-                          ],
-                        ),
-                      ),
-                    ),
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 600),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Flexible(
-                                child: Text(
-                                  "Your uploaded Memes are in Meme Profile. Open App > Click on Meme on bottom bar > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue.shade700,
-                                      fontFamily: 'cute',
-                                      fontSize: 13),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 500),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 8, bottom: 5, top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Flexible(
-                                child: Text(
-                                  "Where to find other user's uploaded MEME/STATUS?",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontFamily: 'cute',
-                                      fontSize: 17),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 600),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Flexible(
-                                child: Text(
-                                  "Click on any user's Profile > Slide up to see their Shot Meme OR > Click on Meme Profile option > There will be two options at the bottom (One for Flick Meme / One for Shot Meme).",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue.shade700,
-                                      fontFamily: 'cute',
-                                      fontSize: 13),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 600),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 8, bottom: 5, top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                                child: Flexible(
-                                    child: Text(
-                              "How it works?",
-                              style: TextStyle(
-                                  color: Colors.lightBlue,
-                                  fontFamily: 'cute',
-                                  fontSize: 17),
-                            ))),
-                          ],
-                        ),
-                      ),
-                    ),
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 600),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8, bottom: 10),
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Flexible(
-                                child: Text(
-                                  "Uploaded Meme will be appear on every user's timeline, while Uploaded Photo OR Thoughts will only appear on timeline section and only appear to the user, who is following you.",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue.shade700,
-                                      fontFamily: 'cute',
-                                      fontSize: 13),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
-  }
-
-  memeUploadPage(User user) {
-    return showModalBottomSheet(
-        useRootNavigator: true,
-        isScrollControlled: true,
-        barrierColor: Colors.red.withOpacity(0.2),
-        elevation: 0,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        context: context,
-        builder: (context) {
-          return Container(
-            height: MediaQuery.of(context).size.height / 1.2,
-            child: Scaffold(
-              appBar: AppBar(
-                  backgroundColor: Colors.blue,
-                  elevation: 2.0,
-                  title: Text(
-                    "Add Your MEME",
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 20, fontFamily: 'cute'),
-                  ),
-                  centerTitle: true,
-                  leading: Text("")),
-              body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    DelayedDisplay(
-                      fadeIn: true,
-                      delay: Duration(milliseconds: 300),
-                      slidingBeginOffset: Offset(0.0, 0.40),
-                      child: Container(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 35,
-                              ),
-                              TextButton(
-                                onPressed: () => {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          Provider<User>.value(
-                                        value: user,
-                                        child: AddStatus(
-                                          type: "meme",
-                                          uid: user.uid,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 30, right: 30),
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.green.shade400,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              "Photo Meme",
-                                              style: TextStyle(
-                                                  fontFamily: 'cute',
-                                                  fontSize: 14,
-                                                  color: Colors.white),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Icon(
-                                                Icons
-                                                    .fiber_smart_record_outlined,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ],
-                                        )),
-                                  ),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () => {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          Provider<User>.value(
-                                        value: user,
-                                        child: VideoStatus(
-                                          type: "videoMeme",
-                                          user: user,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-
-                                  ///**********  Following code can restrict user to upload Video meme   **********///
-                                  // widget.user.uid == Constants.switchId ||
-                                  //     widget.user.uid ==
-                                  //         Constants.switchIdFarhan
-                                  //     ? Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) =>
-                                  //     Provider<User>.value(
-                                  //       value: user,
-                                  //       child: VideoStatus(
-                                  //         type: "videoMeme",
-                                  //         user: user,
-                                  //       ),
-                                  //     ),
-                                  //   ),
-                                  // )
-                                  //     : showModalBottomSheet(
-                                  //     useRootNavigator: true,
-                                  //     isScrollControlled: true,
-                                  //     barrierColor:
-                                  //     Colors.red.withOpacity(0.2),
-                                  //     elevation: 0,
-                                  //     clipBehavior:
-                                  //     Clip.antiAliasWithSaveLayer,
-                                  //     context: context,
-                                  //     builder: (context) {
-                                  //       return Container(
-                                  //         height: MediaQuery
-                                  //             .of(context)
-                                  //             .size
-                                  //             .height /
-                                  //             3,
-                                  //         child: SingleChildScrollView(
-                                  //           child: Column(
-                                  //             children: [
-                                  //               Padding(
-                                  //                 padding:
-                                  //                 const EdgeInsets.all(
-                                  //                     5.0),
-                                  //                 child: Row(
-                                  //                   crossAxisAlignment:
-                                  //                   CrossAxisAlignment
-                                  //                       .center,
-                                  //                   mainAxisAlignment:
-                                  //                   MainAxisAlignment
-                                  //                       .center,
-                                  //                   children: [
-                                  //                     Icon(Icons
-                                  //                         .linear_scale_sharp),
-                                  //                   ],
-                                  //                 ),
-                                  //               ),
-                                  //               Padding(
-                                  //                 padding:
-                                  //                 const EdgeInsets.all(
-                                  //                     8.0),
-                                  //                 child: Text(
-                                  //                   "Video Meme only available in Meme competition. If this Switch App will perform well, we will allow this option here too.",
-                                  //                   textAlign:
-                                  //                   TextAlign.center,
-                                  //                   style: TextStyle(
-                                  //                       fontSize: 15,
-                                  //                       fontFamily: "cutes",
-                                  //                       fontWeight:
-                                  //                       FontWeight.bold,
-                                  //                       color: Colors.lightBlue),
-                                  //                 ),
-                                  //               ),
-                                  //               Padding(
-                                  //                 padding:
-                                  //                 const EdgeInsets.all(
-                                  //                     8.0),
-                                  //                 child: Text(
-                                  //                   "Why?",
-                                  //                   textAlign:
-                                  //                   TextAlign.center,
-                                  //                   style: TextStyle(
-                                  //                       fontSize: 15,
-                                  //                       fontFamily: "cutes",
-                                  //                       fontWeight:
-                                  //                       FontWeight.bold,
-                                  //                       color: Colors
-                                  //                           .red.shade700),
-                                  //                 ),
-                                  //               ),
-                                  //               Padding(
-                                  //                 padding:
-                                  //                 const EdgeInsets.all(
-                                  //                     8.0),
-                                  //                 child: Text(
-                                  //                   "Database for videos is very Expensive. And our budget is not enough to bear the cost yet. Hope we will allow it in future, very soon. ",
-                                  //                   textAlign:
-                                  //                   TextAlign.center,
-                                  //                   style: TextStyle(
-                                  //                       fontSize: 15,
-                                  //                       fontFamily: "cutes",
-                                  //                       fontWeight:
-                                  //                       FontWeight.bold,
-                                  //                       color: Colors.grey),
-                                  //                 ),
-                                  //               ),
-                                  //             ],
-                                  //           ),
-                                  //         ),
-                                  //       );
-                                  //     }),
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 30, right: 30),
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.green.shade400,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              "Video Meme",
-                                              style: TextStyle(
-                                                  fontFamily: 'cute',
-                                                  fontSize: 14,
-                                                  color: Colors.white),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Icon(
-                                                Icons.slow_motion_video,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ],
-                                        )),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 25,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Our Goal?",
-                                      style: TextStyle(
-                                          color: Colors.green.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 20),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, right: 2),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Hi Memers! Our goal is to make this platform a top meme generator platform. Original memes, memes template should create from this app and then spread out to other social media platforms.",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "What is Photo Meme:",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontFamily: 'cute',
-                                          fontSize: 17),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "This is simple Meme that represent through Photo.",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "What is Video Meme:",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontFamily: 'cute',
-                                          fontSize: 17),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "This is simple Meme that represent through Video.",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "How Ranking Works:",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontFamily: 'cute',
-                                          fontSize: 17),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Memers will be rank according to total number of following. But in near future, we will also Rank them according to their MEME decency on the basis of profile.",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Stealing Other's Meme:",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontFamily: 'cute',
-                                          fontSize: 17),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Well, we will generate a special code with each post. So when a user claim to us that someone stole his/her MEME, we will delete that user's MEME & will BAN that user ",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Limitations for MEMER:",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontFamily: 'cute',
-                                          fontSize: 17),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "1) A meme profile with copied meme will not be ranked on TOP MEMERS. 2) Original Meme Content will be appreciated separably in this app. 3) If a meme being reported (copied meme), then the reported profile will be deleted after 1 or 2 warnings."
-                                      "4) Such Meme Profile that disrespect any Religion, will be terminated w/o any warning.",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8, bottom: 5, top: 5),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "Meme Decency:",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontFamily: 'cute',
-                                          fontSize: 17),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                        child: Flexible(
-                                            child: Text(
-                                      "In Future Updates, We will Rank Profiles with respect to (Meme Decency + Total Following).",
-                                      style: TextStyle(
-                                          color: Colors.lightBlue.shade700,
-                                          fontFamily: 'cute',
-                                          fontSize: 13),
-                                    ))),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
-  }
-
-  void bottomSheetForNotify() {
-    randomNotify = _random.nextInt(80) + 20; // 100-200
-
-    showModalBottomSheet(
-        useRootNavigator: true,
-        isScrollControlled: true,
-        barrierColor: Colors.blue.withOpacity(0.2),
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        context: context,
-        builder: (context) {
-          return Container(
-            height: MediaQuery.of(context).size.height / 1.2,
-            child: StreamBuilder(
-                stream: feedRtDatabaseReference
-                    .child(Constants.myId)
-                    .child("feedItems")
-                    .orderByChild("timestamp")
-                    .limitToLast(randomNotify)
-                    .onValue,
-                builder: (context, AsyncSnapshot dataSnapShot) {
-                  if (!dataSnapShot.hasData) {
-                    return Scaffold(
-                      body: Center(
-                        child: SpinKitRipple(
-                          color: Colors.lightBlue,
-                        ),
-                      ),
-                    );
-                  }
-
-                  DataSnapshot snapshot = dataSnapShot.data.snapshot;
-                  Map data = snapshot.value;
-                  List item = [];
-
-                  if (data == null) {
-                    return Scaffold(
-                      appBar: AppBar(
-                        elevation: 2,
-                        title: Text(
-                          "Notifications",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          ),
-                        ),
-                        centerTitle: true,
-                      ),
-                      body: Container(
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 100,
-                            ),
-                            Center(
-                              child: Center(
-                                child: Text(
-                                  "There is no Notification yet",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                      fontFamily: 'cute'),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 100,
-                            ),
-                            Center(
-                              child: Container(
-                                child: SpinKitRipple(
-                                  color: Colors.lightBlue,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  } else {
-                    data.forEach(
-                        (index, data) => item.add({"key": index, ...data}));
-                  }
-
-                  item.sort((a, b) {
-                    return b["timestamp"].compareTo(a["timestamp"]);
-                  });
-                  print("Notificatonssssss: : : : : : : : :: ${item.length}");
-
-                  return dataSnapShot.data.snapshot.value == null
-                      ? Scaffold(
-                          appBar: AppBar(
-                            elevation: 2,
-                            title: Text(
-                              "Notifications",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                            centerTitle: true,
-                          ),
-                          body: Container(
-                              child: SpinKitRipple(
-                            color: Colors.lightBlue,
-                          )),
-                        )
-                      : Scaffold(
-                          appBar: AppBar(
-                            elevation: 1.0,
-                            title: Text(
-                              "Notification",
-                              style:
-                                  TextStyle(fontSize: 20, fontFamily: 'cute'),
-                            ),
-                            centerTitle: true,
-                          ),
-                          body: BuildItemForNotification(
-                            item: item,
-                            data: data,
-                            user: widget.user,
-                          ),
-                        );
-                }),
-          );
-        });
   }
 
   int currentLine = 1;
@@ -1703,47 +764,69 @@ class _MainFeedState extends State<MainFeed> {
       delay: Duration(milliseconds: _isHide ? 100 : 600),
       slidingBeginOffset: Offset(0.0, 0.40),
       child: Container(
-        height: 45,
+        height: 50,
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              GestureDetector(
-                key: recentPostsIntro,
-                onTap: () {
-                  setState(() {
-                    currentLine = 1;
-                  });
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: GestureDetector(
+                  key: recentPostsIntro,
+                  onTap: () {
+                    setState(() {
+                      currentLine = 1;
+                    });
+                  },
                   child: Container(
+                    width: MediaQuery.of(context).size.width / 4.3,
                     padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        color: currentLine == 1
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.grey.shade800
-                                : Colors.white,
-                        border: Border.all(
-                          color: Colors.lightBlue,
-                        ),
-                        borderRadius: BorderRadius.circular(5.5)),
-                    child: Center(
-                      child: MarqueeWidget(
-                        child: Text(
-                          "Recent Posts",
-                          style: TextStyle(
+                    // decoration: BoxDecoration(
+                    //     color: currentLine == 1
+                    //         ? Colors.lightBlue
+                    //         : Constants.isDark == "true"
+                    //         ? Colors.grey.shade800
+                    //         : Colors.white,
+                    //     border: Border.all(
+                    //       color: Colors.lightBlue,
+                    //     ),
+                    //     borderRadius: BorderRadius.circular(5.5)),
+                    child: Container(
+                      height: 40,
+                      child: Column(
+                        children: [
+                          Center(
+                            child: MarqueeWidget(
+                              child: Text(
+                                "Recent",
+                                style: TextStyle(
+                                  color: currentLine == 1
+                                      ? Colors.lightBlue
+                                      : Constants.isDark == "true"
+                                          ? Colors.white
+                                          : Colors.lightBlue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                  fontFamily: 'cute',
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width / 4.3,
+                            padding: EdgeInsets.all(5),
+                            height: 2,
                             color: currentLine == 1
-                                ? Colors.white
+                                ? Colors.lightBlue
                                 : Constants.isDark == "true"
                                     ? Colors.white
-                                    : Colors.lightBlue,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 9,
-                            fontFamily: 'Names',
+                                    : Colors.white,
                           ),
-                        ),
+                        ],
                       ),
                     ),
                     height: 35,
@@ -1756,39 +839,54 @@ class _MainFeedState extends State<MainFeed> {
                     currentLine = 2;
                   });
                 },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: currentLine == 2
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.grey.shade800
-                                : Colors.white,
-                        border: Border.all(
-                          color: Colors.lightBlue,
-                        ),
-                        borderRadius: BorderRadius.circular(5.5)),
-                    child: Center(
-                      child: MarqueeWidget(
-                        child: Text(
-                          "Memes",
-                          style: TextStyle(
-                            color: currentLine == 2
-                                ? Colors.white
-                                : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.lightBlue,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 9,
-                            fontFamily: 'Names',
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 4.3,
+                  padding: EdgeInsets.all(5.0),
+                  // decoration: BoxDecoration(
+                  //     color: currentLine == 2
+                  //         ? Colors.lightBlue
+                  //         : Constants.isDark == "true"
+                  //             ? Colors.grey.shade800
+                  //             : Colors.white,
+                  //     border: Border.all(
+                  //       color: Colors.lightBlue,
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(5.5)),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: MarqueeWidget(
+                          child: Text(
+                            "Memes",
+                            style: TextStyle(
+                              color: currentLine == 2
+                                  ? Colors.lightBlue
+                                  : Constants.isDark == "true"
+                                      ? Colors.white
+                                      : Colors.lightBlue,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              fontFamily: 'cute',
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    height: 35,
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 4.3,
+                        padding: EdgeInsets.all(5),
+                        height: 2,
+                        color: currentLine == 2
+                            ? Colors.lightBlue
+                            : Constants.isDark == "true"
+                                ? Colors.white
+                                : Colors.white,
+                      ),
+                    ],
                   ),
+                  height: 35,
                 ),
               ),
               GestureDetector(
@@ -1798,123 +896,114 @@ class _MainFeedState extends State<MainFeed> {
                     currentLine = 3;
                   });
                 },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 4.3,
+                  padding: EdgeInsets.all(5.0),
+                  // decoration: BoxDecoration(
+                  //     color: currentLine == 3
+                  //         ? Colors.lightBlue
+                  //         : Constants.isDark == "true"
+                  //             ? Colors.grey.shade800
+                  //             : Colors.white,
+                  //     border: Border.all(
+                  //       color: Colors.lightBlue,
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(5.5)),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: MarqueeWidget(
+                          child: Text(
+                            "Following",
+                            style: TextStyle(
+                              color: currentLine == 3
+                                  ? Colors.lightBlue
+                                  : Constants.isDark == "true"
+                                      ? Colors.white
+                                      : Colors.lightBlue,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              fontFamily: 'cute',
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 4.3,
+                        padding: EdgeInsets.all(5),
+                        height: 2,
                         color: currentLine == 3
                             ? Colors.lightBlue
                             : Constants.isDark == "true"
-                                ? Colors.grey.shade800
-                                : Colors.white,
-                        border: Border.all(
-                          color: Colors.lightBlue,
-                        ),
-                        borderRadius: BorderRadius.circular(5.5)),
-                    child: Center(
-                      child: MarqueeWidget(
-                        child: Text(
-                          "Switch Updates",
-                          style: TextStyle(
-                            color: currentLine == 3
                                 ? Colors.white
-                                : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.lightBlue,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 9,
-                            fontFamily: 'Names',
-                          ),
-                        ),
+                                : Colors.white,
                       ),
-                    ),
-                    height: 35,
+                    ],
                   ),
+                  height: 35,
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentLine = 4;
-                  });
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: currentLine == 4
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.grey.shade800
-                                : Colors.white,
-                        border: Border.all(
-                          color: Colors.lightBlue,
-                        ),
-                        borderRadius: BorderRadius.circular(5.5)),
-                    child: Center(
-                      child: MarqueeWidget(
-                        child: Text(
-                          "Favorites",
-                          style: TextStyle(
-                            color: currentLine == 4
-                                ? Colors.white
-                                : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.lightBlue,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 9,
-                            fontFamily: 'Names',
-                          ),
-                        ),
-                      ),
-                    ),
-                    height: 35,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentLine = 5;
-                  });
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                        color: currentLine == 5
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.grey.shade800
-                                : Colors.white,
-                        border: Border.all(
-                          color: Colors.lightBlue,
-                        ),
-                        borderRadius: BorderRadius.circular(5.5)),
-                    child: Center(
-                      child: MarqueeWidget(
-                        child: Text(
-                          "Road Map",
-                          style: TextStyle(
-                            color: currentLine == 5
-                                ? Colors.white
-                                : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.lightBlue,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 9,
-                            fontFamily: 'Names',
-                          ),
-                        ),
-                      ),
-                    ),
-                    height: 35,
-                  ),
-                ),
-              ),
+              // DelayedDisplay(
+              //   delay: Duration(milliseconds: 200),
+              //   slidingBeginOffset: Offset(1, 0.0),
+              //   child: SingleChildScrollView(
+              //     child: Container(
+              //       width: 60,
+              //       child: Column(
+              //         children: [
+              //           Padding(
+              //             padding: const EdgeInsets.only(right: 12, top: 8),
+              //             child: GestureDetector(
+              //               child: isNotification
+              //                   ? Stack(
+              //                       children: [
+              //                         Padding(
+              //                           padding:
+              //                               const EdgeInsets.only(bottom: 8),
+              //                           child: Icon(
+              //                             Icons.notifications_active_rounded,
+              //                             color: Colors.lightBlue,
+              //                             size: 25,
+              //                           ),
+              //                         ),
+              //                         Positioned(
+              //                             left: 5,
+              //                             bottom: 2,
+              //                             child: SpinKitPulse(
+              //                               color: Colors.red,
+              //                               size: 15,
+              //                             )),
+              //                       ],
+              //                     )
+              //                   : Padding(
+              //                       padding: const EdgeInsets.only(bottom: 7),
+              //                       child: Icon(
+              //                         Icons.notifications_none_sharp,
+              //                         size: 25,
+              //                         color: Colors.lightBlue,
+              //                       ),
+              //                     ),
+              //               onTap: () {
+              //                 NotifyBottomBar nb = new NotifyBottomBar();
+              //                 nb.bottomSheetForNotify(context, widget.user);
+              //
+              //                 Future.delayed(const Duration(seconds: 2), () {
+              //                   if (mounted)
+              //                     setState(() {
+              //                       isNotification = false;
+              //                     });
+              //                 });
+              //               },
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -2101,15 +1190,15 @@ class _MainFeedState extends State<MainFeed> {
               children: [
                 nameAndStuff(),
                 frontSlide(),
-                tabBar(
-                  widget.user,
-                ),
+                // tabBar(
+                //   widget.user,
+                // ),
                 allLine(),
                 // memeCompetition(),
-                Padding(
-                  padding: EdgeInsets.all(!_isHide ? 6 : 0),
-                  child: !_isHide ? jumpToPosts() : SizedBox(),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.all(!_isHide ? 6 : 0),
+                //   child: !_isHide ? jumpToPosts() : SizedBox(),
+                // ),
                 isLoading
                     ? SizedBox(
                         height: 100,
@@ -2293,15 +1382,14 @@ class _MainFeedState extends State<MainFeed> {
                                             }
                                           },
                                           child: Align(
-                                              alignment: Alignment.bottomRight,
+                                              alignment: Alignment.bottomLeft,
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
-                                                    bottom: 33, right: 15),
+                                                    bottom: 40, left: 20),
                                                 child: Container(
                                                   padding: EdgeInsets.all(4),
                                                   decoration: BoxDecoration(
-                                                      color: Colors.lightBlue
-                                                          .withOpacity(0.7),
+                                                      color: Colors.white,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               13)),
@@ -2313,6 +1401,7 @@ class _MainFeedState extends State<MainFeed> {
                                                         child: Icon(
                                                       Icons.arrow_upward_sharp,
                                                       size: 15,
+                                                      color: Colors.blueAccent,
                                                     )),
                                                   ),
                                                 ),
@@ -2328,40 +1417,26 @@ class _MainFeedState extends State<MainFeed> {
                           )
                         : currentLine == 2
                             ? memesOnly()
-                            : currentLine == 3
-                                ? SwitchUpdates(
-                                    user: widget.user,
-                                    isVisible: () {},
-                                    isHide: isHide)
-                                : currentLine == 4
-                                    ? SwitchFav(
-                                        user: widget.user,
-                                      )
-                                    : Padding(
-                                        padding: const EdgeInsets.only(top: 20),
-                                        child: Text(
-                                          "Will update Soon",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                            fontFamily: 'cute',
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                      ),
+                            : Padding(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: Text(
+                                  "Will update Soon",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontFamily: 'cute',
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
               ],
             ),
 
-            _isHide
-                ? Align(
-                    alignment: Alignment.bottomRight,
-                    child: Container(
-                      child: jumpToPosts(),
-                    ),
-                  )
-                : SizedBox(
-                    height: 0,
-                    width: 0,
-                  )
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                child: jumpToPosts(),
+              ),
+            )
 
             // Container(
             //   height: isHide ? 50 : MediaQuery.of(context).size.height / 3.3,
@@ -4649,8 +3724,10 @@ class _MainFeedState extends State<MainFeed> {
             return InViewNotifierWidget(
               id: '$index',
               builder: (BuildContext context, bool isInView, Widget? child) {
+                print("in virew>>>>>>>>>>>>>>>>>>>>> $isInView");
                 return VideoWidget(
-                  play: isInView,
+                  // remove (== true ? false :false,) to make it in-view
+                  play: isInView == true ? false : false,
                   url: limitedPostList[index]['url'],
                   time: limitedPostList[index]['timestamp'],
                 );

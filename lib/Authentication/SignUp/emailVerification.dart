@@ -118,6 +118,11 @@ class _EmailVerificationState extends State<EmailVerification> {
       "pendingRelationShip": false,
       "inRelationshipWith": "",
     });
+    chatMoodReferenceRtd.child(user.uid).set({
+      "mood": "romantic",
+      "theme": "romantic",
+      "loveNote": "Write Something For Love Of Your Life",
+    });
   }
 
   Future<void> checkEmailVerified() async {

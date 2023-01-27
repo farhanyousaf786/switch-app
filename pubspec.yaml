@@ -114,7 +114,7 @@ dependencies:
   #  super_tooltip: ^1.0.1
   tutorial_coach_mark: ^1.0.3
 #  flutter_dotenv: ^5.0.2
-
+  flutter_ffmpeg: ^0.4.2
 
 
 
@@ -162,28 +162,5 @@ flutter:
     - family: cute
       fonts:
         - asset: assets/fonts/LexendDeca.ttf
-#    - family: Cute
-#      fonts:
-#        - asset: assets/fonts/FredokaOne-Regular.ttf
-#    - family: Cutes
-#      fonts:
-#        - asset: assets/fonts/VarelaRound-Regular.ttf
-#    - family: Robot
-#      fonts:
-#        - asset: assets/fonts/Roboto-Regular.ttf
-#    - family: RobotBold
-#      fonts:
-#        - asset: assets/fonts/Roboto-Bold.ttf
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

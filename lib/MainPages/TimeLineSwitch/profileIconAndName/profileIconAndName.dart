@@ -276,7 +276,8 @@ class _ProfileIconAndNameState extends State<ProfileIconAndName> {
                         height: 35,
                         width: 35,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          border: Border.all(color: Colors.black87),
+                          borderRadius: BorderRadius.all(Radius.circular(9)),
                           image: DecorationImage(
                             image: imageProvider,
                             fit: BoxFit.cover,

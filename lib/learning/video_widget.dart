@@ -74,7 +74,6 @@ class _VideoWidgetState extends State<VideoWidget> {
     _controller.setVolume(0);
     _controller.pause();
     _controller.dispose();
-
     super.dispose();
   }
 
@@ -119,7 +118,8 @@ class _VideoWidgetState extends State<VideoWidget> {
                               },
                               child: Stack(
                                 children: [
-                                  VideoPlayer(_controller),
+                                  VideoPlayer(_controller,
+                                  ),
                                   Positioned(
                                     bottom: 0.0,
                                     right: 0.0,

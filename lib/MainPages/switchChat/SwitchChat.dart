@@ -262,7 +262,7 @@ class _SwitchChatState extends State<SwitchChat> {
             loveTextCallback: loveTextFunction,
             recordingCallBack: recording,
             inRelationShipId: widget.inRelationShipId,
-            mood: data["mood"],
+            mood: data['mood'],
           ),
           color: Colors.transparent,
         ),
@@ -336,9 +336,7 @@ class _SwitchChatState extends State<SwitchChat> {
                   .update({"isRead": true});
             }
           });
-
           Navigator.of(context).pop(true);
-
           return true;
         },
         child: Scaffold(

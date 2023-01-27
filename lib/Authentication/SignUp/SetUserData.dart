@@ -196,6 +196,11 @@ class _SetUserDataState extends State<SetUserData> {
           "photoUrl": Constants.switchLogo,
         },
       );
+      chatMoodReferenceRtd.child(user.uid).set({
+        "mood": "romantic",
+        "theme": "romantic",
+        "loveNote": "Write Something For Love Of Your Life",
+      });
       setUserData(user);
       Future.delayed(const Duration(milliseconds: 300), () {
         Navigator.push(
