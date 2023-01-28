@@ -10,17 +10,15 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:provider/provider.dart';
 import 'package:switchapp/MainPages/AllPosts/MainFeed/CacheImageTemplate.dart';
-import 'package:switchapp/MainPages/AllPosts/MainFeed/MainFeed.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
+import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:time_formatter/time_formatter.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../Models/postModel/CommentsPage.dart';
 import '../../../Models/postModel/PostsReactCounters.dart';
-import '../../../Models/postModel/TextStatus.dart';
 import '../../../learning/video_widget.dart';
 import '../../ReportAndComplaints/postReportPage.dart';
 import '../../ReportAndComplaints/reportId.dart';
@@ -331,11 +329,13 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                                 left: 10,
                                                 right: 10),
                                             child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: CacheImageTemplate(
-                                                  list: limitedPostList,
-                                                  index: index,
+                                                borderRadius: BorderRadius.circular(10.0),
+                                                child: SwitchCacheImage(
+                                                  url: limitedPostList[index]['url'],
+                                                  height: MediaQuery.of(context).size.height / 4,
+                                                  width: MediaQuery.of(context).size.width,
+                                                  boxFit: BoxFit.fill,
+                                                  screen: 'memePosts',
                                                 )),
                                           ),
                                         )

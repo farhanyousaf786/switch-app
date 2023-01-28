@@ -15,6 +15,7 @@ import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/MainPages/AllPosts/MainFeed/CacheImageTemplate.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
+import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/postModel/CommentsPage.dart';
@@ -282,13 +283,16 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                 bottom: 10,
                                                 left: 10,
                                                 right: 10),
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: CacheImageTemplate(
-                                                  list: limitedMemeList!,
-                                                  index: index,
-                                                )),
+                                            child:
+                                            ClipRRect(
+                                                borderRadius: BorderRadius.circular(10.0),
+                                                child: SwitchCacheImage(
+                                                  url: limitedMemeList![index]['url'],
+                                                  height: MediaQuery.of(context).size.height / 4,
+                                                  width: MediaQuery.of(context).size.width,
+                                                  boxFit: BoxFit.fill,
+                                                  screen: 'allParticipants',
+                                                ),),
                                           ),
                                         ),
 

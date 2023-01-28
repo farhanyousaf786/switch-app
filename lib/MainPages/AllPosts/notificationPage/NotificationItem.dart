@@ -16,7 +16,7 @@ import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:switchapp/Universal/UniversalMethods.dart';
 import 'package:time_formatter/time_formatter.dart';
 
-import '../../../Models/SwitchImageCache/SwitchImageCache.dart';
+import '../../../Models/SwitchCacheImg/SwitchImageCache.dart';
 import '../../../Models/postModel/SinglePostDetail.dart';
 
 class BuildItemForNotification extends StatefulWidget {
@@ -117,7 +117,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
           "This person wants to be in relationship with you. Click to Respond, (Accept or Decline). Or you can respond anytime by visit your profile.";
     } else if (item[index]['type'] == "ConformedAboutRelationShip") {
       content =
-          "Ohh, WooW, Congrats, You are in relationship with $firstName, We hope your Relationship will remain for million of billions of years.";
+          "You are in relationship with $firstName, We hope your Relationship will remain for million of billions of years.";
     } else if (item[index]['type'] == "crushOnReference") {
       content = "Crush On You 💝, hmm :)";
     } else if (item[index]['type'] == 'notInterested') {
@@ -258,8 +258,15 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                       Container(
                         width: 35,
                         height: 35,
-                        child:
-                            SwitchImageCache(width: 35, height: 35, url: url),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          child: SwitchCacheImage(
+                            width: 35.0,
+                            height: 35.0,
+                            url: url,
+                            boxFit: BoxFit.fitWidth, screen: '',
+                          ),
+                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(13),
                           border:
@@ -297,7 +304,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
           ),
           ExpansionTileCard(
             elevation: 0.0,
-            baseColor: Constants.isDark == "false" ? Colors.white: ThemeData.dark().primaryColor,
+            baseColor: Constants.isDark == "false"
+                ? Colors.white
+                : ThemeData.dark().primaryColor,
             title: Text(""),
 
             subtitle: Column(
@@ -402,8 +411,15 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           Container(
                             width: 35,
                             height: 35,
-                            child: SwitchImageCache(
-                                width: 35, height: 35, url: url),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: SwitchCacheImage(
+                                width: 35,
+                                height: 35,
+                                url: url,
+                                boxFit: BoxFit.cover, screen: '',
+                              ),
+                            ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(13),
                               border: Border.all(
@@ -488,32 +504,8 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
                         Padding(
                           padding: const EdgeInsets.only(left: 5, top: 5),
                           child: Text(
@@ -581,42 +573,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -722,42 +681,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -772,7 +698,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
             Padding(
               padding: const EdgeInsets.only(left: 75, bottom: 5),
               child: Text(
-                'WooW, Congrats, You are in relationship with $firstName',
+                'You are in relationship with $firstName',
                 style: TextStyle(
                     color: Colors.pinkAccent,
                     fontWeight: FontWeight.w800,
@@ -843,42 +769,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -964,42 +857,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1082,42 +942,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1196,39 +1023,23 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                         Container(
                           width: 35,
                           height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: SwitchCacheImage(
+                              width: 35,
+                              height: 35,
+                              url: url,
+                              boxFit: BoxFit.fill, screen: '',
                             ),
                           ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                color: Colors.lightBlue.shade500, width: 2),
+                          ),
                         ),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1322,42 +1133,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1440,42 +1218,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1561,42 +1306,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1682,42 +1394,9 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                     padding: const EdgeInsets.only(left: 18, top: 5),
                     child: Row(
                       children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          child:
-                              SwitchImageCache(width: 35, height: 35, url: url),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                                color: Colors.grey.shade500, width: 2),
-
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       widget.foundUsers[widget.index]['photoUrl']),
-                            // ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text(
-                            firstName + " " + secondName,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 7,
-                              color: Colors.grey.shade500,
-                            ),
-                          ),
-                        ),
+                        profileImg(url),
+                        name(firstName, secondName),
+                        postTime(time),
                         unReadWidget(isRead),
                       ],
                     ),
@@ -1797,16 +1476,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      time,
-                      style: TextStyle(
-                        fontSize: 7,
-                        color: Colors.grey.shade500,
-                      ),
-                    ),
-                  ),
+                  postTime(time),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 10, right: 10),
                     child: Divider(),
@@ -1829,7 +1499,8 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
             setState(() {
               selectedIndex = null;
             });
-          }),        },
+          }),
+        },
         child: Container(
           child: Center(
             child: SingleChildScrollView(
@@ -1867,16 +1538,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      time,
-                      style: TextStyle(
-                        fontSize: 7,
-                        color: Colors.grey.shade500,
-                      ),
-                    ),
-                  ),
+                  postTime(time),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 10, right: 10),
                     child: Divider(),
@@ -1899,7 +1561,8 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
             setState(() {
               selectedIndex = null;
             });
-          }),        },
+          }),
+        },
         child: Container(
           child: Center(
             child: SingleChildScrollView(
@@ -1937,16 +1600,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      time,
-                      style: TextStyle(
-                        fontSize: 7,
-                        color: Colors.grey.shade500,
-                      ),
-                    ),
-                  ),
+                  postTime(time),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 10, right: 10),
                     child: Divider(),
@@ -1969,7 +1623,8 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
             setState(() {
               selectedIndex = null;
             });
-          }),        },
+          }),
+        },
         child: Container(
           child: Center(
             child: SingleChildScrollView(
@@ -2007,16 +1662,7 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      time,
-                      style: TextStyle(
-                        fontSize: 7,
-                        color: Colors.grey.shade500,
-                      ),
-                    ),
-                  ),
+                  postTime(time),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 10, right: 10),
                     child: Divider(),
@@ -2038,5 +1684,56 @@ class _BuildItemForNotificationState extends State<BuildItemForNotification> {
           .child(postId)
           .update({"isRead": true});
     });
+  }
+
+  Widget profileImg(String url) {
+    return Container(
+      width: 35,
+      height: 35,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10.0),
+        child: SwitchCacheImage(
+          width: 35,
+          height: 35,
+          url: url,
+          boxFit: BoxFit.cover, screen: '',
+        ),
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(13),
+        border: Border.all(color: Colors.grey.shade500, width: 2),
+
+        // image: DecorationImage(
+        //   image: NetworkImage(
+        //       widget.foundUsers[widget.index]['photoUrl']),
+        // ),
+      ),
+    );
+  }
+
+  Widget postTime(String time) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Text(
+        time,
+        style: TextStyle(
+          fontSize: 7,
+          color: Colors.grey.shade500,
+        ),
+      ),
+    );
+  }
+
+  Widget name(String firstName, String secondName){
+    return Padding(
+      padding: const EdgeInsets.only(left: 15),
+      child: Text(
+        firstName + " " + secondName,
+        style: TextStyle(
+            fontSize: 14,
+            color: Colors.lightBlue,
+            fontWeight: FontWeight.bold),
+      ),
+    );
   }
 }

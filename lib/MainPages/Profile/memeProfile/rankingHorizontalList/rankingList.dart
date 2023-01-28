@@ -3,7 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Universal/Constans.dart';
-import 'package:switchapp/Models/SwitchImageCache/SwitchImageCache.dart';
+import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
 
@@ -50,7 +50,7 @@ class _RankingListState extends State<RankingList> {
                   child: Container(
                     width: 35,
                     height: 35,
-                    child: SwitchImageCache(width: 35, height: 35, url:  widget.rankingData[widget.index]['photoUrl'], ),
+                    child: SwitchCacheImage(width: 35, height: 35, url:  widget.rankingData[widget.index]['photoUrl'],boxFit: BoxFit.cover, screen: '', ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Colors.white, width: 1),

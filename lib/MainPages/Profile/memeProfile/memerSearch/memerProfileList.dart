@@ -1,18 +1,12 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:switchapp/Models/Marquee.dart';
-import 'package:switchapp/Models/SwitchImageCache/SwitchImageCache.dart';
+import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 
 class MemerProfileList extends StatefulWidget {
-
-
   late final List foundUsers;
   late final int index;
 
   MemerProfileList({required this.index, required this.foundUsers});
-
 
   @override
   _MemerProfileListState createState() => _MemerProfileListState();
@@ -38,13 +32,15 @@ class _MemerProfileListState extends State<MemerProfileList> {
                     child: Container(
                       width: 35,
                       height: 35,
-                      child: SwitchImageCache(width: 35, height: 35, url:  widget.foundUsers[widget.index]['photoUrl'] ),
-
+                      child: SwitchCacheImage(
+                        width: 35,
+                        height: 35,
+                        url: widget.foundUsers[widget.index]['photoUrl'],
+                        boxFit: BoxFit.cover, screen: '',
+                      ),
                       decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.circular(13),
-                        border: Border.all(
-                            color: Colors.black54, width: 2),
+                        borderRadius: BorderRadius.circular(13),
+                        border: Border.all(color: Colors.black54, width: 2),
 
                         // image: DecorationImage(
                         //   image: NetworkImage(
@@ -72,7 +68,6 @@ class _MemerProfileListState extends State<MemerProfileList> {
                 ],
               ),
             ),
-
           ],
         ),
       ),

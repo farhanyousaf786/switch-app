@@ -228,7 +228,7 @@ class _NavigationPageState extends State<NavigationPage>
               " ${item['firstName']} wants to be in relationship with you";
         } else if (item['type'] == "ConformedAboutRelationShip") {
           Constants.notificationContent =
-              "Ohh, WooW, Congrats, You are in relationship with ${item['firstName']}";
+              "You are in relationship with ${item['firstName']}";
         } else if (item['type'] == "crushOnReference") {
           Constants.notificationContent =
               " ${item['firstName']} has Crush On You 💝";

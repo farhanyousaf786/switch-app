@@ -24,6 +24,7 @@ import 'package:switchapp/MainPages/AllPosts/notificationPage/BottomBarNotify.da
 import 'package:switchapp/MainPages/Upload/videoStatus.dart';
 import 'package:switchapp/MainPages/mood/moodUi.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
+import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Themes/switchThemes.dart';
@@ -389,7 +390,8 @@ class _MainFeedState extends State<MainFeed> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 10,right: 8, top: 8),
+                            padding: const EdgeInsets.only(
+                                left: 10, right: 8, top: 8),
                             child: GestureDetector(
                               child: isNotification
                                   ? Stack(
@@ -3746,9 +3748,12 @@ class _MainFeedState extends State<MainFeed> {
             const EdgeInsets.only(top: 15, bottom: 10, left: 10, right: 10),
         child: ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
-            child: CacheImageTemplate(
-              list: limitedPostList,
-              index: index,
+            child: SwitchCacheImage(
+              url: limitedPostList[index]['url'],
+              height: MediaQuery.of(context).size.height / 4,
+              width: MediaQuery.of(context).size.width,
+              boxFit: BoxFit.fill,
+              screen: 'mainFeed',
             )),
       ),
     );

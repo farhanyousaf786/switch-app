@@ -22,6 +22,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
+import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import '../../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
@@ -2351,10 +2352,13 @@ class _MemesOnlyState extends State<MemesOnly> {
             const EdgeInsets.only(top: 15, bottom: 10, left: 10, right: 10),
         child: ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
-            child: CacheImageTemplate(
-              list: limitedPostList,
-              index: index,
-            )),
+            child: SwitchCacheImage(
+              url: limitedPostList[index]['url'],
+              height: MediaQuery.of(context).size.height / 4,
+              width: MediaQuery.of(context).size.width,
+              boxFit: BoxFit.fill,
+              screen: 'mainFeed',
+            ),),
       ),
     );
   }
