@@ -17,7 +17,7 @@ import 'package:switchapp/Authentication/SignIn/SignInPage.dart';
 import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
 import 'package:switchapp/Bridges/bridgeToSetEmailVerification.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/SwitchTimer.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';

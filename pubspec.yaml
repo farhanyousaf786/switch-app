@@ -34,7 +34,7 @@ dependencies:
   cloud_firestore: ^3.1.7
   firebase_storage: ^8.0.0
   image: ^3.1.1
-  image_picker: ^0.6.0+2
+  image_picker: ^0.8.6+1
   google_sign_in: ^5.2.3
   timeago: 2.0.17
   firebase_auth: ^3.3.6
@@ -99,7 +99,6 @@ dependencies:
   video_player: ^2.2.18
   visibility_detector: ^0.2.0
   file_picker: ^4.3.3
-  minio: ^3.5.0
   swipe_to: ^0.0.1+8
   chewie: ^1.2.2
   flutter_cache_manager: ^3.3.0
@@ -113,9 +112,8 @@ dependencies:
   #  popover: ^0.2.6+3
   #  super_tooltip: ^1.0.1
   tutorial_coach_mark: ^1.0.3
-#  flutter_dotenv: ^5.0.2
-  flutter_ffmpeg: ^0.4.2
-
+#  minio: ^3.5.0
+#  dolinode_space: any
 
 
 

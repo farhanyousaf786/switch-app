@@ -40,7 +40,7 @@ class _CacheImageTemplateState extends State<CacheImageTemplate> {
       errorWidget: (context, url, error) => Container(
         height: 200,
         child: Center(
-          child: Text("Image Removed By Switch App",
+          child: Text(widget.list[widget.index]['url'],
           style: TextStyle(
             fontSize: 15,
             color: Colors.lightBlue,

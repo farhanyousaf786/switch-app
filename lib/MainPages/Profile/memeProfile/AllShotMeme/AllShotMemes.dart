@@ -9,7 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 
 import 'package:provider/provider.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../Models/postModel/CommentsPage.dart';
 import '../../../../Models/postModel/PostsReactCounters.dart';

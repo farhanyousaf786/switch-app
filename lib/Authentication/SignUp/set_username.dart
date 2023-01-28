@@ -8,7 +8,7 @@ import 'package:switchapp/Authentication/Auth/Auth.dart';
 import 'package:switchapp/Authentication/SignOut/SignOut.dart';
 import 'package:switchapp/Authentication/welcomePage/welcomepage.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import '../../Universal/DataBaseRefrences.dart';
 
 class SetGoogleUsername extends StatefulWidget {

@@ -488,27 +488,28 @@ class _SetProfilePictureState extends State<SetProfilePicture> {
         });
   }
 
+  final ImagePicker _picker = ImagePicker();
   pickImageFromCamera() async {
-    File imageFile = await ImagePicker.pickImage(
+    final XFile? imageFile = await _picker.pickImage(
       source: ImageSource.camera,
       imageQuality: 100,
       maxHeight: 680,
       maxWidth: 950,
     );
     setState(() {
-      file = imageFile;
+      file = imageFile?.path as File?;
     });
-    cropImage(imageFile.path);
+    cropImage(imageFile?.path);
   }
 
   imageFromGallery() async {
-    File imageFile = await ImagePicker.pickImage(
+    final XFile? imageFile = await _picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 100,
       maxHeight: 2500,
       maxWidth: 2500,
     );
-    cropImage(imageFile.path);
+    cropImage(imageFile?.path);
   }
 
   cropImage(filePath) async {

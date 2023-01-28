@@ -2,7 +2,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:switchapp/MainPages/TimeLineSwitch/MemeAndStuff/memeCompetition/uploadShotMeme.dart';
+import 'package:switchapp/MainPages/AllPosts/MemeAndStuff/memeCompetition/uploadShotMeme.dart';
 
 import 'uploadFlickMeme.dart';
 

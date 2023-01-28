@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:time_formatter/time_formatter.dart';
 

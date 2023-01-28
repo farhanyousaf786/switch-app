@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';

@@ -12,7 +12,7 @@ import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/AppSettings/privacyPolicy.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/Meme-profile.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/complaintPage.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Themes/theme_services.dart';

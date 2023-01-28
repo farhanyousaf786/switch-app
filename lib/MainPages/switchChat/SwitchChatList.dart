@@ -12,7 +12,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/MainPages/SearchPages/MainSearchPage.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChat.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChatHelper.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/appIntro.dart';
 import 'package:switchapp/Universal/ConnectivityChecker.dart';

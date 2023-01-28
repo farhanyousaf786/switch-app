@@ -22,7 +22,7 @@ import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
 import 'package:switchapp/Authentication/SignUp/set_username.dart';
 import 'package:switchapp/MainPages/AppSettings/settings.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/Meme-profile.dart';
-import 'package:switchapp/MainPages/TimeLineSwitch/MainFeed/MainFeed.dart';
+import 'package:switchapp/MainPages/AllPosts/MainFeed/MainFeed.dart';
 import 'package:switchapp/MainPages/Upload/addStatuse.dart';
 import 'package:switchapp/MainPages/Upload/videoStatus.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChatList.dart';

@@ -1,36 +1,36 @@
 import 'dart:io';
-import 'package:dospace/dospace.dart' as dospace;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:switchapp/MainPages/Upload/videoStatus.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
-import 'package:switchapp/Models/bottomBarModel/congratsModel.dart';
+import 'package:switchapp/Models/BottomBarComp/congratsModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
+import 'package:image/image.dart' as ImD;
 import 'package:video_player/video_player.dart';
 
-class UploadFlickMeme extends StatefulWidget {
+class UploadShotMemes extends StatefulWidget {
   final String type;
-  final User user;
+  final String uid;
 
-  const UploadFlickMeme({required this.type, required this.user});
+  UploadShotMemes({required this.type, required this.uid});
 
   @override
-  _UploadFlickMemeState createState() => _UploadFlickMemeState();
+  _UploadShotMemesState createState() => _UploadShotMemesState();
 }
 
-class _UploadFlickMemeState extends State<UploadFlickMeme> {
-  late VideoPlayerController _controller;
+class _UploadShotMemesState extends State<UploadShotMemes> {
   File? file;
   bool isFile = false;
   bool uploading = false;
@@ -42,115 +42,358 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
   String isLifeExperience = "false";
   String doubleSlitShow = "false";
   String statusTheme = "status";
+  TextEditingController _captionText = TextEditingController();
   int totalSlits = 0;
   int takePart = 0;
-  int won = 0;
-
-  TextEditingController _captionText = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _intAd();
-    print("farhajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjn");
-    pickVideo();
+    if (widget.type == "photo" || widget.type == "memeT") imageFromGallery();
   }
+  final ImagePicker _picker = ImagePicker();
 
-  pickVideo() async {
-    File videoFile = await ImagePicker.pickVideo(
+  imageFromGallery() async {
+    final XFile? imageFile = await _picker.pickImage(
       source: ImageSource.gallery,
+      imageQuality: 100,
+      maxHeight: 2500,
+      maxWidth: 2500,
     );
 
-    _controller = VideoPlayerController.file(videoFile)
-      ..initialize().then((_) {
-        print("position::::" + "${_controller.value.duration}");
+    await cropImage(imageFile?.path);
+  }
 
-        if (_controller.value.duration > Duration(seconds: 60)) {
-          showModalBottomSheet(
-              useRootNavigator: true,
-              isScrollControlled: true,
-              barrierColor: Colors.red.withOpacity(0.2),
-              elevation: 0,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              context: context,
-              builder: (context) {
-                return Container(
-                  height: MediaQuery.of(context).size.height / 3,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        BarTop(),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
+  cropImage(filePath) async {
+    File? croppedImage = await ImageCropper().cropImage(
+        sourcePath: filePath,
+        maxWidth: 2500,
+        maxHeight: 2500,
+        androidUiSettings: AndroidUiSettings(
+            cropGridRowCount: 4,
+            cropGridColumnCount: 4,
+            backgroundColor: Colors.white,
+            toolbarTitle: 'Cropper',
+            toolbarColor: Colors.black,
+            activeControlsWidgetColor: Colors.pink,
+            toolbarWidgetColor: Colors.white,
+            showCropGrid: true,
+            cropGridStrokeWidth: 2,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false),
+        iosUiSettings: IOSUiSettings(
+          minimumAspectRatio: 1.0,
+        ));
+    if (croppedImage != null) {
+      file = croppedImage;
+      isFile = true;
+      setState(() {});
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: SizedBox(
+            height: 0,
+            width: 0,
+          ),
+          centerTitle: true,
+          title: Text(
+            widget.type == "memeT"
+                ? "Share Meme"
+                : widget.type == "photo"
+                    ? "Share Photo"
+                    : widget.type == "videoMeme"
+                        ? "Share Video Meme"
+                        : "Share Thoughts",
+            style: TextStyle(
+              color: Colors.lightBlue.shade900,
+              fontWeight: FontWeight.bold,
+
+              fontFamily: 'cute',
+              fontSize: 16,
+            ),
+          ),
+          elevation: 0.0,
+          actions: [
+            isTextStatus
+                ? Container(
+                    height: 100,
+                    child: Center(
+                      child: TextButton(
+                        onPressed: uploading
+                            ? null
+                            : _isComposing
+                                ? () {
+                                    controllAndUploadData();
+                                  }
+                                : null,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
                           child: Text(
-                            "Video Duration Must be less then 60 Seconds",
+                            "Share",
                             style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "cute",
-                                 fontWeight: FontWeight.bold,
-                                color: Colors.red),
+                              color: _isComposing
+                                  ? Colors.lightBlue
+                                  : Colors.blue.shade100,
+                              fontFamily: 'cute',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
-                        SizedBox(
-                          height: 15,
+                      ),
+                    ),
+                  )
+                : Container(
+                    height: 100,
+                    child: TextButton(
+                      onPressed: () => {
+                        controllAndUploadData(),
+                      },
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Text(
+                            "Upload",
+                            style: TextStyle(
+                              color: Colors.lightBlue.shade900,
+                              fontWeight: FontWeight.bold,
+
+                              fontFamily: 'cute',
+                              fontSize: 16,
+                            ),
+                          ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.bottomToTop,
-                                  child: Provider<User>.value(
-                                    value: widget.user,
-                                    child: VideoStatus(
-                                      type: "simpleVideo",
-                                      user: widget.user,
-                                    ),
-                                  ),
-                                ));
-                          },
-                          child: Center(
-                              child: Column(
-                            children: [
-                              Text(
-                                "Upload New Video",
-                                style: TextStyle(
-                                    fontFamily: 'cute',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                    color: Colors.lightBlue),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Icon(
-                                  Icons.slow_motion_video_sharp,
-                                  color: Colors.lightBlue,
-                                ),
-                              )
-                            ],
-                          )),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                );
-              });
-        } else {
-          setState(() {
-            file = videoFile;
-            isFile = true;
-          });
-        }
-      });
+          ],
+        ),
+        body: statusBody());
+  }
+
+  statusBody() {
+    if (widget.type == "thoughts") {
+      return textStatus();
+    } else if (widget.type == "photo" && isFile == true) {
+      return photoOrMeme();
+    } else if (widget.type == "memeT" && isFile == true) {
+      return photoOrMeme();
+    }
+  }
+
+  textStatus() {
+    return Container(
+      child: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 10),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: CircleAvatar(
+                    child: CircleAvatar(
+                      radius: 22,
+                      backgroundColor: Colors.grey,
+                      backgroundImage:
+                          CachedNetworkImageProvider(Constants.myPhotoUrl),
+                    ),
+                    radius: 23.5,
+                    backgroundColor: Colors.grey,
+                  ),
+                ),
+                Text(
+                  "  " + Constants.myName + " " + Constants.mySecondName,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.black,
+                      fontFamily: 'cute'
+                      // shadows: <Shadow>[
+                      //   Shadow(
+                      //     offset: Offset(0.5, 0.5),
+                      //     blurRadius: 3.0,
+                      //     color: Colors.black,
+                      //   ),
+                      //   Shadow(
+                      //     offset: Offset(0.5, 0.5),
+                      //     blurRadius: 3.0,
+                      //     color: Colors.black,
+                      //   ),
+                      // ],
+                      ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: TextField(
+              onChanged: (String text) {
+                setState(() {
+                  _isComposing = text.length > 0;
+                });
+              },
+              keyboardType: TextInputType.multiline,
+              controller: _captionText,
+              maxLines: 10,
+              cursorHeight: 20,
+              cursorColor: Colors.grey,
+              decoration: InputDecoration.collapsed(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                hintText: 'Write Here...',
+                hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                    fontFamily: 'cute',
+                    fontWeight: FontWeight.bold),
+              ),
+              scrollPadding: EdgeInsets.all(20),
+            ),
+          ),
+          _statusTheme(),
+          Padding(
+            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+            child: ElevatedButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                  elevation: 0.0,
+                  primary: Colors.red,
+                  textStyle:
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  photoOrMeme() {
+    return ListView(
+      children: [
+        uploading
+            ? LinearProgressIndicator()
+            : Container(
+                height: 0,
+                width: 0,
+              ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10, bottom: 10),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: CircleAvatar(
+                  child: CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Colors.grey,
+                    backgroundImage:
+                        CachedNetworkImageProvider(Constants.myPhotoUrl),
+                  ),
+                  radius: 23.5,
+                  backgroundColor: Colors.grey,
+                ),
+              ),
+              Text(
+                "  " + Constants.myName + " " + Constants.mySecondName,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.black,
+                    fontFamily: 'cute'),
+              ),
+            ],
+          ),
+        ),
+        ListTile(
+          title: Center(
+            child: TextField(
+              style: TextStyle(color: Colors.black),
+              controller: _captionText,
+              onChanged: (String text) {
+                setState(() {
+                  _isComposing = text.length > 0;
+                });
+              },
+              keyboardType: TextInputType.multiline,
+              maxLines: 2,
+              cursorHeight: 20,
+              cursorColor: Colors.grey,
+              decoration: InputDecoration.collapsed(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                hintText: 'Write Here...',
+                hintStyle: TextStyle(
+                  fontFamily: 'cute',
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                  fontSize: 15,
+                ),
+              ),
+              scrollPadding: EdgeInsets.all(20),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 2,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Container(
+            width: MediaQuery.of(context).size.width / 1.05,
+            height: MediaQuery.of(context).size.height / 2.5,
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: FileImage(
+                    file!,
+                  ),
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
+              ),
+            ),
+          ),
+        ),
+        widget.type == "memeT" ? Container() : _statusTheme(),
+        Padding(
+          padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+          child: ElevatedButton(
+            child: Text('Cancel'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+                elevation: 0.0,
+                primary: Colors.red,
+                textStyle:
+                    TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+          ),
+        ),
+      ],
+    );
   }
 
   controllAndUploadData() async {
     setState(() {
       uploading = true;
     });
+
     switchMemeCompRTD
         .child('live')
-        .child(widget.user.uid)
+        .child(widget.uid)
         .once()
         .then((DataSnapshot dataSnapshot) => {
               if (dataSnapshot.exists)
@@ -168,6 +411,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
                 }
               else
                 {
+
                   Fluttertoast.showToast(
                     msg: "Please wait until upload!",
                     toastLength: Toast.LENGTH_LONG,
@@ -177,103 +421,11 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
                     textColor: Colors.white,
                     fontSize: 14.0,
                   ),
-                  uploadViaDoSpace(file),
+                  compressImage(),
+                  uploadInDOSpace(file),
 
                 }
             });
-  }
-
-  /// DO AK: JWS6WXYZJTISDEQTOT2I
-  /// DO SK: u06l5Az4RTpsWuvmkqgwH2lFAxf3J4Lsch+hrEWgoXQ
-  /// PAKT: 43d68ef89a1247f93ea454eb30f3d7a915900acae0915e34d220fec81a2daf90
-  ///  ep: nyc3.digitaloceanspaces.com
-  ///
-  /// WASABAI EP:  s3.wasabisys.com
-  ///  accessKey: '0R2UZA8CI7Q83OUAGPTV',
-  ///  secretKey: '1T2PhWnnYRfeZscRkbTMTu7Bn9Ywm8jw4pSrlH0B',
-
-  /// Upload Via DoSpace
-
-  uploadViaDoSpace(file) async {
-    dospace.Spaces spaces = new dospace.Spaces(
-      //change with your project's region
-      region: "nyc3",
-      //change with your project's accessKey
-      accessKey: 'JWS6WXYZJTISDEQTOT2I',
-
-      secretKey: 'u06l5Az4RTpsWuvmkqgwH2lFAxf3J4Lsch+hrEWgoXQ',
-    );
-
-    String projectName = "switchappvideos";
-
-    String region = "nyc3";
-
-    String folderName = "posts";
-
-    String fileName =
-        "switchapp_videomeme_${DateTime.now().microsecondsSinceEpoch}.mp4";
-
-    print("filename : : : : : : : $fileName");
-    String? etag = await spaces.bucket(projectName).uploadFile(
-          folderName + '/' + Constants.username + '/' + fileName,
-          file,
-          'videos',
-          dospace.Permissions.public,
-        );
-
-    print('upload: $etag');
-
-    String url = "https://" +
-        projectName +
-        "." +
-        region +
-        ".digitaloceanspaces.com/" +
-        folderName +
-        '/' +
-        Constants.username +
-        "/" +
-        fileName;
-
-    print('--- presigned url:');
-
-    print(url);
-
-    savePostInfoToFirebase(
-      type: widget.type,
-      url: url,
-      description: _captionText.text,
-    );
-    _captionText.clear();
-    setState(() {
-      file = null;
-      uploading = false;
-      postId = Uuid().v4();
-      isFile = false;
-    });
-  }
-
-  uploadVideo(videoFile) async {
-    FirebaseStorage storage = FirebaseStorage.instance;
-    Reference ref = storage.ref().child(
-        "UsersPosts/${Constants.myId}/${Constants.myEmail}/$postId/_${DateTime.now()}.mp4/");
-
-    UploadTask uploadTask = ref.putFile(videoFile);
-
-    uploadTask.whenComplete(() async {
-      String uploadUrl = await ref.getDownloadURL();
-      savePostInfoToFirebase(
-        type: widget.type,
-        url: uploadUrl,
-        description: _captionText.text,
-      );
-      _captionText.clear();
-      setState(() {
-        file = null;
-        uploading = false;
-        postId = Uuid().v4();
-        isFile = false;
-      });
-    });
   }
 
   savePostInfoToFirebase({
@@ -303,7 +455,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
       'type': type,
       'statusTheme': statusTheme,
     });
-    switchMemeCompRTD.child('live').child(widget.user.uid).set({
+    switchMemeCompRTD.child('live').child(widget.uid).set({
       'postId': postId,
       'ownerId': user.uid,
       "timestamp": DateTime.now().millisecondsSinceEpoch,
@@ -315,14 +467,14 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
     });
 
     switchMemeCompRTD
-        .child(widget.user.uid)
+        .child(widget.uid)
         .once()
         .then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.exists) {
 
         ///Slit is here
         // switchMemerSlitsRTD
-        //     .child(widget.user.uid)
+        //     .child(widget.uid)
         //     .once()
         //     .then((DataSnapshot dataSnapshot) {
         //   Map data = dataSnapshot.value;
@@ -331,7 +483,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
         //     slits = slits + 1000;
         //   });
         //   Future.delayed(const Duration(milliseconds: 100), () {
-        //     switchMemerSlitsRTD.child(widget.user.uid).update({
+        //     switchMemerSlitsRTD.child(widget.uid).update({
         //       'totalSlits': slits,
         //     });
         //     print("Slitsssssssssssssssssssssssssssssssssssssssss $slits");
@@ -339,7 +491,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
         // });
 
         switchMemeCompRTD
-            .child(widget.user.uid)
+            .child(widget.uid)
             .once()
             .then((DataSnapshot dataSnapshot) {
           Map data = dataSnapshot.value;
@@ -349,7 +501,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
           });
 
           Future.delayed(const Duration(milliseconds: 200), () {
-            switchMemeCompRTD.child(widget.user.uid).update({
+            switchMemeCompRTD.child(widget.uid).update({
               'takePart': takePart,
             });
             print("takepartssssssssssssssssssssssssssssssss $takePart");
@@ -377,11 +529,11 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
       } else {
 
         ///Slit is here
-        // switchMemerSlitsRTD.child(widget.user.uid).set({
+        // switchMemerSlitsRTD.child(widget.uid).set({
         //   'totalSlits': 1000,
         // });
 
-        switchMemeCompRTD.child(widget.user.uid).set({
+        switchMemeCompRTD.child(widget.uid).set({
           'takePart': 1,
         });
         Future.delayed(const Duration(milliseconds: 300), () {
@@ -406,10 +558,98 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
     });
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
+  /// Upload in DO via space
+
+  uploadInDOSpace(mImageFile) async {
+    // dospace.Spaces spaces = new dospace.Spaces(
+    //   //change with your project's region
+    //   region: "nyc3",
+    //   //change with your project's accessKey
+    //   accessKey: 'JWS6WXYZJTISDEQTOT2I',
+    //
+    //   secretKey: 'u06l5Az4RTpsWuvmkqgwH2lFAxf3J4Lsch+hrEWgoXQ',
+    // );
+    //
+    // String projectName = "switchappimages";
+    //
+    // String region = "nyc3";
+    //
+    // String folderName = "posts";
+    //
+    // String fileName =
+    //     "switchapp_image_${DateTime.now().microsecondsSinceEpoch}.jpg";
+    // print("filename : : : : : : : $fileName");
+    //
+    // String? etag = await spaces.bucket(projectName).uploadFile(
+    //       folderName + '/' + Constants.username + '/' + fileName,
+    //       file,
+    //       'images',
+    //       dospace.Permissions.public,
+    //     );
+    //
+    // print('upload: $etag');
+    //
+    // String url = "https://" +
+    //     projectName +
+    //     "." +
+    //     region +
+    //     ".digitaloceanspaces.com/" +
+    //     folderName +
+    //     '/' +
+    //     Constants.username +
+    //     "/" +
+    //     fileName;
+    //
+    // print('--- presigned url:');
+    //
+    // print(url);
+    // savePostInfoToFirebase(
+    //   type: widget.type,
+    //   url: url,
+    //   description: _captionText.text,
+    // );
+    _captionText.clear();
+    setState(() {
+      file = null;
+      uploading = false;
+      postId = Uuid().v4();
+      isFile = false;
+    });
+  }
+
+  uploadPhoto(mImageFile) async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    Reference ref = storage.ref().child(
+        "UsersPosts/${Constants.myId}/${Constants.myEmail}/$postId/_${DateTime.now()}.mp4/");
+
+    UploadTask uploadTask = ref.putFile(mImageFile);
+
+    uploadTask.whenComplete(() async {
+      String uploadUrl = await ref.getDownloadURL();
+      savePostInfoToFirebase(
+        type: widget.type,
+        url: uploadUrl,
+        description: _captionText.text,
+      );
+      _captionText.clear();
+      setState(() {
+        file = null;
+        uploading = false;
+        postId = Uuid().v4();
+        isFile = false;
+      });
+    });
+  }
+
+  compressImage() async {
+    final tDirectory = await getTemporaryDirectory();
+    final path = tDirectory.path;
+    ImD.Image? mImageFle = ImD.decodeImage(file!.readAsBytesSync());
+    final compressImage = File('$path/img_$postId.jpg')
+      ..writeAsBytesSync(ImD.encodeJpg(mImageFle!, quality: 90));
+    setState(() {
+      file = compressImage;
+    });
   }
 
   _statusTheme() {
@@ -584,165 +824,6 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return _ui();
-  }
-
-  Widget _ui() {
-    if (isFile == false) {
-      return Scaffold();
-    } else {
-      return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          leading: SizedBox(
-            height: 0,
-            width: 0,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => {
-                controllAndUploadData(),
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Text(
-                  "Upload",
-                  style: TextStyle(
-                    color: Colors.lightBlue,
-                    fontFamily: 'cute',
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            )
-          ],
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          elevation: 0,
-          title: Text(
-            "Upload Video",
-            style: TextStyle(color: Colors.blue, fontFamily: 'cute'),
-          ),
-        ),
-        body: ListView(
-          children: [
-            uploading
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      LinearProgressIndicator(),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Shimmer.fromColors(
-                          baseColor: Colors.grey.shade400,
-                          highlightColor: Colors.grey.shade200,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Center(
-                                child: Text(
-                              "Please wait, until uploading..",
-                              style: TextStyle(
-                                  color: Colors.lightBlue,
-                                  fontSize: 12,
-                                  fontFamily: 'cute'),
-                            )),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                : Container(
-                    height: 0,
-                    width: 0,
-                  ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 10),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: CircleAvatar(
-                      child: CircleAvatar(
-                        radius: 22,
-                        backgroundColor: Colors.grey,
-                        backgroundImage:
-                            CachedNetworkImageProvider(Constants.myPhotoUrl),
-                      ),
-                      radius: 23.5,
-                      backgroundColor: Colors.grey,
-                    ),
-                  ),
-                  Text(
-                    "  " + Constants.myName + " " + Constants.mySecondName,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontFamily: 'cute'),
-                  ),
-                ],
-              ),
-            ),
-            ListTile(
-              title: Center(
-                child: TextField(
-                  style: TextStyle(color: Colors.black),
-                  controller: _captionText,
-                  onChanged: (String text) {
-                    setState(() {
-                      _isComposing = text.length > 0;
-                    });
-                  },
-                  keyboardType: TextInputType.multiline,
-                  maxLines: 2,
-                  cursorHeight: 20,
-                  cursorColor: Colors.grey,
-                  decoration: InputDecoration.collapsed(
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    hintText: 'Write Here...',
-                    hintStyle: TextStyle(
-                      fontFamily: 'cute',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                      fontSize: 15,
-                    ),
-                  ),
-                  scrollPadding: EdgeInsets.all(20),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 2,
-            ),
-            Center(
-              child: _controller.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    )
-                  : Container(),
-            ),
-            _statusTheme()
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
-            });
-          },
-          child: Icon(
-            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-          ),
-        ),
-      );
-    }
-  }
-
   // This is ad Area for Switch Shot Meme
   ///*****///
 
@@ -752,7 +833,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
 
   void _intAd() {
     InterstitialAd.load(
-        adUnitId: "ca-app-pub-5525086149175557/2173166726",
+        adUnitId: "ca-app-pub-5525086149175557/9017776670",
         // adUnitId: "ca-app-pub-5525086149175557/7307056443",
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
@@ -768,7 +849,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
   //
   // void _initAd() {
   //   InterstitialAd.load(
-  //       adUnitId: 'ca-app-pub-5525086149175557/2173166726',
+  //       adUnitId: 'ca-app-pub-5525086149175557/9017776670',
   //       request: AdRequest(),
   //       adLoadCallback: InterstitialAdLoadCallback(
   //           onAdLoaded: onAdLoaded, onAdFailedToLoad: (error) {}));
@@ -780,11 +861,56 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
   //
   //   _interstitialAd.fullScreenContentCallback =
   //       FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
-  //     uploadViaDoSpace(file);
-  //
-  //     _interstitialAd.dispose();
+  //     switchMemeCompRTD
+  //         .child('live')
+  //         .child(widget.uid)
+  //         .once()
+  //         .then((DataSnapshot dataSnapshot) => {
+  //               if (dataSnapshot.exists)
+  //                 {
+  //                   Fluttertoast.showToast(
+  //                     msg: "You can post only 1 Meme in Competition",
+  //                     toastLength: Toast.LENGTH_LONG,
+  //                     gravity: ToastGravity.TOP,
+  //                     timeInSecForIosWeb: 10,
+  //                     backgroundColor: Colors.blue,
+  //                     textColor: Colors.white,
+  //                     fontSize: 14.0,
+  //                   ),
+  //                   Navigator.pop(context),
+  //                   Navigator.pop(context),
+  //                 }
+  //               else
+  //                 {
+  //                   uploadInDOSpace(file),
+  //                   _interstitialAd.dispose(),
+  //                 }
+  //             });
   //   }, onAdFailedToShowFullScreenContent: (ad, error) {
-  //     uploadViaDoSpace(file);
+  //     switchMemeCompRTD
+  //         .child('live')
+  //         .child(widget.uid)
+  //         .once()
+  //         .then((DataSnapshot dataSnapshot) => {
+  //               if (dataSnapshot.exists)
+  //                 {
+  //                   Fluttertoast.showToast(
+  //                     msg: "You can post only 1 Meme in Competition",
+  //                     toastLength: Toast.LENGTH_LONG,
+  //                     gravity: ToastGravity.TOP,
+  //                     timeInSecForIosWeb: 10,
+  //                     backgroundColor: Colors.blue,
+  //                     textColor: Colors.white,
+  //                     fontSize: 14.0,
+  //                   ),
+  //                   Navigator.pop(context),
+  //                   Navigator.pop(context),
+  //                 }
+  //               else
+  //                 {
+  //                   uploadInDOSpace(file),
+  //                 }
+  //             });
   //   });
   // }
 
@@ -800,7 +926,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
         context: context,
         builder: (context) {
           return Container(
-            height: MediaQuery.of(context).size.height / 1.5,
+            height: MediaQuery.of(context).size.height / 1.2,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -837,6 +963,7 @@ class _UploadFlickMemeState extends State<UploadFlickMeme> {
 
                           _interstitialAd.show();
                         }
+
                         Navigator.pop(context);
                         Navigator.pop(context);
                       },

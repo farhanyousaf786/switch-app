@@ -3094,7 +3094,7 @@ import 'package:switchapp/MainPages/Profile/body/profieDecency/Buttons/CrushPage
 import 'package:switchapp/MainPages/Profile/body/profieDecency/followerPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChat.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Universal/UniversalMethods.dart';
 import 'package:uuid/uuid.dart';

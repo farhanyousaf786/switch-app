@@ -1159,10 +1159,11 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
+import 'package:switchapp/MainPages/AllPosts/MemeAndStuff/memeCompetition/memeComp.dart';
 import 'package:switchapp/MainPages/Profile/MemePosts/MemePosts.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/rankingHorizontalList/rankingList.dart';
-import 'package:switchapp/MainPages/TimeLineSwitch/MainFeed/MainFeed.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/MainPages/AllPosts/MainFeed/MainFeed.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/surpriseMeme.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:uuid/uuid.dart';
@@ -1177,7 +1178,6 @@ import 'memeShowCase/memeShowCase.dart';
 import 'memerRanking/memeDecency.dart';
 import 'memerRanking/wwRanking.dart';
 import 'memerSearch/memerSearch.dart';
-import '../../TimeLineSwitch/MemeAndStuff/memeCompetition/memeComp.dart';
 
 UniversalMethods universalMethods = UniversalMethods();
 

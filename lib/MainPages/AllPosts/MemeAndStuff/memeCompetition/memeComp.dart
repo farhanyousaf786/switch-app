@@ -9,7 +9,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:switchapp/MainPages/TimeLineSwitch/MemeAndStuff/memeCompetition/participatePage.dart';
+import 'package:switchapp/MainPages/AllPosts/MemeAndStuff/memeCompetition/participatePage.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

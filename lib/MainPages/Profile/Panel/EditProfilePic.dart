@@ -167,13 +167,15 @@ import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
 
-
 class EditProfilePic extends StatefulWidget {
   final String imgUrl;
   final String uid;
 
-  EditProfilePic({required this.imgUrl,required this.uid,})
-  ;
+  EditProfilePic({
+    required this.imgUrl,
+    required this.uid,
+  });
+
   final DateTime timestamp = DateTime.now();
 
   @override
@@ -206,11 +208,11 @@ class _EditProfilePicState extends State<EditProfilePic> {
         centerTitle: true,
         title: Text(
           "Profile Picture",
-          style:
-          TextStyle(
-               fontWeight: FontWeight.bold,
-
-              color: Colors.white, fontFamily: "Cute", fontSize: 16),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontFamily: "Cute",
+              fontSize: 16),
         ),
         actions: [],
       ),
@@ -227,8 +229,10 @@ class _EditProfilePicState extends State<EditProfilePic> {
                   child: Text(
                     "Select Your Beautiful Picture",
                     style: TextStyle(
-                         fontWeight: FontWeight.bold,
-                        color: Colors.white, fontFamily: "Cute", fontSize: 12),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: "Cute",
+                        fontSize: 12),
                   ),
                 ),
                 SizedBox(
@@ -254,8 +258,7 @@ class _EditProfilePicState extends State<EditProfilePic> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Cute",
-                             fontWeight: FontWeight.bold,
-
+                            fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
                       onPressed: imageFromGallery,
@@ -266,8 +269,7 @@ class _EditProfilePicState extends State<EditProfilePic> {
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Cute",
-                             fontWeight: FontWeight.bold,
-
+                            fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
                       onPressed: pickImageFromCamera,
@@ -282,28 +284,27 @@ class _EditProfilePicState extends State<EditProfilePic> {
     );
   }
 
-  void  pickImageFromCamera() async {
-    // final ImagePicker _picker = ImagePicker();
+  final ImagePicker _picker = ImagePicker();
 
-    final File? pickedFile = await ImagePicker.pickImage(source: ImageSource.camera,  imageQuality: 100,
+  void pickImageFromCamera() async {
+    final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.camera,
+        imageQuality: 100,
         maxHeight: 680,
         maxWidth: 95);
-
-
-
 
     cropImage(pickedFile?.path);
   }
 
   void imageFromGallery() async {
-
-    final File? pickedFile = await ImagePicker.pickImage(      source: ImageSource.gallery,
+    final XFile? pickedFile = await _picker.pickImage(
+      source: ImageSource.gallery,
       imageQuality: 100,
       maxHeight: 2500,
-      maxWidth: 2500,);
+      maxWidth: 2500,
+    );
 
     cropImage(pickedFile?.path);
-
   }
 
   void cropImage(filePath) async {
@@ -326,8 +327,6 @@ class _EditProfilePicState extends State<EditProfilePic> {
       setState(() {});
     }
   }
-
-
 
   displayUploadFromScreen() {
     return DelayedDisplay(
@@ -354,9 +353,10 @@ class _EditProfilePicState extends State<EditProfilePic> {
           title: Text(
             "Profile Picture",
             style: TextStyle(
-                color: Colors.white,                                  fontWeight: FontWeight.bold,
-
-                fontFamily: "Cute", fontSize: 16),
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Cute",
+                fontSize: 16),
           ),
           actions: [],
         ),
@@ -364,7 +364,12 @@ class _EditProfilePicState extends State<EditProfilePic> {
           color: Colors.lightBlue,
           child: ListView(
             children: [
-              uploading ? LinearProgressIndicator() : Container(height: 0,width: 0,),
+              uploading
+                  ? LinearProgressIndicator()
+                  : Container(
+                      height: 0,
+                      width: 0,
+                    ),
               Container(
                 padding: EdgeInsets.all(30),
                 child: CircleAvatar(
@@ -385,8 +390,7 @@ class _EditProfilePicState extends State<EditProfilePic> {
                     style: TextStyle(
                         color: Colors.white,
                         fontFamily: "Cute",
-                         fontWeight: FontWeight.bold,
-
+                        fontWeight: FontWeight.bold,
                         fontSize: 10),
                   ),
                 ),
@@ -396,8 +400,10 @@ class _EditProfilePicState extends State<EditProfilePic> {
                   child: Text(
                     'Done',
                     style: TextStyle(
-                         fontWeight: FontWeight.bold,
-                        color: Colors.white, fontFamily: "Cute", fontSize: 15),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: "Cute",
+                        fontSize: 15),
                   ),
                   onPressed: () => controlUpload(),
                 ),
@@ -415,7 +421,6 @@ class _EditProfilePicState extends State<EditProfilePic> {
     });
 
     uploadPhoto(file);
-
   }
 
   savePostInfoToFirebase({
@@ -430,23 +435,19 @@ class _EditProfilePicState extends State<EditProfilePic> {
     });
 
     userRefForSearchRtd.child(widget.uid).update({
-
       'url': url,
-
     });
-
   }
 
   uploadPhoto(mImageFile) async {
-
     FirebaseStorage storage = FirebaseStorage.instance;
     String? url;
-    Reference ref = storage.ref().child("ProfilePictures/${widget.uid}/${Constants.myEmail}/_$postId.jpg/");
+    Reference ref = storage.ref().child(
+        "ProfilePictures/${widget.uid}/${Constants.myEmail}/_$postId.jpg/");
 
     UploadTask uploadTask = ref.putFile(mImageFile);
 
     uploadTask.whenComplete(() async {
-
       String uploadUrl = await ref.getDownloadURL();
       savePostInfoToFirebase(
         url: uploadUrl,
@@ -457,13 +458,8 @@ class _EditProfilePicState extends State<EditProfilePic> {
 
         Navigator.pop(context);
       });
-
     });
-
-
-
   }
-
 
   @override
   Widget build(BuildContext context) {

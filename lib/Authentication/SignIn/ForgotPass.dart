@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 
 class ForgotPass extends StatefulWidget {

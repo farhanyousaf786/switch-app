@@ -12,13 +12,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:minio/io.dart';
-import 'package:minio/minio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
-import 'package:switchapp/Models/bottomBarModel/congratsModel.dart';
+import 'package:switchapp/Models/BottomBarComp/congratsModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
 import 'package:image/image.dart' as ImD;
@@ -55,16 +53,18 @@ class _AddStatusState extends State<AddStatus> {
     _intAd();
     if (widget.type == "photo" || widget.type == "meme") imageFromGallery();
   }
+  final ImagePicker _picker = ImagePicker();
+
 
   imageFromGallery() async {
-    File imageFile = await ImagePicker.pickImage(
+    XFile? imageFile = await _picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 100,
       maxHeight: 2500,
       maxWidth: 2500,
     );
 
-    await cropImage(imageFile.path);
+    await cropImage(imageFile!.path);
   }
 
   cropImage(filePath) async {
@@ -117,10 +117,10 @@ class _AddStatusState extends State<AddStatus> {
             widget.type == "meme"
                 ? "Meme"
                 : widget.type == "photo"
-                    ? "Photo"
-                    : widget.type == "videoMeme"
-                        ? "Video Meme"
-                        : "Thoughts",
+                ? "Photo"
+                : widget.type == "videoMeme"
+                ? "Video Meme"
+                : "Thoughts",
             style: TextStyle(
               color: Colors.lightBlue.shade900,
               fontFamily: 'cute',
@@ -131,54 +131,54 @@ class _AddStatusState extends State<AddStatus> {
           actions: [
             isTextStatus
                 ? Container(
-                    height: 100,
-                    child: Center(
-                      child: TextButton(
-                        onPressed: uploading
-                            ? null
-                            : _isComposing
-                                ? () {
-                                    controllAndUploadData();
-                                  }
-                                : null,
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: Text(
-                            "Share",
-                            style: TextStyle(
-                              color: _isComposing
-                                  ? Colors.lightBlue
-                                  : Colors.blue.shade100,
-                              fontFamily: 'cute',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                : Container(
-                    height: 100,
-                    child: TextButton(
-                      onPressed: () => {
-                        controllAndUploadData(),
-                      },
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: Text(
-                            "Share",
-                            style: TextStyle(
-                              color: Colors.lightBlue.shade900,
-                              fontFamily: 'cute',
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
+              height: 100,
+              child: Center(
+                child: TextButton(
+                  onPressed: uploading
+                      ? null
+                      : _isComposing
+                      ? () {
+                    controllAndUploadData();
+                  }
+                      : null,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      "Share",
+                      style: TextStyle(
+                        color: _isComposing
+                            ? Colors.lightBlue
+                            : Colors.blue.shade100,
+                        fontFamily: 'cute',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
                     ),
                   ),
+                ),
+              ),
+            )
+                : Container(
+              height: 100,
+              child: TextButton(
+                onPressed: () => {
+                  controllAndUploadData(),
+                },
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      "Share",
+                      style: TextStyle(
+                        color: Colors.lightBlue.shade900,
+                        fontFamily: 'cute',
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
         body: statusBody());
@@ -209,7 +209,7 @@ class _AddStatusState extends State<AddStatus> {
                       radius: 22,
                       backgroundColor: Colors.grey,
                       backgroundImage:
-                          CachedNetworkImageProvider(Constants.myPhotoUrl),
+                      CachedNetworkImageProvider(Constants.myPhotoUrl),
                     ),
                     radius: 23.5,
                     backgroundColor: Colors.grey,
@@ -222,19 +222,19 @@ class _AddStatusState extends State<AddStatus> {
                       fontSize: 14,
                       color: Colors.black,
                       fontFamily: 'cute'
-                      // shadows: <Shadow>[
-                      //   Shadow(
-                      //     offset: Offset(0.5, 0.5),
-                      //     blurRadius: 3.0,
-                      //     color: Colors.black,
-                      //   ),
-                      //   Shadow(
-                      //     offset: Offset(0.5, 0.5),
-                      //     blurRadius: 3.0,
-                      //     color: Colors.black,
-                      //   ),
-                      // ],
-                      ),
+                    // shadows: <Shadow>[
+                    //   Shadow(
+                    //     offset: Offset(0.5, 0.5),
+                    //     blurRadius: 3.0,
+                    //     color: Colors.black,
+                    //   ),
+                    //   Shadow(
+                    //     offset: Offset(0.5, 0.5),
+                    //     blurRadius: 3.0,
+                    //     color: Colors.black,
+                    //   ),
+                    // ],
+                  ),
                 ),
               ],
             ),
@@ -279,7 +279,7 @@ class _AddStatusState extends State<AddStatus> {
                   elevation: 0.0,
                   primary: Colors.red,
                   textStyle:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             ),
           ),
         ],
@@ -293,9 +293,9 @@ class _AddStatusState extends State<AddStatus> {
         uploading
             ? LinearProgressIndicator()
             : Container(
-                height: 0,
-                width: 0,
-              ),
+          height: 0,
+          width: 0,
+        ),
         Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: Row(
@@ -307,7 +307,7 @@ class _AddStatusState extends State<AddStatus> {
                     radius: 22,
                     backgroundColor: Colors.grey,
                     backgroundImage:
-                        CachedNetworkImageProvider(Constants.myPhotoUrl),
+                    CachedNetworkImageProvider(Constants.myPhotoUrl),
                   ),
                   radius: 23.5,
                   backgroundColor: Colors.grey,
@@ -385,7 +385,7 @@ class _AddStatusState extends State<AddStatus> {
                 elevation: 0.0,
                 primary: Colors.red,
                 textStyle:
-                    TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           ),
         ),
       ],
@@ -502,27 +502,27 @@ class _AddStatusState extends State<AddStatus> {
       //change with your project's region
       region: "nyc3",
       //change with your project's accessKey
-      accessKey: 'JWS6WXYZJTISDEQTOT2I',
+      accessKey: Constants.ak,
 
-      secretKey: 'u06l5Az4RTpsWuvmkqgwH2lFAxf3J4Lsch+hrEWgoXQ',
+      secretKey: Constants.sk,
     );
 
-    String projectName = "switchappimages";
+    String projectName = "switchapp";
 
     String region = "nyc3";
 
     String folderName = "posts";
 
     String fileName =
-        "switchapp_image_${DateTime.now().microsecondsSinceEpoch}.jpg";
-    print("filename : : : : : : : $fileName");
+        "switchapp_images_${DateTime.now().microsecondsSinceEpoch}.jpg";
 
+    print("filename : : : : : : : $fileName");
     String? etag = await spaces.bucket(projectName).uploadFile(
-          folderName + '/' + Constants.username + '/' + fileName,
-          file,
-          'images',
-          dospace.Permissions.public,
-        );
+      "images" +  "/" + folderName + '/' + Constants.username + '/' + fileName,
+      file,
+      'images',
+      dospace.Permissions.public,
+    );
 
     print('upload: $etag');
 
@@ -530,7 +530,7 @@ class _AddStatusState extends State<AddStatus> {
         projectName +
         "." +
         region +
-        ".digitaloceanspaces.com/" +
+        ".digitaloceanspaces.com/" + 'images' + "/"+
         folderName +
         '/' +
         Constants.username +
@@ -538,6 +538,7 @@ class _AddStatusState extends State<AddStatus> {
         fileName;
 
     print('--- presigned url:');
+
 
     print(url);
     savePostInfoToFirebase(
@@ -824,7 +825,7 @@ class _AddStatusState extends State<AddStatus> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                 BarTop(),
+                  BarTop(),
                   SizedBox(
                     height: 10,
                   ),
@@ -835,7 +836,7 @@ class _AddStatusState extends State<AddStatus> {
                       style: TextStyle(
                           fontSize: 17,
                           fontFamily: "cute",
-                           fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: Colors.green.shade900),
                     ),
                   ),
@@ -901,12 +902,12 @@ class _AddStatusState extends State<AddStatus> {
                         Container(
                             child: Flexible(
                                 child: Text(
-                          "Where to find my uploaded MEME(Shot/Flick)?",
-                          style: TextStyle(
-                              color: Colors.lightBlue,
-                              fontFamily: 'cute',
-                              fontSize: 17),
-                        ))),
+                                  "Where to find my uploaded MEME(Shot/Flick)?",
+                                  style: TextStyle(
+                                      color: Colors.lightBlue,
+                                      fontFamily: 'cute',
+                                      fontSize: 17),
+                                ))),
                       ],
                     ),
                   ),
@@ -935,12 +936,12 @@ class _AddStatusState extends State<AddStatus> {
                         Container(
                             child: Flexible(
                                 child: Text(
-                          "Where to find my uploaded Thoughts and Photo?",
-                          style: TextStyle(
-                              color: Colors.lightBlue,
-                              fontFamily: 'cute',
-                              fontSize: 17),
-                        ))),
+                                  "Where to find my uploaded Thoughts and Photo?",
+                                  style: TextStyle(
+                                      color: Colors.lightBlue,
+                                      fontFamily: 'cute',
+                                      fontSize: 17),
+                                ))),
                       ],
                     ),
                   ),
@@ -972,5 +973,4 @@ class _AddStatusState extends State<AddStatus> {
 
 //https://nyc3.digitaloceanspaces.com/switchappimages/posts/switchapp/img_9af5bce7-aacb-4b87-8c5c-282d10a2e9ee.jpg
 //https://switchappimages.nyc3.digitaloceanspaces.com/posts/switchapp/img_9af5bce7-aacb-4b87-8c5c-282d10a2e9ee.jpg
-
 //https://switchappimages.nyc3.digitaloceanspaces.com/posts/switchapp/img_9af5bce7-aacb-4b87-8c5c-282d10a2e9ee.jpg

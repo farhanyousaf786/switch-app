@@ -2019,7 +2019,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rive/rive.dart';
 import 'package:switchapp/MainPages/switchChat/MessageDatabase.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
@@ -2733,31 +2733,30 @@ class _SwitchChatComposerState extends State<SwitchChatComposer> {
 
   String? imageUrl;
   late File file;
+  final ImagePicker _picker = ImagePicker();
 
   _sendImageFromCamera() async {
-    File imageFile = await ImagePicker.pickImage(
+    XFile? imageFile = await _picker.pickImage(
       source: ImageSource.camera,
       imageQuality: 100,
       maxHeight: 680,
       maxWidth: 950,
     );
     setState(() {
-      file = imageFile;
+      file = imageFile?.path as File;
     });
 
     modalBottomSheetForOptions();
   }
 
   imageFromGallery() async {
-    File imageFile = await ImagePicker.pickImage(
+    final XFile? imageFile = await _picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 100,
       maxHeight: 2500,
       maxWidth: 2500,
     );
-    setState(() {
-      file = imageFile;
-    });
+    cropImage(imageFile?.path);
     modalBottomSheetForOptions();
   }
 

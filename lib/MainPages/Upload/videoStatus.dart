@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:dospace/dospace.dart' as dospace;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -10,11 +9,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
 import 'package:video_player/video_player.dart';
+import 'package:dospace/dospace.dart' as dospace;
+
 
 class VideoStatus extends StatefulWidget {
   final String type;
@@ -48,12 +49,19 @@ class _VideoStatusState extends State<VideoStatus> {
     pickVideo();
   }
 
+
+
+
+  final ImagePicker _picker = ImagePicker();
+
   pickVideo() async {
-    File videoFile = await ImagePicker.pickVideo(
+    final XFile? videoFile = await _picker.pickVideo(
       source: ImageSource.gallery,
     );
 
-    _controller = VideoPlayerController.file(videoFile)
+    file = File(videoFile!.path);
+
+    _controller = VideoPlayerController.file(file!)
       ..initialize().then((_) {
         print("position::::" + "${_controller.value.duration}");
 
@@ -129,7 +137,7 @@ class _VideoStatusState extends State<VideoStatus> {
               });
         } else {
           setState(() {
-            file = videoFile;
+            file = file;
             isFile = true;
           });
         }
@@ -160,35 +168,33 @@ class _VideoStatusState extends State<VideoStatus> {
   /// WASABAI EP:  s3.wasabisys.com
   ///  accessKey: '0R2UZA8CI7Q83OUAGPTV',
   ///  secretKey: '1T2PhWnnYRfeZscRkbTMTu7Bn9Ywm8jw4pSrlH0B',
-
   /// Upload Via DoSpace
-
   uploadViaDoSpace(file) async {
     dospace.Spaces spaces = new dospace.Spaces(
       //change with your project's region
       region: "nyc3",
       //change with your project's accessKey
-      accessKey: 'JWS6WXYZJTISDEQTOT2I',
+      accessKey: Constants.ak,
 
-      secretKey: 'u06l5Az4RTpsWuvmkqgwH2lFAxf3J4Lsch+hrEWgoXQ',
+      secretKey: Constants.sk,
     );
 
-    String projectName = "switchappvideos";
+    String projectName = "switchapp";
 
     String region = "nyc3";
 
     String folderName = "posts";
 
     String fileName =
-        "switchapp_videomeme_${DateTime.now().microsecondsSinceEpoch}.mp4";
+        "switchapp_video_${DateTime.now().microsecondsSinceEpoch}.mp4";
 
     print("filename : : : : : : : $fileName");
     String? etag = await spaces.bucket(projectName).uploadFile(
-          folderName + '/' + Constants.username + '/' + fileName,
-          file,
-          'videos',
-          dospace.Permissions.public,
-        );
+     "videos"+  "/" + folderName + '/' + Constants.username + '/' + fileName,
+      file,
+      'videos',
+      dospace.Permissions.public,
+    );
 
     print('upload: $etag');
 
@@ -196,7 +202,7 @@ class _VideoStatusState extends State<VideoStatus> {
         projectName +
         "." +
         region +
-        ".digitaloceanspaces.com/" +
+        ".digitaloceanspaces.com/" + "videos"+  "/" +
         folderName +
         '/' +
         Constants.username +
@@ -244,6 +250,8 @@ class _VideoStatusState extends State<VideoStatus> {
       });
     });
   }
+
+
 
   savePostInfoToFirebase({
     required String description,
@@ -850,3 +858,6 @@ class _VideoStatusState extends State<VideoStatus> {
         });
   }
 }
+
+
+

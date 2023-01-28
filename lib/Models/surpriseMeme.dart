@@ -3,11 +3,9 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
-import 'package:switchapp/Models/BottomBar/topBar.dart';
+import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/learning/video_widget.dart';
 import 'package:video_player/video_player.dart';
-
-import '../MainPages/TimeLineSwitch/MainFeed/CacheImageTemplate.dart';
 
 class SurpriseMeme extends StatefulWidget {
   final String url;
