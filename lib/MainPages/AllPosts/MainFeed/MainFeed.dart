@@ -10,54 +10,33 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
-import 'package:lottie/lottie.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:rive/rive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/AdminPage/adminPage.dart';
+import 'package:switchapp/MainPages/FrontSlide/MainiaTopic.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
-import 'package:switchapp/MainPages/AllPosts/SwitchFavourites/SwitchFav.dart';
-import 'package:switchapp/MainPages/AllPosts/meme_Only/memes_Only.dart';
-import 'package:switchapp/MainPages/AllPosts/notificationPage/BottomBarNotify.dart';
-import 'package:switchapp/MainPages/Upload/videoStatus.dart';
-import 'package:switchapp/MainPages/mood/moodUi.dart';
+import 'package:switchapp/MainPages/AllPosts/memeOnly/memes_Only.dart';
+import 'package:switchapp/MainPages/notificationPage/BottomBarNotify.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/Marquee.dart';
-import 'package:switchapp/Themes/switchThemes.dart';
-import 'package:switchapp/Themes/theme_services.dart';
 import 'package:switchapp/Universal/UniversalMethods.dart';
 import '../../../Models/appIntro.dart';
 import 'package:switchapp/Models/postModel/CommentsPage.dart';
 import 'package:switchapp/Models/postModel/PostsReactCounters.dart';
 import 'package:switchapp/Models/postModel/TextStatus.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
-import 'package:switchapp/learning/video_widget.dart';
+import 'package:switchapp/Models/VideoWidget/video_widget.dart';
 import 'package:time_formatter/time_formatter.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../Authentication/UserAgreement/userAgreementPage.dart';
 import '../MemeAndStuff/memeCompetition/memeComp.dart';
-import '../MemeAndStuff/memeCompetition/participatePage.dart';
-import '../SwitchUpdates/SwitchUpdates.dart';
 import '../YourFeed/YourFeed.dart';
-import '../notificationPage/NotificationItem.dart';
 import '../profileIconAndName/profileIconAndName.dart';
-import '../mainiaTopics/MainiaTopic.dart';
-import '../updatesPage/updatesPage.dart';
-import '../../Profile/Panel/EditProfilePic.dart';
-import '../../Profile/memeProfile/Meme-profile.dart';
 import '../../ReportAndComplaints/postReportPage.dart';
 import '../../ReportAndComplaints/reportId.dart';
-import '../../SearchPages/MainSearchPage.dart';
-import '../../Upload/addStatuse.dart';
-import '../../mood/moodPage.dart';
-import '../../worldChat/worldChat.dart';
-import 'CacheImageTemplate.dart';
 
 UniversalMethods universalMethods = UniversalMethods();
 final appIntro = new AppIntro();
@@ -461,7 +440,7 @@ class _MainFeedState extends State<MainFeed> {
         child: DelayedDisplay(
           delay: Duration(milliseconds: 600),
           slidingBeginOffset: Offset(0.0, 1),
-          child: ManiaTopic(),
+          child: FrontSlide(),
         ),
       );
     } else {
@@ -1332,7 +1311,7 @@ class _MainFeedState extends State<MainFeed> {
                                                     description: description)
                                                 : type == "videoMeme" ||
                                                         type == "videoMemeT"
-                                                    ? _videoPosts(index)
+                                                    ? videoPosts(index)
                                                     : imagePosts(index),
 
                                             type == "thoughts"
@@ -3715,28 +3694,23 @@ class _MainFeedState extends State<MainFeed> {
         radius: 15));
   }
 
-  _videoPosts(int index) {
-    return Container(
-      height: 360.0,
-      alignment: Alignment.center,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            return InViewNotifierWidget(
-              id: '$index',
-              builder: (BuildContext context, bool isInView, Widget? child) {
-                print("in virew>>>>>>>>>>>>>>>>>>>>> $isInView");
-                return VideoWidget(
-                  // remove (== true ? false :false,) to make it in-view
-                  play: isInView == true ? false : false,
-                  url: limitedPostList[index]['url'],
-                  time: limitedPostList[index]['timestamp'],
-                );
-              },
-            );
-          },
-        ),
+  videoPosts(int index) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8, right: 8),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return InViewNotifierWidget(
+            id: '$index',
+            builder: (BuildContext context, bool isInView, Widget? child) {
+              return VideoWidget(
+                // remove (== true ? false :false,) to make it in-view
+                play: isInView == true ? false : false,
+                url: limitedPostList[index]['url'],
+                time: limitedPostList[index]['timestamp'],
+              );
+            },
+          );
+        },
       ),
     );
   }

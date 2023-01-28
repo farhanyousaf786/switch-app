@@ -114,6 +114,7 @@ dependencies:
   tutorial_coach_mark: ^1.0.3
 #  minio: ^3.5.0
 #  dolinode_space: any
+  cached_video_player: ^2.0.3
 
 
 

@@ -7,12 +7,12 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ManiaTopic extends StatefulWidget {
+class FrontSlide extends StatefulWidget {
   @override
-  _ManiaTopicState createState() => _ManiaTopicState();
+  _FrontSlideState createState() => _FrontSlideState();
 }
 
-class _ManiaTopicState extends State<ManiaTopic> {
+class _FrontSlideState extends State<FrontSlide> {
   Map? topicMap;
   List? topicList = [];
   bool loading = true;

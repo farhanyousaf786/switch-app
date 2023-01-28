@@ -4721,83 +4721,90 @@ class _BodyState extends State<Body> {
 
   _relationshipStatusForOwnProfile() {
     return Container(
+
       child: Column(
         children: [
           inRelationShipForOwnProfile
-              ? GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      loading = true;
-                    });
+              ? Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Container(
+            color: Colors.lightBlue.withOpacity(0.09),
+                  child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          loading = true;
+                        });
 
-                    getUserData(inRelationshipWithId);
-                    Future.delayed(const Duration(seconds: 1), () {
-                      setState(() {
-                        loading = false;
-                      });
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Provider<User>.value(
-                            value: widget.user,
-                            child: SwitchProfile(
-                              currentUserId: widget.user.uid,
-                              mainProfileUrl: memerMap['url'],
-                              mainFirstName: memerMap['firstName'],
-                              profileOwner: memerMap['ownerId'],
-                              mainSecondName: memerMap['secondName'],
-                              mainCountry: memerMap['country'],
-                              mainDateOfBirth: memerMap['dob'],
-                              mainAbout: memerMap['about'],
-                              mainEmail: memerMap['email'],
-                              mainGender: memerMap['gender'],
-                              username: memerMap['username'],
-                              isVerified: memerMap['isVerified'],
-                              action: 'profile',
-                              user: widget.user,
+                        getUserData(inRelationshipWithId);
+                        Future.delayed(const Duration(seconds: 1), () {
+                          setState(() {
+                            loading = false;
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Provider<User>.value(
+                                value: widget.user,
+                                child: SwitchProfile(
+                                  currentUserId: widget.user.uid,
+                                  mainProfileUrl: memerMap['url'],
+                                  mainFirstName: memerMap['firstName'],
+                                  profileOwner: memerMap['ownerId'],
+                                  mainSecondName: memerMap['secondName'],
+                                  mainCountry: memerMap['country'],
+                                  mainDateOfBirth: memerMap['dob'],
+                                  mainAbout: memerMap['about'],
+                                  mainEmail: memerMap['email'],
+                                  mainGender: memerMap['gender'],
+                                  username: memerMap['username'],
+                                  isVerified: memerMap['isVerified'],
+                                  action: 'profile',
+                                  user: widget.user,
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 23,
+                              top: 10,
+                              bottom: 15,
+                            ),
+                            child: Text(
+                              "In Love with",
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'cute',
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    });
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 23,
-                          top: 10,
-                          bottom: 15,
-                        ),
-                        child: Text(
-                          "In Love with",
-                          style: TextStyle(
-                            color: Colors.lightBlue,
-                            fontSize: 14,
-                            fontFamily: 'cute',
+                          Padding(
+                            padding: const EdgeInsets.only(right: 25),
+                            child: Text(
+                              "$inRelationShipWithFirstNameToShow ",
+                              maxLines: 3,
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.pink,
+                                fontFamily: 'cute',
+                                 fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 25),
-                        child: Text(
-                          "$inRelationShipWithFirstNameToShow "
-                          "$inRelationShipWithSecondNameToShow",
-                          maxLines: 3,
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.pink,
-                            fontFamily: 'cute',
-                             fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
+                    ),
+                ),
+              )
               : GestureDetector(
                   onTap: () => print("Tapped"),
                   child: Container(
@@ -5529,6 +5536,9 @@ class _BodyState extends State<Body> {
   _breakUpOption() {
     if (inRelationShip) {
       return Container(
+        decoration: BoxDecoration(
+            color: Colors.lightBlue.withOpacity(0.09)
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -5550,6 +5560,7 @@ class _BodyState extends State<Body> {
                   style: TextStyle(
                     fontFamily: 'cute',
                     color: Colors.red,
+                    fontWeight: FontWeight.bold,
                     fontSize: 13,
                   ),
                 ),
@@ -5769,7 +5780,7 @@ class _BodyState extends State<Body> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Center(
                                     child: Text(
-                                      "Kindly think again. Love is rare :(:, Life is short.",
+                                      "Kindly think again. Love is rare :(: - Life is short.",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 12,

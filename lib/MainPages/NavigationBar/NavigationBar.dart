@@ -328,8 +328,8 @@ class _NavigationPageState extends State<NavigationPage>
             height: MediaQuery.of(context).size.height / 1.2,
             child: Scaffold(
               appBar: AppBar(
-                  backgroundColor: Colors.blue,
-                  elevation: 2.0,
+                  backgroundColor: Colors.lightBlue,
+                  elevation: 0.0,
                   title: Text(
                     "Add to Timeline",
                     style: TextStyle(
@@ -682,8 +682,8 @@ class _NavigationPageState extends State<NavigationPage>
             height: MediaQuery.of(context).size.height / 1.2,
             child: Scaffold(
               appBar: AppBar(
-                  backgroundColor: Colors.blue,
-                  elevation: 2.0,
+                  backgroundColor: Colors.lightBlue,
+                  elevation: 0.0,
                   title: Text(
                     "Add Your MEME",
                     style: TextStyle(

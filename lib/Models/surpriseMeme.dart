@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
-import 'package:switchapp/learning/video_widget.dart';
+import 'package:switchapp/Models/VideoWidget/video_widget.dart';
 import 'package:video_player/video_player.dart';
 
 class SurpriseMeme extends StatefulWidget {

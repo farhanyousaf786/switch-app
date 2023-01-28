@@ -50,8 +50,6 @@ class _VideoStatusState extends State<VideoStatus> {
   }
 
 
-
-
   final ImagePicker _picker = ImagePicker();
 
   pickVideo() async {

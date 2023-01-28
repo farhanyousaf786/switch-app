@@ -1144,9 +1144,7 @@
 ///
 
 /// code 2065 error
-import 'dart:ffi';
 import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -1167,7 +1165,6 @@ import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/surpriseMeme.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:uuid/uuid.dart';
-
 import '../../../Universal/Constans.dart';
 import '../../../Universal/DataBaseRefrences.dart';
 import '../../../Universal/UniversalMethods.dart';
@@ -3798,7 +3795,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   padding: const EdgeInsets.all(5.0),
                   child: Container(
                     height: 100,
-                    width: MediaQuery.of(context).size.width / 1.3,
+                    width: MediaQuery.of(context).size.width / 1.1,
                     child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -3808,28 +3805,28 @@ class _MemeProfileState extends State<MemeProfile> {
                         }),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MemerSearch(
-                          memerList: allMemerList,
-                          user: widget.user,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 8, left: 2),
-                    child: Text("View All",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'cute',
-                          fontWeight: FontWeight.bold,
-                        )),
-                  ),
-                )
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => MemerSearch(
+                //           memerList: allMemerList,
+                //           user: widget.user,
+                //         ),
+                //       ),
+                //     );
+                //   },
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(right: 8, left: 2),
+                //     child: Text("View All",
+                //         style: TextStyle(
+                //           fontSize: 12,
+                //           fontFamily: 'cute',
+                //           fontWeight: FontWeight.bold,
+                //         )),
+                //   ),
+                // )
               ],
             ),
           );

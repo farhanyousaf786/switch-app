@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
-import 'package:switchapp/MainPages/AllPosts/MainFeed/CacheImageTemplate.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/Constans.dart';
@@ -21,7 +20,7 @@ import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/postModel/CommentsPage.dart';
 import 'package:switchapp/Models/postModel/PostsReactCounters.dart';
 import 'package:switchapp/Models/postModel/TextStatus.dart';
-import 'package:switchapp/learning/video_widget.dart';
+import 'package:switchapp/Models/VideoWidget/video_widget.dart';
 import 'package:time_formatter/time_formatter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../Universal/DataBaseRefrences.dart';
@@ -265,7 +264,7 @@ class _AllParticipantsState extends State<AllParticipants> {
                                                           bool isInView,
                                                           Widget? child) {
                                                     return VideoWidget(
-                                                        play: isInView,
+                                                      play: isInView == true ? false : false,
                                                         url: limitedMemeList![
                                                             index]['url'],
                                                       time: limitedMemeList![index]['timestamp'],

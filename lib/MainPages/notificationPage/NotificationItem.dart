@@ -16,8 +16,8 @@ import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:switchapp/Universal/UniversalMethods.dart';
 import 'package:time_formatter/time_formatter.dart';
 
-import '../../../Models/SwitchCacheImg/SwitchImageCache.dart';
-import '../../../Models/postModel/SinglePostDetail.dart';
+import '../../Models/SwitchCacheImg/SwitchImageCache.dart';
+import '../../Models/postModel/SinglePostDetail.dart';
 
 class BuildItemForNotification extends StatefulWidget {
   final Map data;

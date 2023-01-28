@@ -36,8 +36,7 @@ import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:time_formatter/time_formatter.dart';
 
-import '../../../learning/video_widget.dart';
-import '../MainFeed/CacheImageTemplate.dart';
+import '../../../Models/VideoWidget/video_widget.dart';
 
 class MemesOnly extends StatefulWidget {
   late final User user;
@@ -2334,7 +2333,10 @@ class _MemesOnlyState extends State<MemesOnly> {
               id: '$index',
               builder: (BuildContext context, bool isInView, Widget? child) {
                 return VideoWidget(
-                    play: isInView, url: limitedPostList[index]['url'],
+
+                  play: isInView == true ? false : false,
+
+                  url: limitedPostList[index]['url'],
                   time: limitedPostList[index]['timestamp'],
                 );
               },
