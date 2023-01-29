@@ -19,6 +19,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
+import 'package:switchapp/Models/FollowPage/FollowPage.dart';
 import '../../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
@@ -112,9 +113,10 @@ class _YourFeedState extends State<YourFeed> {
                     child: Text(
                       "Important",
                       style: TextStyle(
-                           fontWeight: FontWeight.bold,
-
-                          fontSize: 22, fontFamily: "cute", color: Colors.red),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          fontFamily: "cute",
+                          color: Colors.red),
                     ),
                   ),
                   Padding(
@@ -157,7 +159,7 @@ class _YourFeedState extends State<YourFeed> {
                     child: GestureDetector(
                       onTap: () async {
                         SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
+                            await SharedPreferences.getInstance();
                         prefs.setInt("aboutYourFeed", 2);
 
                         Navigator.pop(context);
@@ -175,7 +177,7 @@ class _YourFeedState extends State<YourFeed> {
                             child: Text(
                               "Do not show again",
                               style:
-                              TextStyle(color: Colors.white, fontSize: 15),
+                                  TextStyle(color: Colors.white, fontSize: 15),
                             ),
                           ),
                         ),
@@ -208,12 +210,9 @@ class _YourFeedState extends State<YourFeed> {
     userFollowingRtd.child(uid).once().then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         Map data = dataSnapshot.value;
-
         data.forEach(
             (index, data) => followingList.add({"key": index, ...data}));
-
         if (mounted) setState(() {});
-
         Future.delayed(const Duration(milliseconds: 500), () {
           getFirstPostList();
         });
@@ -259,13 +258,17 @@ class _YourFeedState extends State<YourFeed> {
             .child("${limitedUserLists[i]['followingId']}")
             .child("usersPost")
             .orderByChild("timestamp")
-            .limitToLast(2)
+            .limitToLast(3)
             .once()
             .then((DataSnapshot dataSnapshot) {
           if (dataSnapshot.value != null) {
             data2 = dataSnapshot.value;
             data2.forEach(
-                (index, data2) => userPosts.add({"key": index, ...data2}));
+              (index, data2) => userPosts.add({"key": index, ...data2}),
+            );
+            userPosts.sort((a, b) {
+              return b["timestamp"].compareTo(a["timestamp"]);
+            });
             if (mounted) setState(() {});
           }
         });
@@ -289,6 +292,9 @@ class _YourFeedState extends State<YourFeed> {
             data2 = dataSnapshot.value;
             data2.forEach(
                 (index, data2) => userPosts.add({"key": index, ...data2}));
+            userPosts.sort((a, b) {
+              return b["timestamp"].compareTo(a["timestamp"]);
+            });
             if (mounted) setState(() {});
           }
         });
@@ -349,7 +355,9 @@ class _YourFeedState extends State<YourFeed> {
 
               data2.forEach(
                   (index, data2) => userPosts.add({"key": index, ...data2}));
-
+              userPosts.sort((a, b) {
+                return b["timestamp"].compareTo(a["timestamp"]);
+              });
               // userPosts.sort((a, b) {
               //   return b["timestamp"].compareTo(a["timestamp"]);
               // });
@@ -461,115 +469,99 @@ class _YourFeedState extends State<YourFeed> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Center(
-                child: SpinKitThreeBounce(
-              color: Colors.lightBlue,
-              size: 15,
-            )),
-          )
-        : followingList.length == 0
-            ? Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Center(
-                    child: Text(
-                        "This section will show the posts from the user you following. So, follow someone to watch post of them.")),
-              )
-            : Expanded(
-                child: Stack(
-                  children: [
-                    ListView.separated(
-                        controller: listScrollController,
-                        shrinkWrap: true,
-                        itemCount:
-                            _hasMore ? userPosts.length + 1 : userPosts.length,
-                        itemBuilder: (context, index) {
-                          if (index >= userPosts.length) {
-                            // Don't trigger if one async loading is already under way
-                            return Center(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(bottom: 3, top: 3),
-                                child: SizedBox(
-                                  child: Column(
-                                    children: [
-                                      SpinKitThreeBounce(
-                                        size: 14,
-                                        color: Colors.grey,
-                                      ),
-                                    ],
+        ? Expanded(child: FollowPage(user: widget.user,))
+        : Expanded(
+            child: Stack(
+              children: [
+                ListView.separated(
+                    controller: listScrollController,
+                    shrinkWrap: true,
+                    itemCount:
+                        _hasMore ? userPosts.length + 1 : userPosts.length,
+                    itemBuilder: (context, index) {
+                      if (index >= userPosts.length) {
+                        // Don't trigger if one async loading is already under way
+                        return Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 3, top: 3),
+                            child: SizedBox(
+                              child: Column(
+                                children: [
+                                  SpinKitThreeBounce(
+                                    size: 14,
+                                    color: Colors.grey,
                                   ),
-                                  height: 100,
-                                  width: 120,
-                                ),
+                                ],
                               ),
-                            );
-                          }
-
-                          return postsWidget(
-                            index,
-                            userPosts,
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return Container(
-                            child: index == 0
-                                ? Padding(
-                                    padding: const EdgeInsets.only(top: 12),
-                                    child: nativeAdWidget(),
-                                  )
-                                : Container(
-                                    height: 0,
-                                    width: 0,
-                                  ),
-                          );
-                        }),
-                    _visible
-                        ? DelayedDisplay(
-                            delay: Duration(milliseconds: 200),
-                            slidingBeginOffset: Offset(0.0, 1),
-                            child: GestureDetector(
-                              onTap: () {
-                                if (listScrollController.hasClients) {
-                                  final position = listScrollController
-                                      .position.minScrollExtent;
-                                  listScrollController.animateTo(
-                                    position,
-                                    duration: Duration(seconds: 1),
-                                    curve: Curves.easeOut,
-                                  );
-                                }
-                              },
-                              child: Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                          color: Colors.lightBlue.withOpacity(0.7),
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                            child: Icon(
-                                          Icons.arrow_upward_sharp,
-                                          size: 17,
-                                        )),
-                                      ),
-                                    ),
-                                  )),
+                              height: 100,
+                              width: 120,
                             ),
-                          )
-                        : Container(
-                            height: 0.0,
-                            width: 0.0,
                           ),
-                  ],
-                ),
-              );
+                        );
+                      }
+
+                      return postsWidget(
+                        index,
+                        userPosts,
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return Container(
+                        child: index == 0
+                            ? Padding(
+                                padding: const EdgeInsets.only(top: 12),
+                                child: nativeAdWidget(),
+                              )
+                            : Container(
+                                height: 0,
+                                width: 0,
+                              ),
+                      );
+                    }),
+                _visible
+                    ? DelayedDisplay(
+                        delay: Duration(milliseconds: 200),
+                        slidingBeginOffset: Offset(0.0, 1),
+                        child: GestureDetector(
+                          onTap: () {
+                            if (listScrollController.hasClients) {
+                              final position =
+                                  listScrollController.position.minScrollExtent;
+                              listScrollController.animateTo(
+                                position,
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeOut,
+                              );
+                            }
+                          },
+                          child: Align(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      color: Colors.lightBlue.withOpacity(0.7),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                        child: Icon(
+                                      Icons.arrow_upward_sharp,
+                                      size: 17,
+                                    )),
+                                  ),
+                                ),
+                              )),
+                        ),
+                      )
+                    : Container(
+                        height: 0.0,
+                        width: 0.0,
+                      ),
+              ],
+            ),
+          );
   }
 
   Widget postsWidget(
@@ -625,7 +617,7 @@ class _YourFeedState extends State<YourFeed> {
               mainDateOfBirth: data['dob'],
             ),
           ),
-         ),
+        ),
       );
     });
   }
@@ -708,7 +700,7 @@ class _YourFeedState extends State<YourFeed> {
                               style: TextStyle(
                                   fontSize: 14,
                                   fontFamily: "cute",
-                                   fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
                           ),
@@ -725,7 +717,7 @@ class _YourFeedState extends State<YourFeed> {
                                 style: TextStyle(
                                     fontSize: 12,
                                     fontFamily: "cute",
-                                     fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.lightBlue),
                               ))
                         ],
@@ -807,7 +799,8 @@ class _YourFeedState extends State<YourFeed> {
                                                       child: Text(
                                                         'Caption',
                                                         style: TextStyle(
-                                                          color: Colors.lightBlue,
+                                                          color:
+                                                              Colors.lightBlue,
                                                           fontFamily: 'cute',
                                                           fontSize: 18,
                                                         ),
@@ -832,8 +825,7 @@ class _YourFeedState extends State<YourFeed> {
                                   child: Text(
                                     "Read More...",
                                     style: TextStyle(
-                                        fontSize: 12,
-                                        fontFamily: 'cute'),
+                                        fontSize: 12, fontFamily: 'cute'),
                                   ),
                                 ),
                               ],
@@ -1418,7 +1410,7 @@ class _YourFeedState extends State<YourFeed> {
                       style: TextStyle(
                           fontSize: 15,
                           fontFamily: "cute",
-                           fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: Colors.red),
                     ),
                   ),
@@ -1433,7 +1425,7 @@ class _YourFeedState extends State<YourFeed> {
                             style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: "cute",
-                                 fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           onTap: () {
@@ -1446,7 +1438,7 @@ class _YourFeedState extends State<YourFeed> {
                             style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: "cute",
-                                 fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.lightBlue.shade700),
                           ),
                           onTap: () {
@@ -1464,7 +1456,7 @@ class _YourFeedState extends State<YourFeed> {
                       style: TextStyle(
                           fontSize: 10,
                           fontFamily: "cute",
-                           fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
                   )
@@ -1503,7 +1495,7 @@ class _YourFeedState extends State<YourFeed> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                          BarTop(),
+                                  BarTop(),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: GestureDetector(
@@ -1574,13 +1566,14 @@ class _YourFeedState extends State<YourFeed> {
                                             Text(
                                               "Add/Remove from Meme ShowCase ",
                                               style: TextStyle(
-                                                  fontFamily: 'cute',
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.bold,
-                                                color: Constants.isDark ==
-                                                    "true"
-                                                    ? Colors.white
-                                                    : Colors.blue,),
+                                                fontFamily: 'cute',
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                color:
+                                                    Constants.isDark == "true"
+                                                        ? Colors.white
+                                                        : Colors.blue,
+                                              ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
@@ -1588,10 +1581,10 @@ class _YourFeedState extends State<YourFeed> {
                                               child: Icon(
                                                 Icons.apps,
                                                 size: 17,
-                                                color: Constants.isDark ==
-                                                    "true"
-                                                    ? Colors.white
-                                                    : Colors.blue,
+                                                color:
+                                                    Constants.isDark == "true"
+                                                        ? Colors.white
+                                                        : Colors.blue,
                                                 // color: selectedIndex == index
                                                 //     ? Colors.pink
                                                 //     : selectedIndex == 121212
@@ -1617,7 +1610,7 @@ class _YourFeedState extends State<YourFeed> {
                                                       fontFamily: 'cute',
                                                       fontSize: 14,
                                                       color: Constants.isDark ==
-                                                          "true"
+                                                              "true"
                                                           ? Colors.white
                                                           : Colors.blue,
                                                       fontWeight:
@@ -1626,10 +1619,10 @@ class _YourFeedState extends State<YourFeed> {
                                                 Icon(
                                                   Icons.delete_outline,
                                                   size: 20,
-                                                  color: Constants.isDark ==
-                                                      "true"
-                                                      ? Colors.white
-                                                      : Colors.blue,
+                                                  color:
+                                                      Constants.isDark == "true"
+                                                          ? Colors.white
+                                                          : Colors.blue,
                                                 ),
                                               ],
                                             ),
@@ -1655,7 +1648,7 @@ class _YourFeedState extends State<YourFeed> {
                                                   'Report Post ',
                                                   style: TextStyle(
                                                       color: Constants.isDark ==
-                                                          "true"
+                                                              "true"
                                                           ? Colors.white
                                                           : Colors.blue,
                                                       fontFamily: 'cute',
@@ -1666,10 +1659,10 @@ class _YourFeedState extends State<YourFeed> {
                                                 Icon(
                                                   Icons.error_outline,
                                                   size: 20,
-                                                  color: Constants.isDark ==
-                                                      "true"
-                                                      ? Colors.white
-                                                      : Colors.blue,
+                                                  color:
+                                                      Constants.isDark == "true"
+                                                          ? Colors.white
+                                                          : Colors.blue,
                                                 ),
                                               ],
                                             ),
@@ -1710,7 +1703,7 @@ class _YourFeedState extends State<YourFeed> {
                                                   'Report User ',
                                                   style: TextStyle(
                                                       color: Constants.isDark ==
-                                                          "true"
+                                                              "true"
                                                           ? Colors.white
                                                           : Colors.blue,
                                                       fontFamily: 'cute',
@@ -1720,10 +1713,10 @@ class _YourFeedState extends State<YourFeed> {
                                                 ),
                                                 Icon(
                                                   Icons.account_circle_outlined,
-                                                  color: Constants.isDark ==
-                                                      "true"
-                                                      ? Colors.white
-                                                      : Colors.blue,
+                                                  color:
+                                                      Constants.isDark == "true"
+                                                          ? Colors.white
+                                                          : Colors.blue,
                                                   size: 20,
                                                 ),
                                               ],
@@ -1762,7 +1755,7 @@ class _YourFeedState extends State<YourFeed> {
                                                   'Block User ',
                                                   style: TextStyle(
                                                       color: Constants.isDark ==
-                                                          "true"
+                                                              "true"
                                                           ? Colors.white
                                                           : Colors.blue,
                                                       fontFamily: 'cute',
@@ -1773,10 +1766,10 @@ class _YourFeedState extends State<YourFeed> {
                                                 Icon(
                                                   Icons.block,
                                                   size: 20,
-                                                  color: Constants.isDark ==
-                                                      "true"
-                                                      ? Colors.white
-                                                      : Colors.blue,
+                                                  color:
+                                                      Constants.isDark == "true"
+                                                          ? Colors.white
+                                                          : Colors.blue,
                                                 ),
                                               ],
                                             ),
@@ -1945,7 +1938,7 @@ class _YourFeedState extends State<YourFeed> {
                         style: TextStyle(
                             fontSize: 20,
                             fontFamily: "cute",
-                             fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.bold,
                             color: Colors.lightBlue),
                       ),
                     ),
@@ -2076,8 +2069,7 @@ class _YourFeedState extends State<YourFeed> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: "cute",
-                                   fontWeight: FontWeight.bold,
-
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.lightBlue),
                             ),
                           ],
@@ -2114,8 +2106,7 @@ class _YourFeedState extends State<YourFeed> {
                                     child: Text(
                                       "${reactorList[index]['reactorName']}",
                                       style: TextStyle(
-                                          fontFamily: 'cute',
-                                          fontSize: 14),
+                                          fontFamily: 'cute', fontSize: 14),
                                     ),
                                   ),
                                 ],
@@ -2207,36 +2198,33 @@ class _YourFeedState extends State<YourFeed> {
       //       });
       //     });
       //
-          switchMemeCompRTD
-              .child(ownerId)
-              .once()
-              .then((DataSnapshot dataSnapshot) {
-            Map data = dataSnapshot.value;
-            int takePart = data['takePart'];
-            setState(() {
-              takePart = takePart - 1;
-            });
+      switchMemeCompRTD.child(ownerId).once().then((DataSnapshot dataSnapshot) {
+        Map data = dataSnapshot.value;
+        int takePart = data['takePart'];
+        setState(() {
+          takePart = takePart - 1;
+        });
 
-            Future.delayed(const Duration(milliseconds: 200), () {
-              switchMemeCompRTD.child(ownerId).update({
-                'takePart': takePart,
-              });
-            });
+        Future.delayed(const Duration(milliseconds: 200), () {
+          switchMemeCompRTD.child(ownerId).update({
+            'takePart': takePart,
           });
-          Future.delayed(const Duration(milliseconds: 400), () {
-            switchMemeCompRTD.child('live').child(ownerId).remove();
+        });
+      });
+      Future.delayed(const Duration(milliseconds: 400), () {
+        switchMemeCompRTD.child('live').child(ownerId).remove();
 
-            Navigator.pop(context);
-            Fluttertoast.showToast(
-              msg: "Deleted! Refresh App :)",
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.SNACKBAR,
-              timeInSecForIosWeb: 5,
-              backgroundColor: Colors.white,
-              textColor: Colors.blue,
-              fontSize: 16.0,
-            );
-          });
+        Navigator.pop(context);
+        Fluttertoast.showToast(
+          msg: "Deleted! Refresh App :)",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.SNACKBAR,
+          timeInSecForIosWeb: 5,
+          backgroundColor: Colors.white,
+          textColor: Colors.blue,
+          fontSize: 16.0,
+        );
+      });
       //   } else {
       //     if (type == 'meme' ||
       //         type == "memeT" ||
@@ -2294,7 +2282,4 @@ class _YourFeedState extends State<YourFeed> {
       );
     }
   }
-
-
-
 }

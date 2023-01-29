@@ -89,18 +89,15 @@ class _MainFeedState extends State<MainFeed> {
 
   getFirstPostList() async {
     allPostList.clear();
-
     limitedPostList.clear();
-
     switchAllUserFeedPostsRTD
         .child("UserPosts")
         .orderByChild('timestamp')
-        .limitToLast(300)
+        .limitToLast(150)
         .once()
         .then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         allPostMap = dataSnapshot.value;
-
         allPostMap.forEach(
             (index, data2) => allPostList.add({"key": index, ...data2}));
       }
@@ -159,10 +156,10 @@ class _MainFeedState extends State<MainFeed> {
   }
 
   getNextPosts() {
-    if (endAt > 290) {
+    if (endAt > 142) {
       print("***************** list Ended *****************");
       Fluttertoast.showToast(
-        msg: "300+ posts has been seen",
+        msg: "150+ posts has been seen",
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 3,
@@ -174,7 +171,6 @@ class _MainFeedState extends State<MainFeed> {
       endAt = endAt + 5;
       print(
           "Has More >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $startAt");
-
       print("End At >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $endAt");
 
       limitedPostList = allPostList.getRange(startAt, endAt).toList();
@@ -191,9 +187,9 @@ class _MainFeedState extends State<MainFeed> {
   int jumpEndAt = 5;
 
   jumpToPosts() {
-    if (jumpEndAt > 290) {
+    if (jumpEndAt > 142) {
       Fluttertoast.showToast(
-        msg: "Last 300+ posts has been seen",
+        msg: "Last 150+ posts has been seen",
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 3,
@@ -738,7 +734,7 @@ class _MainFeedState extends State<MainFeed> {
           );
   }
 
-  int currentLine = 1;
+  int currentLine = 3;
 
   Widget allLine() {
     return DelayedDisplay(
@@ -1398,17 +1394,7 @@ class _MainFeedState extends State<MainFeed> {
                           )
                         : currentLine == 2
                             ? memesOnly()
-                            : Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: Text(
-                                  "Will update Soon",
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontFamily: 'cute',
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ),
+                            : yourFeed()
               ],
             ),
 

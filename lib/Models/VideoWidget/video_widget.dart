@@ -366,79 +366,76 @@ class _VideoWidgetState extends State<VideoWidget> {
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
                       child: Center(
-                        child: FittedBox(
-                          fit: BoxFit.fill,
-                          child: SizedBox(
-                            width: _controller.value.size.width,
-                            height: _controller.value.size.height,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15.0),
-                              child: GestureDetector(
-                                onTap: () => {
-                                  if (isHide)
-                                    {
-                                      setState(() {
-                                        isHide = false;
-                                      }),
-                                    }
-                                  else
-                                    {
-                                      isHide = true,
-                                    },
-                                  setState(() {
-                                    _controller.value.isPlaying
-                                        ? _controller.pause()
-                                        : _controller.play();
-                                  }),
-                                },
-                                child: Stack(
-                                  children: [
-                                    CachedVideoPlayer(
-                                      _controller,
-                                    ),
-                                    Positioned(
-                                      bottom: 0.0,
-                                      right: 0.0,
-                                      top: 0.0,
-                                      left: 0.0,
-                                      child: Container(
-                                        padding: EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                          BorderRadius.circular(10),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              child: Center(
-                                                child: Icon(
-                                                  _controller.value.isPlaying
-                                                      ? Icons.pause
-                                                      : Icons.play_arrow,
-                                                  color: isHide
-                                                      ? Colors.white
-                                                      : Colors.transparent,
-                                                  size: 40,
-                                                ),
+                        child: SizedBox(
+                          width: _controller.value.size.width,
+                          height: _controller.value.size.height,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: GestureDetector(
+                              onTap: () => {
+                                if (isHide)
+                                  {
+                                    setState(() {
+                                      isHide = false;
+                                    }),
+                                  }
+                                else
+                                  {
+                                    isHide = true,
+                                  },
+                                setState(() {
+                                  _controller.value.isPlaying
+                                      ? _controller.pause()
+                                      : _controller.play();
+                                }),
+                              },
+                              child: Stack(
+                                children: [
+                                  CachedVideoPlayer(
+                                    _controller,
+                                  ),
+                                  Positioned(
+                                    bottom: 0.0,
+                                    right: 0.0,
+                                    top: 0.0,
+                                    left: 0.0,
+                                    child: Container(
+                                      padding: EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            child: Center(
+                                              child: Icon(
+                                                _controller.value.isPlaying
+                                                    ? Icons.pause
+                                                    : Icons.play_arrow,
+                                                color: isHide
+                                                    ? Colors.white
+                                                    : Colors.transparent,
+                                                size: 25,
                                               ),
-                                              decoration: BoxDecoration(
-                                                  color: isHide
-                                                      ? Colors.black54
-                                                      : Colors.transparent,
-                                                  borderRadius:
-                                                  BorderRadius.circular(
-                                                      20)),
-                                              height: 60,
-                                              width: 60,
                                             ),
-                                          ],
-                                        ),
+                                            decoration: BoxDecoration(
+                                                color: isHide
+                                                    ? Colors.black54
+                                                    : Colors.transparent,
+                                                borderRadius:
+                                                BorderRadius.circular(
+                                                    20)),
+                                            height: 30,
+                                            width: 30,
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),

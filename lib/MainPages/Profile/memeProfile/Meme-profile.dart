@@ -1366,27 +1366,24 @@ class _MemeProfileState extends State<MemeProfile> {
   List allMemerList = [];
 
   _getMemerDetail() {
-    userFollowersCountRtd.once().then((DataSnapshot dataSnapshot) {
+    userFollowersCountRtd.orderByChild('followerCounter')
+        .limitToLast(100)
+        .once().then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         late Map data;
-
         setState(() {
           data = dataSnapshot.value;
         });
-
         data.forEach(
             (index, data) => allMemerList.add({"key": index, ...data}));
-
         allMemerList.sort((a, b) {
           return b["followerCounter"].compareTo(a['followerCounter']);
         });
-
         Random random = new Random();
         int limitForUser = random.nextInt(100);
         if (Constants.switchId == allMemerList[0]['uid']) {
           allMemerList.removeAt(0);
         }
-
         setState(() {});
       } else {}
     });
@@ -1566,7 +1563,9 @@ class _MemeProfileState extends State<MemeProfile> {
                     child: Text(
                       "What If?",
                       style: TextStyle(
-                          color: Colors.lightBlue, fontSize: 16, fontFamily: 'cute'),
+                          color: Colors.lightBlue,
+                          fontSize: 16,
+                          fontFamily: 'cute'),
                     ),
                   ),
                 ),
@@ -1677,8 +1676,7 @@ class _MemeProfileState extends State<MemeProfile> {
               child: Text(
                 "Meme Decency",
                 style: TextStyle(
-                   fontWeight: FontWeight.bold,
-
+                  fontWeight: FontWeight.bold,
                   fontFamily: "Cute",
                   fontSize: 12,
                 ),
@@ -2255,7 +2253,6 @@ class _MemeProfileState extends State<MemeProfile> {
     _lowerPage() {
       return Column(
         children: [
-
           // Padding(
           //   padding: const EdgeInsets.only(top: 20, bottom: 0),
           //   child: SingleChildScrollView(
@@ -2514,7 +2511,9 @@ class _MemeProfileState extends State<MemeProfile> {
                     child: Text(
                       "Memes by ${widget.mainFirstName}",
                       style: TextStyle(
-                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 17),
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
+                          fontSize: 17),
                     ),
                   ),
                 ),
@@ -2533,7 +2532,9 @@ class _MemeProfileState extends State<MemeProfile> {
                     Text(
                       "Refresh ",
                       style: TextStyle(
-                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 13),
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
+                          fontSize: 13),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 8),

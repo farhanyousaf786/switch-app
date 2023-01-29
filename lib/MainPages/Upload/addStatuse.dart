@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delayed_display/delayed_display.dart';
@@ -20,8 +18,8 @@ import 'package:switchapp/Models/BottomBarComp/congratsModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:uuid/uuid.dart';
 import 'package:image/image.dart' as ImD;
-import 'package:video_player/video_player.dart';
-import 'package:dospace/dospace.dart' as dospace;
+
+import 'DatabaseControl.dart';
 
 class AddStatus extends StatefulWidget {
   final String type;
@@ -46,6 +44,7 @@ class _AddStatusState extends State<AddStatus> {
   String doubleSlitShow = "false";
   String statusTheme = "status";
   TextEditingController _captionText = TextEditingController();
+  XFile? imageFile;
 
   @override
   void initState() {
@@ -53,11 +52,11 @@ class _AddStatusState extends State<AddStatus> {
     _intAd();
     if (widget.type == "photo" || widget.type == "meme") imageFromGallery();
   }
+
   final ImagePicker _picker = ImagePicker();
 
-
   imageFromGallery() async {
-    XFile? imageFile = await _picker.pickImage(
+    imageFile = await _picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 100,
       maxHeight: 2500,
@@ -117,10 +116,10 @@ class _AddStatusState extends State<AddStatus> {
             widget.type == "meme"
                 ? "Meme"
                 : widget.type == "photo"
-                ? "Photo"
-                : widget.type == "videoMeme"
-                ? "Video Meme"
-                : "Thoughts",
+                    ? "Photo"
+                    : widget.type == "videoMeme"
+                        ? "Video Meme"
+                        : "Thoughts",
             style: TextStyle(
               color: Colors.lightBlue.shade900,
               fontFamily: 'cute',
@@ -131,54 +130,54 @@ class _AddStatusState extends State<AddStatus> {
           actions: [
             isTextStatus
                 ? Container(
-              height: 100,
-              child: Center(
-                child: TextButton(
-                  onPressed: uploading
-                      ? null
-                      : _isComposing
-                      ? () {
-                    controllAndUploadData();
-                  }
-                      : null,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(
-                      "Share",
-                      style: TextStyle(
-                        color: _isComposing
-                            ? Colors.lightBlue
-                            : Colors.blue.shade100,
-                        fontFamily: 'cute',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                    height: 100,
+                    child: Center(
+                      child: TextButton(
+                        onPressed: uploading
+                            ? null
+                            : _isComposing
+                                ? () {
+                                    controllAndUploadData();
+                                  }
+                                : null,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Text(
+                            "Share",
+                            style: TextStyle(
+                              color: _isComposing
+                                  ? Colors.lightBlue
+                                  : Colors.blue.shade100,
+                              fontFamily: 'cute',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-            )
+                  )
                 : Container(
-              height: 100,
-              child: TextButton(
-                onPressed: () => {
-                  controllAndUploadData(),
-                },
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(
-                      "Share",
-                      style: TextStyle(
-                        color: Colors.lightBlue.shade900,
-                        fontFamily: 'cute',
-                        fontSize: 16,
+                    height: 100,
+                    child: TextButton(
+                      onPressed: () => {
+                        controllAndUploadData(),
+                      },
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Text(
+                            "Share",
+                            style: TextStyle(
+                              color: Colors.lightBlue.shade900,
+                              fontFamily: 'cute',
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
           ],
         ),
         body: statusBody());
@@ -209,7 +208,7 @@ class _AddStatusState extends State<AddStatus> {
                       radius: 22,
                       backgroundColor: Colors.grey,
                       backgroundImage:
-                      CachedNetworkImageProvider(Constants.myPhotoUrl),
+                          CachedNetworkImageProvider(Constants.myPhotoUrl),
                     ),
                     radius: 23.5,
                     backgroundColor: Colors.grey,
@@ -222,19 +221,19 @@ class _AddStatusState extends State<AddStatus> {
                       fontSize: 14,
                       color: Colors.black,
                       fontFamily: 'cute'
-                    // shadows: <Shadow>[
-                    //   Shadow(
-                    //     offset: Offset(0.5, 0.5),
-                    //     blurRadius: 3.0,
-                    //     color: Colors.black,
-                    //   ),
-                    //   Shadow(
-                    //     offset: Offset(0.5, 0.5),
-                    //     blurRadius: 3.0,
-                    //     color: Colors.black,
-                    //   ),
-                    // ],
-                  ),
+                      // shadows: <Shadow>[
+                      //   Shadow(
+                      //     offset: Offset(0.5, 0.5),
+                      //     blurRadius: 3.0,
+                      //     color: Colors.black,
+                      //   ),
+                      //   Shadow(
+                      //     offset: Offset(0.5, 0.5),
+                      //     blurRadius: 3.0,
+                      //     color: Colors.black,
+                      //   ),
+                      // ],
+                      ),
                 ),
               ],
             ),
@@ -279,7 +278,7 @@ class _AddStatusState extends State<AddStatus> {
                   elevation: 0.0,
                   primary: Colors.red,
                   textStyle:
-                  TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             ),
           ),
         ],
@@ -293,9 +292,9 @@ class _AddStatusState extends State<AddStatus> {
         uploading
             ? LinearProgressIndicator()
             : Container(
-          height: 0,
-          width: 0,
-        ),
+                height: 0,
+                width: 0,
+              ),
         Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: Row(
@@ -307,7 +306,7 @@ class _AddStatusState extends State<AddStatus> {
                     radius: 22,
                     backgroundColor: Colors.grey,
                     backgroundImage:
-                    CachedNetworkImageProvider(Constants.myPhotoUrl),
+                        CachedNetworkImageProvider(Constants.myPhotoUrl),
                   ),
                   radius: 23.5,
                   backgroundColor: Colors.grey,
@@ -385,7 +384,7 @@ class _AddStatusState extends State<AddStatus> {
                 elevation: 0.0,
                 primary: Colors.red,
                 textStyle:
-                TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                    TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           ),
         ),
       ],
@@ -422,9 +421,63 @@ class _AddStatusState extends State<AddStatus> {
     } else {
       await compressImage();
       uploadInDOSpace(file);
-
-
     }
+  }
+
+  /// Upload in DO via space
+
+  uploadInDOSpace(mImageFile) async {
+    SwitchDB switchDB = new SwitchDB();
+    String url = await switchDB.addPostImage(file);
+    print(url);
+    savePostInfoToFirebase(
+      type: widget.type,
+      url: url,
+      description: _captionText.text,
+    );
+    _captionText.clear();
+    setState(() {
+      file = null;
+      uploading = false;
+      postId = Uuid().v4();
+      isFile = false;
+    });
+  }
+
+/*
+  uploadPhoto(mImageFile) async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    Reference ref = storage.ref().child(
+        "UsersPosts/${Constants.myId}/${Constants.myEmail}/$postId/_${DateTime.now()}.mp4/");
+
+    UploadTask uploadTask = ref.putFile(mImageFile);
+
+    uploadTask.whenComplete(() async {
+      String uploadUrl = await ref.getDownloadURL();
+      savePostInfoToFirebase(
+        type: widget.type,
+        url: uploadUrl,
+        description: _captionText.text,
+      );
+      _captionText.clear();
+      setState(() {
+        file = null;
+        uploading = false;
+        postId = Uuid().v4();
+        isFile = false;
+      });
+    });
+  }
+*/
+  compressImage() async {
+    final tDirectory = await getTemporaryDirectory();
+    final path = tDirectory.path;
+    ImD.Image? mImageFle = ImD.decodeImage(file!.readAsBytesSync());
+    final compressImage = File('$path/img_$postId.jpg')
+      ..writeAsBytesSync(ImD.encodeJpg(mImageFle!, quality: 90));
+    setState(() {
+      file = compressImage;
+    });
   }
 
   savePostInfoToFirebase({
@@ -493,273 +546,6 @@ class _AddStatusState extends State<AddStatus> {
       );
       updateSuccessful();
     });
-  }
-
-  /// Upload in DO via space
-
-  uploadInDOSpace(mImageFile) async {
-    dospace.Spaces spaces = new dospace.Spaces(
-      //change with your project's region
-      region: "nyc3",
-      //change with your project's accessKey
-      accessKey: Constants.ak,
-
-      secretKey: Constants.sk,
-    );
-
-    String projectName = "switchapp";
-
-    String region = "nyc3";
-
-    String folderName = "posts";
-
-    String fileName =
-        "switchapp_images_${DateTime.now().microsecondsSinceEpoch}.jpg";
-
-    print("filename : : : : : : : $fileName");
-    String? etag = await spaces.bucket(projectName).uploadFile(
-      "images" +  "/" + folderName + '/' + Constants.username + '/' + fileName,
-      file,
-      'images',
-      dospace.Permissions.public,
-    );
-
-    print('upload: $etag');
-
-    String url = "https://" +
-        projectName +
-        "." +
-        region +
-        ".digitaloceanspaces.com/" + 'images' + "/"+
-        folderName +
-        '/' +
-        Constants.username +
-        "/" +
-        fileName;
-
-    print('--- presigned url:');
-
-
-    print(url);
-    savePostInfoToFirebase(
-      type: widget.type,
-      url: url,
-      description: _captionText.text,
-    );
-    _captionText.clear();
-    setState(() {
-      file = null;
-      uploading = false;
-      postId = Uuid().v4();
-      isFile = false;
-    });
-  }
-
-  uploadPhoto(mImageFile) async {
-    FirebaseStorage storage = FirebaseStorage.instance;
-    Reference ref = storage.ref().child(
-        "UsersPosts/${Constants.myId}/${Constants.myEmail}/$postId/_${DateTime.now()}.mp4/");
-
-    UploadTask uploadTask = ref.putFile(mImageFile);
-
-    uploadTask.whenComplete(() async {
-      String uploadUrl = await ref.getDownloadURL();
-      savePostInfoToFirebase(
-        type: widget.type,
-        url: uploadUrl,
-        description: _captionText.text,
-      );
-      _captionText.clear();
-      setState(() {
-        file = null;
-        uploading = false;
-        postId = Uuid().v4();
-        isFile = false;
-      });
-    });
-  }
-
-  compressImage() async {
-    final tDirectory = await getTemporaryDirectory();
-    final path = tDirectory.path;
-    ImD.Image? mImageFle = ImD.decodeImage(file!.readAsBytesSync());
-    final compressImage = File('$path/img_$postId.jpg')
-      ..writeAsBytesSync(ImD.encodeJpg(mImageFle!, quality: 90));
-    setState(() {
-      file = compressImage;
-    });
-  }
-
-  _statusTheme() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10, right: 10),
-      child: Container(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  if (isMeme == "true") {
-                    setState(() {
-                      isMeme = "false";
-                    });
-                  } else {
-                    setState(() {
-                      isMeme = "true";
-                      isLifeExperience = "false";
-                      isAdvice = 'false';
-                      doubleSlitShow = 'false';
-                      statusTheme = 'Meme';
-                    });
-                  }
-                },
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 3, right: 5),
-                      child: Icon(
-                        isMeme == "false"
-                            ? Icons.check_circle_outline
-                            : Icons.check_circle,
-                        size: 18,
-                        color: isMeme == "false" ? Colors.grey : Colors.blue,
-                      ),
-                    ),
-                    Text(
-                      "Meme",
-                      style: TextStyle(
-                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              GestureDetector(
-                onTap: () {
-                  if (isLifeExperience == "true") {
-                    setState(() {
-                      isLifeExperience = "false";
-                    });
-                  } else {
-                    setState(() {
-                      isLifeExperience = "true";
-                      isMeme = 'false';
-                      doubleSlitShow = 'false';
-                      isAdvice = 'false';
-                      statusTheme = 'Life Experience';
-                    });
-                  }
-                },
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 3, right: 5),
-                      child: Icon(
-                        isLifeExperience == "false"
-                            ? Icons.check_circle_outline
-                            : Icons.check_circle,
-                        size: 18,
-                        color: isLifeExperience == "false"
-                            ? Colors.grey
-                            : Colors.blue,
-                      ),
-                    ),
-                    Text(
-                      "Life Experience",
-                      style: TextStyle(
-                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              GestureDetector(
-                onTap: () {
-                  if (isAdvice == "true") {
-                    setState(() {
-                      isAdvice = "false";
-                    });
-                  } else {
-                    setState(() {
-                      isAdvice = "true";
-                      isMeme = 'false';
-                      isLifeExperience = 'false';
-                      doubleSlitShow = 'false';
-                      statusTheme = 'Advice';
-                    });
-                  }
-                },
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 3, right: 5),
-                      child: Icon(
-                        isAdvice == "false"
-                            ? Icons.check_circle_outline
-                            : Icons.check_circle,
-                        size: 18,
-                        color: isAdvice == "false" ? Colors.grey : Colors.blue,
-                      ),
-                    ),
-                    Text(
-                      "Advice",
-                      style: TextStyle(
-                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              GestureDetector(
-                onTap: () {
-                  if (doubleSlitShow == "true") {
-                    setState(() {
-                      doubleSlitShow = "false";
-                    });
-                  } else {
-                    setState(() {
-                      doubleSlitShow = "true";
-                      isMeme = "false";
-                      isLifeExperience = "false";
-                      statusTheme = 'Double Slit';
-                      isAdvice = 'false';
-                    });
-                  }
-                },
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 3, right: 5),
-                      child: Icon(
-                        doubleSlitShow == "false"
-                            ? Icons.check_circle_outline
-                            : Icons.check_circle,
-                        size: 18,
-                        color: doubleSlitShow == "false"
-                            ? Colors.grey
-                            : Colors.blue,
-                      ),
-                    ),
-                    Text(
-                      "Double Slit Show",
-                      style: TextStyle(
-                          color: Colors.lightBlue, fontFamily: 'cute', fontSize: 18),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 
   // This is ad Area for Switch Shot Meme
@@ -843,6 +629,7 @@ class _AddStatusState extends State<AddStatus> {
                   SizedBox(
                     height: 10,
                   ),
+
                   ///Slit is here
 
                   // widget.type == "meme" || widget.type == "videoMeme"
@@ -857,11 +644,8 @@ class _AddStatusState extends State<AddStatus> {
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
                       onTap: () {
-
-                        if(_isAdLoaded){
-
+                        if (_isAdLoaded) {
                           _interstitialAd.show();
-
                         }
                         Navigator.pop(context);
                         Navigator.pop(context);
@@ -902,12 +686,12 @@ class _AddStatusState extends State<AddStatus> {
                         Container(
                             child: Flexible(
                                 child: Text(
-                                  "Where to find my uploaded MEME(Shot/Flick)?",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontFamily: 'cute',
-                                      fontSize: 17),
-                                ))),
+                          "Where to find my uploaded MEME(Shot/Flick)?",
+                          style: TextStyle(
+                              color: Colors.lightBlue,
+                              fontFamily: 'cute',
+                              fontSize: 17),
+                        ))),
                       ],
                     ),
                   ),
@@ -936,12 +720,12 @@ class _AddStatusState extends State<AddStatus> {
                         Container(
                             child: Flexible(
                                 child: Text(
-                                  "Where to find my uploaded Thoughts and Photo?",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontFamily: 'cute',
-                                      fontSize: 17),
-                                ))),
+                          "Where to find my uploaded Thoughts and Photo?",
+                          style: TextStyle(
+                              color: Colors.lightBlue,
+                              fontFamily: 'cute',
+                              fontSize: 17),
+                        ))),
                       ],
                     ),
                   ),
@@ -968,6 +752,186 @@ class _AddStatusState extends State<AddStatus> {
             ),
           );
         });
+  }
+
+  _statusTheme() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10, right: 10),
+      child: Container(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  if (isMeme == "true") {
+                    setState(() {
+                      isMeme = "false";
+                    });
+                  } else {
+                    setState(() {
+                      isMeme = "true";
+                      isLifeExperience = "false";
+                      isAdvice = 'false';
+                      doubleSlitShow = 'false';
+                      statusTheme = 'Meme';
+                    });
+                  }
+                },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3, right: 5),
+                      child: Icon(
+                        isMeme == "false"
+                            ? Icons.check_circle_outline
+                            : Icons.check_circle,
+                        size: 18,
+                        color: isMeme == "false" ? Colors.grey : Colors.blue,
+                      ),
+                    ),
+                    Text(
+                      "Meme",
+                      style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  if (isLifeExperience == "true") {
+                    setState(() {
+                      isLifeExperience = "false";
+                    });
+                  } else {
+                    setState(() {
+                      isLifeExperience = "true";
+                      isMeme = 'false';
+                      doubleSlitShow = 'false';
+                      isAdvice = 'false';
+                      statusTheme = 'Life Experience';
+                    });
+                  }
+                },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3, right: 5),
+                      child: Icon(
+                        isLifeExperience == "false"
+                            ? Icons.check_circle_outline
+                            : Icons.check_circle,
+                        size: 18,
+                        color: isLifeExperience == "false"
+                            ? Colors.grey
+                            : Colors.blue,
+                      ),
+                    ),
+                    Text(
+                      "Life Experience",
+                      style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  if (isAdvice == "true") {
+                    setState(() {
+                      isAdvice = "false";
+                    });
+                  } else {
+                    setState(() {
+                      isAdvice = "true";
+                      isMeme = 'false';
+                      isLifeExperience = 'false';
+                      doubleSlitShow = 'false';
+                      statusTheme = 'Advice';
+                    });
+                  }
+                },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3, right: 5),
+                      child: Icon(
+                        isAdvice == "false"
+                            ? Icons.check_circle_outline
+                            : Icons.check_circle,
+                        size: 18,
+                        color: isAdvice == "false" ? Colors.grey : Colors.blue,
+                      ),
+                    ),
+                    Text(
+                      "Advice",
+                      style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  if (doubleSlitShow == "true") {
+                    setState(() {
+                      doubleSlitShow = "false";
+                    });
+                  } else {
+                    setState(() {
+                      doubleSlitShow = "true";
+                      isMeme = "false";
+                      isLifeExperience = "false";
+                      statusTheme = 'Double Slit';
+                      isAdvice = 'false';
+                    });
+                  }
+                },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3, right: 5),
+                      child: Icon(
+                        doubleSlitShow == "false"
+                            ? Icons.check_circle_outline
+                            : Icons.check_circle,
+                        size: 18,
+                        color: doubleSlitShow == "false"
+                            ? Colors.grey
+                            : Colors.blue,
+                      ),
+                    ),
+                    Text(
+                      "Double Slit Show",
+                      style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontFamily: 'cute',
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
