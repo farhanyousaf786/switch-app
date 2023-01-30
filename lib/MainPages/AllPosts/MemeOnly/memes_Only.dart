@@ -122,7 +122,7 @@ class _MemesOnlyState extends State<MemesOnly> {
     switchAllUserFeedPostsRTD
         .child("UserPosts")
         .orderByChild('timestamp')
-        .limitToLast(300)
+        .limitToLast(150)
         .once()
         .then(
       (DataSnapshot dataSnapshot) {
@@ -192,7 +192,7 @@ class _MemesOnlyState extends State<MemesOnly> {
   }
 
   getNextPosts() {
-    if (endAt > 290) {
+    if (endAt > 140) {
       print("***************** list Ended *****************");
       Fluttertoast.showToast(
         msg: "300+ posts has been seen",
@@ -2333,9 +2333,7 @@ class _MemesOnlyState extends State<MemesOnly> {
               id: '$index',
               builder: (BuildContext context, bool isInView, Widget? child) {
                 return VideoWidget(
-
                   play: isInView == true ? false : false,
-
                   url: limitedPostList[index]['url'],
                   time: limitedPostList[index]['timestamp'],
                 );

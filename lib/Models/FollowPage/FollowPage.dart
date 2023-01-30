@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/rankingHorizontalList/rankingList.dart';
@@ -185,10 +186,23 @@ class _FollowPageState extends State<FollowPage> {
                     fontWeight: FontWeight.bold),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Follow Others to active this page",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontFamily: 'cute',
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
             isLoading
-                ? SizedBox(
-                    height: 0,
-                  )
+                ? Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: SpinKitThreeBounce(color: Colors.lightBlue, size: 15,),
+                )
                 : SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -394,7 +408,9 @@ class _FollowPageState extends State<FollowPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      primary: isFollowing ? Colors.lightBlue.shade100 : Colors.lightBlue,
+                      primary: isFollowing
+                          ? Colors.lightBlue.shade100
+                          : Colors.lightBlue,
                       textStyle:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),

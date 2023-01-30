@@ -13,6 +13,7 @@ import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/MainPages/AdminPage/adminPage.dart';
+import 'package:switchapp/MainPages/AllPosts/MainFeed/OptionBottomBar.dart';
 import 'package:switchapp/MainPages/FrontSlide/MainiaTopic.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/AllPosts/memeOnly/memes_Only.dart';
@@ -734,7 +735,7 @@ class _MainFeedState extends State<MainFeed> {
           );
   }
 
-  int currentLine = 3;
+  int currentLine = 1;
 
   Widget allLine() {
     return DelayedDisplay(
@@ -834,7 +835,7 @@ class _MainFeedState extends State<MainFeed> {
                       Center(
                         child: MarqueeWidget(
                           child: Text(
-                            "Memes",
+                            "Following",
                             style: TextStyle(
                               color: currentLine == 2
                                   ? Colors.lightBlue
@@ -891,7 +892,7 @@ class _MainFeedState extends State<MainFeed> {
                       Center(
                         child: MarqueeWidget(
                           child: Text(
-                            "Following",
+                            "Memes",
                             style: TextStyle(
                               color: currentLine == 3
                                   ? Colors.lightBlue
@@ -1393,8 +1394,8 @@ class _MainFeedState extends State<MainFeed> {
                             ),
                           )
                         : currentLine == 2
-                            ? memesOnly()
-                            : yourFeed()
+                            ? yourFeed()
+                            : memesOnly()
               ],
             ),
 
@@ -1446,343 +1447,18 @@ class _MainFeedState extends State<MainFeed> {
             return Container(
               width: MediaQuery.of(context).size.width,
               child: ListTile(
-                trailing: GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet(
-                        useRootNavigator: true,
-                        isScrollControlled: true,
-                        barrierColor: Colors.red.withOpacity(0.2),
-                        elevation: 0,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        context: context,
-                        builder: (context) {
-                          return Container(
-                            height: MediaQuery.of(context).size.height / 3,
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  BarTop(),
-                                  type == 'meme' || type == "memeT"
-                                      ? Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              switchShowCaseRTD
-                                                  .child(widget.user.uid)
-                                                  .child(postId)
-                                                  .once()
-                                                  .then((DataSnapshot
-                                                          dataSnapshot) =>
-                                                      {
-                                                        if (dataSnapshot
-                                                                .value !=
-                                                            null)
-                                                          {
-                                                            switchShowCaseRTD
-                                                                .child(widget
-                                                                    .user.uid)
-                                                                .child(postId)
-                                                                .remove(),
-                                                            Fluttertoast
-                                                                .showToast(
-                                                              msg:
-                                                                  "Remove From Your Meme Showcase",
-                                                              toastLength: Toast
-                                                                  .LENGTH_LONG,
-                                                              gravity:
-                                                                  ToastGravity
-                                                                      .TOP,
-                                                              timeInSecForIosWeb:
-                                                                  3,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .lightBlue,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              fontSize: 16.0,
-                                                            ),
-                                                          }
-                                                        else
-                                                          {
-                                                            switchShowCaseRTD
-                                                                .child(widget
-                                                                    .user.uid)
-                                                                .child(postId)
-                                                                .set({
-                                                              "memeUrl": url,
-                                                              "ownerId":
-                                                                  ownerId,
-                                                              'timestamp': DateTime
-                                                                      .now()
-                                                                  .millisecondsSinceEpoch,
-                                                              'postId': postId,
-                                                            }),
-                                                            Fluttertoast
-                                                                .showToast(
-                                                              msg:
-                                                                  "Added to your Meme Showcase",
-                                                              toastLength: Toast
-                                                                  .LENGTH_LONG,
-                                                              gravity:
-                                                                  ToastGravity
-                                                                      .TOP,
-                                                              timeInSecForIosWeb:
-                                                                  3,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .lightBlue,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              fontSize: 16.0,
-                                                            ),
-                                                          }
-                                                      });
-                                            },
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 4, left: 20),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "Add/Remove from Meme ShowCase ",
-                                                    style: TextStyle(
-                                                        fontFamily: 'cute',
-                                                        fontSize: 14,
-                                                        color: Constants
-                                                                    .isDark ==
-                                                                "true"
-                                                            ? Colors.white
-                                                            : Colors.lightBlue,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            right: 10),
-                                                    child: Icon(
-                                                      Icons.apps,
-                                                      color: Constants.isDark ==
-                                                              "true"
-                                                          ? Colors.white
-                                                          : Colors.lightBlue,
-                                                      size: 17,
-                                                      // color: selectedIndex == index
-                                                      //     ? Colors.pink
-                                                      //     : selectedIndex == 121212
-                                                      //         ? Colors.grey
-                                                      //         : Colors.teal,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      : SizedBox(
-                                          height: 0,
-                                          width: 0,
-                                        ),
-                                  ownerId == Constants.myId ||
-                                          widget.user.uid == Constants.switchId
-                                      ? Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 0, left: 20),
-                                          child: TextButton(
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    'Delete Post',
-                                                    style: TextStyle(
-                                                        fontFamily: 'cute',
-                                                        fontSize: 14,
-                                                        color: Constants
-                                                                    .isDark ==
-                                                                "true"
-                                                            ? Colors.white
-                                                            : Colors.lightBlue,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  Icon(
-                                                    Icons.delete_outline,
-                                                    size: 20,
-                                                    color: Constants.isDark ==
-                                                            "true"
-                                                        ? Colors.white
-                                                        : Colors.lightBlue,
-                                                  ),
-                                                ],
-                                              ),
-                                              onPressed: () => {
-                                                    deleteFunc(postId, ownerId,
-                                                        type, index),
-                                                  }),
-                                        )
-                                      : Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 0, left: 10),
-                                          child: ElevatedButton(
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  'Report Post ',
-                                                  style: TextStyle(
-                                                    fontFamily: 'cute',
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Constants.isDark ==
-                                                            "true"
-                                                        ? Colors.white
-                                                        : Colors.lightBlue,
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  Icons.error_outline,
-                                                  size: 20,
-                                                  color:
-                                                      Constants.isDark == "true"
-                                                          ? Colors.white
-                                                          : Colors.blue,
-                                                ),
-                                              ],
-                                            ),
-                                            onPressed: () => {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          PostReport(
-                                                            reportById:
-                                                                widget.user.uid,
-                                                            reportedId: ownerId,
-                                                            postId: postId,
-                                                            type: "reportPost",
-                                                          )))
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                              elevation: 0.0,
-                                              primary: Colors.transparent,
-                                              textStyle: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ),
-                                  ownerId == Constants.myId
-                                      ? Container(
-                                          height: 0,
-                                          width: 0,
-                                        )
-                                      : Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 0, left: 10),
-                                          child: ElevatedButton(
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  'Report User ',
-                                                  style: TextStyle(
-                                                    fontFamily: 'cute',
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Constants.isDark ==
-                                                            "true"
-                                                        ? Colors.white
-                                                        : Colors.lightBlue,
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  Icons.account_circle_outlined,
-                                                  size: 20,
-                                                  color:
-                                                      Constants.isDark == "true"
-                                                          ? Colors.white
-                                                          : Colors.lightBlue,
-                                                ),
-                                              ],
-                                            ),
-                                            onPressed: () => {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ReportId(
-                                                            profileId:
-                                                                ownerId)),
-                                              )
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                              elevation: 0.0,
-                                              primary: Colors.transparent,
-                                              textStyle: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ),
-                                  ownerId == Constants.myId
-                                      ? Container(
-                                          height: 0,
-                                          width: 0,
-                                        )
-                                      : Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 0, left: 10),
-                                          child: ElevatedButton(
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  'Block User ',
-                                                  style: TextStyle(
-                                                      fontFamily: 'cute',
-                                                      fontSize: 14,
-                                                      color: Constants.isDark ==
-                                                              "true"
-                                                          ? Colors.white
-                                                          : Colors.lightBlue,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Icon(
-                                                  Icons.block,
-                                                  size: 20,
-                                                  color:
-                                                      Constants.isDark == "true"
-                                                          ? Colors.white
-                                                          : Colors.lightBlue,
-                                                ),
-                                              ],
-                                            ),
-                                            onPressed: () => {
-                                              blockUser(
-                                                  ownerId, Constants.myId),
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                              elevation: 0.0,
-                                              primary: Colors.transparent,
-                                              textStyle: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ),
-                                ],
-                              ),
-                            ),
-                          );
-                        });
-                  },
+                trailing: Material(
+                  color: Colors.purple.shade300,
+                  borderRadius: BorderRadius.circular(8),
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 0),
-                    child: Icon(
-                      Icons.more_horiz,
-                      // color: selectedIndex == index
-                      //     ? Colors.pink
-                      //     : selectedIndex == 121212
-                      //         ? Colors.grey
-                      //         : Colors.teal,
-                      color: Colors.grey,
+                    padding: const EdgeInsets.all(4.0),
+                    child: Text(
+                      " Follow ",
+                      style: TextStyle(
+                          fontSize: 11,
+                          fontFamily: 'cute',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ),
                 ),
@@ -1979,6 +1655,9 @@ class _MainFeedState extends State<MainFeed> {
   ///********///////
 
   _blockFunction(String profileOwner, String currentUserId) {
+
+
+    print("_blockFunction");
     Map? userMap;
     late String username;
     late String url;
@@ -2171,35 +1850,64 @@ class _MainFeedState extends State<MainFeed> {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 5, bottom: 8),
-                child: TextButton(
-                    onPressed: () => {
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: GestureDetector(
+                        onTap: () => {
                           reactorList.clear(),
                           getPostDetail(postId),
                         },
-                    child: Row(
-                      children: [
-                        Text(
-                          "Details ",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: 'cute',
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey),
-                        ),
-                        Container(
-                          height: 18,
-                          width: 18,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey),
-                            image: DecorationImage(
-                              image: AssetImage('images/logoPro.png'),
-                              fit: BoxFit.fill,
+                        child: Material(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(8),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Text(
+                              " Details ",
+                              style: TextStyle(
+                                  fontSize: 11,
+                                  fontFamily: 'cute',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             ),
                           ),
                         ),
-                      ],
-                    )),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        OptionBottomBar ob = OptionBottomBar();
+                        ob.optionBottomBar(
+                            context,
+                            type,
+                            widget.user.uid,
+                            postId,
+                            url,
+                            ownerId,
+                            index,
+                            deleteFunc,
+                            _blockFunction);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 0),
+                        child: Icon(
+                          Icons.more_horiz,
+                          // color: selectedIndex == index
+                          //     ? Colors.pink
+                          //     : selectedIndex == 121212
+                          //         ? Colors.grey
+                          //         : Colors.teal,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           ),

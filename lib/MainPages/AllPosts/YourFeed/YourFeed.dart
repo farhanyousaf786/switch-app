@@ -469,99 +469,114 @@ class _YourFeedState extends State<YourFeed> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? Expanded(child: FollowPage(user: widget.user,))
-        : Expanded(
-            child: Stack(
-              children: [
-                ListView.separated(
-                    controller: listScrollController,
-                    shrinkWrap: true,
-                    itemCount:
-                        _hasMore ? userPosts.length + 1 : userPosts.length,
-                    itemBuilder: (context, index) {
-                      if (index >= userPosts.length) {
-                        // Don't trigger if one async loading is already under way
-                        return Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 3, top: 3),
-                            child: SizedBox(
-                              child: Column(
-                                children: [
-                                  SpinKitThreeBounce(
-                                    size: 14,
-                                    color: Colors.grey,
-                                  ),
-                                ],
-                              ),
-                              height: 100,
-                              width: 120,
-                            ),
-                          ),
-                        );
-                      }
-
-                      return postsWidget(
-                        index,
-                        userPosts,
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return Container(
-                        child: index == 0
-                            ? Padding(
-                                padding: const EdgeInsets.only(top: 12),
-                                child: nativeAdWidget(),
-                              )
-                            : Container(
-                                height: 0,
-                                width: 0,
-                              ),
-                      );
-                    }),
-                _visible
-                    ? DelayedDisplay(
-                        delay: Duration(milliseconds: 200),
-                        slidingBeginOffset: Offset(0.0, 1),
-                        child: GestureDetector(
-                          onTap: () {
-                            if (listScrollController.hasClients) {
-                              final position =
-                                  listScrollController.position.minScrollExtent;
-                              listScrollController.animateTo(
-                                position,
-                                duration: Duration(seconds: 1),
-                                curve: Curves.easeOut,
-                              );
-                            }
-                          },
-                          child: Align(
-                              alignment: Alignment.bottomRight,
-                              child: Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                      color: Colors.lightBlue.withOpacity(0.7),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                        child: Icon(
-                                      Icons.arrow_upward_sharp,
-                                      size: 17,
-                                    )),
-                                  ),
-                                ),
-                              )),
-                        ),
-                      )
-                    : Container(
-                        height: 0.0,
-                        width: 0.0,
-                      ),
-              ],
+        ? Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: SpinKitThreeBounce(
+              color: Colors.lightBlue,
+              size: 20,
             ),
-          );
+          )
+        : followingList.length == 0
+            ? Expanded(
+                child: FollowPage(
+                  user: widget.user,
+                ),
+              )
+            : Expanded(
+                child: Stack(
+                  children: [
+                    ListView.separated(
+                        controller: listScrollController,
+                        shrinkWrap: true,
+                        itemCount:
+                            _hasMore ? userPosts.length + 1 : userPosts.length,
+                        itemBuilder: (context, index) {
+                          if (index >= userPosts.length) {
+                            // Don't trigger if one async loading is already under way
+                            return Center(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 3, top: 3),
+                                child: SizedBox(
+                                  child: Column(
+                                    children: [
+                                      SpinKitThreeBounce(
+                                        size: 14,
+                                        color: Colors.grey,
+                                      ),
+                                    ],
+                                  ),
+                                  height: 100,
+                                  width: 120,
+                                ),
+                              ),
+                            );
+                          }
+
+                          return postsWidget(
+                            index,
+                            userPosts,
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return Container(
+                            child: index == 0
+                                ? Padding(
+                                    padding: const EdgeInsets.only(top: 12),
+                                    child: nativeAdWidget(),
+                                  )
+                                : Container(
+                                    height: 0,
+                                    width: 0,
+                                  ),
+                          );
+                        }),
+                    _visible
+                        ? DelayedDisplay(
+                            delay: Duration(milliseconds: 200),
+                            slidingBeginOffset: Offset(0.0, 1),
+                            child: GestureDetector(
+                              onTap: () {
+                                if (listScrollController.hasClients) {
+                                  final position = listScrollController
+                                      .position.minScrollExtent;
+                                  listScrollController.animateTo(
+                                    position,
+                                    duration: Duration(seconds: 1),
+                                    curve: Curves.easeOut,
+                                  );
+                                }
+                              },
+                              child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12),
+                                    child: Container(
+                                      padding: EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                          color:
+                                              Colors.lightBlue.withOpacity(0.7),
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                            child: Icon(
+                                          Icons.arrow_upward_sharp,
+                                          size: 17,
+                                        )),
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                          )
+                        : Container(
+                            height: 0.0,
+                            width: 0.0,
+                          ),
+                  ],
+                ),
+              );
   }
 
   Widget postsWidget(
