@@ -60,6 +60,8 @@ class _YourFeedState extends State<YourFeed> {
   double? _scrollPosition;
   bool loadingRecentPosts = false;
   List reactorList = [];
+  List followingList = [];
+
 
   @override
   void initState() {
@@ -91,120 +93,7 @@ class _YourFeedState extends State<YourFeed> {
     }
   }
 
-  aboutYourFeedSlide() {
-    return showModalBottomSheet(
-        useRootNavigator: true,
-        isScrollControlled: true,
-        enableDrag: false,
-        isDismissible: false,
-        barrierColor: Colors.red.withOpacity(0.2),
-        elevation: 0,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        context: context,
-        builder: (context) {
-          return Container(
-            height: MediaQuery.of(context).size.height / 2.5,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  BarTop(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Important",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                          fontFamily: "cute",
-                          color: Colors.red),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8, bottom: 5, top: 5),
-                    child: Row(
-                      children: [
-                        Container(
-                          child: Flexible(
-                            child: Text(
-                              "What is Your Feeds?",
-                              style: TextStyle(
-                                  color: Colors.lightBlue,
-                                  fontFamily: 'cute',
-                                  fontSize: 18),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: Row(
-                      children: [
-                        Container(
-                            child: Flexible(
-                                child: Text(
-                          "This slide will show the Latest posts of the users your are following. "
-                          "So, follow your favorite users to watch their latest post here.",
-                          style: TextStyle(
-                              color: Colors.lightBlue.shade700,
-                              fontFamily: 'cute',
-                              fontSize: 15),
-                        ))),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: GestureDetector(
-                      onTap: () async {
-                        SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
-                        prefs.setInt("aboutYourFeed", 2);
 
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.green.shade600,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        height: 40,
-                        width: 200,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Center(
-                            child: Text(
-                              "Do not show again",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        "Version 1.5",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 9,
-                            fontFamily: 'cute'),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
-  }
-
-  List followingList = [];
 
   getFollowingUsers(String uid) async {
     userFollowingRtd.child(uid).once().then((DataSnapshot dataSnapshot) {
@@ -1321,11 +1210,12 @@ class _YourFeedState extends State<YourFeed> {
 
   ///********///////
 
-  _blockFunction(String profileOwner, String currentUserId) {
+  _blockFunction(String profileOwner, String currentUserId) async {
     Map? userMap;
     late String username;
     late String url;
-
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
     userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         userMap = dataSnapshot.value;
@@ -2297,4 +2187,118 @@ class _YourFeedState extends State<YourFeed> {
       );
     }
   }
+
+  aboutYourFeedSlide() {
+    return showModalBottomSheet(
+        useRootNavigator: true,
+        isScrollControlled: true,
+        enableDrag: false,
+        isDismissible: false,
+        barrierColor: Colors.red.withOpacity(0.2),
+        elevation: 0,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        context: context,
+        builder: (context) {
+          return Container(
+            height: MediaQuery.of(context).size.height / 2.5,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  BarTop(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Important",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          fontFamily: "cute",
+                          color: Colors.red),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8, bottom: 5, top: 5),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Flexible(
+                            child: Text(
+                              "What is Your Feeds?",
+                              style: TextStyle(
+                                  color: Colors.lightBlue,
+                                  fontFamily: 'cute',
+                                  fontSize: 18),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Row(
+                      children: [
+                        Container(
+                            child: Flexible(
+                                child: Text(
+                                  "This slide will show the Latest posts of the users your are following. "
+                                      "So, follow your favorite users to watch their latest post here.",
+                                  style: TextStyle(
+                                      color: Colors.lightBlue.shade700,
+                                      fontFamily: 'cute',
+                                      fontSize: 15),
+                                ))),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: GestureDetector(
+                      onTap: () async {
+                        SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                        prefs.setInt("aboutYourFeed", 2);
+
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.green.shade600,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        height: 40,
+                        width: 200,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              "Do not show again",
+                              style:
+                              TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Text(
+                        "Version 1.5",
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 9,
+                            fontFamily: 'cute'),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
 }

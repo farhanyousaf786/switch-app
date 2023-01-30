@@ -3230,7 +3230,8 @@ class _BodyState extends State<Body> {
     });
   }
 
-  followingCounter() {
+  followingCounter() async {
+
     late Map data;
     userFollowersRtd
         .child(widget.profileOwner)
@@ -4015,7 +4016,9 @@ class _BodyState extends State<Body> {
           );
   }
 
-  _blockFunction() {
+  _blockFunction()async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
     if (!isBlock) {
       blockListRTD.child(widget.currentUserId).child(widget.profileOwner).set({
         "username": widget.username,
@@ -5316,7 +5319,7 @@ class _BodyState extends State<Body> {
                 "Following",
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               ),
-              onPressed: () {
+              onPressed: () async{
                 setState(() {
                   isFollowedByYou = false;
                 });
@@ -5329,7 +5332,8 @@ class _BodyState extends State<Body> {
                     .child(widget.profileOwner)
                     .child(widget.currentUserId)
                     .remove();
-
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.remove("followList");
                 followingCounter();
               },
               style: ElevatedButton.styleFrom(
@@ -5339,10 +5343,12 @@ class _BodyState extends State<Body> {
                       TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             )
           : ElevatedButton(
-              onPressed: () => {
+              onPressed: () async {
                 setState(() {
                   isFollowedByYou = true;
-                }),
+                });
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.remove("followList");
 
                 // make Auth User follower of Another User (Update Their Follower Collection)
 
@@ -5372,7 +5378,7 @@ class _BodyState extends State<Body> {
                   "ownerId": widget.currentUserId,
                   "photourl": "",
                   "isRead": false,
-                }),
+                });
 
                 //For Realtime DataBase
 
@@ -5383,7 +5389,7 @@ class _BodyState extends State<Body> {
                   'timestamp': DateTime.now().millisecondsSinceEpoch,
                   'followingId': widget.profileOwner,
                   'token': Constants.token,
-                }),
+                });
 
                 userFollowersRtd
                     .child(widget.profileOwner)
@@ -5392,9 +5398,9 @@ class _BodyState extends State<Body> {
                   'timestamp': DateTime.now().millisecondsSinceEpoch,
                   'followerId': widget.currentUserId,
                   'token': Constants.token,
-                }),
+                });
 
-                followingCounter(),
+                followingCounter();
               },
               child: Text(
                 "Follow",

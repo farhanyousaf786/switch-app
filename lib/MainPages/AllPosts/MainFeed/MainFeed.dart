@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:delayed_display/delayed_display.dart';
@@ -38,6 +39,7 @@ import '../YourFeed/YourFeed.dart';
 import '../profileIconAndName/profileIconAndName.dart';
 import '../../ReportAndComplaints/postReportPage.dart';
 import '../../ReportAndComplaints/reportId.dart';
+import 'FollowBotton.dart';
 
 UniversalMethods universalMethods = UniversalMethods();
 final appIntro = new AppIntro();
@@ -46,14 +48,22 @@ final appIntro = new AppIntro();
 class MainFeed extends StatefulWidget {
   late User user;
   late Map? controlData;
+  late List finalFollowingList;
 
-  MainFeed({required this.user, required this.controlData});
+  MainFeed(
+      {required this.user,
+      required this.controlData,
+      required this.finalFollowingList});
 
   @override
   State<MainFeed> createState() => _MainFeedState();
 }
 
 class _MainFeedState extends State<MainFeed> {
+  late bool _visible = false; // Variable to to hide switch trend
+  int videoMeme = 0;
+  late Map allPostMap;
+  late Map store;
   bool isLoading = true;
   List allPostList = [];
   List limitedPostList = [];
@@ -71,6 +81,23 @@ class _MainFeedState extends State<MainFeed> {
   int heartReact = 0;
   int total = 0;
   bool isNotification = false;
+  int jumpStart = 5;
+  int jumpEndAt = 5;
+  GlobalKey key = new GlobalKey();
+  int currentLine = 1;
+  late bool _isHide = false; // Variable to to hide switch trend
+  late TutorialCoachMark tutorialCoachMark;
+  List<TargetFocus> targets = <TargetFocus>[];
+  GlobalKey nameAndStuffIntro = GlobalKey();
+  GlobalKey jumpToNextIntro = GlobalKey();
+  GlobalKey frontSlidIntro = GlobalKey();
+  GlobalKey addPostIntro = GlobalKey();
+  GlobalKey memeProfileIntro = GlobalKey();
+  GlobalKey clustyChatIntro = GlobalKey();
+  GlobalKey recentPostsIntro = GlobalKey();
+  GlobalKey yourFeedsIntro = GlobalKey();
+  GlobalKey switchUpdatesIntro = GlobalKey();
+  GlobalKey bottomAllIntro = GlobalKey();
 
   @override
   void initState() {
@@ -84,11 +111,564 @@ class _MainFeedState extends State<MainFeed> {
     super.initState();
   }
 
-  int videoMeme = 0;
-  late Map allPostMap;
-  late Map store;
+  void showIntro() {
+    initTargets();
+    tutorialCoachMark = TutorialCoachMark(
+      context,
+      targets: targets,
+      colorShadow: Colors.blue,
+      textSkip: "Skip",
+      paddingFocus: 4,
+      pulseAnimationDuration: Duration(milliseconds: 1000),
+      focusAnimationDuration: Duration(milliseconds: 500),
+      opacityShadow: 0.9,
+      textStyleSkip:
+          TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
+      onFinish: () async {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setInt("intro", 1);
+        if (mounted)
+          setState(() {
+            Constants.isIntro = "";
+          });
 
-  getFirstPostList() async {
+        userAgreement("no");
+        Future.delayed(const Duration(seconds: 2), () {
+          widget.user.uid == Constants.switchIdLaaSY
+              ? SizedBox(
+                  width: 0,
+                  height: 0,
+                )
+              : whatsNew();
+        });
+      },
+      onClickTarget: (target) {
+        print('onClickTarget: ${target.keyTarget}');
+      },
+      onSkip: () {
+        userAgreement("yes");
+        Future.delayed(const Duration(seconds: 2), () {
+          widget.user.uid == Constants.switchIdLaaSY
+              ? SizedBox(
+                  width: 0,
+                  height: 0,
+                )
+              : whatsNew();
+        });
+
+        appIntro.createState().bottomSheetForSkipButton(context);
+      },
+      onClickOverlay: (target) {
+        print('onClickOverlay: $target');
+      },
+    )..show();
+  }
+
+  void initTargets() {
+    targets.clear();
+    targets.add(
+      TargetFocus(
+        identify: "Target",
+        keyTarget: nameAndStuffIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "You Have to Click here to visit your Profile.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'cute',
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "اپنی پروفائل پر جانے کے لیے یہاں پر کلک کرنا ہوگا",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "1 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15,
+      ),
+    );
+
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: jumpToNextIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "By clicking this button you can skip recent posts that you already seen.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "اس حصے پر کلک کر کے آپ وہ پوسٹس چھوڑ سکتے ہیں جو آپ پہلے سے ہی دیکھ چکے ہیں",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "2 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: frontSlidIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "This is (News & Trend) function, this slide will show you latest updates about Switch App and Trends.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "یہ حصہ آپکو ٹرینڈاور سوئچ ایپ کے بارے میں اپڈیٹ کرے گا",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "3 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: addPostIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "You can upload posts and memes by clicking this button",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "اس بٹن سے آپ پوسٹ کر سکتے ہیں",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "4 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+    // targets.add(TargetFocus(
+    //     identify: "Target",
+    //     keyTarget: memeProfileIntro,
+    //     contents: [
+    //       TargetContent(
+    //         align: ContentAlign.bottom,
+    //         builder: (context, controller) {
+    //           return Container(
+    //             child: Column(
+    //               mainAxisSize: MainAxisSize.min,
+    //               crossAxisAlignment: CrossAxisAlignment.start,
+    //               children: <Widget>[
+    //                 Text(
+    //                   "This is for memers profile. This section will show your latest meme posts by you and your Slit points.",
+    //                   textAlign: TextAlign.left,
+    //                   style: TextStyle(
+    //                       fontWeight: FontWeight.bold,
+    //                       color: Colors.white,
+    //                       fontSize: 18.0),
+    //                 ),
+    //                 Padding(
+    //                   padding: const EdgeInsets.only(top: 10.0),
+    //                   child: Text(
+    //                     "یہ میمرز کی پروفل ہے جو تازہ ممیز اور سلیٹ پوائنٹس کو الگ سے دیکھاے گی",
+    //                     textAlign: TextAlign.right,
+    //                     style: TextStyle(
+    //                         color: Colors.white,
+    //                         fontSize: 18,
+    //                         fontWeight: FontWeight.bold),
+    //                   ),
+    //                 ),
+    //                 Center(
+    //                   child: Padding(
+    //                     padding: const EdgeInsets.only(top: 20.0),
+    //                     child: Text(
+    //                       "5 of 10",
+    //                       textAlign: TextAlign.center,
+    //                       style: TextStyle(
+    //                           color: Colors.white,
+    //                           fontSize: 20,
+    //                           fontWeight: FontWeight.bold),
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ],
+    //             ),
+    //           );
+    //         },
+    //       ),
+    //     ],
+    //     shape: ShapeLightFocus.RRect,
+    //     radius: 15));
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: clustyChatIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "This is for memers profile. This section will show your latest posts on meme topic and your Slit points.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "یہ حصہ سب لوگوں کے میسج دیکھاے گا",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "6 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: recentPostsIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "This section will show you the latest posts of all the users.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "یہ حصہ آپ کو تازہ ترین کی گئی پوسٹس دیکھاے گا",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "7 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: switchUpdatesIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "This section will show you the latest updates from switch app.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "یہ حصہ آپ کو سوئچ ایپ کے بارے میں تازہ اپ ڈیٹ دیکھاے گا",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "8 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+    targets.add(TargetFocus(
+        identify: "Target",
+        keyTarget: bottomAllIntro,
+        contents: [
+          TargetContent(
+            align: ContentAlign.top,
+            builder: (context, controller) {
+              return Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "This will show you recent posts.",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18.0),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        "یہ حصہ آپ کو سب سے تازہ ترین کی گئی پوسٹس کو دیکھاے گا",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "9 of 10",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+        shape: ShapeLightFocus.RRect,
+        radius: 15));
+  }
+
+  void checkIfNotification() {
+    feedRtDatabaseReference
+        .child(Constants.myId)
+        .child("feedItems")
+        .orderByChild("timestamp")
+        .limitToLast(2)
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.exists) {
+        Map notifyMap = dataSnapshot.value;
+        List notifyList = [];
+        notifyMap
+            .forEach((index, data) => notifyList.add({"key": index, ...data}));
+
+        if (notifyList[0]['isRead'] == false ||
+            notifyList[1]['isRead'] == false) {
+          setState(() {
+            isNotification = true;
+          });
+
+          print(
+              "Notification : : : : : : : : : : : >><><><><><><<><><><><><><>< $isNotification");
+        }
+      } else {}
+    });
+  }
+
+  void getFirstPostList() async {
     allPostList.clear();
     limitedPostList.clear();
     switchAllUserFeedPostsRTD
@@ -128,9 +708,7 @@ class _MainFeedState extends State<MainFeed> {
     });
   }
 
-  late bool _isHide = false; // Variable to to hide switch trend
-
-  _scrollListener() {
+  void _scrollListener() {
     if (listScrollController.offset >=
             listScrollController.position.maxScrollExtent &&
         !listScrollController.position.outOfRange) {
@@ -156,7 +734,7 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
-  getNextPosts() {
+  void getNextPosts() {
     if (endAt > 142) {
       print("***************** list Ended *****************");
       Fluttertoast.showToast(
@@ -184,9 +762,6 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
-  int jumpStart = 5;
-  int jumpEndAt = 5;
-
   jumpToPosts() {
     if (jumpEndAt > 142) {
       Fluttertoast.showToast(
@@ -211,13 +786,9 @@ class _MainFeedState extends State<MainFeed> {
                       print("***************** list Ended *****************");
                     } else {
                       limitedPostList.clear();
-
                       jumpStart = jumpEndAt;
-
                       jumpEndAt = jumpEndAt + 5;
-
                       startAt = jumpStart;
-
                       endAt = jumpEndAt;
 
                       print(
@@ -269,752 +840,84 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
-  Widget nameAndStuff() {
-    if (!_isHide) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Provider.value(
-                key: nameAndStuffIntro,
-                value: widget.user,
-                child: DelayedDisplay(
-                  delay: Duration(microseconds: 500),
-                  slidingBeginOffset: Offset(-1, 0.0),
-                  child: ProfileIconAndName(
-                    user: widget.user,
-                  ),
-                ),
-              ),
-              Row(
-                children: [
-                  DelayedDisplay(
-                    delay: Duration(microseconds: 500),
-                    slidingBeginOffset: Offset(1, 0.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: GestureDetector(
-                        onLongPress: () {
-                          if (widget.user.uid == Constants.switchId) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Provider<User>.value(
-                                  value: widget.user,
-                                  child: AdminPage(
-                                    user: widget.user,
-                                    controlData: widget.controlData,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }
-                        },
-                        child: Constants.messageIconActive
-                            ? GestureDetector(
-                                onTap: () {
-                                  Fluttertoast.showToast(
-                                    msg: "Click on Chat Icon :/",
-                                    toastLength: Toast.LENGTH_LONG,
-                                    gravity: ToastGravity.CENTER,
-                                    timeInSecForIosWeb: 3,
-                                    backgroundColor: Colors.blue,
-                                    textColor: Colors.white,
-                                    fontSize: 16.0,
-                                  );
-                                },
-                                child: Text(
-                                  "Unread Message",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue.shade700,
-                                      // fontWeight: FontWeight.bold,
-                                      fontSize: 8,
-                                      fontFamily: 'cute'),
-                                ),
-                              )
-                            : Row(
-                                children: [
-                                  Text(
-                                    "Switch ",
-                                    style: TextStyle(
-                                        color: Colors.lightBlue,
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'cute'),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  // Container(
-                                  //   decoration: BoxDecoration(
-                                  //       borderRadius: BorderRadius.circular(8)),
-                                  //   height: 40,
-                                  //   width: 40,
-                                  //   child: RiveAnimation.asset(
-                                  //     'images/switchLogoBlue1.riv',
-                                  //   ),
-                                  // ),
-                                ],
-                              ),
-                      ),
-                    ),
-                  ),
-                  DelayedDisplay(
-                    delay: Duration(milliseconds: 200),
-                    slidingBeginOffset: Offset(1, 0.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10, right: 8, top: 8),
-                            child: GestureDetector(
-                              child: isNotification
-                                  ? Stack(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 8),
-                                          child: Icon(
-                                            Icons.notifications_active_rounded,
-                                            color: Colors.lightBlue,
-                                            size: 25,
-                                          ),
-                                        ),
-                                        Positioned(
-                                            left: 5,
-                                            bottom: 2,
-                                            child: SpinKitPulse(
-                                              color: Colors.red,
-                                              size: 15,
-                                            )),
-                                      ],
-                                    )
-                                  : Padding(
-                                      padding: const EdgeInsets.only(bottom: 7),
-                                      child: Icon(
-                                        Icons.notifications_none_sharp,
-                                        size: 25,
-                                        color: Colors.lightBlue,
-                                      ),
-                                    ),
-                              onTap: () {
-                                NotifyBottomBar nb = new NotifyBottomBar();
-                                nb.bottomSheetForNotify(context, widget.user);
+  void _blockFunction(String profileOwner, String currentUserId) async {
+    Map? userMap;
+    late String username;
+    late String url;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
+    userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.value != null) {
+        userMap = dataSnapshot.value;
 
-                                Future.delayed(const Duration(seconds: 2), () {
-                                  if (mounted)
-                                    setState(() {
-                                      isNotification = false;
-                                    });
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        username = userMap?['username'];
+        url = userMap?['url'];
+      }
+    });
+    Future.delayed(const Duration(seconds: 1), () {
+      blockListRTD.child(Constants.myId).child(profileOwner).set({
+        "username": username,
+      });
+      userFollowingRtd.child(currentUserId).child(profileOwner).remove();
+      userFollowersRtd.child(profileOwner).child(currentUserId).remove();
+      userFollowersRtd.child(currentUserId).child(profileOwner).remove();
+      userFollowingRtd.child(profileOwner).child(currentUserId).remove();
+      bestFriendsRtd.child(profileOwner).child(currentUserId).remove();
+      chatListRtDatabaseReference
+          .child(Constants.myId)
+          .child(profileOwner)
+          .update({"blockBy": Constants.myId});
+      chatListRtDatabaseReference
+          .child(profileOwner)
+          .child(Constants.myId)
+          .update({"blockBy": Constants.myId});
+
+      /// user follower recounting
+      late Map data;
+      userFollowersRtd
+          .child(profileOwner)
+          .once()
+          .then((DataSnapshot dataSnapshot) {
+        if (dataSnapshot.value != null) {
+          setState(() {
+            data = dataSnapshot.value;
+          });
+
+          userFollowersCountRtd.child(profileOwner).update({
+            "followerCounter": data.length,
+            "uid": profileOwner,
+            "username": username,
+            "photoUrl": url,
+          });
+          print("yesssssssssssssssssssssss");
+        } else {
+          print("nooooooooooooooooooooooooooo");
+          userFollowersCountRtd.child(profileOwner).update({
+            "followerCounter": 0,
+            "uid": profileOwner,
+            "username": username,
+            "photoUrl": url,
+          });
+        }
+      });
+
+      Fluttertoast.showToast(
+        msg: "Blocked, Restart App!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.SNACKBAR,
+        timeInSecForIosWeb: 5,
+        backgroundColor: Colors.white,
+        textColor: Colors.lightBlue,
+        fontSize: 16.0,
       );
-    } else {
-      return Container(
-        height: 0.0,
-        width: 0.0,
-      );
-    }
-  }
-
-  Widget frontSlide() {
-    if (!_isHide) {
-      return Container(
-        key: frontSlidIntro,
-        height: 100,
-        child: DelayedDisplay(
-          delay: Duration(milliseconds: 600),
-          slidingBeginOffset: Offset(0.0, 1),
-          child: FrontSlide(),
-        ),
-      );
-    } else {
-      return Container(
-        height: 0.0,
-        width: 0.0,
-      );
-    }
-  }
-
-  GlobalKey key = new GlobalKey();
-
-  Widget tabBar(User user) {
-    return !_isHide
-        ? Container(
-            height: 75,
-            alignment: Alignment.center,
-            //Set container alignment  then wrap the column with singleChildScrollView
-            width: MediaQuery.of(context).size.width,
-            child: SingleChildScrollView(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // DelayedDisplay(
-                  //   delay: Duration(milliseconds: 200),
-                  //   slidingBeginOffset: Offset(1, 0.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Text(
-                  //         "Add Post",
-                  //         style: TextStyle(
-                  //           fontWeight: FontWeight.w700,
-                  //           fontSize: 10.0,
-                  //         ),
-                  //       ),
-                  //       ElevatedButton(
-                  //         key: addPostIntro,
-                  //         child: Icon(
-                  //           Icons.add_box_outlined,
-                  //           size: 25,
-                  //           color: Colors.lightBlue,
-                  //         ),
-                  //         onPressed: () {
-                  //           simpleStatusPage(user);
-                  //         },
-                  //         style: ElevatedButton.styleFrom(
-                  //             primary: Colors.transparent,
-                  //             elevation: 0.0,
-                  //             textStyle: TextStyle(
-                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // DelayedDisplay(
-                  //   delay: Duration(milliseconds: 400),
-                  //   slidingBeginOffset: Offset(1, 0.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Text(
-                  //         "Mood",
-                  //         style: TextStyle(
-                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
-                  //       ),
-                  //       ElevatedButton(
-                  //         child: Icon(
-                  //           Icons.stream,
-                  //           size: 25,
-                  //           color: Colors.lightBlue,
-                  //         ),
-                  //         onPressed: () {
-                  //           Navigator.push(
-                  //               context,
-                  //               PageTransition(
-                  //                 type: PageTransitionType.bottomToTop,
-                  //                 child: Provider<User>.value(
-                  //                   value: user,
-                  //                   child: Mood(
-                  //                     user: user,
-                  //                   ),
-                  //                 ),
-                  //               ));
-                  //         },
-                  //         style: ElevatedButton.styleFrom(
-                  //             elevation: 0.0,
-                  //             primary: Colors.transparent,
-                  //             textStyle: TextStyle(
-                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // DelayedDisplay(
-                  //   delay: Duration(milliseconds: 550),
-                  //   slidingBeginOffset: Offset(1, 0.0),
-                  //   child: SingleChildScrollView(
-                  //     child: Column(
-                  //       children: [
-                  //         Text(
-                  //           "Notify",
-                  //           key: key,
-                  //           style: TextStyle(
-                  //               fontSize: 10.0, fontWeight: FontWeight.w700),
-                  //         ),
-                  //         ElevatedButton(
-                  //           child: isNotification
-                  //               ? Stack(
-                  //                   children: [
-                  //                     Padding(
-                  //                       padding:
-                  //                           const EdgeInsets.only(bottom: 8),
-                  //                       child: Icon(
-                  //                         Icons.notifications_active_rounded,
-                  //                         color: Colors.lightBlue,
-                  //                         size: 22,
-                  //                       ),
-                  //                     ),
-                  //                     Positioned(
-                  //                         left: 5,
-                  //                         bottom: 2,
-                  //                         child: SpinKitPulse(
-                  //                           color: Colors.red,
-                  //                           size: 19,
-                  //                         )),
-                  //                   ],
-                  //                 )
-                  //               : Padding(
-                  //                   padding: const EdgeInsets.only(bottom: 7),
-                  //                   child: Icon(
-                  //                     Icons.notifications_none_sharp,
-                  //                     size: 22,
-                  //                     color: Colors.lightBlue,
-                  //                   ),
-                  //                 ),
-                  //           onPressed: () {
-                  //             // bottomSheetForNotify();
-                  //
-                  //             Future.delayed(const Duration(seconds: 2), () {
-                  //               if (mounted)
-                  //                 setState(() {
-                  //                   isNotification = false;
-                  //                 });
-                  //             });
-                  //           },
-                  //           style: ElevatedButton.styleFrom(
-                  //               elevation: 0.0,
-                  //               primary: Colors.transparent,
-                  //               textStyle: TextStyle(
-                  //                   fontSize: 15, fontWeight: FontWeight.bold)),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
-                  // DelayedDisplay(
-                  //   delay: Duration(milliseconds: 750),
-                  //   slidingBeginOffset: Offset(1, 0.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Padding(
-                  //         padding: const EdgeInsets.only(bottom: 2),
-                  //         child: Text(
-                  //           "Clusty Chat ",
-                  //           style: TextStyle(
-                  //               fontSize: 10.0, fontWeight: FontWeight.w700),
-                  //         ),
-                  //       ),
-                  //       Stack(
-                  //         key: clustyChatIntro,
-                  //         children: [
-                  //           ElevatedButton(
-                  //             child: Icon(
-                  //               Icons.mark_chat_unread_outlined,
-                  //               color: Colors.lightBlue,
-                  //               size: 24,
-                  //             ),
-                  //             onPressed: () {
-                  //               Navigator.push(
-                  //                   context,
-                  //                   PageTransition(
-                  //                     type: PageTransitionType.bottomToTop,
-                  //                     child: Provider<User>.value(
-                  //                       value: user,
-                  //                       child: WorldChat(
-                  //                         user: user,
-                  //                         userId: user.uid,
-                  //                       ),
-                  //                     ),
-                  //                   ));
-                  //             },
-                  //             style: ElevatedButton.styleFrom(
-                  //                 elevation: 0.0,
-                  //                 primary: Colors.transparent,
-                  //                 textStyle: TextStyle(
-                  //                     fontSize: 15,
-                  //                     fontWeight: FontWeight.bold)),
-                  //           ),
-                  //           // Positioned(left: 6.2,
-                  //           //   child: Container(
-                  //           //     height: 50,
-                  //           //     width: 50,
-                  //           //     child: SpinKitRipple(
-                  //           //       color: Colors.lightBlue,
-                  //           //     ),
-                  //           //   ),
-                  //           // ),
-                  //         ],
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // DelayedDisplay(
-                  //   delay: Duration(milliseconds: 700),
-                  //   slidingBeginOffset: Offset(1, 0.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Text(
-                  //         "Search",
-                  //         style: TextStyle(
-                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
-                  //       ),
-                  //       ElevatedButton(
-                  //         child: Icon(
-                  //           Icons.search_rounded,
-                  //           color: Colors.lightBlue,
-                  //           size: 25,
-                  //         ),
-                  //         onPressed: () {
-                  //           Navigator.push(
-                  //               context,
-                  //               PageTransition(
-                  //                 type: PageTransitionType.bottomToTop,
-                  //                 child: Provider<User>.value(
-                  //                   value: user,
-                  //                   child: MainSearchPage(
-                  //                     navigateThrough: "",
-                  //                     user: user,
-                  //                     userId: user.uid,
-                  //                   ),
-                  //                 ),
-                  //               ));
-                  //         },
-                  //         style: ElevatedButton.styleFrom(
-                  //             elevation: 0.0,
-                  //             primary: Colors.transparent,
-                  //             textStyle: TextStyle(
-                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // DelayedDisplay(
-                  //   delay: Duration(milliseconds: 1000),
-                  //   slidingBeginOffset: Offset(1, 0.0),
-                  //   child: Column(
-                  //     children: [
-                  //       Text(
-                  //         "Edit D.P",
-                  //         style: TextStyle(
-                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
-                  //       ),
-                  //       ElevatedButton(
-                  //         child: Icon(
-                  //           Icons.account_circle_outlined,
-                  //           color: Colors.lightBlue,
-                  //           size: 25,
-                  //         ),
-                  //         onPressed: () {
-                  //           Navigator.push(
-                  //               context,
-                  //               PageTransition(
-                  //                 type: PageTransitionType.bottomToTop,
-                  //                 child: EditProfilePic(
-                  //                   uid: Constants.myId,
-                  //                   imgUrl: Constants.myPhotoUrl,
-                  //                 ),
-                  //               ));
-                  //         },
-                  //         style: ElevatedButton.styleFrom(
-                  //             elevation: 0.0,
-                  //             primary: Colors.transparent,
-                  //             textStyle: TextStyle(
-                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                ],
-              ),
-            ),
-          )
-        : Container(
-            height: 0,
-            width: 0,
-          );
-  }
-
-  int currentLine = 1;
-
-  Widget allLine() {
-    return DelayedDisplay(
-      delay: Duration(milliseconds: _isHide ? 100 : 600),
-      slidingBeginOffset: Offset(0.0, 0.40),
-      child: Container(
-        height: 50,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: GestureDetector(
-                  key: recentPostsIntro,
-                  onTap: () {
-                    setState(() {
-                      currentLine = 1;
-                    });
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 4.3,
-                    padding: EdgeInsets.all(5),
-                    // decoration: BoxDecoration(
-                    //     color: currentLine == 1
-                    //         ? Colors.lightBlue
-                    //         : Constants.isDark == "true"
-                    //         ? Colors.grey.shade800
-                    //         : Colors.white,
-                    //     border: Border.all(
-                    //       color: Colors.lightBlue,
-                    //     ),
-                    //     borderRadius: BorderRadius.circular(5.5)),
-                    child: Container(
-                      height: 40,
-                      child: Column(
-                        children: [
-                          Center(
-                            child: MarqueeWidget(
-                              child: Text(
-                                "Recent",
-                                style: TextStyle(
-                                  color: currentLine == 1
-                                      ? Colors.lightBlue
-                                      : Constants.isDark == "true"
-                                          ? Colors.white
-                                          : Colors.lightBlue,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 12,
-                                  fontFamily: 'cute',
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 4.3,
-                            padding: EdgeInsets.all(5),
-                            height: 2,
-                            color: currentLine == 1
-                                ? Colors.lightBlue
-                                : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.white,
-                          ),
-                        ],
-                      ),
-                    ),
-                    height: 35,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentLine = 2;
-                  });
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width / 4.3,
-                  padding: EdgeInsets.all(5.0),
-                  // decoration: BoxDecoration(
-                  //     color: currentLine == 2
-                  //         ? Colors.lightBlue
-                  //         : Constants.isDark == "true"
-                  //             ? Colors.grey.shade800
-                  //             : Colors.white,
-                  //     border: Border.all(
-                  //       color: Colors.lightBlue,
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(5.5)),
-                  child: Column(
-                    children: [
-                      Center(
-                        child: MarqueeWidget(
-                          child: Text(
-                            "Following",
-                            style: TextStyle(
-                              color: currentLine == 2
-                                  ? Colors.lightBlue
-                                  : Constants.isDark == "true"
-                                      ? Colors.white
-                                      : Colors.lightBlue,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              fontFamily: 'cute',
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 4.3,
-                        padding: EdgeInsets.all(5),
-                        height: 2,
-                        color: currentLine == 2
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.white
-                                : Colors.white,
-                      ),
-                    ],
-                  ),
-                  height: 35,
-                ),
-              ),
-              GestureDetector(
-                key: switchUpdatesIntro,
-                onTap: () {
-                  setState(() {
-                    currentLine = 3;
-                  });
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width / 4.3,
-                  padding: EdgeInsets.all(5.0),
-                  // decoration: BoxDecoration(
-                  //     color: currentLine == 3
-                  //         ? Colors.lightBlue
-                  //         : Constants.isDark == "true"
-                  //             ? Colors.grey.shade800
-                  //             : Colors.white,
-                  //     border: Border.all(
-                  //       color: Colors.lightBlue,
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(5.5)),
-                  child: Column(
-                    children: [
-                      Center(
-                        child: MarqueeWidget(
-                          child: Text(
-                            "Memes",
-                            style: TextStyle(
-                              color: currentLine == 3
-                                  ? Colors.lightBlue
-                                  : Constants.isDark == "true"
-                                      ? Colors.white
-                                      : Colors.lightBlue,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              fontFamily: 'cute',
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 4.3,
-                        padding: EdgeInsets.all(5),
-                        height: 2,
-                        color: currentLine == 3
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.white
-                                : Colors.white,
-                      ),
-                    ],
-                  ),
-                  height: 35,
-                ),
-              ),
-              // DelayedDisplay(
-              //   delay: Duration(milliseconds: 200),
-              //   slidingBeginOffset: Offset(1, 0.0),
-              //   child: SingleChildScrollView(
-              //     child: Container(
-              //       width: 60,
-              //       child: Column(
-              //         children: [
-              //           Padding(
-              //             padding: const EdgeInsets.only(right: 12, top: 8),
-              //             child: GestureDetector(
-              //               child: isNotification
-              //                   ? Stack(
-              //                       children: [
-              //                         Padding(
-              //                           padding:
-              //                               const EdgeInsets.only(bottom: 8),
-              //                           child: Icon(
-              //                             Icons.notifications_active_rounded,
-              //                             color: Colors.lightBlue,
-              //                             size: 25,
-              //                           ),
-              //                         ),
-              //                         Positioned(
-              //                             left: 5,
-              //                             bottom: 2,
-              //                             child: SpinKitPulse(
-              //                               color: Colors.red,
-              //                               size: 15,
-              //                             )),
-              //                       ],
-              //                     )
-              //                   : Padding(
-              //                       padding: const EdgeInsets.only(bottom: 7),
-              //                       child: Icon(
-              //                         Icons.notifications_none_sharp,
-              //                         size: 25,
-              //                         color: Colors.lightBlue,
-              //                       ),
-              //                     ),
-              //               onTap: () {
-              //                 NotifyBottomBar nb = new NotifyBottomBar();
-              //                 nb.bottomSheetForNotify(context, widget.user);
-              //
-              //                 Future.delayed(const Duration(seconds: 2), () {
-              //                   if (mounted)
-              //                     setState(() {
-              //                       isNotification = false;
-              //                     });
-              //                 });
-              //               },
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
-          ),
-        ),
-      ),
-    );
+      Navigator.pop(context);
+    });
   }
 
   isHide() {
     setState(() {
       _isHide = true;
     });
-  }
-
-  Widget yourFeed() {
-    return Provider<User>.value(
-      value: widget.user,
-      child: YourFeed(
-        user: widget.user,
-        isVisible: () {},
-        isHide: isHide,
-      ),
-    );
-  }
-
-  Widget memesOnly() {
-    return Provider<User>.value(
-      value: widget.user,
-      child: MemesOnly(
-        user: widget.user,
-        isVisible: () {},
-        isHide: isHide,
-      ),
-    );
   }
 
   _getUserDetail(String ownerId) {
@@ -1147,8 +1050,6 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
-  late bool _visible = false; // Variable to to hide switch trend
-
   @override
   void dispose() {
     allPostList.clear();
@@ -1237,7 +1138,6 @@ class _MainFeedState extends State<MainFeed> {
                                     builder: (BuildContext context, int index) {
                                       if (index >= limitedPostList.length) {
                                         // Don't trigger if one async loading is already under way
-
                                         return Center(
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -1276,6 +1176,12 @@ class _MainFeedState extends State<MainFeed> {
                                             limitedPostList[index]
                                                 ['statusTheme'];
                                         String time = formatTime(timestamp);
+
+                                        bool isFollowing = widget
+                                            .finalFollowingList
+                                            .contains(limitedPostList[index]
+                                                ['ownerId']);
+
                                         return Column(
                                           children: [
                                             _isHide
@@ -1300,6 +1206,7 @@ class _MainFeedState extends State<MainFeed> {
                                                   type,
                                                   description,
                                                   url,
+                                                  isFollowing,
                                                   index),
                                             ),
 
@@ -1437,6 +1344,7 @@ class _MainFeedState extends State<MainFeed> {
       String type,
       String description,
       String url,
+      bool isFollowing,
       int index) {
     return StreamBuilder(
         stream: userRefRTD.child(ownerId).onValue,
@@ -1447,19 +1355,66 @@ class _MainFeedState extends State<MainFeed> {
             return Container(
               width: MediaQuery.of(context).size.width,
               child: ListTile(
-                trailing: Material(
-                  color: Colors.purple.shade300,
-                  borderRadius: BorderRadius.circular(8),
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Text(
-                      " Follow ",
-                      style: TextStyle(
-                          fontSize: 11,
-                          fontFamily: 'cute',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
+                trailing: SizedBox(
+                  width: 120,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      !isFollowing
+                          ? GestureDetector(
+                              onTap: () {
+                                FollowButtonMainPage fb =
+                                    FollowButtonMainPage();
+                                fb.getFollowingUsers(widget.user.uid, ownerId, data['username'], data['url']);
+                              },
+                              child: Material(
+                                color: Colors.lightBlue,
+                                borderRadius: BorderRadius.circular(8),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(
+                                    " Follow ",
+                                    style: TextStyle(
+                                        fontSize: 11,
+                                        fontFamily: 'cute',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : SizedBox(
+                              height: 0,
+                            ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          OptionBottomBar ob = OptionBottomBar();
+                          ob.optionBottomBar(
+                              context,
+                              type,
+                              widget.user.uid,
+                              postId,
+                              url,
+                              ownerId,
+                              index,
+                              deleteFunc,
+                              _blockFunction);
+                        },
+                        child: Icon(
+                          Icons.more_vert,
+                          // color: selectedIndex == index
+                          //     ? Colors.pink
+                          //     : selectedIndex == 121212
+                          //         ? Colors.grey
+                          //         : Colors.teal,
+                          color: Colors.grey,
+                          size: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
@@ -1652,96 +1607,6 @@ class _MainFeedState extends State<MainFeed> {
         });
   }
 
-  ///********///////
-
-  _blockFunction(String profileOwner, String currentUserId) {
-
-
-    print("_blockFunction");
-    Map? userMap;
-    late String username;
-    late String url;
-
-    userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.value != null) {
-        userMap = dataSnapshot.value;
-
-        username = userMap?['username'];
-        url = userMap?['url'];
-      }
-    });
-
-    Future.delayed(const Duration(seconds: 1), () {
-      print("Profile Id: $profileOwner");
-      print("currentId Id: $currentUserId");
-      print("Profile Id: $username");
-
-      blockListRTD.child(Constants.myId).child(profileOwner).set({
-        "username": username,
-      });
-
-      userFollowingRtd.child(currentUserId).child(profileOwner).remove();
-      userFollowersRtd.child(profileOwner).child(currentUserId).remove();
-      userFollowersRtd.child(currentUserId).child(profileOwner).remove();
-      userFollowingRtd.child(profileOwner).child(currentUserId).remove();
-      bestFriendsRtd.child(profileOwner).child(currentUserId).remove();
-      chatListRtDatabaseReference
-          .child(Constants.myId)
-          .child(profileOwner)
-          .update({"blockBy": Constants.myId});
-      chatListRtDatabaseReference
-          .child(profileOwner)
-          .child(Constants.myId)
-          .update({"blockBy": Constants.myId});
-
-      /// user follower recounting
-      late Map data;
-      userFollowersRtd
-          .child(profileOwner)
-          .once()
-          .then((DataSnapshot dataSnapshot) {
-        if (dataSnapshot.value != null) {
-          setState(() {
-            data = dataSnapshot.value;
-          });
-
-          userFollowersCountRtd.child(profileOwner).update({
-            "followerCounter": data.length,
-            "uid": profileOwner,
-            "username": username,
-            "photoUrl": url,
-          });
-          print("yesssssssssssssssssssssss");
-        } else {
-          print("nooooooooooooooooooooooooooo");
-          userFollowersCountRtd.child(profileOwner).update({
-            "followerCounter": 0,
-            "uid": profileOwner,
-            "username": username,
-            "photoUrl": url,
-          });
-        }
-      });
-
-      ///
-
-      Fluttertoast.showToast(
-        msg: "Blocked, Restart App!",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        timeInSecForIosWeb: 5,
-        backgroundColor: Colors.white,
-        textColor: Colors.lightBlue,
-        fontSize: 16.0,
-      );
-
-      Navigator.pop(context);
-    });
-  }
-
-  late Map data;
-  List posts = [];
-
   _postFooter(User user, String postId, String ownerId, String url,
       String postTheme, int index, String type) {
     return Container(
@@ -1850,63 +1715,25 @@ class _MainFeedState extends State<MainFeed> {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 5, bottom: 8),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: GestureDetector(
-                        onTap: () => {
-                          reactorList.clear(),
-                          getPostDetail(postId),
-                        },
-                        child: Material(
-                          color: Colors.lightBlue,
-                          borderRadius: BorderRadius.circular(8),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Text(
-                              " Details ",
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'cute',
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: GestureDetector(
+                    onTap: () => {
+                      reactorList.clear(),
+                      getPostDetail(postId),
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Text(
+                        "Reactors",
+                        style: TextStyle(
+                            fontSize: 11,
+                            fontFamily: 'cute',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        OptionBottomBar ob = OptionBottomBar();
-                        ob.optionBottomBar(
-                            context,
-                            type,
-                            widget.user.uid,
-                            postId,
-                            url,
-                            ownerId,
-                            index,
-                            deleteFunc,
-                            _blockFunction);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 0),
-                        child: Icon(
-                          Icons.more_horiz,
-                          // color: selectedIndex == index
-                          //     ? Colors.pink
-                          //     : selectedIndex == 121212
-                          //         ? Colors.grey
-                          //         : Colors.teal,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               )
             ],
@@ -2818,574 +2645,742 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
-  void checkIfNotification() {
-    feedRtDatabaseReference
-        .child(Constants.myId)
-        .child("feedItems")
-        .orderByChild("timestamp")
-        .limitToLast(2)
-        .once()
-        .then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.exists) {
-        Map notifyMap = dataSnapshot.value;
-        List notifyList = [];
-        notifyMap
-            .forEach((index, data) => notifyList.add({"key": index, ...data}));
-
-        if (notifyList[0]['isRead'] == false ||
-            notifyList[1]['isRead'] == false) {
-          setState(() {
-            isNotification = true;
-          });
-
-          print(
-              "Notification : : : : : : : : : : : >><><><><><><<><><><><><><>< $isNotification");
-        }
-      } else {}
-    });
-  }
-
-  late TutorialCoachMark tutorialCoachMark;
-  List<TargetFocus> targets = <TargetFocus>[];
-  GlobalKey nameAndStuffIntro = GlobalKey();
-  GlobalKey jumpToNextIntro = GlobalKey();
-  GlobalKey frontSlidIntro = GlobalKey();
-  GlobalKey addPostIntro = GlobalKey();
-  GlobalKey memeProfileIntro = GlobalKey();
-  GlobalKey clustyChatIntro = GlobalKey();
-  GlobalKey recentPostsIntro = GlobalKey();
-  GlobalKey yourFeedsIntro = GlobalKey();
-  GlobalKey switchUpdatesIntro = GlobalKey();
-  GlobalKey bottomAllIntro = GlobalKey();
-
-  void showIntro() {
-    initTargets();
-    tutorialCoachMark = TutorialCoachMark(
-      context,
-      targets: targets,
-      colorShadow: Colors.blue,
-      textSkip: "Skip",
-      paddingFocus: 4,
-      pulseAnimationDuration: Duration(milliseconds: 1000),
-      focusAnimationDuration: Duration(milliseconds: 500),
-      opacityShadow: 0.9,
-      textStyleSkip:
-          TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
-      onFinish: () async {
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setInt("intro", 1);
-        if (mounted)
-          setState(() {
-            Constants.isIntro = "";
-          });
-
-        userAgreement("no");
-        Future.delayed(const Duration(seconds: 2), () {
-          widget.user.uid == Constants.switchIdLaaSY
-              ? SizedBox(
-                  width: 0,
-                  height: 0,
-                )
-              : whatsNew();
-        });
-      },
-      onClickTarget: (target) {
-        print('onClickTarget: ${target.keyTarget}');
-      },
-      onSkip: () {
-        userAgreement("yes");
-        Future.delayed(const Duration(seconds: 2), () {
-          widget.user.uid == Constants.switchIdLaaSY
-              ? SizedBox(
-                  width: 0,
-                  height: 0,
-                )
-              : whatsNew();
-        });
-
-        appIntro.createState().bottomSheetForSkipButton(context);
-      },
-      onClickOverlay: (target) {
-        print('onClickOverlay: $target');
-      },
-    )..show();
-  }
-
-  void initTargets() {
-    targets.clear();
-    targets.add(
-      TargetFocus(
-        identify: "Target",
-        keyTarget: nameAndStuffIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "You Have to Click here to visit your Profile.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'cute',
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "اپنی پروفائل پر جانے کے لیے یہاں پر کلک کرنا ہوگا",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "1 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15,
+  Widget yourFeed() {
+    return Provider<User>.value(
+      value: widget.user,
+      child: YourFeed(
+        user: widget.user,
+        isVisible: () {},
+        isHide: isHide,
       ),
     );
+  }
 
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: jumpToNextIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "By clicking this button you can skip recent posts that you already seen.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "اس حصے پر کلک کر کے آپ وہ پوسٹس چھوڑ سکتے ہیں جو آپ پہلے سے ہی دیکھ چکے ہیں",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "2 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
+  Widget memesOnly() {
+    return Provider<User>.value(
+      value: widget.user,
+      child: MemesOnly(
+        user: widget.user,
+        isVisible: () {},
+        isHide: isHide,
+      ),
+    );
+  }
 
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: frontSlidIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "This is (News & Trend) function, this slide will show you latest updates about Switch App and Trends.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "یہ حصہ آپکو ٹرینڈاور سوئچ ایپ کے بارے میں اپڈیٹ کرے گا",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+  Widget nameAndStuff() {
+    if (!_isHide) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Provider.value(
+                key: nameAndStuffIntro,
+                value: widget.user,
+                child: DelayedDisplay(
+                  delay: Duration(microseconds: 500),
+                  slidingBeginOffset: Offset(-1, 0.0),
+                  child: ProfileIconAndName(
+                    user: widget.user,
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                  DelayedDisplay(
+                    delay: Duration(microseconds: 500),
+                    slidingBeginOffset: Offset(1, 0.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: GestureDetector(
+                        onLongPress: () {
+                          if (widget.user.uid == Constants.switchId) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Provider<User>.value(
+                                  value: widget.user,
+                                  child: AdminPage(
+                                    user: widget.user,
+                                    controlData: widget.controlData,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                        },
+                        child: Constants.messageIconActive
+                            ? GestureDetector(
+                                onTap: () {
+                                  Fluttertoast.showToast(
+                                    msg: "Click on Chat Icon :/",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.CENTER,
+                                    timeInSecForIosWeb: 3,
+                                    backgroundColor: Colors.blue,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0,
+                                  );
+                                },
+                                child: Text(
+                                  "Unread Message",
+                                  style: TextStyle(
+                                      color: Colors.lightBlue.shade700,
+                                      // fontWeight: FontWeight.bold,
+                                      fontSize: 8,
+                                      fontFamily: 'cute'),
+                                ),
+                              )
+                            : Row(
+                                children: [
+                                  Text(
+                                    "Switch ",
+                                    style: TextStyle(
+                                        color: Colors.lightBlue,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'cute'),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  // Container(
+                                  //   decoration: BoxDecoration(
+                                  //       borderRadius: BorderRadius.circular(8)),
+                                  //   height: 40,
+                                  //   width: 40,
+                                  //   child: RiveAnimation.asset(
+                                  //     'images/switchLogoBlue1.riv',
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
                       ),
                     ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "3 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                  ),
+                  DelayedDisplay(
+                    delay: Duration(milliseconds: 200),
+                    slidingBeginOffset: Offset(1, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 10, right: 8, top: 8),
+                            child: GestureDetector(
+                              child: isNotification
+                                  ? Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(bottom: 8),
+                                          child: Icon(
+                                            Icons.notifications_active_rounded,
+                                            color: Colors.lightBlue,
+                                            size: 25,
+                                          ),
+                                        ),
+                                        Positioned(
+                                            left: 5,
+                                            bottom: 2,
+                                            child: SpinKitPulse(
+                                              color: Colors.red,
+                                              size: 15,
+                                            )),
+                                      ],
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.only(bottom: 7),
+                                      child: Icon(
+                                        Icons.notifications_none_sharp,
+                                        size: 25,
+                                        color: Colors.lightBlue,
+                                      ),
+                                    ),
+                              onTap: () {
+                                NotifyBottomBar nb = new NotifyBottomBar();
+                                nb.bottomSheetForNotify(context, widget.user);
+
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  if (mounted)
+                                    setState(() {
+                                      isNotification = false;
+                                    });
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        height: 0.0,
+        width: 0.0,
+      );
+    }
+  }
+
+  Widget frontSlide() {
+    if (!_isHide) {
+      return Container(
+        key: frontSlidIntro,
+        height: 100,
+        child: DelayedDisplay(
+          delay: Duration(milliseconds: 600),
+          slidingBeginOffset: Offset(0.0, 1),
+          child: FrontSlide(),
+        ),
+      );
+    } else {
+      return Container(
+        height: 0.0,
+        width: 0.0,
+      );
+    }
+  }
+
+  Widget tabBar(User user) {
+    return !_isHide
+        ? Container(
+            height: 75,
+            alignment: Alignment.center,
+            //Set container alignment  then wrap the column with singleChildScrollView
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 200),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Add Post",
+                  //         style: TextStyle(
+                  //           fontWeight: FontWeight.w700,
+                  //           fontSize: 10.0,
+                  //         ),
+                  //       ),
+                  //       ElevatedButton(
+                  //         key: addPostIntro,
+                  //         child: Icon(
+                  //           Icons.add_box_outlined,
+                  //           size: 25,
+                  //           color: Colors.lightBlue,
+                  //         ),
+                  //         onPressed: () {
+                  //           simpleStatusPage(user);
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             primary: Colors.transparent,
+                  //             elevation: 0.0,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 400),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Mood",
+                  //         style: TextStyle(
+                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //       ),
+                  //       ElevatedButton(
+                  //         child: Icon(
+                  //           Icons.stream,
+                  //           size: 25,
+                  //           color: Colors.lightBlue,
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //               context,
+                  //               PageTransition(
+                  //                 type: PageTransitionType.bottomToTop,
+                  //                 child: Provider<User>.value(
+                  //                   value: user,
+                  //                   child: Mood(
+                  //                     user: user,
+                  //                   ),
+                  //                 ),
+                  //               ));
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             elevation: 0.0,
+                  //             primary: Colors.transparent,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 550),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: SingleChildScrollView(
+                  //     child: Column(
+                  //       children: [
+                  //         Text(
+                  //           "Notify",
+                  //           key: key,
+                  //           style: TextStyle(
+                  //               fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //         ),
+                  //         ElevatedButton(
+                  //           child: isNotification
+                  //               ? Stack(
+                  //                   children: [
+                  //                     Padding(
+                  //                       padding:
+                  //                           const EdgeInsets.only(bottom: 8),
+                  //                       child: Icon(
+                  //                         Icons.notifications_active_rounded,
+                  //                         color: Colors.lightBlue,
+                  //                         size: 22,
+                  //                       ),
+                  //                     ),
+                  //                     Positioned(
+                  //                         left: 5,
+                  //                         bottom: 2,
+                  //                         child: SpinKitPulse(
+                  //                           color: Colors.red,
+                  //                           size: 19,
+                  //                         )),
+                  //                   ],
+                  //                 )
+                  //               : Padding(
+                  //                   padding: const EdgeInsets.only(bottom: 7),
+                  //                   child: Icon(
+                  //                     Icons.notifications_none_sharp,
+                  //                     size: 22,
+                  //                     color: Colors.lightBlue,
+                  //                   ),
+                  //                 ),
+                  //           onPressed: () {
+                  //             // bottomSheetForNotify();
+                  //
+                  //             Future.delayed(const Duration(seconds: 2), () {
+                  //               if (mounted)
+                  //                 setState(() {
+                  //                   isNotification = false;
+                  //                 });
+                  //             });
+                  //           },
+                  //           style: ElevatedButton.styleFrom(
+                  //               elevation: 0.0,
+                  //               primary: Colors.transparent,
+                  //               textStyle: TextStyle(
+                  //                   fontSize: 15, fontWeight: FontWeight.bold)),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 750),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Padding(
+                  //         padding: const EdgeInsets.only(bottom: 2),
+                  //         child: Text(
+                  //           "Clusty Chat ",
+                  //           style: TextStyle(
+                  //               fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //         ),
+                  //       ),
+                  //       Stack(
+                  //         key: clustyChatIntro,
+                  //         children: [
+                  //           ElevatedButton(
+                  //             child: Icon(
+                  //               Icons.mark_chat_unread_outlined,
+                  //               color: Colors.lightBlue,
+                  //               size: 24,
+                  //             ),
+                  //             onPressed: () {
+                  //               Navigator.push(
+                  //                   context,
+                  //                   PageTransition(
+                  //                     type: PageTransitionType.bottomToTop,
+                  //                     child: Provider<User>.value(
+                  //                       value: user,
+                  //                       child: WorldChat(
+                  //                         user: user,
+                  //                         userId: user.uid,
+                  //                       ),
+                  //                     ),
+                  //                   ));
+                  //             },
+                  //             style: ElevatedButton.styleFrom(
+                  //                 elevation: 0.0,
+                  //                 primary: Colors.transparent,
+                  //                 textStyle: TextStyle(
+                  //                     fontSize: 15,
+                  //                     fontWeight: FontWeight.bold)),
+                  //           ),
+                  //           // Positioned(left: 6.2,
+                  //           //   child: Container(
+                  //           //     height: 50,
+                  //           //     width: 50,
+                  //           //     child: SpinKitRipple(
+                  //           //       color: Colors.lightBlue,
+                  //           //     ),
+                  //           //   ),
+                  //           // ),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 700),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Search",
+                  //         style: TextStyle(
+                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //       ),
+                  //       ElevatedButton(
+                  //         child: Icon(
+                  //           Icons.search_rounded,
+                  //           color: Colors.lightBlue,
+                  //           size: 25,
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //               context,
+                  //               PageTransition(
+                  //                 type: PageTransitionType.bottomToTop,
+                  //                 child: Provider<User>.value(
+                  //                   value: user,
+                  //                   child: MainSearchPage(
+                  //                     navigateThrough: "",
+                  //                     user: user,
+                  //                     userId: user.uid,
+                  //                   ),
+                  //                 ),
+                  //               ));
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             elevation: 0.0,
+                  //             primary: Colors.transparent,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 1000),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: Column(
+                  //     children: [
+                  //       Text(
+                  //         "Edit D.P",
+                  //         style: TextStyle(
+                  //             fontSize: 10.0, fontWeight: FontWeight.w700),
+                  //       ),
+                  //       ElevatedButton(
+                  //         child: Icon(
+                  //           Icons.account_circle_outlined,
+                  //           color: Colors.lightBlue,
+                  //           size: 25,
+                  //         ),
+                  //         onPressed: () {
+                  //           Navigator.push(
+                  //               context,
+                  //               PageTransition(
+                  //                 type: PageTransitionType.bottomToTop,
+                  //                 child: EditProfilePic(
+                  //                   uid: Constants.myId,
+                  //                   imgUrl: Constants.myPhotoUrl,
+                  //                 ),
+                  //               ));
+                  //         },
+                  //         style: ElevatedButton.styleFrom(
+                  //             elevation: 0.0,
+                  //             primary: Colors.transparent,
+                  //             textStyle: TextStyle(
+                  //                 fontSize: 15, fontWeight: FontWeight.bold)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                ],
+              ),
+            ),
+          )
+        : Container(
+            height: 0,
+            width: 0,
+          );
+  }
+
+  Widget allLine() {
+    return DelayedDisplay(
+      delay: Duration(milliseconds: _isHide ? 100 : 600),
+      slidingBeginOffset: Offset(0.0, 0.40),
+      child: Container(
+        height: 50,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: GestureDetector(
+                  key: recentPostsIntro,
+                  onTap: () {
+                    setState(() {
+                      currentLine = 1;
+                    });
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 4.3,
+                    padding: EdgeInsets.all(5),
+                    // decoration: BoxDecoration(
+                    //     color: currentLine == 1
+                    //         ? Colors.lightBlue
+                    //         : Constants.isDark == "true"
+                    //         ? Colors.grey.shade800
+                    //         : Colors.white,
+                    //     border: Border.all(
+                    //       color: Colors.lightBlue,
+                    //     ),
+                    //     borderRadius: BorderRadius.circular(5.5)),
+                    child: Container(
+                      height: 40,
+                      child: Column(
+                        children: [
+                          Center(
+                            child: MarqueeWidget(
+                              child: Text(
+                                "Recent",
+                                style: TextStyle(
+                                  color: currentLine == 1
+                                      ? Colors.lightBlue
+                                      : Constants.isDark == "true"
+                                          ? Colors.white
+                                          : Colors.lightBlue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                  fontFamily: 'cute',
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width / 4.3,
+                            padding: EdgeInsets.all(5),
+                            height: 2,
+                            color: currentLine == 1
+                                ? Colors.lightBlue
+                                : Constants.isDark == "true"
+                                    ? Colors.white
+                                    : Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                    height: 35,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    currentLine = 2;
+                  });
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 4.3,
+                  padding: EdgeInsets.all(5.0),
+                  // decoration: BoxDecoration(
+                  //     color: currentLine == 2
+                  //         ? Colors.lightBlue
+                  //         : Constants.isDark == "true"
+                  //             ? Colors.grey.shade800
+                  //             : Colors.white,
+                  //     border: Border.all(
+                  //       color: Colors.lightBlue,
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(5.5)),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: MarqueeWidget(
+                          child: Text(
+                            "Following",
+                            style: TextStyle(
+                              color: currentLine == 2
+                                  ? Colors.lightBlue
+                                  : Constants.isDark == "true"
+                                      ? Colors.white
+                                      : Colors.lightBlue,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              fontFamily: 'cute',
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: addPostIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "You can upload posts and memes by clicking this button",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "اس بٹن سے آپ پوسٹ کر سکتے ہیں",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        height: 4,
                       ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "4 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 4.3,
+                        padding: EdgeInsets.all(5),
+                        height: 2,
+                        color: currentLine == 2
+                            ? Colors.lightBlue
+                            : Constants.isDark == "true"
+                                ? Colors.white
+                                : Colors.white,
+                      ),
+                    ],
+                  ),
+                  height: 35,
+                ),
+              ),
+              GestureDetector(
+                key: switchUpdatesIntro,
+                onTap: () {
+                  setState(() {
+                    currentLine = 3;
+                  });
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 4.3,
+                  padding: EdgeInsets.all(5.0),
+                  // decoration: BoxDecoration(
+                  //     color: currentLine == 3
+                  //         ? Colors.lightBlue
+                  //         : Constants.isDark == "true"
+                  //             ? Colors.grey.shade800
+                  //             : Colors.white,
+                  //     border: Border.all(
+                  //       color: Colors.lightBlue,
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(5.5)),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: MarqueeWidget(
+                          child: Text(
+                            "Memes",
+                            style: TextStyle(
+                              color: currentLine == 3
+                                  ? Colors.lightBlue
+                                  : Constants.isDark == "true"
+                                      ? Colors.white
+                                      : Colors.lightBlue,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              fontFamily: 'cute',
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 4.3,
+                        padding: EdgeInsets.all(5),
+                        height: 2,
+                        color: currentLine == 3
+                            ? Colors.lightBlue
+                            : Constants.isDark == "true"
+                                ? Colors.white
+                                : Colors.white,
+                      ),
+                    ],
+                  ),
+                  height: 35,
                 ),
-              );
-            },
+              ),
+              // DelayedDisplay(
+              //   delay: Duration(milliseconds: 200),
+              //   slidingBeginOffset: Offset(1, 0.0),
+              //   child: SingleChildScrollView(
+              //     child: Container(
+              //       width: 60,
+              //       child: Column(
+              //         children: [
+              //           Padding(
+              //             padding: const EdgeInsets.only(right: 12, top: 8),
+              //             child: GestureDetector(
+              //               child: isNotification
+              //                   ? Stack(
+              //                       children: [
+              //                         Padding(
+              //                           padding:
+              //                               const EdgeInsets.only(bottom: 8),
+              //                           child: Icon(
+              //                             Icons.notifications_active_rounded,
+              //                             color: Colors.lightBlue,
+              //                             size: 25,
+              //                           ),
+              //                         ),
+              //                         Positioned(
+              //                             left: 5,
+              //                             bottom: 2,
+              //                             child: SpinKitPulse(
+              //                               color: Colors.red,
+              //                               size: 15,
+              //                             )),
+              //                       ],
+              //                     )
+              //                   : Padding(
+              //                       padding: const EdgeInsets.only(bottom: 7),
+              //                       child: Icon(
+              //                         Icons.notifications_none_sharp,
+              //                         size: 25,
+              //                         color: Colors.lightBlue,
+              //                       ),
+              //                     ),
+              //               onTap: () {
+              //                 NotifyBottomBar nb = new NotifyBottomBar();
+              //                 nb.bottomSheetForNotify(context, widget.user);
+              //
+              //                 Future.delayed(const Duration(seconds: 2), () {
+              //                   if (mounted)
+              //                     setState(() {
+              //                       isNotification = false;
+              //                     });
+              //                 });
+              //               },
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
+            ],
           ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
-    // targets.add(TargetFocus(
-    //     identify: "Target",
-    //     keyTarget: memeProfileIntro,
-    //     contents: [
-    //       TargetContent(
-    //         align: ContentAlign.bottom,
-    //         builder: (context, controller) {
-    //           return Container(
-    //             child: Column(
-    //               mainAxisSize: MainAxisSize.min,
-    //               crossAxisAlignment: CrossAxisAlignment.start,
-    //               children: <Widget>[
-    //                 Text(
-    //                   "This is for memers profile. This section will show your latest meme posts by you and your Slit points.",
-    //                   textAlign: TextAlign.left,
-    //                   style: TextStyle(
-    //                       fontWeight: FontWeight.bold,
-    //                       color: Colors.white,
-    //                       fontSize: 18.0),
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(top: 10.0),
-    //                   child: Text(
-    //                     "یہ میمرز کی پروفل ہے جو تازہ ممیز اور سلیٹ پوائنٹس کو الگ سے دیکھاے گی",
-    //                     textAlign: TextAlign.right,
-    //                     style: TextStyle(
-    //                         color: Colors.white,
-    //                         fontSize: 18,
-    //                         fontWeight: FontWeight.bold),
-    //                   ),
-    //                 ),
-    //                 Center(
-    //                   child: Padding(
-    //                     padding: const EdgeInsets.only(top: 20.0),
-    //                     child: Text(
-    //                       "5 of 10",
-    //                       textAlign: TextAlign.center,
-    //                       style: TextStyle(
-    //                           color: Colors.white,
-    //                           fontSize: 20,
-    //                           fontWeight: FontWeight.bold),
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ],
-    //             ),
-    //           );
-    //         },
-    //       ),
-    //     ],
-    //     shape: ShapeLightFocus.RRect,
-    //     radius: 15));
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: clustyChatIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "This is for memers profile. This section will show your latest posts on meme topic and your Slit points.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "یہ حصہ سب لوگوں کے میسج دیکھاے گا",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "6 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: recentPostsIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "This section will show you the latest posts of all the users.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "یہ حصہ آپ کو تازہ ترین کی گئی پوسٹس دیکھاے گا",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "7 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: switchUpdatesIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.bottom,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "This section will show you the latest updates from switch app.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "یہ حصہ آپ کو سوئچ ایپ کے بارے میں تازہ اپ ڈیٹ دیکھاے گا",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "8 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
-    targets.add(TargetFocus(
-        identify: "Target",
-        keyTarget: bottomAllIntro,
-        contents: [
-          TargetContent(
-            align: ContentAlign.top,
-            builder: (context, controller) {
-              return Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "This will show you recent posts.",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "یہ حصہ آپ کو سب سے تازہ ترین کی گئی پوسٹس کو دیکھاے گا",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          "9 of 10",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 15));
+        ),
+      ),
+    );
   }
 
   videoPosts(int index) {

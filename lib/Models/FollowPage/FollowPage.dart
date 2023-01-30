@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/rankingHorizontalList/rankingList.dart';
 import 'package:switchapp/Universal/Constans.dart';
@@ -354,11 +355,13 @@ class _FollowPageState extends State<FollowPage> {
                   padding: const EdgeInsets.all(3.0),
                   child: ElevatedButton(
                     child: Text('Follow'),
-                    onPressed: () => {
+                    onPressed: () async {
                       setState(() {
                         isFollowing = true;
-                      }),
-                      getUserData(allMemerList[index]['uid']),
+                      });
+                      getUserData(allMemerList[index]['uid']);
+                      SharedPreferences prefs = await SharedPreferences.getInstance();
+
                       Future.delayed(const Duration(seconds: 1), () {
                         /// this code will add notification to the use that have been followed
                         feedRtDatabaseReference
@@ -400,11 +403,12 @@ class _FollowPageState extends State<FollowPage> {
 
                         followingCounter();
                         allMemerList.removeAt(index);
+                        prefs.remove("followList");
                         setState(() {
                           isFollowing = false;
                         });
                         memerMap!.clear();
-                      }),
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,

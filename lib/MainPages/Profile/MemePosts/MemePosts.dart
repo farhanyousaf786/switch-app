@@ -8,6 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
 import 'package:switchapp/Universal/Constans.dart';
@@ -1164,11 +1165,12 @@ class _AllMemePostsState extends State<AllMemePosts> {
         });
   }
 
-  _blockFunction(String profileOwner, String currentUserId) {
+  _blockFunction(String profileOwner, String currentUserId) async{
     Map? userMap;
     late String username;
     late String url;
-
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
     userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         userMap = dataSnapshot.value;

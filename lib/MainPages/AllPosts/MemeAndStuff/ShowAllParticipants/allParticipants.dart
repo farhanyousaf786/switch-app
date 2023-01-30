@@ -10,6 +10,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
@@ -910,11 +911,12 @@ class _AllParticipantsState extends State<AllParticipants> {
 
   ///********///////
 
-  _blockFunction(String profileOwner, String currentUserId) {
+  _blockFunction(String profileOwner, String currentUserId) async {
     Map? userMap;
     late String username;
     late String url;
-
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
     userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         userMap = dataSnapshot.value;

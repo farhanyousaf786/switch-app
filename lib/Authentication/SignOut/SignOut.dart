@@ -22,6 +22,7 @@ class SignOut {
     prefs.remove("username");
     prefs.remove("isVerified");
     prefs.remove("isBan");
+    prefs.remove("followList");
     final googleSignIn = GoogleSignIn();
     userRefRTD.child(uid).update({"isOnline": "false"});
     await googleSignIn.signOut();

@@ -1318,11 +1318,12 @@ class _MemesOnlyState extends State<MemesOnly> {
 
   ///********///////
 
-  _blockFunction(String profileOwner, String currentUserId) {
+  _blockFunction(String profileOwner, String currentUserId)async {
     Map? userMap;
     late String username;
     late String url;
-
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
     userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         userMap = dataSnapshot.value;

@@ -3,6 +3,7 @@
  * after login or may be after signUp successfully.
  */
 
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:delayed_display/delayed_display.dart';
@@ -68,6 +69,7 @@ class _NavigationPageState extends State<NavigationPage>
   List posts = [];
   int _selectedIndex = 0;
   final player = AudioPlayer();
+  List finalFollowingList = [];
 
   @override
   void initState() {
@@ -82,12 +84,41 @@ class _NavigationPageState extends State<NavigationPage>
     configNotification();
     getInAppAllNotification();
     checkUnreadMessages();
+    getFollowingUsers();
     Future.delayed(const Duration(seconds: 5), () {
       if (mounted)
         setState(() {
           Constants.notifyCounter = 1;
         });
     });
+  }
+
+  getFollowingUsers() async {
+    List followingList = [];
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey("followList")) {
+      finalFollowingList = json.decode(prefs.getString('followList').toString());
+print("><><>>>>>>>>>>>>>>>>>>> ${finalFollowingList}");
+    } else {
+      userFollowingRtd
+          .child(widget.user.uid)
+          .once()
+          .then((DataSnapshot dataSnapshot) {
+        if (dataSnapshot.value != null) {
+          Map data = dataSnapshot.value;
+          data.forEach(
+              (index, data) => followingList.add({"key": index, ...data}));
+          for (int i = 0; i <= data.length - 1; i++) {
+            finalFollowingList.add(followingList[i]['followingId']);
+          }
+          prefs.setString('followList', jsonEncode(finalFollowingList));
+          var s = jsonEncode(finalFollowingList);
+          finalFollowingList = json.decode(s);
+        } else {
+          print("FollowerList 0 = = = = = = = = > $followingList");
+        }
+      });
+    }
   }
 
   static const AndroidNotificationChannel channel = AndroidNotificationChannel(
@@ -301,19 +332,19 @@ class _NavigationPageState extends State<NavigationPage>
     pageController.jumpToPage(pageIndex);
   }
 
-  getFollowingUsers(String uid) async {
-    userFollowingRtd.child(uid).once().then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.value != null) {
-        Map data = dataSnapshot.value;
-        data.forEach(
-            (index, data) => followingList.add({"key": index, ...data}));
-        followingList.shuffle();
-        if (mounted) setState(() {});
-      } else {
-        print("There is no post");
-      }
-    });
-  }
+  // getFollowingUsers(String uid) async {
+  //   userFollowingRtd.child(uid).once().then((DataSnapshot dataSnapshot) {
+  //     if (dataSnapshot.value != null) {
+  //       Map data = dataSnapshot.value;
+  //       data.forEach(
+  //           (index, data) => followingList.add({"key": index, ...data}));
+  //       followingList.shuffle();
+  //       if (mounted) setState(() {});
+  //     } else {
+  //       print("There is no post");
+  //     }
+  //   });
+  // }
 
   simpleStatusPage(User user) {
     return showModalBottomSheet(
@@ -1250,6 +1281,7 @@ class _NavigationPageState extends State<NavigationPage>
                     controlData: widget.controlData,
                     appVersion: widget.appVersion,
                     followingUserList: followingList,
+                    finalFollowingList: finalFollowingList,
                   ),
                 ),
                 Constants.username == ""
@@ -1372,13 +1404,15 @@ class CheckAppControl extends StatefulWidget {
   final Map? controlData;
   final String appVersion;
   final List followingUserList;
+  late List finalFollowingList;
 
   CheckAppControl(
       {required this.user,
       required this.post,
       required this.controlData,
       required this.appVersion,
-      required this.followingUserList});
+      required this.followingUserList,
+      required this.finalFollowingList});
 
   @override
   _CheckAppControlState createState() => _CheckAppControlState();
@@ -1521,6 +1555,7 @@ class _CheckAppControlState extends State<CheckAppControl> {
             child: MainFeed(
               user: widget.user,
               controlData: widget.controlData,
+              finalFollowingList: widget.finalFollowingList,
             ),
           );
   }
