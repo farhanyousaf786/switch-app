@@ -13,11 +13,11 @@ class FollowButtonMainPage {
     String uid,
     String followId,
       String username,
-      String url
+      String url,
+      int index,
   ) async {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     Future.delayed(const Duration(seconds: 1), () {
       /// this code will add notification to the use that have been followed
       feedRtDatabaseReference
@@ -59,10 +59,11 @@ class FollowButtonMainPage {
 
       followingCounter(followId, uid, username, url);
       prefs.remove("followList");
-
     });
 
   }
+
+
   followingCounter(String followId, String uid, String username, String url) {
     late Map data;
     userFollowersRtd

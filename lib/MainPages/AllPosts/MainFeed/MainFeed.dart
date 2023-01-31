@@ -14,6 +14,7 @@ import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/MainPages/AdminPage/adminPage.dart';
+import 'package:switchapp/MainPages/AllPosts/MainFeed/FollowBottonUi.dart';
 import 'package:switchapp/MainPages/AllPosts/MainFeed/OptionBottomBar.dart';
 import 'package:switchapp/MainPages/FrontSlide/MainiaTopic.dart';
 import 'package:switchapp/MainPages/Profile/Panelandbody.dart';
@@ -40,6 +41,7 @@ import '../profileIconAndName/profileIconAndName.dart';
 import '../../ReportAndComplaints/postReportPage.dart';
 import '../../ReportAndComplaints/reportId.dart';
 import 'FollowBotton.dart';
+import 'FollowBottonUi.dart';
 
 UniversalMethods universalMethods = UniversalMethods();
 final appIntro = new AppIntro();
@@ -1335,7 +1337,23 @@ class _MainFeedState extends State<MainFeed> {
     );
   }
 
-  ///
+  List followedIndex = [];
+  late List<FollowButtonUi> followButtonUi;
+  void removeServiceCard(String ownerId) {
+    setState(() {
+      followedIndex.add(ownerId);
+    });
+    Fluttertoast.showToast(
+      msg: "Following",
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 3,
+      backgroundColor: Colors.blue.withOpacity(0.8),
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+  }
+
   _showProfilePicAndName(
       String ownerId,
       String timeStamp,
@@ -1346,6 +1364,8 @@ class _MainFeedState extends State<MainFeed> {
       String url,
       bool isFollowing,
       int index) {
+    followButtonUi =
+        List.generate(limitedPostList.length, (index) => FollowButtonUi());
     return StreamBuilder(
         stream: userRefRTD.child(ownerId).onValue,
         builder: (context, AsyncSnapshot dataSnapShot) {
@@ -1363,26 +1383,22 @@ class _MainFeedState extends State<MainFeed> {
                       !isFollowing
                           ? GestureDetector(
                               onTap: () {
+                                removeServiceCard(ownerId);
                                 FollowButtonMainPage fb =
                                     FollowButtonMainPage();
-                                fb.getFollowingUsers(widget.user.uid, ownerId, data['username'], data['url']);
+                                fb.getFollowingUsers(
+                                  widget.user.uid,
+                                  ownerId,
+                                  data['username'],
+                                  data['url'],
+                                  index,
+                                );
                               },
-                              child: Material(
-                                color: Colors.lightBlue,
-                                borderRadius: BorderRadius.circular(8),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: Text(
-                                    " Follow ",
-                                    style: TextStyle(
-                                        fontSize: 11,
-                                        fontFamily: 'cute',
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            )
+                              child: followedIndex.contains(ownerId)
+                                  ? SizedBox(
+                                      height: 0,
+                                    )
+                                  : followButtonUi[index])
                           : SizedBox(
                               height: 0,
                             ),
