@@ -40,12 +40,10 @@ import '../../../Models/VideoWidget/video_widget.dart';
 
 class MemesOnly extends StatefulWidget {
   late final User user;
-  final VoidCallback isVisible;
-  final VoidCallback isHide;
+  final Function? isHide;
 
   MemesOnly({
     required this.user,
-    required this.isVisible,
     required this.isHide,
   });
 
@@ -175,18 +173,13 @@ class _MemesOnlyState extends State<MemesOnly> {
       _scrollPosition = listScrollController.position.pixels;
     });
     if (_scrollPosition! > 50.0) {
-      print("isHide...................................");
-      widget.isHide();
-
       setState(() {
-        _isHide = true;
+        widget.isHide!(true);
       });
     }
     if (_scrollPosition! < 50.0) {
-      print("isHide......................<>.............");
-
       setState(() {
-        _isHide = false;
+        widget.isHide!(false);
       });
     }
   }

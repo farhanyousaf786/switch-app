@@ -16,7 +16,6 @@ class FollowButtonMainPage {
       String url,
       int index,
   ) async {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Future.delayed(const Duration(seconds: 1), () {
       /// this code will add notification to the use that have been followed

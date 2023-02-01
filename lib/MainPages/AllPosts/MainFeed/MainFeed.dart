@@ -736,6 +736,13 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
+   isHide(isHide){
+    setState(() {
+      _isHide = isHide;
+    });
+
+   }
+
   void getNextPosts() {
     if (endAt > 142) {
       print("***************** list Ended *****************");
@@ -916,11 +923,6 @@ class _MainFeedState extends State<MainFeed> {
     });
   }
 
-  isHide() {
-    setState(() {
-      _isHide = true;
-    });
-  }
 
   _getUserDetail(String ownerId) {
     User user = Provider.of<User>(context, listen: false);
@@ -1339,19 +1341,12 @@ class _MainFeedState extends State<MainFeed> {
 
   List followedIndex = [];
   late List<FollowButtonUi> followButtonUi;
+  late bool isFollowTap = false;
+
   void removeServiceCard(String ownerId) {
     setState(() {
       followedIndex.add(ownerId);
     });
-    Fluttertoast.showToast(
-      msg: "Following",
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.TOP,
-      timeInSecForIosWeb: 3,
-      backgroundColor: Colors.blue.withOpacity(0.8),
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
   }
 
   _showProfilePicAndName(
@@ -1376,32 +1371,61 @@ class _MainFeedState extends State<MainFeed> {
               width: MediaQuery.of(context).size.width,
               child: ListTile(
                 trailing: SizedBox(
-                  width: 120,
+                  width: 130,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      !isFollowing
-                          ? GestureDetector(
-                              onTap: () {
-                                removeServiceCard(ownerId);
-                                FollowButtonMainPage fb =
-                                    FollowButtonMainPage();
-                                fb.getFollowingUsers(
-                                  widget.user.uid,
-                                  ownerId,
-                                  data['username'],
-                                  data['url'],
-                                  index,
-                                );
-                              },
-                              child: followedIndex.contains(ownerId)
-                                  ? SizedBox(
-                                      height: 0,
-                                    )
-                                  : followButtonUi[index])
-                          : SizedBox(
-                              height: 0,
-                            ),
+                      followedIndex.contains(ownerId) && isFollowTap
+                          ? Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 6),
+                                  child: SpinKitThreeBounce(color: Colors.lightBlue, size: 11,),
+                                )
+                              ],
+                            )
+                          : !isFollowing
+                              ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      isFollowTap = true;
+                                    });
+
+                                    removeServiceCard(ownerId);
+                                    FollowButtonMainPage fb =
+                                        FollowButtonMainPage();
+                                    fb.getFollowingUsers(
+                                      widget.user.uid,
+                                      ownerId,
+                                      data['username'],
+                                      data['url'],
+                                      index,
+                                    );
+                                    Future.delayed(const Duration(seconds: 1),
+                                        () {
+                                      setState(() {
+                                        isFollowTap = false;
+                                      });
+                                      Fluttertoast.showToast(
+                                        msg:
+                                            "You are now Following ${data['firstName']}",
+                                        toastLength: Toast.LENGTH_LONG,
+                                        gravity: ToastGravity.TOP,
+                                        timeInSecForIosWeb: 3,
+                                        backgroundColor: Colors.white,
+                                        textColor: Colors.lightBlue,
+                                        fontSize: 10.0,
+                                      );
+                                    });
+                                  },
+                                  child: followedIndex.contains(ownerId)
+                                      ? SizedBox(
+                                          height: 0,
+                                        )
+                                      : followButtonUi[index])
+                              : SizedBox(
+                                  height: 0,
+                                ),
                       SizedBox(
                         width: 8,
                       ),
@@ -2666,7 +2690,6 @@ class _MainFeedState extends State<MainFeed> {
       value: widget.user,
       child: YourFeed(
         user: widget.user,
-        isVisible: () {},
         isHide: isHide,
       ),
     );
@@ -2677,7 +2700,6 @@ class _MainFeedState extends State<MainFeed> {
       value: widget.user,
       child: MemesOnly(
         user: widget.user,
-        isVisible: () {},
         isHide: isHide,
       ),
     );

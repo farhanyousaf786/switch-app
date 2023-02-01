@@ -152,12 +152,7 @@ class _SignInPageState extends State<SignInPage> {
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
         elevation: 0,
-        leading: GestureDetector(
-          onTap: () => {Navigator.pop(context)},
-          child: Icon(
-            Icons.arrow_back_ios_new,
-          ),
-        ),
+        leading: Text("")
       ),
       // backgroundColor: Colors.blue.shade100,
       body: Container(
@@ -167,6 +162,7 @@ class _SignInPageState extends State<SignInPage> {
         child: DelayedDisplay(
           delay: Duration(microseconds: 100),
           slidingBeginOffset: Offset(-1, 0.0),
+
           child: SingleChildScrollView(
             child: Column(
               children: [

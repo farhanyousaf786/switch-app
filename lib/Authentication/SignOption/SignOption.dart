@@ -149,8 +149,10 @@ class _HomeLandingState extends State<HomeLanding> {
                       "Double Slit World",
                       style: TextStyle(
                         fontFamily: "Cute",
-                        fontSize: 18,
+                        fontSize: 20,
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
+
                       ),
                     ),
                   ),
@@ -172,6 +174,7 @@ class _HomeLandingState extends State<HomeLanding> {
                                 style: TextStyle(
                                     color: Colors.lightBlue,
                                     fontFamily: 'cute',
+                                    fontWeight: FontWeight.bold,
                                     fontSize: 17),
                               ),
                               Container(
@@ -220,6 +223,7 @@ class _HomeLandingState extends State<HomeLanding> {
                                 style: TextStyle(
                                     color: Colors.lightBlue,
                                     fontFamily: 'cute',
+                                    fontWeight: FontWeight.bold,
                                     fontSize: 17),
                               ),
                               SizedBox(

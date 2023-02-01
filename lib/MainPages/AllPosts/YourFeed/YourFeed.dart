@@ -4,23 +4,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delayed_display/delayed_display.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/FollowPage/FollowPage.dart';
-import '../../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/Models/postModel/TextStatus.dart';
@@ -35,12 +30,10 @@ import 'package:time_formatter/time_formatter.dart';
 
 class YourFeed extends StatefulWidget {
   late final User user;
-  final VoidCallback isVisible;
-  final VoidCallback isHide;
+  final Function? isHide;
 
   YourFeed({
     required this.user,
-    required this.isVisible,
     required this.isHide,
   });
 
@@ -210,8 +203,19 @@ class _YourFeedState extends State<YourFeed> {
       _scrollPosition = listScrollController.position.pixels;
     });
 
-    if (_scrollPosition! > 50) {
-      widget.isHide();
+
+    setState(() {
+      _scrollPosition = listScrollController.position.pixels;
+    });
+    if (_scrollPosition! > 50.0) {
+      setState(() {
+        widget.isHide!(true);
+      });
+    }
+    if (_scrollPosition! < 50.0) {
+      setState(() {
+        widget.isHide!(false);
+      });
     }
   }
 
