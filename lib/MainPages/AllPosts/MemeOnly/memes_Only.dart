@@ -1,29 +1,22 @@
 import 'dart:io' show InternetAddress, SocketException;
 import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delayed_display/delayed_display.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/SwitchCacheImg/SwitchImageCache.dart';
-import '../../../Models/imageCacheFilter.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/postReportPage.dart';
 import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/Models/postModel/TextStatus.dart';
@@ -39,12 +32,12 @@ import 'package:time_formatter/time_formatter.dart';
 import '../../../Models/VideoWidget/video_widget.dart';
 
 class MemesOnly extends StatefulWidget {
-  late final User user;
+  final User user;
   final Function? isHide;
-
+  final Map allPostMap;
   MemesOnly({
     required this.user,
-    required this.isHide,
+    required this.isHide, required this.allPostMap,
   });
 
   @override
@@ -117,21 +110,24 @@ class _MemesOnlyState extends State<MemesOnly> {
   getFirstPostList() async {
     allPostList.clear();
     limitedPostList.clear();
-    switchAllUserFeedPostsRTD
-        .child("UserPosts")
-        .orderByChild('timestamp')
-        .limitToLast(150)
-        .once()
-        .then(
-      (DataSnapshot dataSnapshot) {
-        if (dataSnapshot.value != null) {
-          allPostMap = dataSnapshot.value;
-
-          allPostMap.forEach(
-            (index, data2) => allPostList.add({"key": index, ...data2}),
-          );
-        }
-      },
+    // switchAllUserFeedPostsRTD
+    //     .child("UserPosts")
+    //     .orderByChild('timestamp')
+    //     .limitToLast(150)
+    //     .once()
+    //     .then(
+    //   (DataSnapshot dataSnapshot) {
+    //     if (dataSnapshot.value != null) {
+    //       allPostMap = dataSnapshot.value;
+    //
+    //       allPostMap.forEach(
+    //         (index, data2) => allPostList.add({"key": index, ...data2}),
+    //       );
+    //     }
+    //   },
+    // );
+    widget.allPostMap.forEach(
+          (index, data2) => allPostList.add({"key": index, ...data2}),
     );
     Future.delayed(const Duration(milliseconds: 300), () {
       allPostList.sort(

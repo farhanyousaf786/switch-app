@@ -113,6 +113,419 @@ class _MainFeedState extends State<MainFeed> {
     super.initState();
   }
 
+
+
+  void checkIfNotification() {
+    feedRtDatabaseReference
+        .child(Constants.myId)
+        .child("feedItems")
+        .orderByChild("timestamp")
+        .limitToLast(2)
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.exists) {
+        Map notifyMap = dataSnapshot.value;
+        List notifyList = [];
+        notifyMap
+            .forEach((index, data) => notifyList.add({"key": index, ...data}));
+
+        if (notifyList[0]['isRead'] == false ||
+            notifyList[1]['isRead'] == false) {
+          setState(() {
+            isNotification = true;
+          });
+
+          print(
+              "Notification : : : : : : : : : : : >><><><><><><<><><><><><><>< $isNotification");
+        }
+      } else {}
+    });
+  }
+
+  void getFirstPostList() async {
+    allPostList.clear();
+    limitedPostList.clear();
+    switchAllUserFeedPostsRTD
+        .child("UserPosts")
+        .orderByChild('timestamp')
+        .limitToLast(150)
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.value != null) {
+        allPostMap = dataSnapshot.value;
+        allPostMap.forEach(
+            (index, data2) => allPostList.add({"key": index, ...data2}));
+      }
+    });
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      allPostList.sort((a, b) {
+        return b["timestamp"].compareTo(a["timestamp"]);
+      });
+    });
+
+    Future.delayed(const Duration(milliseconds: 400), () {
+      print("Length: : : : : : : ${allPostList.length}");
+
+      if (allPostList.isEmpty) {
+        getFirstPostList();
+      } else {
+        limitedPostList = allPostList.getRange(startAt, endAt).toList();
+      }
+    });
+
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      if (mounted)
+        setState(() {
+          isLoading = false;
+        });
+    });
+  }
+
+  void _scrollListener() {
+    if (listScrollController.offset >=
+            listScrollController.position.maxScrollExtent &&
+        !listScrollController.position.outOfRange) {
+      setState(() {
+        _hasMore = true;
+      });
+      print(
+          "************************************* <<<<<<<<<<<< Has More >>>>>>>>>>>> *************************************");
+      getNextPosts();
+    }
+    setState(() {
+      _scrollPosition = listScrollController.position.pixels;
+    });
+    if (_scrollPosition! > 50.0) {
+      setState(() {
+        _isHide = true;
+      });
+    }
+    if (_scrollPosition! < 50.0) {
+      setState(() {
+        _isHide = false;
+      });
+    }
+  }
+
+   isHide(isHide){
+    setState(() {
+      _isHide = isHide;
+    });
+
+   }
+
+  void getNextPosts() {
+    if (endAt > 142) {
+      print("***************** list Ended *****************");
+      Fluttertoast.showToast(
+        msg: "150+ posts has been seen",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 3,
+        backgroundColor: Colors.blue.withOpacity(0.8),
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    } else {
+      endAt = endAt + 5;
+      print(
+          "Has More >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $startAt");
+      print("End At >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $endAt");
+
+      limitedPostList = allPostList.getRange(startAt, endAt).toList();
+      setState(() {});
+      // Future.delayed(const Duration(seconds: 12), () {
+      //   setState(() {
+      //     _hasMore = false;
+      //   });
+      // });
+    }
+  }
+
+  jumpToPosts() {
+    if (jumpEndAt > 142) {
+      Fluttertoast.showToast(
+        msg: "Last 150+ posts has been seen",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 3,
+        backgroundColor: Colors.blue.withOpacity(0.8),
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    } else {
+      return currentLine == 1
+          ? SizedBox(
+              height: 28,
+              child: DelayedDisplay(
+                delay: Duration(milliseconds: 600),
+                slidingBeginOffset: Offset(0.0, 1),
+                child: TextButton(
+                  onPressed: () {
+                    if (allPostList.length < endAt) {
+                      print("***************** list Ended *****************");
+                    } else {
+                      limitedPostList.clear();
+                      jumpStart = jumpEndAt;
+                      jumpEndAt = jumpEndAt + 5;
+                      startAt = jumpStart;
+                      endAt = jumpEndAt;
+
+                      print(
+                          "End At >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $endAt");
+
+                      limitedPostList =
+                          allPostList.getRange(jumpStart, jumpEndAt).toList();
+                      setState(() {});
+                      // Future.delayed(const Duration(seconds: 12), () {
+                      //   setState(() {
+                      //     _hasMore = false;
+                      //   });
+                      // });
+                    }
+                  },
+                  child: Row(
+                    key: jumpToNextIntro,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Jump to next ",
+                        style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(
+                        Icons.skip_next_outlined,
+                        color: Colors.lightBlue,
+                        size: 12,
+                      ),
+                    ],
+                  ),
+                  style: ButtonStyle(
+                    overlayColor: MaterialStateColor.resolveWith(
+                        (states) => Colors.white),
+                    backgroundColor: MaterialStateColor.resolveWith((states) =>
+                        Constants.isDark == "true"
+                            ? Colors.white.withOpacity(0.5)
+                            : Colors.white),
+                  ),
+                ),
+              ))
+          : SizedBox(
+              height: 0,
+              width: 0,
+            );
+    }
+  }
+
+  void _blockFunction(String profileOwner, String currentUserId) async {
+    Map? userMap;
+    late String username;
+    late String url;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("followList");
+    userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
+      if (dataSnapshot.value != null) {
+        userMap = dataSnapshot.value;
+
+        username = userMap?['username'];
+        url = userMap?['url'];
+      }
+    });
+    Future.delayed(const Duration(seconds: 1), () {
+      blockListRTD.child(Constants.myId).child(profileOwner).set({
+        "username": username,
+      });
+      userFollowingRtd.child(currentUserId).child(profileOwner).remove();
+      userFollowersRtd.child(profileOwner).child(currentUserId).remove();
+      userFollowersRtd.child(currentUserId).child(profileOwner).remove();
+      userFollowingRtd.child(profileOwner).child(currentUserId).remove();
+      bestFriendsRtd.child(profileOwner).child(currentUserId).remove();
+      chatListRtDatabaseReference
+          .child(Constants.myId)
+          .child(profileOwner)
+          .update({"blockBy": Constants.myId});
+      chatListRtDatabaseReference
+          .child(profileOwner)
+          .child(Constants.myId)
+          .update({"blockBy": Constants.myId});
+
+      /// user follower recounting
+      late Map data;
+      userFollowersRtd
+          .child(profileOwner)
+          .once()
+          .then((DataSnapshot dataSnapshot) {
+        if (dataSnapshot.value != null) {
+          setState(() {
+            data = dataSnapshot.value;
+          });
+
+          userFollowersCountRtd.child(profileOwner).update({
+            "followerCounter": data.length,
+            "uid": profileOwner,
+            "username": username,
+            "photoUrl": url,
+          });
+          print("yesssssssssssssssssssssss");
+        } else {
+          print("nooooooooooooooooooooooooooo");
+          userFollowersCountRtd.child(profileOwner).update({
+            "followerCounter": 0,
+            "uid": profileOwner,
+            "username": username,
+            "photoUrl": url,
+          });
+        }
+      });
+
+      Fluttertoast.showToast(
+        msg: "Blocked, Restart App!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.SNACKBAR,
+        timeInSecForIosWeb: 5,
+        backgroundColor: Colors.white,
+        textColor: Colors.lightBlue,
+        fontSize: 16.0,
+      );
+      Navigator.pop(context);
+    });
+  }
+
+
+  _getUserDetail(String ownerId) {
+    User user = Provider.of<User>(context, listen: false);
+
+    userRefRTD.child(ownerId).once().then((DataSnapshot dataSnapshot) {
+      Map data = dataSnapshot.value;
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Provider<User>.value(
+            value: widget.user,
+            child: SwitchProfile(
+              mainProfileUrl: data['url'],
+              profileOwner: data['ownerId'],
+              mainFirstName: data['firstName'],
+              mainAbout: data['about'],
+              mainCountry: data['country'],
+              mainSecondName: data['secondName'],
+              mainEmail: data['email'],
+              mainGender: data['gender'],
+              currentUserId: Constants.myId,
+              user: user,
+              action: "fromTimeLine",
+              username: data['username'],
+              isVerified: data['isVerified'],
+              mainDateOfBirth: data['dob'],
+            ),
+          ),
+          //     Provider<User>.value(
+          //   value: user,
+          //   child: MainSearchPage(
+          //     user: user,
+          //     userId: user.uid,
+          //   ),
+          // ),
+        ),
+      );
+    });
+  }
+
+  memeCompetition() {
+    if (!_isHide) {
+      if (widget.controlData!['compStatus'] == 'live' ||
+          widget.controlData!['compStatus'] == "end") {
+        return Padding(
+          padding: const EdgeInsets.only(top: 4, bottom: 4),
+          child: DelayedDisplay(
+            delay: Duration(milliseconds: 600),
+            slidingBeginOffset: Offset(0.0, 1),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Material(
+                      clipBehavior: Clip.antiAlias,
+                      child: SizedBox(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width / 1.1,
+                        child: TextButton(
+                          onPressed: () => {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Provider<User>.value(
+                                  value: widget.user,
+                                  child: MemeComp(
+                                    user: widget.user,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          },
+                          child: Center(
+                            child: isLoading
+                                ? SpinKitThreeBounce(
+                                    color: Colors.lightBlue,
+                                    size: 13,
+                                  )
+                                : Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        widget.controlData!['compStatus'] ==
+                                                "live"
+                                            ? 'Meme Competition is Live'
+                                            : "Winners are announced",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            fontFamily: 'cute',
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SpinKitPulse(
+                                        color: Colors.white,
+                                        size: 18,
+                                      ),
+                                    ],
+                                  ),
+                          ),
+                        ),
+                      ),
+                      elevation: 1,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6.0)),
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      } else {
+        return SizedBox(
+          height: 0,
+          width: 0,
+        );
+      }
+    } else {
+      return Container(
+        height: 0,
+        width: 0,
+      );
+    }
+  }
+
   void showIntro() {
     initTargets();
     tutorialCoachMark = TutorialCoachMark(
@@ -125,7 +538,7 @@ class _MainFeedState extends State<MainFeed> {
       focusAnimationDuration: Duration(milliseconds: 500),
       opacityShadow: 0.9,
       textStyleSkip:
-          TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
+      TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
       onFinish: () async {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setInt("intro", 1);
@@ -138,9 +551,9 @@ class _MainFeedState extends State<MainFeed> {
         Future.delayed(const Duration(seconds: 2), () {
           widget.user.uid == Constants.switchIdLaaSY
               ? SizedBox(
-                  width: 0,
-                  height: 0,
-                )
+            width: 0,
+            height: 0,
+          )
               : whatsNew();
         });
       },
@@ -152,9 +565,9 @@ class _MainFeedState extends State<MainFeed> {
         Future.delayed(const Duration(seconds: 2), () {
           widget.user.uid == Constants.switchIdLaaSY
               ? SizedBox(
-                  width: 0,
-                  height: 0,
-                )
+            width: 0,
+            height: 0,
+          )
               : whatsNew();
         });
 
@@ -642,418 +1055,6 @@ class _MainFeedState extends State<MainFeed> {
         shape: ShapeLightFocus.RRect,
         radius: 15));
   }
-
-  void checkIfNotification() {
-    feedRtDatabaseReference
-        .child(Constants.myId)
-        .child("feedItems")
-        .orderByChild("timestamp")
-        .limitToLast(2)
-        .once()
-        .then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.exists) {
-        Map notifyMap = dataSnapshot.value;
-        List notifyList = [];
-        notifyMap
-            .forEach((index, data) => notifyList.add({"key": index, ...data}));
-
-        if (notifyList[0]['isRead'] == false ||
-            notifyList[1]['isRead'] == false) {
-          setState(() {
-            isNotification = true;
-          });
-
-          print(
-              "Notification : : : : : : : : : : : >><><><><><><<><><><><><><>< $isNotification");
-        }
-      } else {}
-    });
-  }
-
-  void getFirstPostList() async {
-    allPostList.clear();
-    limitedPostList.clear();
-    switchAllUserFeedPostsRTD
-        .child("UserPosts")
-        .orderByChild('timestamp')
-        .limitToLast(150)
-        .once()
-        .then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.value != null) {
-        allPostMap = dataSnapshot.value;
-        allPostMap.forEach(
-            (index, data2) => allPostList.add({"key": index, ...data2}));
-      }
-    });
-
-    Future.delayed(const Duration(milliseconds: 300), () {
-      allPostList.sort((a, b) {
-        return b["timestamp"].compareTo(a["timestamp"]);
-      });
-    });
-
-    Future.delayed(const Duration(milliseconds: 400), () {
-      print("Length: : : : : : : ${allPostList.length}");
-
-      if (allPostList.isEmpty) {
-        getFirstPostList();
-      } else {
-        limitedPostList = allPostList.getRange(startAt, endAt).toList();
-      }
-    });
-
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      if (mounted)
-        setState(() {
-          isLoading = false;
-        });
-    });
-  }
-
-  void _scrollListener() {
-    if (listScrollController.offset >=
-            listScrollController.position.maxScrollExtent &&
-        !listScrollController.position.outOfRange) {
-      setState(() {
-        _hasMore = true;
-      });
-      print(
-          "************************************* <<<<<<<<<<<< Has More >>>>>>>>>>>> *************************************");
-      getNextPosts();
-    }
-    setState(() {
-      _scrollPosition = listScrollController.position.pixels;
-    });
-    if (_scrollPosition! > 50.0) {
-      setState(() {
-        _isHide = true;
-      });
-    }
-    if (_scrollPosition! < 50.0) {
-      setState(() {
-        _isHide = false;
-      });
-    }
-  }
-
-   isHide(isHide){
-    setState(() {
-      _isHide = isHide;
-    });
-
-   }
-
-  void getNextPosts() {
-    if (endAt > 142) {
-      print("***************** list Ended *****************");
-      Fluttertoast.showToast(
-        msg: "150+ posts has been seen",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.blue.withOpacity(0.8),
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-    } else {
-      endAt = endAt + 5;
-      print(
-          "Has More >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $startAt");
-      print("End At >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $endAt");
-
-      limitedPostList = allPostList.getRange(startAt, endAt).toList();
-      setState(() {});
-      // Future.delayed(const Duration(seconds: 12), () {
-      //   setState(() {
-      //     _hasMore = false;
-      //   });
-      // });
-    }
-  }
-
-  jumpToPosts() {
-    if (jumpEndAt > 142) {
-      Fluttertoast.showToast(
-        msg: "Last 150+ posts has been seen",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.blue.withOpacity(0.8),
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-    } else {
-      return currentLine == 1
-          ? SizedBox(
-              height: 28,
-              child: DelayedDisplay(
-                delay: Duration(milliseconds: 600),
-                slidingBeginOffset: Offset(0.0, 1),
-                child: TextButton(
-                  onPressed: () {
-                    if (allPostList.length < endAt) {
-                      print("***************** list Ended *****************");
-                    } else {
-                      limitedPostList.clear();
-                      jumpStart = jumpEndAt;
-                      jumpEndAt = jumpEndAt + 5;
-                      startAt = jumpStart;
-                      endAt = jumpEndAt;
-
-                      print(
-                          "End At >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $endAt");
-
-                      limitedPostList =
-                          allPostList.getRange(jumpStart, jumpEndAt).toList();
-                      setState(() {});
-                      // Future.delayed(const Duration(seconds: 12), () {
-                      //   setState(() {
-                      //     _hasMore = false;
-                      //   });
-                      // });
-                    }
-                  },
-                  child: Row(
-                    key: jumpToNextIntro,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Jump to next ",
-                        style: TextStyle(
-                          color: Colors.lightBlue,
-                          fontSize: 9,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Icon(
-                        Icons.skip_next_outlined,
-                        color: Colors.lightBlue,
-                        size: 12,
-                      ),
-                    ],
-                  ),
-                  style: ButtonStyle(
-                    overlayColor: MaterialStateColor.resolveWith(
-                        (states) => Colors.white),
-                    backgroundColor: MaterialStateColor.resolveWith((states) =>
-                        Constants.isDark == "true"
-                            ? Colors.white.withOpacity(0.5)
-                            : Colors.white),
-                  ),
-                ),
-              ))
-          : SizedBox(
-              height: 0,
-              width: 0,
-            );
-    }
-  }
-
-  void _blockFunction(String profileOwner, String currentUserId) async {
-    Map? userMap;
-    late String username;
-    late String url;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove("followList");
-    userRefRTD.child(widget.user.uid).once().then((DataSnapshot dataSnapshot) {
-      if (dataSnapshot.value != null) {
-        userMap = dataSnapshot.value;
-
-        username = userMap?['username'];
-        url = userMap?['url'];
-      }
-    });
-    Future.delayed(const Duration(seconds: 1), () {
-      blockListRTD.child(Constants.myId).child(profileOwner).set({
-        "username": username,
-      });
-      userFollowingRtd.child(currentUserId).child(profileOwner).remove();
-      userFollowersRtd.child(profileOwner).child(currentUserId).remove();
-      userFollowersRtd.child(currentUserId).child(profileOwner).remove();
-      userFollowingRtd.child(profileOwner).child(currentUserId).remove();
-      bestFriendsRtd.child(profileOwner).child(currentUserId).remove();
-      chatListRtDatabaseReference
-          .child(Constants.myId)
-          .child(profileOwner)
-          .update({"blockBy": Constants.myId});
-      chatListRtDatabaseReference
-          .child(profileOwner)
-          .child(Constants.myId)
-          .update({"blockBy": Constants.myId});
-
-      /// user follower recounting
-      late Map data;
-      userFollowersRtd
-          .child(profileOwner)
-          .once()
-          .then((DataSnapshot dataSnapshot) {
-        if (dataSnapshot.value != null) {
-          setState(() {
-            data = dataSnapshot.value;
-          });
-
-          userFollowersCountRtd.child(profileOwner).update({
-            "followerCounter": data.length,
-            "uid": profileOwner,
-            "username": username,
-            "photoUrl": url,
-          });
-          print("yesssssssssssssssssssssss");
-        } else {
-          print("nooooooooooooooooooooooooooo");
-          userFollowersCountRtd.child(profileOwner).update({
-            "followerCounter": 0,
-            "uid": profileOwner,
-            "username": username,
-            "photoUrl": url,
-          });
-        }
-      });
-
-      Fluttertoast.showToast(
-        msg: "Blocked, Restart App!",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        timeInSecForIosWeb: 5,
-        backgroundColor: Colors.white,
-        textColor: Colors.lightBlue,
-        fontSize: 16.0,
-      );
-      Navigator.pop(context);
-    });
-  }
-
-
-  _getUserDetail(String ownerId) {
-    User user = Provider.of<User>(context, listen: false);
-
-    userRefRTD.child(ownerId).once().then((DataSnapshot dataSnapshot) {
-      Map data = dataSnapshot.value;
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Provider<User>.value(
-            value: widget.user,
-            child: SwitchProfile(
-              mainProfileUrl: data['url'],
-              profileOwner: data['ownerId'],
-              mainFirstName: data['firstName'],
-              mainAbout: data['about'],
-              mainCountry: data['country'],
-              mainSecondName: data['secondName'],
-              mainEmail: data['email'],
-              mainGender: data['gender'],
-              currentUserId: Constants.myId,
-              user: user,
-              action: "fromTimeLine",
-              username: data['username'],
-              isVerified: data['isVerified'],
-              mainDateOfBirth: data['dob'],
-            ),
-          ),
-          //     Provider<User>.value(
-          //   value: user,
-          //   child: MainSearchPage(
-          //     user: user,
-          //     userId: user.uid,
-          //   ),
-          // ),
-        ),
-      );
-    });
-  }
-
-  memeCompetition() {
-    if (!_isHide) {
-      if (widget.controlData!['compStatus'] == 'live' ||
-          widget.controlData!['compStatus'] == "end") {
-        return Padding(
-          padding: const EdgeInsets.only(top: 4, bottom: 4),
-          child: DelayedDisplay(
-            delay: Duration(milliseconds: 600),
-            slidingBeginOffset: Offset(0.0, 1),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Material(
-                      clipBehavior: Clip.antiAlias,
-                      child: SizedBox(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width / 1.1,
-                        child: TextButton(
-                          onPressed: () => {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Provider<User>.value(
-                                  value: widget.user,
-                                  child: MemeComp(
-                                    user: widget.user,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          },
-                          child: Center(
-                            child: isLoading
-                                ? SpinKitThreeBounce(
-                                    color: Colors.lightBlue,
-                                    size: 13,
-                                  )
-                                : Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        widget.controlData!['compStatus'] ==
-                                                "live"
-                                            ? 'Meme Competition is Live'
-                                            : "Winners are announced",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontFamily: 'cute',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      SpinKitPulse(
-                                        color: Colors.white,
-                                        size: 18,
-                                      ),
-                                    ],
-                                  ),
-                          ),
-                        ),
-                      ),
-                      elevation: 1,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0)),
-                      color: Colors.lightBlue,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      } else {
-        return SizedBox(
-          height: 0,
-          width: 0,
-        );
-      }
-    } else {
-      return Container(
-        height: 0,
-        width: 0,
-      );
-    }
-  }
-
   @override
   void dispose() {
     allPostList.clear();
@@ -1390,7 +1391,6 @@ class _MainFeedState extends State<MainFeed> {
                                     setState(() {
                                       isFollowTap = true;
                                     });
-
                                     removeServiceCard(ownerId);
                                     FollowButtonMainPage fb =
                                         FollowButtonMainPage();
@@ -1520,11 +1520,11 @@ class _MainFeedState extends State<MainFeed> {
                                         ),
                                   Text(
                                     type == "meme"
-                                        ? " share meme"
-                                        : " share $postTheme",
+                                        ? "  share meme"
+                                        : "  share $postTheme",
                                     style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey,
+                                      fontSize: 10,
+                                      color: Colors.grey.shade500,
                                     ),
                                   ),
                                 ],
@@ -2691,6 +2691,7 @@ class _MainFeedState extends State<MainFeed> {
       child: YourFeed(
         user: widget.user,
         isHide: isHide,
+
       ),
     );
   }
@@ -2701,6 +2702,8 @@ class _MainFeedState extends State<MainFeed> {
       child: MemesOnly(
         user: widget.user,
         isHide: isHide,
+          allPostMap: allPostMap,
+
       ),
     );
   }
