@@ -15,7 +15,6 @@ import 'package:switchapp/MainPages/switchChat/SwitchChatHelper.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/appIntro.dart';
-import 'package:switchapp/Universal/ConnectivityChecker.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -1055,6 +1054,13 @@ class _SwitchChatListState extends State<SwitchChatList> {
                       SizedBox(
                         width: 150,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0.0,
+                            primary: Colors.lightBlue,
+                            backgroundColor: Colors.white,
+                            textStyle:
+                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
                           onPressed: () {
                             showModalBottomSheet(
                               isScrollControlled: true,
@@ -1126,6 +1132,13 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                           ),
                                         ),
                                         ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0.0,
+                                            primary: Colors.lightBlue,
+                                            backgroundColor: Colors.white,
+                                            textStyle:
+                                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                          ),
                                           onPressed: () => {
                                             chatMoodReferenceRtd
                                                 .child(Constants.myId)
@@ -1469,6 +1482,13 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                         ),
                                       ),
                                       ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          elevation: 0.0,
+                                          primary: Colors.lightBlue,
+                                          backgroundColor: Colors.white,
+                                          textStyle:
+                                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                        ),
                                         onPressed: () => {
                                           chatMoodReferenceRtd
                                               .child(Constants.myId)

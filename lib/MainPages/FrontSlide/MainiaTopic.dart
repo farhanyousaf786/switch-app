@@ -87,7 +87,7 @@ class _FrontSlideState extends State<FrontSlide> {
             ],
           )
         : Container(
-            width: MediaQuery.of(context).size.width / 1.1,
+            width: MediaQuery.of(context).size.width / 1,
             height: 95,
             child: CarouselSlider.builder(
               itemCount: topicList?.length,
@@ -98,7 +98,7 @@ class _FrontSlideState extends State<FrontSlide> {
                   children: [
                     Container(
                       height: 90,
-                      width: MediaQuery.of(context).size.width / 1.1,
+                      width: MediaQuery.of(context).size.width / 1,
                       decoration: BoxDecoration(
                         color: Colors.lightBlue,
                         borderRadius: BorderRadius.circular(10),

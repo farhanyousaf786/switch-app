@@ -113,8 +113,6 @@ class _MainFeedState extends State<MainFeed> {
     super.initState();
   }
 
-
-
   void checkIfNotification() {
     feedRtDatabaseReference
         .child(Constants.myId)
@@ -208,12 +206,11 @@ class _MainFeedState extends State<MainFeed> {
     }
   }
 
-   isHide(isHide){
+  isHide(isHide) {
     setState(() {
       _isHide = isHide;
     });
-
-   }
+  }
 
   void getNextPosts() {
     if (endAt > 142) {
@@ -395,7 +392,6 @@ class _MainFeedState extends State<MainFeed> {
     });
   }
 
-
   _getUserDetail(String ownerId) {
     User user = Provider.of<User>(context, listen: false);
 
@@ -538,7 +534,7 @@ class _MainFeedState extends State<MainFeed> {
       focusAnimationDuration: Duration(milliseconds: 500),
       opacityShadow: 0.9,
       textStyleSkip:
-      TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
+          TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
       onFinish: () async {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setInt("intro", 1);
@@ -551,9 +547,9 @@ class _MainFeedState extends State<MainFeed> {
         Future.delayed(const Duration(seconds: 2), () {
           widget.user.uid == Constants.switchIdLaaSY
               ? SizedBox(
-            width: 0,
-            height: 0,
-          )
+                  width: 0,
+                  height: 0,
+                )
               : whatsNew();
         });
       },
@@ -565,9 +561,9 @@ class _MainFeedState extends State<MainFeed> {
         Future.delayed(const Duration(seconds: 2), () {
           widget.user.uid == Constants.switchIdLaaSY
               ? SizedBox(
-            width: 0,
-            height: 0,
-          )
+                  width: 0,
+                  height: 0,
+                )
               : whatsNew();
         });
 
@@ -1055,6 +1051,7 @@ class _MainFeedState extends State<MainFeed> {
         shape: ShapeLightFocus.RRect,
         radius: 15));
   }
+
   @override
   void dispose() {
     allPostList.clear();
@@ -1381,7 +1378,10 @@ class _MainFeedState extends State<MainFeed> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(right: 6),
-                                  child: SpinKitThreeBounce(color: Colors.lightBlue, size: 11,),
+                                  child: SpinKitThreeBounce(
+                                    color: Colors.lightBlue,
+                                    size: 11,
+                                  ),
                                 )
                               ],
                             )
@@ -2691,7 +2691,6 @@ class _MainFeedState extends State<MainFeed> {
       child: YourFeed(
         user: widget.user,
         isHide: isHide,
-
       ),
     );
   }
@@ -2702,8 +2701,7 @@ class _MainFeedState extends State<MainFeed> {
       child: MemesOnly(
         user: widget.user,
         isHide: isHide,
-          allPostMap: allPostMap,
-
+        allPostMap: allPostMap,
       ),
     );
   }
@@ -3176,45 +3174,104 @@ class _MainFeedState extends State<MainFeed> {
     return DelayedDisplay(
       delay: Duration(milliseconds: _isHide ? 100 : 600),
       slidingBeginOffset: Offset(0.0, 0.40),
-      child: Container(
-        height: 50,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: GestureDetector(
-                  key: recentPostsIntro,
-                  onTap: () {
-                    setState(() {
-                      currentLine = 1;
-                    });
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 4.3,
-                    padding: EdgeInsets.all(5),
-                    // decoration: BoxDecoration(
-                    //     color: currentLine == 1
-                    //         ? Colors.lightBlue
-                    //         : Constants.isDark == "true"
-                    //         ? Colors.grey.shade800
-                    //         : Colors.white,
-                    //     border: Border.all(
-                    //       color: Colors.lightBlue,
-                    //     ),
-                    //     borderRadius: BorderRadius.circular(5.5)),
+      child: Padding(
+        padding: EdgeInsets.only(top: _isHide ? 8 : 0),
+        child: Container(
+          height: 50,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    key: recentPostsIntro,
+                    onTap: () {
+                      setState(() {
+                        currentLine = 1;
+                      });
+                    },
                     child: Container(
-                      height: 40,
+                      width: MediaQuery.of(context).size.width / 3.5,
+                      padding: EdgeInsets.all(5),
+                      // decoration: BoxDecoration(
+                      //     color: currentLine == 1
+                      //         ? Colors.lightBlue
+                      //         : Constants.isDark == "true"
+                      //         ? Colors.grey.shade800
+                      //         : Colors.white,
+                      //     border: Border.all(
+                      //       color: Colors.lightBlue,
+                      //     ),
+                      //     borderRadius: BorderRadius.circular(5.5)),
+                      child: Container(
+                        height: 40,
+                        child: Column(
+                          children: [
+                            Center(
+                              child: MarqueeWidget(
+                                child: Text(
+                                  "Recent",
+                                  style: TextStyle(
+                                    color: currentLine == 1
+                                        ? Colors.lightBlue
+                                        : Constants.isDark == "true"
+                                            ? Colors.white
+                                            : Colors.lightBlue,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                    fontFamily: 'cute',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width / 3.5,
+                              padding: EdgeInsets.all(5),
+                              height: 2,
+                              color: currentLine == 1
+                                  ? Colors.lightBlue
+                                  : Constants.isDark == "true"
+                                      ? Colors.white
+                                      : Colors.white,
+                            ),
+                          ],
+                        ),
+                      ),
+                      height: 35,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        currentLine = 2;
+                      });
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3.5,
+                      padding: EdgeInsets.all(5.0),
+                      // decoration: BoxDecoration(
+                      //     color: currentLine == 2
+                      //         ? Colors.lightBlue
+                      //         : Constants.isDark == "true"
+                      //             ? Colors.grey.shade800
+                      //             : Colors.white,
+                      //     border: Border.all(
+                      //       color: Colors.lightBlue,
+                      //     ),
+                      //     borderRadius: BorderRadius.circular(5.5)),
                       child: Column(
                         children: [
                           Center(
                             child: MarqueeWidget(
                               child: Text(
-                                "Recent",
+                                "Following",
                                 style: TextStyle(
-                                  color: currentLine == 1
+                                  color: currentLine == 2
                                       ? Colors.lightBlue
                                       : Constants.isDark == "true"
                                           ? Colors.white
@@ -3230,10 +3287,10 @@ class _MainFeedState extends State<MainFeed> {
                             height: 4,
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width / 4.3,
+                            width: MediaQuery.of(context).size.width / 3.5,
                             padding: EdgeInsets.all(5),
                             height: 2,
-                            color: currentLine == 1
+                            color: currentLine == 2
                                 ? Colors.lightBlue
                                 : Constants.isDark == "true"
                                     ? Colors.white
@@ -3241,183 +3298,127 @@ class _MainFeedState extends State<MainFeed> {
                           ),
                         ],
                       ),
+                      height: 35,
                     ),
-                    height: 35,
                   ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentLine = 2;
-                  });
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width / 4.3,
-                  padding: EdgeInsets.all(5.0),
-                  // decoration: BoxDecoration(
-                  //     color: currentLine == 2
-                  //         ? Colors.lightBlue
-                  //         : Constants.isDark == "true"
-                  //             ? Colors.grey.shade800
-                  //             : Colors.white,
-                  //     border: Border.all(
-                  //       color: Colors.lightBlue,
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(5.5)),
-                  child: Column(
-                    children: [
-                      Center(
-                        child: MarqueeWidget(
-                          child: Text(
-                            "Following",
-                            style: TextStyle(
-                              color: currentLine == 2
-                                  ? Colors.lightBlue
-                                  : Constants.isDark == "true"
-                                      ? Colors.white
-                                      : Colors.lightBlue,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              fontFamily: 'cute',
+                  GestureDetector(
+                    key: switchUpdatesIntro,
+                    onTap: () {
+                      setState(() {
+                        currentLine = 3;
+                      });
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 3.5,
+                      padding: EdgeInsets.all(5.0),
+                      // decoration: BoxDecoration(
+                      //     color: currentLine == 3
+                      //         ? Colors.lightBlue
+                      //         : Constants.isDark == "true"
+                      //             ? Colors.grey.shade800
+                      //             : Colors.white,
+                      //     border: Border.all(
+                      //       color: Colors.lightBlue,
+                      //     ),
+                      //     borderRadius: BorderRadius.circular(5.5)),
+                      child: Column(
+                        children: [
+                          Center(
+                            child: MarqueeWidget(
+                              child: Text(
+                                "Memes",
+                                style: TextStyle(
+                                  color: currentLine == 3
+                                      ? Colors.lightBlue
+                                      : Constants.isDark == "true"
+                                          ? Colors.white
+                                          : Colors.lightBlue,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                  fontFamily: 'cute',
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 4.3,
-                        padding: EdgeInsets.all(5),
-                        height: 2,
-                        color: currentLine == 2
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.white
-                                : Colors.white,
-                      ),
-                    ],
-                  ),
-                  height: 35,
-                ),
-              ),
-              GestureDetector(
-                key: switchUpdatesIntro,
-                onTap: () {
-                  setState(() {
-                    currentLine = 3;
-                  });
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width / 4.3,
-                  padding: EdgeInsets.all(5.0),
-                  // decoration: BoxDecoration(
-                  //     color: currentLine == 3
-                  //         ? Colors.lightBlue
-                  //         : Constants.isDark == "true"
-                  //             ? Colors.grey.shade800
-                  //             : Colors.white,
-                  //     border: Border.all(
-                  //       color: Colors.lightBlue,
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(5.5)),
-                  child: Column(
-                    children: [
-                      Center(
-                        child: MarqueeWidget(
-                          child: Text(
-                            "Memes",
-                            style: TextStyle(
-                              color: currentLine == 3
-                                  ? Colors.lightBlue
-                                  : Constants.isDark == "true"
-                                      ? Colors.white
-                                      : Colors.lightBlue,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              fontFamily: 'cute',
-                            ),
+                          SizedBox(
+                            height: 4,
                           ),
-                        ),
+                          Container(
+                            width: MediaQuery.of(context).size.width / 3.5,
+                            padding: EdgeInsets.all(5),
+                            height: 2,
+                            color: currentLine == 3
+                                ? Colors.lightBlue
+                                : Constants.isDark == "true"
+                                    ? Colors.white
+                                    : Colors.white,
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 4.3,
-                        padding: EdgeInsets.all(5),
-                        height: 2,
-                        color: currentLine == 3
-                            ? Colors.lightBlue
-                            : Constants.isDark == "true"
-                                ? Colors.white
-                                : Colors.white,
-                      ),
-                    ],
+                      height: 35,
+                    ),
                   ),
-                  height: 35,
-                ),
+                  // DelayedDisplay(
+                  //   delay: Duration(milliseconds: 200),
+                  //   slidingBeginOffset: Offset(1, 0.0),
+                  //   child: SingleChildScrollView(
+                  //     child: Container(
+                  //       width: 60,
+                  //       child: Column(
+                  //         children: [
+                  //           Padding(
+                  //             padding: const EdgeInsets.only(right: 12, top: 8),
+                  //             child: GestureDetector(
+                  //               child: isNotification
+                  //                   ? Stack(
+                  //                       children: [
+                  //                         Padding(
+                  //                           padding:
+                  //                               const EdgeInsets.only(bottom: 8),
+                  //                           child: Icon(
+                  //                             Icons.notifications_active_rounded,
+                  //                             color: Colors.lightBlue,
+                  //                             size: 25,
+                  //                           ),
+                  //                         ),
+                  //                         Positioned(
+                  //                             left: 5,
+                  //                             bottom: 2,
+                  //                             child: SpinKitPulse(
+                  //                               color: Colors.red,
+                  //                               size: 15,
+                  //                             )),
+                  //                       ],
+                  //                     )
+                  //                   : Padding(
+                  //                       padding: const EdgeInsets.only(bottom: 7),
+                  //                       child: Icon(
+                  //                         Icons.notifications_none_sharp,
+                  //                         size: 25,
+                  //                         color: Colors.lightBlue,
+                  //                       ),
+                  //                     ),
+                  //               onTap: () {
+                  //                 NotifyBottomBar nb = new NotifyBottomBar();
+                  //                 nb.bottomSheetForNotify(context, widget.user);
+                  //
+                  //                 Future.delayed(const Duration(seconds: 2), () {
+                  //                   if (mounted)
+                  //                     setState(() {
+                  //                       isNotification = false;
+                  //                     });
+                  //                 });
+                  //               },
+                  //             ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
               ),
-              // DelayedDisplay(
-              //   delay: Duration(milliseconds: 200),
-              //   slidingBeginOffset: Offset(1, 0.0),
-              //   child: SingleChildScrollView(
-              //     child: Container(
-              //       width: 60,
-              //       child: Column(
-              //         children: [
-              //           Padding(
-              //             padding: const EdgeInsets.only(right: 12, top: 8),
-              //             child: GestureDetector(
-              //               child: isNotification
-              //                   ? Stack(
-              //                       children: [
-              //                         Padding(
-              //                           padding:
-              //                               const EdgeInsets.only(bottom: 8),
-              //                           child: Icon(
-              //                             Icons.notifications_active_rounded,
-              //                             color: Colors.lightBlue,
-              //                             size: 25,
-              //                           ),
-              //                         ),
-              //                         Positioned(
-              //                             left: 5,
-              //                             bottom: 2,
-              //                             child: SpinKitPulse(
-              //                               color: Colors.red,
-              //                               size: 15,
-              //                             )),
-              //                       ],
-              //                     )
-              //                   : Padding(
-              //                       padding: const EdgeInsets.only(bottom: 7),
-              //                       child: Icon(
-              //                         Icons.notifications_none_sharp,
-              //                         size: 25,
-              //                         color: Colors.lightBlue,
-              //                       ),
-              //                     ),
-              //               onTap: () {
-              //                 NotifyBottomBar nb = new NotifyBottomBar();
-              //                 nb.bottomSheetForNotify(context, widget.user);
-              //
-              //                 Future.delayed(const Duration(seconds: 2), () {
-              //                   if (mounted)
-              //                     setState(() {
-              //                       isNotification = false;
-              //                     });
-              //                 });
-              //               },
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
+            ),
           ),
         ),
       ),
