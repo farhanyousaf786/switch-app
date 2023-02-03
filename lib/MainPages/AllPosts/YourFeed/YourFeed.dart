@@ -2228,7 +2228,7 @@ class _YourFeedState extends State<YourFeed> {
                         Container(
                           child: Flexible(
                             child: Text(
-                              "What is Your Feeds?",
+                              "What is Following Page?",
                               style: TextStyle(
                                   color: Colors.lightBlue,
                                   fontFamily: 'cute',

@@ -15,6 +15,7 @@ import 'package:switchapp/MainPages/switchChat/SwitchChatHelper.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
 import 'package:switchapp/Models/appIntro.dart';
+import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -108,8 +109,6 @@ class _SwitchChatListState extends State<SwitchChatList> {
   @override
   void initState() {
     super.initState();
-
-
 
     controlNotificationToastForMessages();
     setState(() {
@@ -373,7 +372,6 @@ class _SwitchChatListState extends State<SwitchChatList> {
           Map relationShipData = snapshot.value;
 
           if (relationShipData == null) {
-
           } else {
             return relationShipData['inRelationshipWithId'] != receiverId
                 ? Container(
@@ -1058,8 +1056,8 @@ class _SwitchChatListState extends State<SwitchChatList> {
                             elevation: 0.0,
                             primary: Colors.lightBlue,
                             backgroundColor: Colors.white,
-                            textStyle:
-                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                            textStyle: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
                             showModalBottomSheet(
@@ -1097,7 +1095,8 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 TextInputAction.next,
                                             maxLength: 60,
                                             style: TextStyle(
-                                                color: Colors.lightBlue.shade700,
+                                                color:
+                                                    Colors.lightBlue.shade700,
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.bold),
                                             controller: loveNoteText,
@@ -1110,7 +1109,8 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                   Radius.circular(20),
                                                 ),
                                                 borderSide: new BorderSide(
-                                                    color: Colors.lightBlue.shade700,
+                                                    color: Colors
+                                                        .lightBlue.shade700,
                                                     width: 1),
                                               ),
                                               filled: true,
@@ -1118,14 +1118,16 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(20)),
                                                 borderSide: new BorderSide(
-                                                    color: Colors.lightBlue.shade700,
+                                                    color: Colors
+                                                        .lightBlue.shade700,
                                                     width: 1),
                                               ),
                                               labelText: ' Write Here',
                                               labelStyle: TextStyle(
                                                 fontFamily: "Cutes",
                                                 fontWeight: FontWeight.bold,
-                                                color: Colors.lightBlue.shade700,
+                                                color:
+                                                    Colors.lightBlue.shade700,
                                                 fontSize: 10,
                                               ),
                                             ),
@@ -1136,8 +1138,9 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                             elevation: 0.0,
                                             primary: Colors.lightBlue,
                                             backgroundColor: Colors.white,
-                                            textStyle:
-                                            TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                            textStyle: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold),
                                           ),
                                           onPressed: () => {
                                             chatMoodReferenceRtd
@@ -1158,7 +1161,14 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                             ),
                                             Navigator.pop(context),
                                           },
-                                          child: Text("Done"),
+                                          child: Text(
+                                            "Done",
+                                            style: TextStyle(
+                                              color: Constants.isDark == "true"
+                                                  ? Themes().darkModeColor
+                                                  : Colors.lightBlue,
+                                            ),
+                                          ),
                                           // color: Colors.lightBlue.shade50,
                                         )
                                       ],
@@ -1296,7 +1306,6 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                   _loveChat(data),
                                   Material(
                                     child: Container(
-
                                       decoration: BoxDecoration(
                                         color: Colors.lightBlue.shade300,
                                       ),
@@ -1310,7 +1319,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 fontFamily: 'cute',
                                                 fontSize: 20,
                                                 color: Colors.white,
-                                                 fontWeight: FontWeight.bold),
+                                                fontWeight: FontWeight.bold),
                                           ),
                                           alignment: Alignment.centerLeft,
                                         ),
@@ -1427,7 +1436,7 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                   scrollDirection: Axis.vertical,
                                   child: Column(
                                     children: [
-                                   BarTop(),
+                                      BarTop(),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 20),
                                         child: Text(
@@ -1460,7 +1469,8 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                                 Radius.circular(20),
                                               ),
                                               borderSide: new BorderSide(
-                                                  color: Colors.lightBlue.shade700,
+                                                  color:
+                                                      Colors.lightBlue.shade700,
                                                   width: 1),
                                             ),
                                             filled: true,
@@ -1468,7 +1478,8 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(20)),
                                               borderSide: new BorderSide(
-                                                  color: Colors.lightBlue.shade700,
+                                                  color:
+                                                      Colors.lightBlue.shade700,
                                                   width: 1),
                                             ),
                                             labelText: ' Write Here',
@@ -1486,8 +1497,9 @@ class _SwitchChatListState extends State<SwitchChatList> {
                                           elevation: 0.0,
                                           primary: Colors.lightBlue,
                                           backgroundColor: Colors.white,
-                                          textStyle:
-                                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                          textStyle: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         onPressed: () => {
                                           chatMoodReferenceRtd
@@ -1562,7 +1574,6 @@ class _SwitchChatListState extends State<SwitchChatList> {
     } else if (widget.isInRelationShipMap?['inRelationShip'] == false) {
       return Container(
         key: loveChat,
-
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -1653,7 +1664,6 @@ class _SwitchChatListState extends State<SwitchChatList> {
                       children: [
                         SizedBox(
                           key: loveChat,
-
                           child: Lottie.asset(
                             'images/dating.json',
                           ),
@@ -1689,14 +1699,13 @@ class _SwitchChatListState extends State<SwitchChatList> {
                 padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
                 child: Container(
                   key: otherChat,
-
                   child: Text(
                     "Other Chats",
                     style: TextStyle(
                         fontFamily: 'cute',
                         fontSize: 20,
                         color: Colors.white,
-                         fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold),
                   ),
                   alignment: Alignment.centerLeft,
                 ),
@@ -1739,16 +1748,12 @@ class _SwitchChatListState extends State<SwitchChatList> {
       textStyleSkip:
           TextStyle(fontFamily: 'cute', fontSize: 20, color: Colors.white),
       onFinish: () async {
-
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setInt("chatListIntro", 1);
         if (mounted)
           setState(() {
             Constants.introForChatListPage = "";
           });
-
-
-
       },
       onClickTarget: (target) {
         print('onClickTarget: ${target.keyTarget}');

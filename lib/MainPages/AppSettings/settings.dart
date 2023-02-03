@@ -174,30 +174,45 @@ class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Constants.isDark == "true"
+          ? Themes().darkGrey.withOpacity(0.01) : Colors.white,
       appBar: AppBar(
-        leading: Text(""),
+
+        leading:  Container(
+          height: 50,
+          width: MediaQuery.of(context).size.width,
+          child: RiveAnimation.asset(
+            'images/authLogo.riv',
+          ),
+        ),
         backgroundColor:
             Constants.isDark == "true" ? Themes().darkModeColor : Colors.blue,
         elevation: 0,
         title: Text(
-          "",
+          "Switch",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white, fontFamily: 'cute', fontSize: 20),
         ),
+        centerTitle: true,
         actions: [
           Center(
               child: Text(
-            "Log Out",
+            "Log Out ",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-                color: Colors.white, fontFamily: 'cute', fontSize: 15),
-          )),
-          IconButton(
-              icon: Icon(
-                Icons.logout,
-                color: Colors.white,
-                size: 20,
+                color: Colors.white, fontFamily: 'cute', fontSize: 12),
+          ),),
+          GestureDetector(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                  size: 20,
+                ),
               ),
-              onPressed: () => signOut.signOut(widget.user.uid, context)),
+              onTap: () => signOut.signOut(widget.user.uid, context)),
         ],
       ),
       body: SingleChildScrollView(
@@ -205,23 +220,23 @@ class _AppSettingsState extends State<AppSettings> {
           children: [
             Column(
               children: [
-                Container(
-                  height: 130,
-                  width: MediaQuery.of(context).size.width,
-                  child: Material(
-                    clipBehavior: Clip.antiAlias,
-                    elevation: 10,
-                    color: Constants.isDark == "true"
-                        ? Themes().darkModeColor
-                        : Colors.blue,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        bottomLeft: Radius.circular(15)),
-                    child: RiveAnimation.asset(
-                      'images/authLogo.riv',
-                    ),
-                  ),
-                ),
+                // Container(
+                //   height: 130,
+                //   width: MediaQuery.of(context).size.width,
+                //   child: Material(
+                //     clipBehavior: Clip.antiAlias,
+                //     elevation: 10,
+                //     color: Constants.isDark == "true"
+                //         ? Themes().darkModeColor
+                //         : Colors.blue,
+                //     borderRadius: BorderRadius.only(
+                //         bottomRight: Radius.circular(15),
+                //         bottomLeft: Radius.circular(15)),
+                //     child: RiveAnimation.asset(
+                //       'images/authLogo.riv',
+                //     ),
+                //   ),
+                // ),
                 SizedBox(
                   height: 10,
                 ),
@@ -244,7 +259,7 @@ class _AppSettingsState extends State<AppSettings> {
                               "Our Goal",
                               style: TextStyle(
                                   color: Colors.lightBlue,
-                                  fontSize: 18,
+                                  fontSize: 25,
                                   fontWeight: FontWeight.bold,
 
                                   fontFamily: 'cute'),
