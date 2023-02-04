@@ -2213,12 +2213,12 @@ class _YourFeedState extends State<YourFeed> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Important",
+                      "Following Page",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 22,
+                          fontSize: 25,
                           fontFamily: "cute",
-                          color: Colors.red),
+                          color: Colors.purple),
                     ),
                   ),
                   Padding(

@@ -3558,6 +3558,7 @@ class _MemeProfileState extends State<MemeProfile> {
           _statusPage(widget.user);
         },
         style: ElevatedButton.styleFrom(
+          primary: Colors.lightBlue,
             elevation: 2,
             textStyle: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
       ),
@@ -3594,7 +3595,7 @@ class _MemeProfileState extends State<MemeProfile> {
                 followingCounter();
               },
               style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
+                  primary: Colors.lightBlue,
                   textStyle:
                       TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             )

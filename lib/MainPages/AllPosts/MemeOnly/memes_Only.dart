@@ -250,10 +250,10 @@ class _MemesOnlyState extends State<MemesOnly> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Important",
+                      "MEMES page",
                       style: TextStyle(
                            fontWeight: FontWeight.bold,
-                          fontSize: 22, fontFamily: "cute", color: Colors.red),
+                          fontSize: 25, fontFamily: "cute", color: Colors.purple),
                     ),
                   ),
                   Padding(

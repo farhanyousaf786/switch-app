@@ -59,7 +59,7 @@ class _MemeShowCaseState extends State<MemeShowCase> {
       elevation: 6,
       child: Container(
         decoration: BoxDecoration(
-            color: Constants.isDark == "true" ? Colors.grey.shade900 : Colors.blue,
+            color: Constants.isDark == "true" ? Colors.grey.shade900 : Colors.lightBlue,
             borderRadius: BorderRadius.circular(15)),
         height: imageList.isEmpty ? 130 : 195,
         child: SingleChildScrollView(

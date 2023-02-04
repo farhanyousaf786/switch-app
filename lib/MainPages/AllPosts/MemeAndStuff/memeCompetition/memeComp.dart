@@ -115,9 +115,13 @@ class _MemeCompState extends State<MemeComp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Constants.isDark == "true"
+          ? Colors.grey.shade700
+          : Colors.blue.shade500,
       appBar: AppBar(
-
-        backgroundColor:Constants.isDark == "true" ? Colors.grey.shade700 : Colors.blue.shade500,
+        backgroundColor: Constants.isDark == "true"
+            ? Colors.grey.shade700
+            : Colors.blue.shade500,
         leading: Padding(
           padding: const EdgeInsets.only(top: 3),
           child: GestureDetector(
@@ -142,7 +146,9 @@ class _MemeCompState extends State<MemeComp> {
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomRight,
-              colors: Constants.isDark == "true" ? [Colors.grey.shade700, Colors.grey.shade500]: [Colors.blue, Colors.lightBlue.shade100]),
+              colors: Constants.isDark == "true"
+                  ? [Colors.grey.shade700, Colors.grey.shade500]
+                  : [Colors.blue, Colors.lightBlue.shade100]),
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -191,7 +197,9 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true"
+                              ? [Colors.grey.shade800, Colors.grey.shade600]
+                              : [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: isLoading
                         ? Center(
@@ -335,8 +343,15 @@ class _MemeCompState extends State<MemeComp> {
                             gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
-                                colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
-
+                                colors: Constants.isDark == "true"
+                                    ? [
+                                        Colors.grey.shade800,
+                                        Colors.grey.shade600
+                                      ]
+                                    : [
+                                        Colors.lightBlue,
+                                        Colors.lightBlue.shade700
+                                      ]),
                           ),
                           child: SingleChildScrollView(
                             child: Column(
@@ -349,7 +364,7 @@ class _MemeCompState extends State<MemeComp> {
                                           style: TextStyle(
                                               fontSize: 18,
                                               fontFamily: 'cute',
-                                              color: Colors.yellow),
+                                              color: Colors.white),
                                         ),
                                       )
                                     : Container(
@@ -385,7 +400,9 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true"
+                              ? [Colors.grey.shade800, Colors.grey.shade600]
+                              : [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -620,7 +637,9 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true"
+                              ? [Colors.grey.shade800, Colors.grey.shade600]
+                              : [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -717,7 +736,9 @@ class _MemeCompState extends State<MemeComp> {
                       gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
-                          colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
+                          colors: Constants.isDark == "true"
+                              ? [Colors.grey.shade800, Colors.grey.shade600]
+                              : [Colors.lightBlue, Colors.lightBlue.shade700]),
                     ),
                     child: SingleChildScrollView(
                       physics: ScrollPhysics(),
@@ -749,8 +770,7 @@ class _MemeCompState extends State<MemeComp> {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontFamily: "cute",
-                                   fontWeight: FontWeight.bold,
-
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             ),
                           ),
@@ -777,8 +797,12 @@ class _MemeCompState extends State<MemeComp> {
                         gradient: LinearGradient(
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
-                            colors: Constants.isDark == "true" ? [Colors.grey.shade800, Colors.grey.shade600]: [Colors.lightBlue, Colors.lightBlue.shade700]),
-
+                            colors: Constants.isDark == "true"
+                                ? [Colors.grey.shade800, Colors.grey.shade600]
+                                : [
+                                    Colors.lightBlue,
+                                    Colors.lightBlue.shade700
+                                  ]),
                       ),
                       child: Center(
                           child: Text(
@@ -870,10 +894,7 @@ class _MemeCompState extends State<MemeComp> {
           height: MediaQuery.of(context).size.height / 4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [Colors.lightBlue, Colors.blue.shade700]),
+            color: Colors.transparent
           ),
           child: CarouselSlider.builder(
               itemCount: memerList!.length,
@@ -987,7 +1008,8 @@ class _MemeCompState extends State<MemeComp> {
                                             borderRadius:
                                                 BorderRadius.circular(50),
                                             border: Border.all(
-                                                color: Colors.lightBlue, width: 2),
+                                                color: Colors.lightBlue,
+                                                width: 2),
                                             image: DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(

@@ -259,7 +259,7 @@ class _AppSettingsState extends State<AppSettings> {
                               "Our Goal",
                               style: TextStyle(
                                   color: Colors.lightBlue,
-                                  fontSize: 25,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.bold,
 
                                   fontFamily: 'cute'),

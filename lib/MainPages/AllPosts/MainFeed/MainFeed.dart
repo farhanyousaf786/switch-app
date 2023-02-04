@@ -307,7 +307,7 @@ class _MainFeedState extends State<MainFeed> {
                         (states) => Colors.white),
                     backgroundColor: MaterialStateColor.resolveWith((states) =>
                         Constants.isDark == "true"
-                            ? Colors.white.withOpacity(0.5)
+                            ? Colors.grey.shade900
                             : Colors.white),
                   ),
                 ),
