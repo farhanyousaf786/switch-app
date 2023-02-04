@@ -47,19 +47,24 @@ class _RankingListState extends State<RankingList> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(5.0),
-                  child: Container(
-                    width: 35,
-                    height: 35,
-                    child: SwitchCacheImage(width: 35, height: 35, url:  widget.rankingData[widget.index]['photoUrl'],boxFit: BoxFit.cover, screen: '', ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.white, width: 1),
-                      // image: DecorationImage(
-                      //   image: NetworkImage(
-                      //       widget.rankingData[widget.index]['photoUrl']),
-                      // ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+
+                    child: Container(
+                      width: 35,
+                      height: 35,
+                      child: SwitchCacheImage(width: 35, height: 35, url:  widget.rankingData[widget.index]['photoUrl'],boxFit: BoxFit.cover, screen: '', ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+
+                        border: Border.all(color: Colors.white, width: 1),
+                        // image: DecorationImage(
+                        //   image: NetworkImage(
+                        //       widget.rankingData[widget.index]['photoUrl']),
+                        // ),
 
 
+                      ),
                     ),
                   ),
                 ),

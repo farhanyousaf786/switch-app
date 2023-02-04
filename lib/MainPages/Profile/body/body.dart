@@ -3096,6 +3096,7 @@ import 'package:switchapp/MainPages/ReportAndComplaints/reportId.dart';
 import 'package:switchapp/MainPages/switchChat/SwitchChat.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
 import 'package:switchapp/Models/Marquee.dart';
+import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Universal/UniversalMethods.dart';
 import 'package:uuid/uuid.dart';
 import '../Panel/CrushOn.dart';
@@ -5337,7 +5338,7 @@ class _BodyState extends State<Body> {
                 followingCounter();
               },
               style: ElevatedButton.styleFrom(
-                  elevation: 2,
+                  elevation: 0,
                   primary: Colors.blue,
                   textStyle:
                       TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
@@ -5412,7 +5413,7 @@ class _BodyState extends State<Body> {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                elevation: 2,
+                elevation: 0,
                 primary: Colors.grey.shade200,
                 textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
@@ -6603,7 +6604,7 @@ class _BodyState extends State<Body> {
               height: 28,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    elevation: 3,
+                    elevation: 0,
                     primary: Colors.green.shade300,
                     textStyle:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
@@ -6677,9 +6678,10 @@ class _BodyState extends State<Body> {
       height: 28,
       width: MediaQuery.of(context).size.width / 3.8,
       child: ElevatedButton(
+
         child: Text(
-          "Meme Profile",
-          style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
+          "Meme Profile >>",
+          style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
           Navigator.push(
@@ -6705,7 +6707,7 @@ class _BodyState extends State<Body> {
           );
         },
         style: ElevatedButton.styleFrom(
-            elevation: 2,
+            elevation: 0,
             primary: Colors.purple,
             textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
       ),
@@ -6716,338 +6718,332 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      color: Colors.white,
-      child: widget.currentUserId == widget.profileOwner
-          ? DelayedDisplay(
-              delay: Duration(milliseconds: 100),
-              slidingBeginOffset: Offset(0, -0.35),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SafeArea(
-                      child: Material(
-                        color: Colors.white,
-                        elevation: 0.0,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                        child: Column(
-                          children: [
-                            loading
-                                ? LinearProgressIndicator()
-                                : Container(
-                                    height: 0,
-                                    width: 0,
-                                  ),
-                            appBar(),
-                            _crushOfAndFollowersButton(),
-                            _aboutAndMinor(),
-                            editandBlockOption(),
-                          ],
-                        ),
-                      ),
+      color: Constants.isDark == "true"
+          ? Themes().darkGrey.withOpacity(0.01) : Colors.white,
+        child: widget.currentUserId == widget.profileOwner
+          ? SingleChildScrollView(
+            child: Column(
+              children: [
+                SafeArea(
+                  child: Material(
+
+                    color:Constants.isDark == "true"
+                        ? Themes().darkGrey.withOpacity(0.01) : Colors.white,
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+
                     ),
-                    Panel(
-                      aboutMain: widget.mainAbout,
-                      profileOwner: widget.profileOwner,
-                      currentUserId: widget.currentUserId,
-                      mainProfileUrl: widget.mainProfileUrl,
-                      mainFirstName: widget.mainFirstName,
-                      mainSecondName: widget.mainSecondName,
-                      mainGender: widget.mainGender,
-                      mainEmail: widget.mainEmail,
-                      user: widget.user,
-                      username: widget.username,
+                    child: Column(
+                      children: [
+                        loading
+                            ? LinearProgressIndicator()
+                            : Container(
+                                height: 0,
+                                width: 0,
+                              ),
+                        appBar(),
+                        _crushOfAndFollowersButton(),
+                        _aboutAndMinor(),
+                        editandBlockOption(),
+                      ],
                     ),
-                    _relationshipStatusForOwnProfile(),
-                    otherInfo(),
-                    _posts(),
-                    SizedBox(
-                      height: 100,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            )
-          : DelayedDisplay(
-              fadeIn: true,
-              slidingCurve: Curves.easeInOutSine,
-              delay: Duration(milliseconds: 222),
-              slidingBeginOffset: Offset(0, -0.35),
-              child: Container(
-                child: ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Material(
-                      elevation: 10,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
+                Panel(
+                  aboutMain: widget.mainAbout,
+                  profileOwner: widget.profileOwner,
+                  currentUserId: widget.currentUserId,
+                  mainProfileUrl: widget.mainProfileUrl,
+                  mainFirstName: widget.mainFirstName,
+                  mainSecondName: widget.mainSecondName,
+                  mainGender: widget.mainGender,
+                  mainEmail: widget.mainEmail,
+                  user: widget.user,
+                  username: widget.username,
+                ),
+                _relationshipStatusForOwnProfile(),
+                otherInfo(),
+                _posts(),
+                SizedBox(
+                  height: 100,
+                ),
+              ],
+            ),
+          )
+          : Container(
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: [
+                Material(
+                  elevation: 10,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(15),
+                    bottomRight: Radius.circular(15),
+                  ),
+                  child: Column(
+                    children: [
+                      loading
+                          ? LinearProgressIndicator()
+                          : Container(
+                              height: 0,
+                              width: 0,
+                            ),
+                      appBar(),
+                      _followersCountAndCrushCountButtonForVisitor(),
+                      _aboutAndMinor(),
+                      SizedBox(
+                        height: 20,
                       ),
-                      child: Column(
-                        children: [
-                          loading
-                              ? LinearProgressIndicator()
-                              : Container(
-                                  height: 0,
-                                  width: 0,
+                      isBlock
+                          ? Center(
+                              child: Container(
+                                child: Text(
+                                  "You blocked ${widget.mainFirstName}",
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'cute'),
                                 ),
-                          appBar(),
-                          _followersCountAndCrushCountButtonForVisitor(),
-                          _aboutAndMinor(),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          isBlock
-                              ? Center(
+                              ),
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 5, bottom: 12, left: 10, right: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  _followingButton(),
+                                  _conversationBox(),
+                                  _memeProfile(),
+                                ],
+                              ),
+                            ),
+                      isBlock
+                          ? GestureDetector(
+                              onTap: () => _blockOption(),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Center(
                                   child: Container(
                                     child: Text(
-                                      "You blocked ${widget.mainFirstName}",
+                                      "click here to unblock",
                                       style: TextStyle(
-                                          color: Colors.red,
-                                          fontSize: 18,
+                                          color: Colors.green,
+                                          fontSize: 12,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'cute'),
                                     ),
                                   ),
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 5, bottom: 12, left: 10, right: 10),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      _followingButton(),
-                                      _conversationBox(),
-                                      _memeProfile(),
-                                    ],
-                                  ),
-                                ),
-                          isBlock
-                              ? GestureDetector(
-                                  onTap: () => _blockOption(),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Center(
-                                      child: Container(
-                                        child: Text(
-                                          "click here to unblock",
-                                          style: TextStyle(
-                                              color: Colors.green,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'cute'),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : Container(
-                                  height: 0,
-                                  width: 0,
-                                ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            width: 100,
-                            height: 40,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => FollowingPage(
-                                      currentUserId: widget.currentUserId,
-                                      profileOwner: widget.profileOwner,
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                    5,
-                                  ),
-                                ),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Following",
-                                        style: TextStyle(
-                                            fontFamily: "cute", fontSize: 9),
-                                      ),
-                                      StreamBuilder(
-                                          stream: userFollowingRtd
-                                              .child(widget.profileOwner)
-                                              .onValue,
-                                          builder: (context,
-                                              AsyncSnapshot dataSnapShot) {
-                                            if (dataSnapShot.hasData) {
-                                              DataSnapshot snapshot =
-                                                  dataSnapShot.data.snapshot;
-
-                                              Map data = snapshot.value;
-
-                                              if (data == null) {
-                                                return Text(
-                                                  "0",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: 'cute',
-                                                    fontSize: 12,
-                                                  ),
-                                                );
-                                              } else {
-                                                return Text(
-                                                  data.length.toString(),
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: 'cute',
-                                                    fontSize: 12,
-                                                  ),
-                                                );
-                                              }
-                                            } else {
-                                              return Text(
-                                                "0",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'cute',
-                                                  fontSize: 12,
-                                                ),
-                                              );
-                                            }
-                                          }),
-                                    ],
-                                  ),
                                 ),
                               ),
+                            )
+                          : Container(
+                              height: 0,
+                              width: 0,
                             ),
-                          ),
-
-                          SizedBox(
-                            width: 100,
-                            height: 40,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CrushOnPage(
-                                      currentUserId: widget.currentUserId,
-                                      profileOwner: widget.profileOwner,
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "CrushOn",
-                                        style: TextStyle(
-                                            fontFamily: "cute", fontSize: 9),
-                                      ),
-                                      Text(
-                                        crushOnCount.toString(),
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'cute',
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // _conversationBox(),
-                        ],
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    // _memeProfile(),
-                    isBlock
-                        ? Container(
-                            height: 0,
-                            width: 0,
-                          )
-                        : Panel(
-                            aboutMain: widget.mainAbout,
-                            profileOwner: widget.profileOwner,
-                            currentUserId: widget.currentUserId,
-                            mainProfileUrl: widget.mainProfileUrl,
-                            mainFirstName: widget.mainFirstName,
-                            mainSecondName: widget.mainSecondName,
-                            mainGender: widget.mainGender,
-                            mainEmail: widget.mainEmail,
-                            user: widget.user,
-                            username: widget.username,
-                          ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    isBlock
-                        ? Container(
-                            height: 0,
-                            width: 0,
-                          )
-                        : ProfileDecency(
-                            mainId: widget.currentUserId,
-                            profileId: widget.profileOwner,
-                            onPressedButton2: getDecencyReport,
-                          ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _addBestieButton(),
-                    _crushButtonControllerForVisitor(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    relationShipRequestSendButton(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _relationShipStatusForVisitor(),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    otherInfo(),
-                    //   editandBlockOption(),
-                    _posts(),
-                    SizedBox(
-                      height: 100,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: 15,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        height: 40,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FollowingPage(
+                                  currentUserId: widget.currentUserId,
+                                  profileOwner: widget.profileOwner,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(
+                                5,
+                              ),
+                            ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Following",
+                                    style: TextStyle(
+                                        fontFamily: "cute", fontSize: 9),
+                                  ),
+                                  StreamBuilder(
+                                      stream: userFollowingRtd
+                                          .child(widget.profileOwner)
+                                          .onValue,
+                                      builder: (context,
+                                          AsyncSnapshot dataSnapShot) {
+                                        if (dataSnapShot.hasData) {
+                                          DataSnapshot snapshot =
+                                              dataSnapShot.data.snapshot;
+
+                                          Map data = snapshot.value;
+
+                                          if (data == null) {
+                                            return Text(
+                                              "0",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'cute',
+                                                fontSize: 12,
+                                              ),
+                                            );
+                                          } else {
+                                            return Text(
+                                              data.length.toString(),
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'cute',
+                                                fontSize: 12,
+                                              ),
+                                            );
+                                          }
+                                        } else {
+                                          return Text(
+                                            "0",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'cute',
+                                              fontSize: 12,
+                                            ),
+                                          );
+                                        }
+                                      }),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(
+                        width: 100,
+                        height: 40,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CrushOnPage(
+                                  currentUserId: widget.currentUserId,
+                                  profileOwner: widget.profileOwner,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "CrushOn",
+                                    style: TextStyle(
+                                        fontFamily: "cute", fontSize: 9),
+                                  ),
+                                  Text(
+                                    crushOnCount.toString(),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'cute',
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // _conversationBox(),
+                    ],
+                  ),
+                ),
+                // _memeProfile(),
+                isBlock
+                    ? Container(
+                        height: 0,
+                        width: 0,
+                      )
+                    : Panel(
+                        aboutMain: widget.mainAbout,
+                        profileOwner: widget.profileOwner,
+                        currentUserId: widget.currentUserId,
+                        mainProfileUrl: widget.mainProfileUrl,
+                        mainFirstName: widget.mainFirstName,
+                        mainSecondName: widget.mainSecondName,
+                        mainGender: widget.mainGender,
+                        mainEmail: widget.mainEmail,
+                        user: widget.user,
+                        username: widget.username,
+                      ),
+                SizedBox(
+                  height: 10,
+                ),
+                isBlock
+                    ? Container(
+                        height: 0,
+                        width: 0,
+                      )
+                    : ProfileDecency(
+                        mainId: widget.currentUserId,
+                        profileId: widget.profileOwner,
+                        onPressedButton2: getDecencyReport,
+                      ),
+                SizedBox(
+                  height: 10,
+                ),
+                _addBestieButton(),
+                _crushButtonControllerForVisitor(),
+                SizedBox(
+                  height: 10,
+                ),
+                relationShipRequestSendButton(),
+                SizedBox(
+                  height: 10,
+                ),
+                _relationShipStatusForVisitor(),
+                SizedBox(
+                  height: 15,
+                ),
+                otherInfo(),
+                //   editandBlockOption(),
+                _posts(),
+                SizedBox(
+                  height: 100,
+                ),
+              ],
             ),
+          ),
     );
   }
 

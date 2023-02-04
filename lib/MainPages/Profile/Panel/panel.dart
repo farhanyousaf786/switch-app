@@ -1804,7 +1804,7 @@ class _PanelState extends State<Panel> {
                         ),
                         Container(
                           height: 100,
-                          width: MediaQuery.of(context).size.width / 1.5,
+                          width: MediaQuery.of(context).size.width / 1.2,
                           child: ListView.builder(
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,

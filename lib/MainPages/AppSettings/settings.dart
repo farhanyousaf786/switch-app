@@ -188,12 +188,12 @@ class _AppSettingsState extends State<AppSettings> {
         backgroundColor:
             Constants.isDark == "true" ? Themes().darkModeColor : Colors.blue,
         elevation: 0,
-        title: Text(
-          "Switch",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white, fontFamily: 'cute', fontSize: 20),
-        ),
+        // title: Text(
+        //   "Switch",
+        //   style: TextStyle(
+        //       fontWeight: FontWeight.bold,
+        //       color: Colors.white, fontFamily: 'cute', fontSize: 20),
+        // ),
         centerTitle: true,
         actions: [
           Center(

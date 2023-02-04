@@ -13,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:switchapp/Models/BottomBarComp/topBar.dart';
+import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Models/BottomBarComp/congratsModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
@@ -96,15 +97,18 @@ class _AddStatusState extends State<AddStatus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Constants.isDark == "true"
+            ? Themes().darkModeColor : Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Constants.isDark == "true"
+              ? Themes().darkModeColor : Colors.white,
           leading: Center(
             child: IconButton(
               icon: Icon(
                 Icons.arrow_back_ios_sharp,
                 size: 18,
-                color: Colors.lightBlue.shade900,
+                color: Constants.isDark == "true"
+                    ? Colors.grey : Colors.lightBlue,
               ),
               onPressed: () => {
                 Navigator.pop(context),
@@ -121,8 +125,8 @@ class _AddStatusState extends State<AddStatus> {
                         ? "Video Meme"
                         : "Thoughts",
             style: TextStyle(
-              color: Colors.lightBlue.shade900,
-              fontFamily: 'cute',
+              color: Constants.isDark == "true"
+                  ? Colors.grey : Colors.lightBlue,              fontFamily: 'cute',
               fontSize: 16,
             ),
           ),
@@ -145,9 +149,8 @@ class _AddStatusState extends State<AddStatus> {
                           child: Text(
                             "Share",
                             style: TextStyle(
-                              color: _isComposing
-                                  ? Colors.lightBlue
-                                  : Colors.blue.shade100,
+                              color: Constants.isDark == "true"
+                            ? Colors.grey : Colors.lightBlue,
                               fontFamily: 'cute',
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
@@ -169,7 +172,8 @@ class _AddStatusState extends State<AddStatus> {
                           child: Text(
                             "Share",
                             style: TextStyle(
-                              color: Colors.lightBlue.shade900,
+                              color: Constants.isDark == "true"
+                            ? Colors.grey : Colors.lightBlue,
                               fontFamily: 'cute',
                               fontSize: 16,
                             ),
@@ -202,7 +206,7 @@ class _AddStatusState extends State<AddStatus> {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 14),
                   child: CircleAvatar(
                     child: CircleAvatar(
                       radius: 22,
@@ -219,7 +223,8 @@ class _AddStatusState extends State<AddStatus> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
-                      color: Colors.black,
+                      color: Constants.isDark == "true"
+                  ? Colors.grey : Colors.lightBlue,
                       fontFamily: 'cute'
                       // shadows: <Shadow>[
                       //   Shadow(
@@ -300,10 +305,10 @@ class _AddStatusState extends State<AddStatus> {
           child: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 14),
                 child: CircleAvatar(
                   child: CircleAvatar(
-                    radius: 22,
+                    radius: 20,
                     backgroundColor: Colors.grey,
                     backgroundImage:
                         CachedNetworkImageProvider(Constants.myPhotoUrl),
@@ -317,7 +322,8 @@ class _AddStatusState extends State<AddStatus> {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: Colors.black,
+                    color: Constants.isDark == "true"
+                ? Colors.grey : Colors.lightBlue,
                     fontFamily: 'cute'),
               ),
             ],

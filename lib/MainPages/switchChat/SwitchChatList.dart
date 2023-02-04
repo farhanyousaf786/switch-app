@@ -167,13 +167,19 @@ class _SwitchChatListState extends State<SwitchChatList> {
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cute'),
           ),
-          Container(
-            height: 18,
-            child: Image.asset(
-              "images/heartFill.gif",
-              fit: BoxFit.contain,
-            ),
-          ),
+          // Container(
+          //   height: 18,
+          //   child: Image.asset(
+          //     "images/heartFill.gif",
+          //     fit: BoxFit.contain,
+          //   ),
+          // ),   // Container(
+          //   height: 18,
+          //   child: Image.asset(
+          //     "images/heartFill.gif",
+          //     fit: BoxFit.contain,
+          //   ),
+          // ),
         ],
       );
     } else {
@@ -184,13 +190,13 @@ class _SwitchChatListState extends State<SwitchChatList> {
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 17, fontFamily: 'cute'),
           ),
-          Container(
-            height: 18,
-            child: Image.asset(
-              "images/heartFill.gif",
-              fit: BoxFit.contain,
-            ),
-          ),
+          // Container(
+          //   height: 18,
+          //   child: Image.asset(
+          //     "images/heartFill.gif",
+          //     fit: BoxFit.contain,
+          //   ),
+          // ),
         ],
       );
     }
@@ -1304,28 +1310,25 @@ class _SwitchChatListState extends State<SwitchChatList> {
                             : Column(
                                 children: [
                                   _loveChat(data),
-                                  Material(
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.lightBlue.shade300,
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 10, top: 5, bottom: 5),
-                                        child: Container(
-                                          child: Text(
-                                            "Other Chats",
-                                            style: TextStyle(
-                                                fontFamily: 'cute',
-                                                fontSize: 20,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          alignment: Alignment.centerLeft,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.lightBlue.shade300,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10, top: 5, bottom: 5),
+                                      child: Container(
+                                        child: Text(
+                                          "Other Chats",
+                                          style: TextStyle(
+                                              fontFamily: 'cute',
+                                              fontSize: 20,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
                                         ),
+                                        alignment: Alignment.centerLeft,
                                       ),
                                     ),
-                                    elevation: 6,
                                   ),
                                   SizedBox(
                                     height: 5,
@@ -1396,17 +1399,10 @@ class _SwitchChatListState extends State<SwitchChatList> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.pinkAccent.shade100,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade400,
-                      offset: Offset(0.0, 2.0), //(x,y)
-                      blurRadius: 2.0,
-                    ),
-                  ],
-                ),
+
+              Material(
+                color: Colors.pinkAccent.shade100,
+
                 child: Padding(
                   padding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
                   child: Row(
@@ -1577,27 +1573,24 @@ class _SwitchChatListState extends State<SwitchChatList> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Material(
-                elevation: 6,
-                child: Container(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 10, bottom: 5, top: 5),
-                        child: Text(
-                          "Love Chat",
-                          style: TextStyle(
-                              fontFamily: 'cute',
-                              fontSize: 20,
-                              color: Colors.white),
-                        ),
+              Container(
+                child: Row(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 10, bottom: 5, top: 5),
+                      child: Text(
+                        "Love Chat",
+                        style: TextStyle(
+                            fontFamily: 'cute',
+                            fontSize: 20,
+                            color: Colors.white),
                       ),
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.pinkAccent.shade100,
-                  ),
+                    ),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.pinkAccent.shade100,
                 ),
               ),
               Column(
@@ -1634,81 +1627,75 @@ class _SwitchChatListState extends State<SwitchChatList> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Material(
-            elevation: 6,
-            child: Container(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10, bottom: 5, top: 5),
-                            child: Text(
-                              "Love Chat",
-                              style: TextStyle(
-                                  fontFamily: 'cute',
-                                  fontSize: 20,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.pinkAccent.shade100,
-                      ),
-                    ),
-                    Column(
+          Container(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    child: Row(
                       children: [
-                        SizedBox(
-                          key: loveChat,
-                          child: Lottie.asset(
-                            'images/dating.json',
-                          ),
-                          height: 120,
-                          width: 120,
-                        ),
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
+                          padding: const EdgeInsets.only(
+                              left: 10, bottom: 5, top: 5),
                           child: Text(
-                            "The Luckiest Person Will Be Here! Click Search Icon to find That Person",
+                            "Love Chat",
                             style: TextStyle(
                                 fontFamily: 'cute',
-                                fontSize: 10,
-                                color: Colors.grey),
-                            textAlign: TextAlign.center,
+                                fontSize: 20,
+                                color: Colors.white),
                           ),
                         ),
                       ],
-                      mainAxisAlignment: MainAxisAlignment.center,
                     ),
-                  ],
-                ),
+                    decoration: BoxDecoration(
+                      color: Colors.pinkAccent.shade100,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      SizedBox(
+                        key: loveChat,
+                        child: Lottie.asset(
+                          'images/dating.json',
+                        ),
+                        height: 120,
+                        width: 120,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "The Luckiest Person Will Be Here! Click Search Icon to find That Person",
+                          style: TextStyle(
+                              fontFamily: 'cute',
+                              fontSize: 10,
+                              color: Colors.grey),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                ],
               ),
             ),
           ),
-          Material(
-            elevation: 6,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.lightBlue.shade300,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
-                child: Container(
-                  key: otherChat,
-                  child: Text(
-                    "Other Chats",
-                    style: TextStyle(
-                        fontFamily: 'cute',
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  alignment: Alignment.centerLeft,
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.lightBlue.shade300,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
+              child: Container(
+                key: otherChat,
+                child: Text(
+                  "Other Chats",
+                  style: TextStyle(
+                      fontFamily: 'cute',
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
+                alignment: Alignment.centerLeft,
               ),
             ),
           ),

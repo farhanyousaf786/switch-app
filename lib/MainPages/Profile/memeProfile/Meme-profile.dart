@@ -1267,34 +1267,29 @@ class _MemeProfileState extends State<MemeProfile> {
 
         if (followerCount.length >= 0 && followerCount.length < 100) {
           setState(() {
-            levelLink =
-                "https://switchappimages.nyc3.digitaloceanspaces.com/MemerTags/levelZero.png";
+            levelLink = "Level 0";
             levelLogo = "images/level_images/level_zero.json";
           });
         } else if (followerCount.length >= 100 && followerCount.length < 1000) {
           setState(() {
-            levelLink =
-                "https://switchappimages.nyc3.digitaloceanspaces.com/MemerTags/levelPlanet.png";
+            levelLink = "Planet Level";
             levelLogo = "images/level_images/level_planet.json";
           });
         } else if (followerCount.length >= 1000 &&
             followerCount.length < 10000) {
           setState(() {
-            levelLink =
-                "https://switchappimages.nyc3.digitaloceanspaces.com/MemerTags/levelSolar.png";
+            levelLink = "Solar Level";
             levelLogo = "images/level_images/level_solar.json";
           });
         } else if (followerCount.length >= 10000) {
           setState(() {
-            levelLink =
-                "https://switchappimages.nyc3.digitaloceanspaces.com/MemerTags/levelGalaxy.png";
+            levelLink = "Galaxy Level";
             levelLogo = "images/level_images/level_galaxy.json";
           });
         }
       } else {
         setState(() {
-          levelLink =
-              "https://switchappimages.nyc3.digitaloceanspaces.com/MemerTags/levelZero.png";
+          levelLink = "Level 0";
           levelLogo = "images/level_images/level_zero.json";
         });
       }
@@ -1366,9 +1361,11 @@ class _MemeProfileState extends State<MemeProfile> {
   List allMemerList = [];
 
   _getMemerDetail() {
-    userFollowersCountRtd.orderByChild('followerCounter')
+    userFollowersCountRtd
+        .orderByChild('followerCounter')
         .limitToLast(100)
-        .once().then((DataSnapshot dataSnapshot) {
+        .once()
+        .then((DataSnapshot dataSnapshot) {
       if (dataSnapshot.value != null) {
         late Map data;
         setState(() {
@@ -2168,7 +2165,7 @@ class _MemeProfileState extends State<MemeProfile> {
                   key: memeCompetitionIntro,
                   color: Constants.isDark == "true"
                       ? Colors.grey.shade800
-                      : Colors.blue,
+                      : Colors.lightBlue,
                   child: Container(
                     padding: EdgeInsets.all(4),
                     decoration: BoxDecoration(
@@ -2215,21 +2212,23 @@ class _MemeProfileState extends State<MemeProfile> {
                 children: [
                   levelLink == ""
                       ? Text("")
-                      : Shimmer.fromColors(
-                          baseColor: Colors.purpleAccent.shade200,
-                          highlightColor: Colors.purple.shade700,
-                          child: CachedNetworkImage(
+                      : Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Container(
                             key: levelIntro,
-                            imageUrl: levelLink,
-                            placeholder: (context, url) => Container(
-                              child: Text(""),
+                            child: Shimmer.fromColors(
+                              baseColor: Colors.purpleAccent.shade200,
+                              highlightColor: Colors.purple.shade700,
+                              child: Text(
+                                levelLink,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'cute',
+                                    fontSize: 20),
+                              ),
                             ),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
-                            height: 60,
-                            width: 100,
                           ),
-                        ),
+                      ),
                   levelLogo == ""
                       ? Text("")
                       : Padding(
@@ -2659,7 +2658,7 @@ class _MemeProfileState extends State<MemeProfile> {
                 height: 50,
                 color: Constants.isDark == "true"
                     ? Colors.grey.shade900
-                    : Colors.blue,
+                    : Colors.lightBlue,
                 child: Row(
                   key: rankingIntro,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -2978,7 +2977,7 @@ class _MemeProfileState extends State<MemeProfile> {
             height: MediaQuery.of(context).size.height / 1.2,
             child: Scaffold(
               appBar: AppBar(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.lightBlue,
                   elevation: 2.0,
                   title: Text(
                     "Add Your MEME",

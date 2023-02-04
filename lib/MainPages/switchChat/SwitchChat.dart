@@ -131,6 +131,7 @@ class _SwitchChatState extends State<SwitchChat> {
                           style: TextStyle(
                             fontFamily: 'cute',
                             color: Colors.pinkAccent,
+                            fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
                         ),

@@ -13,6 +13,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/MainPages/AdminPage/adminPage.dart';
 import 'package:switchapp/MainPages/AllPosts/MainFeed/FollowBottonUi.dart';
 import 'package:switchapp/MainPages/AllPosts/MainFeed/OptionBottomBar.dart';
@@ -613,7 +614,7 @@ class _MainFeedState extends State<MainFeed> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Text(
-                          "1 of 10",
+                          "1 of 3",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
@@ -638,7 +639,7 @@ class _MainFeedState extends State<MainFeed> {
         keyTarget: jumpToNextIntro,
         contents: [
           TargetContent(
-            align: ContentAlign.bottom,
+            align: ContentAlign.top,
             builder: (context, controller) {
               return Container(
                 child: Column(
@@ -668,7 +669,7 @@ class _MainFeedState extends State<MainFeed> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Text(
-                          "2 of 10",
+                          "2 of 3",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
@@ -721,7 +722,7 @@ class _MainFeedState extends State<MainFeed> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Text(
-                          "3 of 10",
+                          "3 of 3",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
@@ -2373,19 +2374,24 @@ class _MainFeedState extends State<MainFeed> {
                         SharedPreferences prefs =
                             await SharedPreferences.getInstance();
                         prefs.setInt("agreement", 2);
-
                         if (prefs.getInt("intro") == 0) {
                           Navigator.pop(context);
 
                           print("00000000000000000000000");
                         } else {
-                          print("11111111111111111111111");
-
-                          surpriseMeme.createState().bottomSheetToShowMeme(
-                              context,
-                              "https://switchappimages.nyc3.digitaloceanspaces.com/appMemes/switchMeme2.jpg",
-                              "");
-                        }
+                          // print("11111111111111111111111");
+                          //
+                          // surpriseMeme.createState().bottomSheetToShowMeme(
+                          //     context,
+                          //     "https://switchappimages.nyc3.digitaloceanspaces.com/appMemes/switchMeme2.jpg",
+                          //     "");
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    LandingPage()),
+                                (Route<dynamic> route) => false,
+                          );                        }
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -3236,8 +3242,8 @@ class _MainFeedState extends State<MainFeed> {
                               color: currentLine == 1
                                   ? Colors.lightBlue
                                   : Constants.isDark == "true"
-                                      ? Colors.white
-                                      : Colors.white,
+                                      ? Colors.transparent
+                                      : Colors.transparent,
                             ),
                           ],
                         ),
@@ -3293,8 +3299,8 @@ class _MainFeedState extends State<MainFeed> {
                             color: currentLine == 2
                                 ? Colors.lightBlue
                                 : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.white,
+                                ? Colors.transparent
+                                : Colors.transparent,
                           ),
                         ],
                       ),
@@ -3350,8 +3356,8 @@ class _MainFeedState extends State<MainFeed> {
                             color: currentLine == 3
                                 ? Colors.lightBlue
                                 : Constants.isDark == "true"
-                                    ? Colors.white
-                                    : Colors.white,
+                                ? Colors.transparent
+                                : Colors.transparent,
                           ),
                         ],
                       ),
