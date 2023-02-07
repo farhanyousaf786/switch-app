@@ -101,6 +101,8 @@ class _MainFeedState extends State<MainFeed> {
   GlobalKey yourFeedsIntro = GlobalKey();
   GlobalKey switchUpdatesIntro = GlobalKey();
   GlobalKey bottomAllIntro = GlobalKey();
+  List finalImpIds= [];
+
 
   @override
   void initState() {
@@ -108,7 +110,23 @@ class _MainFeedState extends State<MainFeed> {
     getFirstPostList();
     additionalInitialization();
     checkIfNotification();
+    // getUserImpression();
     super.initState();
+  }
+
+  getUserImpression() async {
+    List impressionIds = [];
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey("impIds")) {
+      finalImpIds =
+          json.decode(prefs.getString('impIds').toString());
+      print("><><>>>>>>>>>>>>>>>>>>> ${finalImpIds}");
+    } else {
+
+      prefs.setString('impIds', jsonEncode(finalImpIds));
+
+    }
+
   }
 
   additionalInitialization() {
@@ -1778,7 +1796,7 @@ class _MainFeedState extends State<MainFeed> {
                             fontSize: 11,
                             fontFamily: 'cute',
                             fontWeight: FontWeight.bold,
-                            color: Colors.black54),
+                            color: Colors.lightBlue),
                       ),
                     ),
                   ),
@@ -3477,3 +3495,8 @@ class _MainFeedState extends State<MainFeed> {
     );
   }
 }
+
+
+
+// cop to cop
+// 

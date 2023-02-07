@@ -4,8 +4,6 @@
  */
 
 import 'dart:convert';
-import 'dart:io';
-import 'dart:math';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +18,6 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
-import 'package:switchapp/Authentication/SignUp/set_username.dart';
 import 'package:switchapp/MainPages/AppSettings/settings.dart';
 import 'package:switchapp/MainPages/Profile/memeProfile/Meme-profile.dart';
 import 'package:switchapp/MainPages/AllPosts/MainFeed/MainFeed.dart';
@@ -33,7 +30,6 @@ import 'package:switchapp/Models/inAppNotificationModel.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:uuid/uuid.dart';
-
 import '../SearchPages/MainSearchPage.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -74,17 +70,19 @@ class _NavigationPageState extends State<NavigationPage>
   @override
   void initState() {
     super.initState();
-    Constants.pass = "";
-    // this is an object to control page scroll and update current page no.
-    pageController = PageController();
-    // store user value to a static variable to access it any where
-    Constants.myId = widget.user.uid;
-    WidgetsBinding.instance!.addObserver(this);
+    additionalInitialization();
     getRelationShipStatus();
     configNotification();
     getInAppAllNotification();
     checkUnreadMessages();
     getFollowingUsers();
+  }
+
+  additionalInitialization() {
+    Constants.pass = "";
+    pageController = PageController();
+    Constants.myId = widget.user.uid;
+    WidgetsBinding.instance!.addObserver(this);
     Future.delayed(const Duration(seconds: 5), () {
       if (mounted)
         setState(() {
@@ -97,8 +95,9 @@ class _NavigationPageState extends State<NavigationPage>
     List followingList = [];
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey("followList")) {
-      finalFollowingList = json.decode(prefs.getString('followList').toString());
-print("><><>>>>>>>>>>>>>>>>>>> ${finalFollowingList}");
+      finalFollowingList =
+          json.decode(prefs.getString('followList').toString());
+      print("><><>>>>>>>>>>>>>>>>>>> ${finalFollowingList}");
     } else {
       userFollowingRtd
           .child(widget.user.uid)
