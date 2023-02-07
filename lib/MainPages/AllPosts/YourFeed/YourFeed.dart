@@ -563,6 +563,7 @@ class _YourFeedState extends State<YourFeed> {
 
         type != "thoughts" ? _description(description) : Container(),
         // creatPostFooter(),
+        Divider(thickness: 1,),
 
         SizedBox(
           height: 30,

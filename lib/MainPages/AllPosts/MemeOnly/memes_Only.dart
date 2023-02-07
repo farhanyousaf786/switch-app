@@ -564,10 +564,10 @@ class _MemesOnlyState extends State<MemesOnly> {
                                       height: 0,
                                       width: 0,
                                     ),
-                              // creatPostFooter(),
+                              Divider(thickness: 1,),
 
                               Container(
-                                height: 20,
+                                height: 10,
                               ),
                             ],
                           );
@@ -739,223 +739,226 @@ class _MemesOnlyState extends State<MemesOnly> {
             height: 0,
             width: 0,
           )
-        : Container(
-            width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 15,
-                          ),
-                          if (description.length > 34)
-                            Row(
-                              children: [
-                                Text(
-                                  "Caption:  ",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontSize: 15,
-                                      fontFamily: 'cute'),
-                                ),
-                                textControl(description.substring(0, 20)),
-                                TextButton(
-                                  onPressed: () {
-                                    showModalBottomSheet(
-                                        useRootNavigator: true,
-                                        isScrollControlled: true,
-                                        barrierColor:
-                                            Colors.red.withOpacity(0.2),
-                                        elevation: 0,
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        context: context,
-                                        builder: (context) {
-                                          return Container(
-                                            color: Colors.white,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                3.5,
-                                            child: SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
-                                                    child: Center(
-                                                      child: Text(
-                                                        'Caption',
-                                                        style: TextStyle(
-                                                          color: Colors.lightBlue,
-                                                          fontFamily: 'cute',
-                                                          fontSize: 18,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Center(
-                                                    child: Padding(
+        : Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 15,
+                            ),
+                            if (description.length > 34)
+                              Row(
+                                children: [
+                                  Text(
+                                    "Caption:  ",
+                                    style: TextStyle(
+                                        color: Colors.lightBlue,
+                                        fontSize: 15,
+                                        fontFamily: 'cute'),
+                                  ),
+                                  textControl(description.substring(0, 20)),
+                                  TextButton(
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                          useRootNavigator: true,
+                                          isScrollControlled: true,
+                                          barrierColor:
+                                              Colors.red.withOpacity(0.2),
+                                          elevation: 0,
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          context: context,
+                                          builder: (context) {
+                                            return Container(
+                                              color: Colors.white,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  3.5,
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
                                                       padding:
                                                           const EdgeInsets.all(
                                                               8.0),
-                                                      child: textControl(
-                                                          description),
+                                                      child: Center(
+                                                        child: Text(
+                                                          'Caption',
+                                                          style: TextStyle(
+                                                            color: Colors.lightBlue,
+                                                            fontFamily: 'cute',
+                                                            fontSize: 18,
+                                                          ),
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                    Center(
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(
+                                                                8.0),
+                                                        child: textControl(
+                                                            description),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          );
-                                        });
-                                  },
-                                  child: Text(
-                                    "Read More...",
-                                    style: TextStyle(
-                                        fontSize: 12, fontFamily: 'cute'),
+                                            );
+                                          });
+                                    },
+                                    child: Text(
+                                      "Read More...",
+                                      style: TextStyle(
+                                          fontSize: 12, fontFamily: 'cute'),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            )
-                          // GestureDetector(
-                          //   onTap: () => {
-                          //     showModalBottomSheet(
-                          //         useRootNavigator: true,
-                          //         isScrollControlled: true,
-                          //         barrierColor: Colors.red.withOpacity(0.2),
-                          //         elevation: 0,
-                          //         clipBehavior: Clip.antiAliasWithSaveLayer,
-                          //         context: context,
-                          //         builder: (context) {
-                          //           return Container(
-                          //             height:
-                          //                 MediaQuery.of(context).size.height /
-                          //                     2,
-                          //             child: SingleChildScrollView(
-                          //               child: Column(
-                          //                 children: [
-                          //                   Padding(
-                          //                     padding:
-                          //                         const EdgeInsets.all(8.0),
-                          //                     child: Row(
-                          //                       crossAxisAlignment:
-                          //                           CrossAxisAlignment.center,
-                          //                       mainAxisAlignment:
-                          //                           MainAxisAlignment.center,
-                          //                       children: [
-                          //                         Icon(Icons
-                          //                             .linear_scale_sharp),
-                          //                       ],
-                          //                     ),
-                          //                   ),
-                          //                   Padding(
-                          //                     padding:
-                          //                         const EdgeInsets.all(8.0),
-                          //                     child: LinkifyText(
-                          //                       description,
-                          //                       textAlign: TextAlign.left,
-                          //                       linkTypes: [
-                          //                         LinkType.email,
-                          //                         LinkType.url,
-                          //                         LinkType.hashTag,
-                          //                         LinkType.userTag,
-                          //                       ],
-                          //                       linkStyle: TextStyle(
-                          //                           fontSize: 13,
-                          //                           fontFamily: "cutes",
-                          //                           fontWeight:
-                          //                               FontWeight.bold,
-                          //                           color: Colors.lightBlue),
-                          //                       onTap: (link) => {
-                          //                         // url = link.value.toString(),
-                          //                         // _launchURL('http://$url'),
-                          //                       },
-                          //                     ),
-                          //                   ),
-                          //                 ],
-                          //               ),
-                          //             ),
-                          //           );
-                          //         }),
-                          //   },
-                          //   child: LinkifyText(
-                          //     "@Caption: " +
-                          //         description.substring(0, 30) +
-                          //         " ...(readMore)",
-                          //     textAlign: TextAlign.left,
-                          //     linkTypes: [
-                          //       LinkType.email,
-                          //       LinkType.url,
-                          //       LinkType.hashTag,
-                          //       LinkType.userTag,
-                          //     ],
-                          //     linkStyle: TextStyle(
-                          //         fontSize: 13,
-                          //         fontFamily: "cutes",
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.lightBlue),
-                          //     onTap: (link) => {
-                          //       // url = link.value.toString(),
-                          //       // _launchURL('http://$url'),
-                          //     },
-                          //   ),
-                          // )
-                          else
-                            Row(
-                              children: [
-                                Text(
-                                  "Caption:  ",
-                                  style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontSize: 15,
-                                      fontFamily: 'cute'),
-                                ),
-                                textControl(description),
-                              ],
-                            )
-                          // GestureDetector(
-                          //   onTap: () => {
-                          //     bottomSheetForCommentSection(description),
-                          //   },
-                          //   child: LinkifyText(
-                          //     "@Caption: " + description,
-                          //     textAlign: TextAlign.left,
-                          //     linkTypes: [
-                          //       LinkType.email,
-                          //       LinkType.url,
-                          //       LinkType.hashTag,
-                          //       LinkType.userTag,
-                          //     ],
-                          //     linkStyle: TextStyle(
-                          //         fontSize: 13,
-                          //         fontFamily: "cutes",
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.lightBlue),
-                          //     onTap: (link) => {
-                          //       // url = link.value.toString(),
-                          //       // _launchURL('http://$url'),
-                          //     },
-                          //   ),
-                          // ),
-                        ],
+                                ],
+                              )
+                            // GestureDetector(
+                            //   onTap: () => {
+                            //     showModalBottomSheet(
+                            //         useRootNavigator: true,
+                            //         isScrollControlled: true,
+                            //         barrierColor: Colors.red.withOpacity(0.2),
+                            //         elevation: 0,
+                            //         clipBehavior: Clip.antiAliasWithSaveLayer,
+                            //         context: context,
+                            //         builder: (context) {
+                            //           return Container(
+                            //             height:
+                            //                 MediaQuery.of(context).size.height /
+                            //                     2,
+                            //             child: SingleChildScrollView(
+                            //               child: Column(
+                            //                 children: [
+                            //                   Padding(
+                            //                     padding:
+                            //                         const EdgeInsets.all(8.0),
+                            //                     child: Row(
+                            //                       crossAxisAlignment:
+                            //                           CrossAxisAlignment.center,
+                            //                       mainAxisAlignment:
+                            //                           MainAxisAlignment.center,
+                            //                       children: [
+                            //                         Icon(Icons
+                            //                             .linear_scale_sharp),
+                            //                       ],
+                            //                     ),
+                            //                   ),
+                            //                   Padding(
+                            //                     padding:
+                            //                         const EdgeInsets.all(8.0),
+                            //                     child: LinkifyText(
+                            //                       description,
+                            //                       textAlign: TextAlign.left,
+                            //                       linkTypes: [
+                            //                         LinkType.email,
+                            //                         LinkType.url,
+                            //                         LinkType.hashTag,
+                            //                         LinkType.userTag,
+                            //                       ],
+                            //                       linkStyle: TextStyle(
+                            //                           fontSize: 13,
+                            //                           fontFamily: "cutes",
+                            //                           fontWeight:
+                            //                               FontWeight.bold,
+                            //                           color: Colors.lightBlue),
+                            //                       onTap: (link) => {
+                            //                         // url = link.value.toString(),
+                            //                         // _launchURL('http://$url'),
+                            //                       },
+                            //                     ),
+                            //                   ),
+                            //                 ],
+                            //               ),
+                            //             ),
+                            //           );
+                            //         }),
+                            //   },
+                            //   child: LinkifyText(
+                            //     "@Caption: " +
+                            //         description.substring(0, 30) +
+                            //         " ...(readMore)",
+                            //     textAlign: TextAlign.left,
+                            //     linkTypes: [
+                            //       LinkType.email,
+                            //       LinkType.url,
+                            //       LinkType.hashTag,
+                            //       LinkType.userTag,
+                            //     ],
+                            //     linkStyle: TextStyle(
+                            //         fontSize: 13,
+                            //         fontFamily: "cutes",
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.lightBlue),
+                            //     onTap: (link) => {
+                            //       // url = link.value.toString(),
+                            //       // _launchURL('http://$url'),
+                            //     },
+                            //   ),
+                            // )
+                            else
+                              Row(
+                                children: [
+                                  Text(
+                                    "Caption:  ",
+                                    style: TextStyle(
+                                        color: Colors.lightBlue,
+                                        fontSize: 15,
+                                        fontFamily: 'cute'),
+                                  ),
+                                  textControl(description),
+                                ],
+                              )
+                            // GestureDetector(
+                            //   onTap: () => {
+                            //     bottomSheetForCommentSection(description),
+                            //   },
+                            //   child: LinkifyText(
+                            //     "@Caption: " + description,
+                            //     textAlign: TextAlign.left,
+                            //     linkTypes: [
+                            //       LinkType.email,
+                            //       LinkType.url,
+                            //       LinkType.hashTag,
+                            //       LinkType.userTag,
+                            //     ],
+                            //     linkStyle: TextStyle(
+                            //         fontSize: 13,
+                            //         fontFamily: "cutes",
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.lightBlue),
+                            //     onTap: (link) => {
+                            //       // url = link.value.toString(),
+                            //       // _launchURL('http://$url'),
+                            //     },
+                            //   ),
+                            // ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          );
+        );
   }
 
   // _description(String description) {

@@ -104,14 +104,22 @@ class _MainFeedState extends State<MainFeed> {
 
   @override
   void initState() {
-    if (Constants.isIntro == "true") {
-      showIntro();
-    } else {}
+    controlIntro();
     getFirstPostList();
-    listScrollController.addListener(_scrollListener);
-    randomNotify = _random.nextInt(80) + 20; // 100-200
+    additionalInitialization();
     checkIfNotification();
     super.initState();
+  }
+
+  additionalInitialization() {
+    listScrollController.addListener(_scrollListener);
+    randomNotify = _random.nextInt(80) + 20; // 100-200
+  }
+
+  controlIntro() {
+    if (Constants.isIntro == "true") {
+      showIntro();
+    }
   }
 
   void checkIfNotification() {
@@ -1113,7 +1121,6 @@ class _MainFeedState extends State<MainFeed> {
                                       if (direction ==
                                           ScrollDirection.reverse) {
                                         _visible = false;
-
                                         print("visible: $_visible");
                                       } else if (direction ==
                                           ScrollDirection.forward) {
@@ -1242,8 +1249,8 @@ class _MainFeedState extends State<MainFeed> {
                                                   ),
                                             // creatPostFooter(),
 
-                                            Container(
-                                              height: 20,
+                                            Divider(
+                                              thickness: 1,
                                             ),
                                           ],
                                         );
@@ -2388,10 +2395,10 @@ class _MainFeedState extends State<MainFeed> {
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    LandingPage()),
-                                (Route<dynamic> route) => false,
-                          );                        }
+                                builder: (context) => LandingPage()),
+                            (Route<dynamic> route) => false,
+                          );
+                        }
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -3299,8 +3306,8 @@ class _MainFeedState extends State<MainFeed> {
                             color: currentLine == 2
                                 ? Colors.lightBlue
                                 : Constants.isDark == "true"
-                                ? Colors.transparent
-                                : Colors.transparent,
+                                    ? Colors.transparent
+                                    : Colors.transparent,
                           ),
                         ],
                       ),
@@ -3356,8 +3363,8 @@ class _MainFeedState extends State<MainFeed> {
                             color: currentLine == 3
                                 ? Colors.lightBlue
                                 : Constants.isDark == "true"
-                                ? Colors.transparent
-                                : Colors.transparent,
+                                    ? Colors.transparent
+                                    : Colors.transparent,
                           ),
                         ],
                       ),

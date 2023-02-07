@@ -387,10 +387,12 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                       type == "meme" ||
                                       type == "memeT"
                                   ? _description(description)
+
                                   : Container(
                                       height: 0,
                                       width: 0,
                                     ),
+
                               // creatPostFooter(),
 
                               type == "videoMeme" ||
@@ -398,12 +400,15 @@ class _AllMemePostsState extends State<AllMemePosts> {
                                       type == "meme" ||
                                       type == "memeT"
                                   ? Container(
-                                      height: 20,
+                                      height: 5,
+
                                     )
                                   : SizedBox(
                                       height: 0,
                                       width: 0,
                                     ),
+
+
                             ],
                           );
                         }
