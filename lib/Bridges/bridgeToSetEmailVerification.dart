@@ -9,10 +9,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
-import 'package:switchapp/Authentication/Auth/Auth.dart';
-import 'package:switchapp/Authentication/SignUp/SetUserData.dart';
-import 'package:switchapp/Authentication/SignUp/emailVerification.dart';
-import 'package:switchapp/Authentication/SignUp/signUpPage.dart';
+import 'package:switchapp/services/auth/auth_service.dart';
+import 'package:switchapp/pages/sign_up/SetUserData.dart';
+import 'package:switchapp/pages/sign_up/emailVerification.dart';
+import 'package:switchapp/pages/sign_up/signUpPage.dart';
 import 'package:switchapp/Models/SwitchTimer.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 

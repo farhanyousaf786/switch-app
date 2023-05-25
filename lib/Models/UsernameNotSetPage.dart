@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:switchapp/Authentication/Auth/Auth.dart';
+import 'package:switchapp/services/auth/auth_service.dart';
 import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 
-import '../Authentication/SignOut/SignOut.dart';
+import '../pages/sign_out/SignOut.dart';
 
 class SimplePageModel extends StatelessWidget {
   final User user;

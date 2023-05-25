@@ -34,8 +34,8 @@ import 'package:switchapp/Bridges/landingPage.dart';
 import 'package:switchapp/Universal/Constans.dart';
 import 'package:switchapp/Themes/switchThemes.dart';
 import 'package:switchapp/Themes/theme_services.dart';
+import 'package:switchapp/services/auth/auth_service.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'Authentication/Auth/Auth.dart';
 
 void main() async {
   _launchURL(String updateLink) async {

@@ -6,7 +6,7 @@ import 'package:rive/rive.dart';
 import 'package:switchapp/Universal/DataBaseRefrences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../MainPages/ReportAndComplaints/complaintPage.dart';
+import '../../pages/report_and_complaints/complaintPage.dart';
 
 class NeedHelpPageForSigninPage extends StatefulWidget {
 
